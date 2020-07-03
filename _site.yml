@@ -1,9 +1,20 @@
-name: "my-website"
+name: "AquaQE"
+title: "AquaQE"
 output_dir: "docs"
 navbar:
-  title: "My Website"
   left:
     - text: "Home"
       href: index.html
     - text: "About"
       href: about.html
+    - text: "R"
+      menu:
+        - text: "Getting Started"
+          href: R_01.html
+        - text: "R Basics"
+          href: R_02.html
+
+output:
+  html_document:
+    css: styles.css
+    theme: paper

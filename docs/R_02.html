@@ -1,0 +1,803 @@
+<!DOCTYPE html>
+
+<html>
+
+<head>
+
+<meta charset="utf-8" />
+<meta name="generator" content="pandoc" />
+<meta http-equiv="X-UA-Compatible" content="IE=EDGE" />
+
+
+
+
+<title>Basics</title>
+
+<script src="site_libs/jquery-1.11.3/jquery.min.js"></script>
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<link href="site_libs/bootstrap-3.3.5/css/paper.min.css" rel="stylesheet" />
+<script src="site_libs/bootstrap-3.3.5/js/bootstrap.min.js"></script>
+<script src="site_libs/bootstrap-3.3.5/shim/html5shiv.min.js"></script>
+<script src="site_libs/bootstrap-3.3.5/shim/respond.min.js"></script>
+<script src="site_libs/jqueryui-1.11.4/jquery-ui.min.js"></script>
+<link href="site_libs/tocify-1.9.1/jquery.tocify.css" rel="stylesheet" />
+<script src="site_libs/tocify-1.9.1/jquery.tocify.js"></script>
+<script src="site_libs/navigation-1.1/tabsets.js"></script>
+<link href="site_libs/highlightjs-9.12.0/default.css" rel="stylesheet" />
+<script src="site_libs/highlightjs-9.12.0/highlight.js"></script>
+
+<style type="text/css">code{white-space: pre;}</style>
+<style type="text/css">
+  pre:not([class]) {
+    background-color: white;
+  }
+</style>
+<script type="text/javascript">
+if (window.hljs) {
+  hljs.configure({languages: []});
+  hljs.initHighlightingOnLoad();
+  if (document.readyState && document.readyState === "complete") {
+    window.setTimeout(function() { hljs.initHighlighting(); }, 0);
+  }
+}
+</script>
+
+
+
+<style type="text/css">
+h1 {
+  font-size: 34px;
+}
+h1.title {
+  font-size: 38px;
+}
+h2 {
+  font-size: 30px;
+}
+h3 {
+  font-size: 24px;
+}
+h4 {
+  font-size: 18px;
+}
+h5 {
+  font-size: 16px;
+}
+h6 {
+  font-size: 12px;
+}
+.table th:not([align]) {
+  text-align: left;
+}
+</style>
+
+<link rel="stylesheet" href="styles.css" type="text/css" />
+
+
+
+<style type = "text/css">
+.main-container {
+  max-width: 940px;
+  margin-left: auto;
+  margin-right: auto;
+}
+code {
+  color: inherit;
+  background-color: rgba(0, 0, 0, 0.04);
+}
+img {
+  max-width:100%;
+}
+.tabbed-pane {
+  padding-top: 12px;
+}
+.html-widget {
+  margin-bottom: 20px;
+}
+button.code-folding-btn:focus {
+  outline: none;
+}
+summary {
+  display: list-item;
+}
+</style>
+
+
+<style type="text/css">
+/* padding for bootstrap navbar */
+body {
+  padding-top: 64px;
+  padding-bottom: 40px;
+}
+/* offset scroll position for anchor links (for fixed navbar)  */
+.section h1 {
+  padding-top: 69px;
+  margin-top: -69px;
+}
+.section h2 {
+  padding-top: 69px;
+  margin-top: -69px;
+}
+.section h3 {
+  padding-top: 69px;
+  margin-top: -69px;
+}
+.section h4 {
+  padding-top: 69px;
+  margin-top: -69px;
+}
+.section h5 {
+  padding-top: 69px;
+  margin-top: -69px;
+}
+.section h6 {
+  padding-top: 69px;
+  margin-top: -69px;
+}
+.dropdown-submenu {
+  position: relative;
+}
+.dropdown-submenu>.dropdown-menu {
+  top: 0;
+  left: 100%;
+  margin-top: -6px;
+  margin-left: -1px;
+  border-radius: 0 6px 6px 6px;
+}
+.dropdown-submenu:hover>.dropdown-menu {
+  display: block;
+}
+.dropdown-submenu>a:after {
+  display: block;
+  content: " ";
+  float: right;
+  width: 0;
+  height: 0;
+  border-color: transparent;
+  border-style: solid;
+  border-width: 5px 0 5px 5px;
+  border-left-color: #cccccc;
+  margin-top: 5px;
+  margin-right: -10px;
+}
+.dropdown-submenu:hover>a:after {
+  border-left-color: #ffffff;
+}
+.dropdown-submenu.pull-left {
+  float: none;
+}
+.dropdown-submenu.pull-left>.dropdown-menu {
+  left: -100%;
+  margin-left: 10px;
+  border-radius: 6px 0 6px 6px;
+}
+</style>
+
+<script>
+// manage active state of menu based on current page
+$(document).ready(function () {
+  // active menu anchor
+  href = window.location.pathname
+  href = href.substr(href.lastIndexOf('/') + 1)
+  if (href === "")
+    href = "index.html";
+  var menuAnchor = $('a[href="' + href + '"]');
+
+  // mark it active
+  menuAnchor.parent().addClass('active');
+
+  // if it's got a parent navbar menu mark it active as well
+  menuAnchor.closest('li.dropdown').addClass('active');
+});
+</script>
+
+<!-- tabsets -->
+
+<style type="text/css">
+.tabset-dropdown > .nav-tabs {
+  display: inline-table;
+  max-height: 500px;
+  min-height: 44px;
+  overflow-y: auto;
+  background: white;
+  border: 1px solid #ddd;
+  border-radius: 4px;
+}
+
+.tabset-dropdown > .nav-tabs > li.active:before {
+  content: "";
+  font-family: 'Glyphicons Halflings';
+  display: inline-block;
+  padding: 10px;
+  border-right: 1px solid #ddd;
+}
+
+.tabset-dropdown > .nav-tabs.nav-tabs-open > li.active:before {
+  content: "&#xe258;";
+  border: none;
+}
+
+.tabset-dropdown > .nav-tabs.nav-tabs-open:before {
+  content: "";
+  font-family: 'Glyphicons Halflings';
+  display: inline-block;
+  padding: 10px;
+  border-right: 1px solid #ddd;
+}
+
+.tabset-dropdown > .nav-tabs > li.active {
+  display: block;
+}
+
+.tabset-dropdown > .nav-tabs > li > a,
+.tabset-dropdown > .nav-tabs > li > a:focus,
+.tabset-dropdown > .nav-tabs > li > a:hover {
+  border: none;
+  display: inline-block;
+  border-radius: 4px;
+  background-color: transparent;
+}
+
+.tabset-dropdown > .nav-tabs.nav-tabs-open > li {
+  display: block;
+  float: none;
+}
+
+.tabset-dropdown > .nav-tabs > li {
+  display: none;
+}
+</style>
+
+<!-- code folding -->
+
+
+
+<style type="text/css">
+
+#TOC {
+  margin: 25px 0px 20px 0px;
+}
+@media (max-width: 768px) {
+#TOC {
+  position: relative;
+  width: 100%;
+}
+}
+
+@media print {
+.toc-content {
+  /* see https://github.com/w3c/csswg-drafts/issues/4434 */
+  float: right;
+}
+}
+
+.toc-content {
+  padding-left: 30px;
+  padding-right: 40px;
+}
+
+div.main-container {
+  max-width: 1200px;
+}
+
+div.tocify {
+  width: 20%;
+  max-width: 260px;
+  max-height: 85%;
+}
+
+@media (min-width: 768px) and (max-width: 991px) {
+  div.tocify {
+    width: 25%;
+  }
+}
+
+@media (max-width: 767px) {
+  div.tocify {
+    width: 100%;
+    max-width: none;
+  }
+}
+
+.tocify ul, .tocify li {
+  line-height: 20px;
+}
+
+.tocify-subheader .tocify-item {
+  font-size: 0.90em;
+}
+
+.tocify .list-group-item {
+  border-radius: 0px;
+}
+
+
+</style>
+
+
+
+</head>
+
+<body>
+
+
+<div class="container-fluid main-container">
+
+
+<!-- setup 3col/9col grid for toc_float and main content  -->
+<div class="row-fluid">
+<div class="col-xs-12 col-sm-4 col-md-3">
+<div id="TOC" class="tocify">
+</div>
+</div>
+
+<div class="toc-content col-xs-12 col-sm-8 col-md-9">
+
+
+
+
+<div class="navbar navbar-default  navbar-fixed-top" role="navigation">
+  <div class="container">
+    <div class="navbar-header">
+      <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar">
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+      </button>
+      <a class="navbar-brand" href="index.html"></a>
+    </div>
+    <div id="navbar" class="navbar-collapse collapse">
+      <ul class="nav navbar-nav">
+        <li>
+  <a href="index.html">Home</a>
+</li>
+<li>
+  <a href="about.html">About</a>
+</li>
+<li class="dropdown">
+  <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">
+    R
+     
+    <span class="caret"></span>
+  </a>
+  <ul class="dropdown-menu" role="menu">
+    <li>
+      <a href="R_01.html">Getting Started</a>
+    </li>
+    <li>
+      <a href="R_02.html">R Basics</a>
+    </li>
+  </ul>
+</li>
+      </ul>
+      <ul class="nav navbar-nav navbar-right">
+        
+      </ul>
+    </div><!--/.nav-collapse -->
+  </div><!--/.container -->
+</div><!--/.navbar -->
+
+<div class="fluid-row" id="header">
+
+
+
+<h1 class="title toc-ignore">Basics</h1>
+
+</div>
+
+
+<div id="data-types-and-structures" class="section level1">
+<h1><span class="header-section-number">1</span> Data Types and Structures</h1>
+<p>R has 6 basic <strong>data types</strong>.</p>
+<ul>
+<li>character: <code>"aquatic"</code>, <code>"ecology"</code> (no order)</li>
+<li>factor: similar to character, but has <em>levels</em> (alphabetically ordered by default)</li>
+<li>numeric: <code>2o.0</code> , <code>15.5</code></li>
+<li>integer: <code>3</code>, <code>7</code></li>
+<li>logical: <code>TRUE</code> , <code>FALSE</code></li>
+<li>complex: <code>1+2i</code> (complex numbers with real and imaginary parts)</li>
+</ul>
+<p>These elements form one of the following <strong>data structures</strong>.</p>
+<ul>
+<li>vector: a series of elements. <strong><em>A single data type is allowed in a single vector</em></strong></li>
+<li>matrix: elements organized into rows and columns. <strong><em>A single data type is allowed in a single matrix</em></strong></li>
+<li>data frame: looks similar to a matrix, but allows <strong><em>different data types in different columns</em></strong></li>
+</ul>
+</div>
+<div id="vector" class="section level1">
+<h1><span class="header-section-number">2</span> Vector</h1>
+<div id="vector---create-vector" class="section level2">
+<h2><span class="header-section-number">2.1</span> Vector - Create Vector</h2>
+<p>Below are examples of atomic character vectors, numeric vectors, integer vectors, etc. There are many ways to create vector data. The following examples use <code>c()</code>, <code>:</code>, <code>seq()</code>, <code>rep()</code>:</p>
+<pre class="r"><code>#ex.1a manually create a vector using c()
+X &lt;- c(1,3,4,8)
+X</code></pre>
+<pre><code>## [1] 1 3 4 8</code></pre>
+<pre class="r"><code>#ex.1b character
+X &lt;- c(&quot;a&quot;, &quot;b&quot;, &quot;c&quot;)
+X</code></pre>
+<pre><code>## [1] &quot;a&quot; &quot;b&quot; &quot;c&quot;</code></pre>
+<pre class="r"><code>#ex.1c logical
+X &lt;- c(TRUE, FALSE, FALSE)
+X</code></pre>
+<pre><code>## [1]  TRUE FALSE FALSE</code></pre>
+<pre class="r"><code>#ex.2 sequence of numbers
+X &lt;- 1:5
+X</code></pre>
+<pre><code>## [1] 1 2 3 4 5</code></pre>
+<pre class="r"><code>#ex.3a replicate same numbers or characters
+X &lt;- rep(2, 5) # replicate 2 five times
+X</code></pre>
+<pre><code>## [1] 2 2 2 2 2</code></pre>
+<pre class="r"><code>#ex.3b replicate same numbers or characters
+X &lt;- rep(&quot;a&quot;, 5) # replicate &quot;a&quot; five times
+X</code></pre>
+<pre><code>## [1] &quot;a&quot; &quot;a&quot; &quot;a&quot; &quot;a&quot; &quot;a&quot;</code></pre>
+<pre class="r"><code>#ex.4a use seq() function
+X &lt;- seq(1, 5, by = 1)
+X</code></pre>
+<pre><code>## [1] 1 2 3 4 5</code></pre>
+<pre class="r"><code>#ex.4b use seq() function
+X &lt;- seq(1, 5, by = 0.1)
+X</code></pre>
+<pre><code>##  [1] 1.0 1.1 1.2 1.3 1.4 1.5 1.6 1.7 1.8 1.9 2.0 2.1 2.2 2.3 2.4 2.5 2.6
+## [18] 2.7 2.8 2.9 3.0 3.1 3.2 3.3 3.4 3.5 3.6 3.7 3.8 3.9 4.0 4.1 4.2 4.3
+## [35] 4.4 4.5 4.6 4.7 4.8 4.9 5.0</code></pre>
+</div>
+<div id="vector---check-features" class="section level2">
+<h2><span class="header-section-number">2.2</span> Vector - Check Features</h2>
+<p>R provides many functions to examine features of vectors and other objects, for example:</p>
+<ul>
+<li><code>class()</code> - what kind of object (data structure) is it (high-level)?</li>
+<li><code>typeof()</code> - what is the object’s data type (low-level)?</li>
+<li><code>attributes()</code> - does it have any metadata?</li>
+<li><code>length()</code> - how long is it? What about two dimensional objects?</li>
+<li><code>sum()</code> - what is the summed number of the data?</li>
+<li><code>mean()</code> - what is the average number of the data?</li>
+</ul>
+<div id="numeric-vector" class="section level3">
+<h3><span class="header-section-number">2.2.1</span> Numeric Vector</h3>
+<pre class="r"><code>X &lt;- c(1.2, 3.1, 4.0, 8.2)
+X</code></pre>
+<pre><code>## [1] 1.2 3.1 4.0 8.2</code></pre>
+<pre class="r"><code>class(X)</code></pre>
+<pre><code>## [1] &quot;numeric&quot;</code></pre>
+<pre class="r"><code>typeof(X)</code></pre>
+<pre><code>## [1] &quot;double&quot;</code></pre>
+<pre class="r"><code>length(X)</code></pre>
+<pre><code>## [1] 4</code></pre>
+<pre class="r"><code>sum(X)</code></pre>
+<pre><code>## [1] 16.5</code></pre>
+<pre class="r"><code>mean(X)</code></pre>
+<pre><code>## [1] 4.125</code></pre>
+</div>
+<div id="character-vector" class="section level3">
+<h3><span class="header-section-number">2.2.2</span> Character Vector</h3>
+<pre class="r"><code>Y &lt;- c(&quot;a&quot;, &quot;b&quot;, &quot;c&quot;)
+class(Y)</code></pre>
+<pre><code>## [1] &quot;character&quot;</code></pre>
+<pre class="r"><code>length(Y)</code></pre>
+<pre><code>## [1] 3</code></pre>
+</div>
+</div>
+<div id="vector---access" class="section level2">
+<h2><span class="header-section-number">2.3</span> Vector - Access</h2>
+<div id="element-id" class="section level3">
+<h3><span class="header-section-number">2.3.1</span> Element ID</h3>
+<p>Use brackets <code>[]</code> when accessing specific elements in an object. For example, if you want to access element #2 in the vector <code>X</code>, you may specify as <code>X[2]</code>:</p>
+<pre class="r"><code>X &lt;- c(2,2,3,2,5)
+X[2] # access element #2</code></pre>
+<pre><code>## [1] 2</code></pre>
+<pre class="r"><code>X[c(2,4)] # access elements #2 and 4</code></pre>
+<pre><code>## [1] 2 2</code></pre>
+<pre class="r"><code>X[2:4] # access elements #2-4</code></pre>
+<pre><code>## [1] 2 3 2</code></pre>
+</div>
+<div id="equation" class="section level3">
+<h3><span class="header-section-number">2.3.2</span> Equation</h3>
+<p>R provides many ways to access elements that suffice specific conditions. You can use mathematical symbols to specify what you need, for example:</p>
+<ul>
+<li><code>==</code> equal</li>
+<li><code>&gt;</code> larger than</li>
+<li><code>&gt;=</code> equal &amp; larger than</li>
+<li><code>&lt;</code> smaller than</li>
+<li><code>&lt;=</code> equal &amp; smaller than</li>
+<li><code>which()</code> a function that returns element # that suffices the specified condition</li>
+</ul>
+<p>The following examples return a logical vector indicating whether each element in X suffices the specified condition:</p>
+<pre class="r"><code># creating a vector
+X &lt;- c(2,2,3,2,5)
+
+# ex.1a equal
+X == 2</code></pre>
+<pre><code>## [1]  TRUE  TRUE FALSE  TRUE FALSE</code></pre>
+<pre class="r"><code># ex.1b larger than
+X &gt; 2 </code></pre>
+<pre><code>## [1] FALSE FALSE  TRUE FALSE  TRUE</code></pre>
+<p>You can access elements that suffice the specified condition using brackets, for example:</p>
+<pre class="r"><code># ex.2a equal
+X[X == 2]</code></pre>
+<pre><code>## [1] 2 2 2</code></pre>
+<pre class="r"><code># ex.2b larger than
+X[X &gt; 2]</code></pre>
+<pre><code>## [1] 3 5</code></pre>
+<p>Using <code>which()</code>, you can see which elements (i.e., #) matches what you need:</p>
+<pre class="r"><code># ex.3a equal
+which(X == 2) # returns which elements are equal to 2</code></pre>
+<pre><code>## [1] 1 2 4</code></pre>
+<pre class="r"><code># ex.3b larger than
+which(X &gt; 2)</code></pre>
+<pre><code>## [1] 3 5</code></pre>
+</div>
+</div>
+</div>
+<div id="matrix" class="section level1">
+<h1><span class="header-section-number">3</span> Matrix</h1>
+<div id="matrix---create-matrix" class="section level2">
+<h2><span class="header-section-number">3.1</span> Matrix - Create Matrix</h2>
+<p>Matrix is a set of elements (<em>a single data type</em>) that are organized into rows and columns:</p>
+<pre class="r"><code>#ex.1 cbind: take a sequence of vector, matrix or data-frame arguments and combine by columns
+X &lt;- cbind(c(1,2,3), c(4,5,6))
+X</code></pre>
+<pre><code>##      [,1] [,2]
+## [1,]    1    4
+## [2,]    2    5
+## [3,]    3    6</code></pre>
+<pre class="r"><code>#ex.2 rbind: take a sequence of vector, matrix or data-frame arguments and combine by rows
+X &lt;- rbind(c(1,2,3), c(4,5,6))
+X</code></pre>
+<pre><code>##      [,1] [,2] [,3]
+## [1,]    1    2    3
+## [2,]    4    5    6</code></pre>
+<pre class="r"><code>#ex.3 matrix: specify elements and the number of rows (nrow) and columns (ncol)
+X &lt;- matrix(1:9, nrow = 3, ncol = 3)
+X</code></pre>
+<pre><code>##      [,1] [,2] [,3]
+## [1,]    1    4    7
+## [2,]    2    5    8
+## [3,]    3    6    9</code></pre>
+</div>
+<div id="matrix---check-features" class="section level2">
+<h2><span class="header-section-number">3.2</span> Matrix - Check Features</h2>
+<p>R provides many functions to examine features of matrix data, for example:</p>
+<ul>
+<li><code>class()</code> what kind of object (data structure) is it (high-level)?</li>
+<li><code>typeof()</code> what is the object’s data type (low-level)?</li>
+<li><code>attributes()</code> does it have any metadata?</li>
+<li><code>dim()</code> how long are rows and columns?</li>
+<li><code>rowSums()</code> what is the summed number of the data for each row?</li>
+<li><code>colSums()</code> what is the summed number of the data for each column?</li>
+</ul>
+<div id="integer-matrix" class="section level3">
+<h3><span class="header-section-number">3.2.1</span> Integer Matrix</h3>
+<pre class="r"><code>X &lt;- matrix(1:9, nrow = 3, ncol = 3)
+X</code></pre>
+<pre><code>##      [,1] [,2] [,3]
+## [1,]    1    4    7
+## [2,]    2    5    8
+## [3,]    3    6    9</code></pre>
+<pre class="r"><code>class(X)</code></pre>
+<pre><code>## [1] &quot;matrix&quot;</code></pre>
+<pre class="r"><code>typeof(X)</code></pre>
+<pre><code>## [1] &quot;integer&quot;</code></pre>
+<pre class="r"><code>dim(X)</code></pre>
+<pre><code>## [1] 3 3</code></pre>
+</div>
+<div id="character-matrix" class="section level3">
+<h3><span class="header-section-number">3.2.2</span> Character Matrix</h3>
+<pre class="r"><code>Y &lt;- matrix(c(&quot;a&quot;,&quot;b&quot;, &quot;c&quot;, &quot;d&quot;, &quot;e&quot;, &quot;f&quot;), nrow = 3, ncol = 2)
+Y</code></pre>
+<pre><code>##      [,1] [,2]
+## [1,] &quot;a&quot;  &quot;d&quot; 
+## [2,] &quot;b&quot;  &quot;e&quot; 
+## [3,] &quot;c&quot;  &quot;f&quot;</code></pre>
+<pre class="r"><code>class(Y)</code></pre>
+<pre><code>## [1] &quot;matrix&quot;</code></pre>
+<pre class="r"><code>typeof(Y)</code></pre>
+<pre><code>## [1] &quot;character&quot;</code></pre>
+<pre class="r"><code>dim(Y)</code></pre>
+<pre><code>## [1] 3 2</code></pre>
+</div>
+</div>
+<div id="matrix---access" class="section level2">
+<h2><span class="header-section-number">3.3</span> Matrix - Access</h2>
+<p>When accessing matrix elements, you need to pick row(s) and/or column(s), for example:</p>
+<pre class="r"><code>X &lt;- matrix(1:9, nrow = 3, ncol = 3)
+X</code></pre>
+<pre><code>##      [,1] [,2] [,3]
+## [1,]    1    4    7
+## [2,]    2    5    8
+## [3,]    3    6    9</code></pre>
+<pre class="r"><code>X[2,3] # access an element in row #2 and colum #3</code></pre>
+<pre><code>## [1] 8</code></pre>
+<pre class="r"><code>X[2,] # access elements in row #2</code></pre>
+<pre><code>## [1] 2 5 8</code></pre>
+<pre class="r"><code>X[c(2,3),] # access elements in rows #2 and 3</code></pre>
+<pre><code>##      [,1] [,2] [,3]
+## [1,]    2    5    8
+## [2,]    3    6    9</code></pre>
+<pre class="r"><code>X[,c(2,3)] # access elements in columns #2 and 3</code></pre>
+<pre><code>##      [,1] [,2]
+## [1,]    4    7
+## [2,]    5    8
+## [3,]    6    9</code></pre>
+<p>You can assess each element with mathematical expressions just like vectors:</p>
+<pre class="r"><code>X == 2 # equal</code></pre>
+<pre><code>##       [,1]  [,2]  [,3]
+## [1,] FALSE FALSE FALSE
+## [2,]  TRUE FALSE FALSE
+## [3,] FALSE FALSE FALSE</code></pre>
+<pre class="r"><code>X &gt; 2 # larger than</code></pre>
+<pre><code>##       [,1] [,2] [,3]
+## [1,] FALSE TRUE TRUE
+## [2,] FALSE TRUE TRUE
+## [3,]  TRUE TRUE TRUE</code></pre>
+<p>However, care must be taken when accessing elements, as it will be automatically converted to vector data:</p>
+<pre class="r"><code>X[X == 2] # equal</code></pre>
+<pre><code>## [1] 2</code></pre>
+<pre class="r"><code>X[X &gt; 2] # larger than</code></pre>
+<pre><code>## [1] 3 4 5 6 7 8 9</code></pre>
+<p><code>which()</code> needs an addional argument to return both row and column #:</p>
+<pre class="r"><code>which(X == 2, arr.ind = TRUE)</code></pre>
+<pre><code>##      row col
+## [1,]   2   1</code></pre>
+<pre class="r"><code>which(X &gt; 2, arr.ind = TRUE)</code></pre>
+<pre><code>##      row col
+## [1,]   3   1
+## [2,]   1   2
+## [3,]   2   2
+## [4,]   3   2
+## [5,]   1   3
+## [6,]   2   3
+## [7,]   3   3</code></pre>
+</div>
+</div>
+<div id="data-frame" class="section level1">
+<h1><span class="header-section-number">4</span> Data Frame</h1>
+<div id="data-frame---basics" class="section level2">
+<h2><span class="header-section-number">4.1</span> Data Frame - Basics</h2>
+<p>Data frame is a set of elements that are organized into rows and columns, but differ in several ways.</p>
+<ul>
+<li>it allows <em>mutiple data types</em> in different columns</li>
+<li>each column has its <em>name</em></li>
+<li>access columns by name (using <code>$</code>)</li>
+</ul>
+<p><strong><em>Data frame is the most common data structure when manipulating ecological data</em></strong>. A dataset loaded from a spread sheet (we will address this later) will be automatically reconized as a data frame. Here is an example:</p>
+<pre class="r"><code># Create data frame
+X &lt;- c(&quot;Pristine&quot;, &quot;Pristine&quot;, &quot;Disturbed&quot;, &quot;Disturbed&quot;, &quot;Pristine&quot;) # Lake type
+Y &lt;- c(1.2, 2.2, 10.9, 50.0, 3.0) # TSS: total suspended solids (mg/L)
+dat &lt;- data.frame(LakeType = X, TSS = Y) # X is named as &quot;LakeType&quot; while Y is named as &quot;TSS&quot;
+dat</code></pre>
+<pre><code>##    LakeType  TSS
+## 1  Pristine  1.2
+## 2  Pristine  2.2
+## 3 Disturbed 10.9
+## 4 Disturbed 50.0
+## 5  Pristine  3.0</code></pre>
+<pre class="r"><code>colnames(dat) # call column names</code></pre>
+<pre><code>## [1] &quot;LakeType&quot; &quot;TSS&quot;</code></pre>
+<pre class="r"><code>dat$LakeType # access LakeType</code></pre>
+<pre><code>## [1] Pristine  Pristine  Disturbed Disturbed Pristine 
+## Levels: Disturbed Pristine</code></pre>
+<pre class="r"><code>dat$TSS # access TSS</code></pre>
+<pre><code>## [1]  1.2  2.2 10.9 50.0  3.0</code></pre>
+<pre class="r"><code>class(dat) # check feature</code></pre>
+<pre><code>## [1] &quot;data.frame&quot;</code></pre>
+<pre class="r"><code>class(dat$LakeType) # check feature of LakeType</code></pre>
+<pre><code>## [1] &quot;factor&quot;</code></pre>
+<pre class="r"><code>class(dat$TSS) # check feature of TSS</code></pre>
+<pre><code>## [1] &quot;numeric&quot;</code></pre>
+<p>You can access elements like a matrix as well:</p>
+<pre class="r"><code>dat[,1] # access column #1</code></pre>
+<pre><code>## [1] Pristine  Pristine  Disturbed Disturbed Pristine 
+## Levels: Disturbed Pristine</code></pre>
+<pre class="r"><code>dat[1,] # access row #1</code></pre>
+<pre><code>##   LakeType TSS
+## 1 Pristine 1.2</code></pre>
+<pre class="r"><code>dat[c(2,4),] # access row #2 and 4</code></pre>
+<pre><code>##    LakeType  TSS
+## 2  Pristine  2.2
+## 4 Disturbed 50.0</code></pre>
+</div>
+<div id="data-frame---advanced" class="section level2">
+<h2><span class="header-section-number">4.2</span> Data Frame - Advanced</h2>
+<p>In a data frame, you can pick a subset of data. For example, you might want to pick data only from pristine lakes. You can do this by applying the methods in the vector/matrix section:</p>
+<pre class="r"><code>dat1 &lt;- dat[dat$LakeType == &quot;Pristine&quot;,] # access Pristine lake type
+dat1</code></pre>
+<pre><code>##   LakeType TSS
+## 1 Pristine 1.2
+## 2 Pristine 2.2
+## 5 Pristine 3.0</code></pre>
+<pre class="r"><code>dat2 &lt;- dat[dat$LakeType == &quot;Disturbed&quot;,] # access Disturbed lake type
+dat2</code></pre>
+<pre><code>##    LakeType  TSS
+## 3 Disturbed 10.9
+## 4 Disturbed 50.0</code></pre>
+<p>This allows you to calculate mean TSS for each lake type separately:</p>
+<pre class="r"><code>mean(dat1$TSS)</code></pre>
+<pre><code>## [1] 2.133333</code></pre>
+<pre class="r"><code>mean(dat2$TSS)</code></pre>
+<pre><code>## [1] 30.45</code></pre>
+<p>R provides many useful functions for summarising data. Especially, <code>apply</code> family functions are very useful to summarize your data. Here, we use <code>tapply()</code> function as an example. We use a vector of values that we want to summarize in the first argument, and put “INDEX” variable indicating group names (in this case, <code>"Pristine"</code>" or <code>"Disturbed"</code>).</p>
+<pre class="r"><code>tapply(X = dat$TSS, INDEX = dat$LakeType, FUN = mean)</code></pre>
+<pre><code>## Disturbed  Pristine 
+## 30.450000  2.133333</code></pre>
+<p>This matches what we calculated above using <code>dat1</code> and <code>dat2</code>, but with much less efforts.</p>
+</div>
+</div>
+
+
+
+</div>
+</div>
+
+</div>
+
+<script>
+
+// add bootstrap table styles to pandoc tables
+function bootstrapStylePandocTables() {
+  $('tr.header').parent('thead').parent('table').addClass('table table-condensed');
+}
+$(document).ready(function () {
+  bootstrapStylePandocTables();
+});
+
+
+</script>
+
+<!-- tabsets -->
+
+<script>
+$(document).ready(function () {
+  window.buildTabsets("TOC");
+});
+
+$(document).ready(function () {
+  $('.tabset-dropdown > .nav-tabs > li').click(function () {
+    $(this).parent().toggleClass('nav-tabs-open')
+  });
+});
+</script>
+
+<!-- code folding -->
+
+<script>
+$(document).ready(function ()  {
+
+    // move toc-ignore selectors from section div to header
+    $('div.section.toc-ignore')
+        .removeClass('toc-ignore')
+        .children('h1,h2,h3,h4,h5').addClass('toc-ignore');
+
+    // establish options
+    var options = {
+      selectors: "h1,h2,h3",
+      theme: "bootstrap3",
+      context: '.toc-content',
+      hashGenerator: function (text) {
+        return text.replace(/[.\\/?&!#<>]/g, '').replace(/\s/g, '_');
+      },
+      ignoreSelector: ".toc-ignore",
+      scrollTo: 0
+    };
+    options.showAndHide = true;
+    options.smoothScroll = true;
+
+    // tocify
+    var toc = $("#TOC").tocify(options).data("toc-tocify");
+});
+</script>
+
+<!-- dynamically load mathjax for compatibility with self-contained -->
+<script>
+  (function () {
+    var script = document.createElement("script");
+    script.type = "text/javascript";
+    script.src  = "https://mathjax.rstudio.com/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML";
+    document.getElementsByTagName("head")[0].appendChild(script);
+  })();
+</script>
+
+</body>
+</html>

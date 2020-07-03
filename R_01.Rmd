@@ -1,0 +1,237 @@
+---
+title: "Getting started"
+output:
+  html_document:
+    toc: true
+    toc_float: true
+    number_sections: true
+editor_options: 
+  chunk_output_type: console
+---
+
+# Install R and R Studio
+
+R and R Studio can be installed from the following websites:
+
+- [R](https://www.r-project.org/) (you can choose any CRAN mirror to download)
+- [R Studio](https://rStudio.com/products/rStudio/download/)
+
+While R is stand-alone software, I strongly recommend to use it with R Studio. R Studio has many functions that help your data analysis.
+
+
+# Basic Setup
+
+## Interface
+
+![](image/R_image1.png)
+
+R Studio interface. The left half of the screen is **“console”** where you put your script to execute calculation/data manipulation/analysis (ignore the tab “Terminal” at this point). The right bottom shows a folder in which you are working now – i.e., **“working folder or directory”**. R does not recognize any files outside of this folder, so be sure to pick the right directory when you work in R.
+
+## Create Project
+As you proceed, numerous materials will be produced, making it harder to put relevant things in one place. However, R Studio will help organize files by creating a project. To initiate the process of creating a project, **click the icon on the top bar or `File`**:
+
+![](image/R_image2.png)
+
+Select `New Directory`:
+
+![](image/R_image3.png)
+
+Select `New Project`:
+
+![](image/R_image4.png)
+
+A new window pops up and prompts you to name a directory and where to put the directory in your computer. Click `Browse` to select a location for the directory. I would create a folder for R projects (e.g., `RProject`) and put a project directory under this folder. Click **Create Project** once you decided directory name and location:
+
+![](image/R_image5.png)
+
+## Locate Yourself
+
+Once you created a project, R Studio will take you to where the R project is located. Check the current directory using the following script:
+
+```{r}
+getwd()
+```
+
+If the path indicates where you are supposed to be, that's fine. However, when you next open R Studio, the initial location could be somewhere else. In that case, go to `File > Open Project` and open the `.Rproj` file that you just created. This will take you to the directory you are supposed to be.
+
+
+# Simple Calculations
+
+## Getting Started
+
+Let’s play with R. Put the following script in your console.
+
+```{r}
+X <- c(10.1, 5.3, 8.8, 6.7, 8.2)
+```
+
+This script creates a vector data composed of {10.1, 5.3, 8.8, 6.7, 8.2}. ‘X’ is a ‘box’ where the vector information is stored, and ‘<-’ is the arrow that command R to store {10.1, 5.3, 8.8, 6.7, 8.2} in a box ‘X’. Let’s see what’s in X:
+
+```{r}
+X
+```
+
+R has many functions that calculate the mean, median, etc. Let’s calculate a mean and median for X:
+
+```{r}
+mean(X)
+median(X)
+```
+
+Also, you can pick an element(s) that you want. Numbers in brackets ‘[ ]’ specifies the numbered ID of each element. In the above example, element `X[3]` is `8.8`. You can extract this information with the following script:
+
+```{r}
+X[3]
+```
+
+You can also choose multiple elements simultaneously. For example, ‘3:5’ specifies elements starting from 3 to 5 (colon creates a sequence of numbers):
+
+```{r}
+3:5
+X[3:5]
+```
+
+If you want to pick elements that are not ordered sequentially, you can use ‘c()’ to specify multiple elements:
+
+```{r}
+c(1,4)
+X[c(1,4)]
+```
+
+## Arithmetic Operations
+
+Addition
+
+```{r}
+1 + 1
+121 + 123
+```
+
+Subtraction
+
+```{r}
+1 - 1 
+121 - 123
+```
+
+Multiplication
+
+```{r}
+1 * 1
+121 * 123
+```
+
+Division
+
+```{r}
+1 / 1
+121 / 123
+```
+
+Power
+
+```{r}
+2^2
+```
+
+Square root
+
+```{r}
+sqrt(4)
+4^(1/2)
+```
+
+
+# R Script & Console
+
+In R Studio, we rarely write scripts directly in R console, where scripts are executed. This is because console does not save your scripts, so it is difficult to keep records of data manipulation and analysis. Instead, we write our scripts in ‘R script’, which lets you save and organize scripts in a separate window while enabling you to run scripts in R console quickly.
+
+## Create R Script
+
+To create ‘R script’, click an icon on the top bar and go to “R script” or “Ctrl + Shift + N”. Then, you will see a new window of R script in the left top:
+
+![](image/R_image6.png)
+
+![](image/R_image7.png)
+
+## Run Scripts
+
+You can run your script from the R script window. Write the following scripts:
+
+```{r eval = F}
+X <- c(10.1, 5.3, 8.8, 6.7, 8.2)
+mean(X)
+```
+
+Writing these scripts in the R script window does not execute any calculation. To execute, select lines and `Ctrl + Enter`. Selected scripts will appear in the console and execute what you commanded:
+
+![](image/R_image8.png)
+
+![](image/R_image9.png)
+
+Red ink tab indicates that your R script file is unsaved since your last edits.
+
+
+# Compile a Report
+
+R Studio has a function to compile a report from R scripts (see also [R Markdown: The Definitive Guide](https://bookdown.org/yihui/rmarkdown/) for details). Include the following script on the top of the R script file to put your information:
+
+```{r eval = F}
+#' ---
+#' title: "Report"
+#' author: Your Name
+#' date: Jan 16, 2020
+#' output: html_document
+#' ---
+```
+
+Each argument determines the following:
+
+- `title` title of your report
+- `author` this appears below the title in the compiled report
+- `date` date created
+- `output` output format; use `html_document`
+
+Click on the "compile" button on the top. This creates a report from your R script:
+
+![](image/R_image10.png)
+
+The R Studio will start compiling your report. Here is some rules when compiling a report.
+
+- Your script will appear in a grey box. Put `#` if you want leave a comment on the script.
+- Output from your script will appear in a white box with double sharps
+- Text after `#'` will show up outside a grey box (text after `#` will be regarded as Header)
+
+For example, the following script is compiled like this:
+
+```{r eval = F}
+
+#' ---
+#' title: "Report"
+#' author: Your Name
+#' date: Jan 16, 2020
+#' output: html_document
+#' ---
+
+#' # Header 1.1
+#' ## Header 1.2
+#' ### Header 1.3
+#' This appears outside boxes
+
+# inbox comment here
+X <- c(1, 2, 3, 4)
+X
+
+#' # Header 2.1
+#' ## Header 2.2
+#' ### Header 2.3
+#' This text can be used to guide readers
+
+# inbox comment here
+Y <- 1:9
+Y
+
+```
+
+![](image/R_image11.png)
+

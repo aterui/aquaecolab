@@ -1,0 +1,335 @@
+---
+title: "Basics"
+output:
+  html_document:
+    toc: true
+    toc_float: true
+    number_sections: true
+---
+
+# Data Types and Structures
+
+R has 6 basic **data types**.
+
+- character: `"aquatic"`, `"ecology"` (no order)
+- factor: similar to character, but has *levels* (alphabetically ordered by default)
+- numeric: `2o.0` , `15.5`
+- integer: `3`, `7`
+- logical: `TRUE` , `FALSE`
+- complex: `1+2i` (complex numbers with real and imaginary parts)
+
+These elements form one of the following **data structures**.  
+
+- vector: a series of elements. ***A single data type is allowed in a single vector***
+- matrix: elements organized into rows and columns. ***A single data type is allowed in a single matrix***
+- data frame: looks similar to a matrix, but allows ***different data types in different columns***
+
+# Vector
+
+## Vector - Create Vector
+Below are examples of atomic character vectors, numeric vectors, integer vectors, etc. There are many ways to create vector data. The following examples use `c()`, `:`, `seq()`, `rep()`:
+
+```{r}
+
+#ex.1a manually create a vector using c()
+X <- c(1,3,4,8)
+X
+
+#ex.1b character
+X <- c("a", "b", "c")
+X
+
+#ex.1c logical
+X <- c(TRUE, FALSE, FALSE)
+X
+
+#ex.2 sequence of numbers
+X <- 1:5
+X
+
+#ex.3a replicate same numbers or characters
+X <- rep(2, 5) # replicate 2 five times
+X
+
+#ex.3b replicate same numbers or characters
+X <- rep("a", 5) # replicate "a" five times
+X
+
+#ex.4a use seq() function
+X <- seq(1, 5, by = 1)
+X
+
+#ex.4b use seq() function
+X <- seq(1, 5, by = 0.1)
+X
+
+```
+
+
+## Vector - Check Features
+R provides many functions to examine features of vectors and other objects, for example:
+
+- `class()` - what kind of object (data structure) is it (high-level)?
+- `typeof()` - what is the object’s data type (low-level)?
+- `attributes()` - does it have any metadata?
+- `length()` - how long is it? What about two dimensional objects?
+- `sum()` - what is the summed number of the data?
+- `mean()` - what is the average number of the data?
+
+### Numeric Vector
+
+```{r}
+
+X <- c(1.2, 3.1, 4.0, 8.2)
+X
+class(X)
+typeof(X)
+length(X)
+sum(X)
+mean(X)
+
+```
+
+
+### Character Vector
+
+```{r}
+
+Y <- c("a", "b", "c")
+class(Y)
+length(Y)
+
+```
+  
+## Vector - Access
+
+### Element ID
+Use brackets `[]` when accessing specific elements in an object.
+For example, if you want to access element #2 in the vector `X`, you may specify as `X[2]`:
+
+```{r}
+
+X <- c(2,2,3,2,5)
+X[2] # access element #2
+X[c(2,4)] # access elements #2 and 4
+X[2:4] # access elements #2-4
+
+```
+
+### Equation
+
+R provides many ways to access elements that suffice specific conditions. You can use mathematical symbols to specify what you need, for example:
+
+- `==` equal
+- `>` larger than
+- `>=` equal & larger than
+- `<` smaller than
+- `<=` equal & smaller than
+- `which()` a function that returns element # that suffices the specified condition
+
+The following examples return a logical vector indicating whether each element in X suffices the specified condition:
+
+```{r}
+
+# creating a vector
+X <- c(2,2,3,2,5)
+
+# ex.1a equal
+X == 2
+
+# ex.1b larger than
+X > 2 
+
+```
+
+You can access elements that suffice the specified condition using brackets, for example:
+
+```{r}
+
+# ex.2a equal
+X[X == 2]
+# ex.2b larger than
+X[X > 2]
+
+```
+
+Using `which()`, you can see which elements (i.e., #) matches what you need:
+
+```{r}
+
+# ex.3a equal
+which(X == 2) # returns which elements are equal to 2
+# ex.3b larger than
+which(X > 2)
+
+```
+
+# Matrix
+
+## Matrix - Create Matrix
+
+Matrix is a set of elements (*a single data type*) that are organized into rows and columns:
+
+```{r}
+
+#ex.1 cbind: take a sequence of vector, matrix or data-frame arguments and combine by columns
+X <- cbind(c(1,2,3), c(4,5,6))
+X
+
+#ex.2 rbind: take a sequence of vector, matrix or data-frame arguments and combine by rows
+X <- rbind(c(1,2,3), c(4,5,6))
+X
+
+#ex.3 matrix: specify elements and the number of rows (nrow) and columns (ncol)
+X <- matrix(1:9, nrow = 3, ncol = 3)
+X
+
+```
+
+## Matrix - Check Features
+
+R provides many functions to examine features of matrix data, for example:
+
+- `class()` what kind of object (data structure) is it (high-level)?
+- `typeof()` what is the object’s data type (low-level)?
+- `attributes()` does it have any metadata?
+- `dim()` how long are rows and columns?
+- `rowSums()` what is the summed number of the data for each row?
+- `colSums()` what is the summed number of the data for each column?
+
+### Integer Matrix
+
+```{r}
+
+X <- matrix(1:9, nrow = 3, ncol = 3)
+X
+class(X)
+typeof(X)
+dim(X)
+
+```
+
+### Character Matrix
+
+```{r}
+
+Y <- matrix(c("a","b", "c", "d", "e", "f"), nrow = 3, ncol = 2)
+Y
+class(Y)
+typeof(Y)
+dim(Y)
+
+```
+
+## Matrix - Access
+
+When accessing matrix elements, you need to pick row(s) and/or column(s), for example:
+
+```{r}
+
+X <- matrix(1:9, nrow = 3, ncol = 3)
+X
+X[2,3] # access an element in row #2 and colum #3
+X[2,] # access elements in row #2
+X[c(2,3),] # access elements in rows #2 and 3
+X[,c(2,3)] # access elements in columns #2 and 3
+
+```
+
+You can assess each element with mathematical expressions just like vectors:
+
+```{r}
+
+X == 2 # equal
+X > 2 # larger than
+
+```
+
+However, care must be taken when accessing elements, as it will be automatically converted to vector data:
+
+```{r}
+
+X[X == 2] # equal
+X[X > 2] # larger than
+
+```
+
+`which()` needs an addional argument to return both row and column #:
+
+```{r}
+
+which(X == 2, arr.ind = TRUE)
+which(X > 2, arr.ind = TRUE)
+
+```
+
+# Data Frame
+
+## Data Frame - Basics
+
+Data frame is a set of elements that are organized into rows and columns, but differ in several ways.
+
+- it allows *mutiple data types* in different columns
+- each column has its *name*
+- access columns by name (using `$`)
+
+***Data frame is the most common data structure when manipulating ecological data***. A dataset loaded from a spread sheet (we will address this later) will be automatically reconized as a data frame. Here is an example:
+
+```{r}
+
+# Create data frame
+X <- c("Pristine", "Pristine", "Disturbed", "Disturbed", "Pristine") # Lake type
+Y <- c(1.2, 2.2, 10.9, 50.0, 3.0) # TSS: total suspended solids (mg/L)
+dat <- data.frame(LakeType = X, TSS = Y) # X is named as "LakeType" while Y is named as "TSS"
+dat
+colnames(dat) # call column names
+dat$LakeType # access LakeType
+dat$TSS # access TSS
+class(dat) # check feature
+class(dat$LakeType) # check feature of LakeType
+class(dat$TSS) # check feature of TSS
+
+```
+
+You can access elements like a matrix as well:
+
+```{r}
+
+dat[,1] # access column #1
+dat[1,] # access row #1
+dat[c(2,4),] # access row #2 and 4
+
+```
+
+
+## Data Frame - Advanced
+
+In a data frame, you can pick a subset of data. For example, you might want to pick data only from pristine lakes. You can do this by applying the methods in the vector/matrix section:
+
+```{r}
+
+dat1 <- dat[dat$LakeType == "Pristine",] # access Pristine lake type
+dat1
+dat2 <- dat[dat$LakeType == "Disturbed",] # access Disturbed lake type
+dat2
+
+```
+
+This allows you to calculate mean TSS for each lake type separately:
+
+```{r}
+
+mean(dat1$TSS)
+mean(dat2$TSS)
+
+```
+
+R provides many useful functions for summarising data. Especially, `apply` family functions are very useful to summarize your data. Here, we use `tapply()` function as an example. We use a vector of values that we want to summarize in the first argument, and put "INDEX" variable indicating group names (in this case, `"Pristine"`" or `"Disturbed"`).
+
+```{r}
+
+tapply(X = dat$TSS, INDEX = dat$LakeType, FUN = mean)
+
+```
+
+This matches what we calculated above using `dat1` and `dat2`, but with much less efforts.
