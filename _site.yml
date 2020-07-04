@@ -9,9 +9,9 @@ navbar:
     - text: "R"
       menu:
         - text: "Getting Started"
-          href: r_01.html
+          href: R_01.html
         - text: "R Basics"
-          href: r_02.html
+          href: R_02.html
 
 output:
   html_document:
