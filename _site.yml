@@ -1,12 +1,11 @@
-name: "AquaQE"
-title: "AquaQE"
+name: "AquatiQuE"
 output_dir: "docs"
 navbar:
+  title: "AquatiQuE"
   left:
-    - text: "Home"
+    - text: ""
+      icon: fa-home
       href: index.html
-    - text: "About"
-      href: about.html
     - text: "R"
       menu:
         - text: "Getting Started"

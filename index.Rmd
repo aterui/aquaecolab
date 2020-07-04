@@ -1,4 +1,30 @@
 ---
-title: "Home"
 ---
-Test
+
+```{r logo, echo = FALSE, fig.height = 2, fig.width = 20}
+
+par(mar = c(0,0,0,0)); n <- 500
+set.seed(1)
+y <- rnorm(n, 0, 1); x <- -1*rexp(n, rate = 0.075)
+alpha <- runif(n, 0, 0.5)
+plot(y ~ x, ann = F, axes = F, ylim= c(-2, 2), pch = 21,
+     bg = rgb(0, 0.1, 0.5, alpha = runif(n, 0, 0.1)), col = NA,
+     #col = rgb(0, 0.1, 0.5, alpha = runif(n, 0, 0.5)),
+     cex = runif(n, 0, 8) )
+text("AquatiQuE", x = min(x) + 5, y = 0, cex = 5, col = grey(0.3), adj = 0)
+
+```
+
+---
+
+We study **aquati**c ecosystems using skills of **Qu**antitative **E**cology.
+Our quantitative approach aims at:
+
+- generating ecological predictions using mathematical models
+- revealing ecological patterns hidden in the field data
+- maximize the use of existing data that are otherwise wasted
+
+Our goal is to privide novel insights into how ecological communities are stuructured and maintained by studying freshwater ecosystems, especially streams. We are particularly excited about synthesizing theoretical and empirical approaches.
+
+# Join the lab
+Our lab is located at UNC Greensboro and we welcome inquiries from potential undergrads, grad students and postdocs. Feel free to contact `aquaecoluncg at gmail.com`!
