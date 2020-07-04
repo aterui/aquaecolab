@@ -13,7 +13,7 @@ R has 6 basic **data types**.
 
 - character: `"aquatic"`, `"ecology"` (no order)
 - factor: similar to character, but has *levels* (alphabetically ordered by default)
-- numeric: `2o.0` , `15.5`
+- numeric: `20.0` , `15.5`
 - integer: `3`, `7`
 - logical: `TRUE` , `FALSE`
 - complex: `1+2i` (complex numbers with real and imaginary parts)
@@ -25,8 +25,8 @@ These elements form one of the following **data structures**.
 - data frame: looks similar to a matrix, but allows ***different data types in different columns***
 
 # Vector
-
 ## Vector - Create Vector
+
 Below are examples of atomic character vectors, numeric vectors, integer vectors, etc. There are many ways to create vector data. The following examples use `c()`, `:`, `seq()`, `rep()`:
 
 ```{r}
@@ -65,8 +65,8 @@ X
 
 ```
 
-
 ## Vector - Check Features
+
 R provides many functions to examine features of vectors and other objects, for example:
 
 - `class()` - what kind of object (data structure) is it (high-level)?
@@ -90,7 +90,6 @@ mean(X)
 
 ```
 
-
 ### Character Vector
 
 ```{r}
@@ -102,8 +101,8 @@ length(Y)
 ```
   
 ## Vector - Access
-
 ### Element ID
+
 Use brackets `[]` when accessing specific elements in an object.
 For example, if you want to access element #2 in the vector `X`, you may specify as `X[2]`:
 
@@ -165,18 +164,17 @@ which(X > 2)
 ```
 
 # Matrix
-
 ## Matrix - Create Matrix
 
-Matrix is a set of elements (*a single data type*) that are organized into rows and columns:
+Matrix is a set of elements (*single data type*) that are organized into rows and columns:
 
 ```{r}
 
-#ex.1 cbind: take a sequence of vector, matrix or data-frame arguments and combine by columns
+#ex.1 cbind: combine objects by column
 X <- cbind(c(1,2,3), c(4,5,6))
 X
 
-#ex.2 rbind: take a sequence of vector, matrix or data-frame arguments and combine by rows
+#ex.2 rbind: combine objects by row
 X <- rbind(c(1,2,3), c(4,5,6))
 X
 
@@ -254,7 +252,7 @@ X[X > 2] # larger than
 
 ```
 
-`which()` needs an addional argument to return both row and column #:
+`which()` needs an additional argument to return both row and column #:
 
 ```{r}
 
@@ -264,16 +262,15 @@ which(X > 2, arr.ind = TRUE)
 ```
 
 # Data Frame
-
 ## Data Frame - Basics
 
 Data frame is a set of elements that are organized into rows and columns, but differ in several ways.
 
-- it allows *mutiple data types* in different columns
+- it allows *multiple data types* in different columns
 - each column has its *name*
 - access columns by name (using `$`)
 
-***Data frame is the most common data structure when manipulating ecological data***. A dataset loaded from a spread sheet (we will address this later) will be automatically reconized as a data frame. Here is an example:
+***Data frame is the most common data structure when manipulating ecological data***. A data set loaded from a spread sheet (we will address this later) will be automatically recognized as a data frame. Here is an example:
 
 ```{r}
 
@@ -301,7 +298,6 @@ dat[c(2,4),] # access row #2 and 4
 
 ```
 
-
 ## Data Frame - Advanced
 
 In a data frame, you can pick a subset of data. For example, you might want to pick data only from pristine lakes. You can do this by applying the methods in the vector/matrix section:
@@ -324,7 +320,7 @@ mean(dat2$TSS)
 
 ```
 
-R provides many useful functions for summarising data. Especially, `apply` family functions are very useful to summarize your data. Here, we use `tapply()` function as an example. We use a vector of values that we want to summarize in the first argument, and put "INDEX" variable indicating group names (in this case, `"Pristine"`" or `"Disturbed"`).
+R provides many useful functions for summarizing data. Especially, `apply` family functions are very useful to summarize your data. Here, we use `tapply()` function as an example. We use a vector of values that we want to summarize in the first argument, and put "INDEX" variable indicating group names (in this case, `"Pristine"`" or `"Disturbed"`).
 
 ```{r}
 
@@ -333,3 +329,67 @@ tapply(X = dat$TSS, INDEX = dat$LakeType, FUN = mean)
 ```
 
 This matches what we calculated above using `dat1` and `dat2`, but with much less efforts.
+
+
+# Exercise
+## Basics
+### Vector
+
+- Create three numeric vectors with length 3, 6 and 20, respectively. Each vector must be created using different functions in R.
+- Create three character vectors with length 3, 6 and 20, respectively. Each vector must be created using different functions in R.
+
+### Matrix
+- Create a numeric matrix with 4 rows and 4 columns. Each column must contain identical elements.
+- Create a numeric matrix with 4 rows and 4 columns. Each row must contain identical elements.
+- Create a character matrix with 4 rows and 4 columns. Each column must contain identical elements.
+- Create a character matrix with 4 rows and 4 columns. Each row must contain identical elements.
+- Check the data structure (high-level) of each matrix.
+
+### Dataframe
+- Create a dataframe with 3 variables (name variables as `X`, `Y` and `Z`. `X` must be `character` while `Y` and `Z` must be `numeric`.
+- Check the data structure (higher-level) of `X`, `Y` and `Z`
+
+## Advanced
+### Vector
+
+Copy the following script to your R script:
+
+```{r, eval = FALSE}
+
+set.seed(1)
+x <- rnorm(100)
+
+```
+
+- Identify element IDs of `x` that are greater than `2.0`
+- Identify element values of `x` that are greater than `2.0`
+
+### Matrix
+
+Copy the following script to your R script:
+
+```{r, eval = FALSE}
+
+set.seed(1)
+X <- matrix(rnorm(100), nrow = 10, ncol = 10)
+
+```
+
+- Identify element IDs of `X` that are greater than `2.0` (**specify row and column IDs**)
+- Identify element values of `X` that are greater than `2.0` and caluculate the mean.
+
+### Data Frame
+
+Copy the following script to your R script:
+
+```{r, eval = FALSE}
+
+set.seed(1)
+x <- rnorm(100, mean = 10, sd = 3)
+y <- rpois(100, lambda = 10)
+z <- rep(c("VA", "NC"), 50)
+dat <- data.frame(temperature = x, abundance = y, state = z)
+
+```
+
+- Calculate means of `temperature` and `abundance` for states `VA` and `NC` separately

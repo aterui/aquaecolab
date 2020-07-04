@@ -362,10 +362,10 @@ div.tocify {
   </a>
   <ul class="dropdown-menu" role="menu">
     <li>
-      <a href="R_01.html">Getting Started</a>
+      <a href="r_01.html">Getting Started</a>
     </li>
     <li>
-      <a href="R_02.html">R Basics</a>
+      <a href="r_02.html">R Basics</a>
     </li>
   </ul>
 </li>
@@ -392,7 +392,7 @@ div.tocify {
 <ul>
 <li>character: <code>"aquatic"</code>, <code>"ecology"</code> (no order)</li>
 <li>factor: similar to character, but has <em>levels</em> (alphabetically ordered by default)</li>
-<li>numeric: <code>2o.0</code> , <code>15.5</code></li>
+<li>numeric: <code>20.0</code> , <code>15.5</code></li>
 <li>integer: <code>3</code>, <code>7</code></li>
 <li>logical: <code>TRUE</code> , <code>FALSE</code></li>
 <li>complex: <code>1+2i</code> (complex numbers with real and imaginary parts)</li>
@@ -535,15 +535,15 @@ which(X &gt; 2)</code></pre>
 <h1><span class="header-section-number">3</span> Matrix</h1>
 <div id="matrix---create-matrix" class="section level2">
 <h2><span class="header-section-number">3.1</span> Matrix - Create Matrix</h2>
-<p>Matrix is a set of elements (<em>a single data type</em>) that are organized into rows and columns:</p>
-<pre class="r"><code>#ex.1 cbind: take a sequence of vector, matrix or data-frame arguments and combine by columns
+<p>Matrix is a set of elements (<em>single data type</em>) that are organized into rows and columns:</p>
+<pre class="r"><code>#ex.1 cbind: combine objects by column
 X &lt;- cbind(c(1,2,3), c(4,5,6))
 X</code></pre>
 <pre><code>##      [,1] [,2]
 ## [1,]    1    4
 ## [2,]    2    5
 ## [3,]    3    6</code></pre>
-<pre class="r"><code>#ex.2 rbind: take a sequence of vector, matrix or data-frame arguments and combine by rows
+<pre class="r"><code>#ex.2 rbind: combine objects by row
 X &lt;- rbind(c(1,2,3), c(4,5,6))
 X</code></pre>
 <pre><code>##      [,1] [,2] [,3]
@@ -637,7 +637,7 @@ X</code></pre>
 <pre><code>## [1] 2</code></pre>
 <pre class="r"><code>X[X &gt; 2] # larger than</code></pre>
 <pre><code>## [1] 3 4 5 6 7 8 9</code></pre>
-<p><code>which()</code> needs an addional argument to return both row and column #:</p>
+<p><code>which()</code> needs an additional argument to return both row and column #:</p>
 <pre class="r"><code>which(X == 2, arr.ind = TRUE)</code></pre>
 <pre><code>##      row col
 ## [1,]   2   1</code></pre>
@@ -658,11 +658,11 @@ X</code></pre>
 <h2><span class="header-section-number">4.1</span> Data Frame - Basics</h2>
 <p>Data frame is a set of elements that are organized into rows and columns, but differ in several ways.</p>
 <ul>
-<li>it allows <em>mutiple data types</em> in different columns</li>
+<li>it allows <em>multiple data types</em> in different columns</li>
 <li>each column has its <em>name</em></li>
 <li>access columns by name (using <code>$</code>)</li>
 </ul>
-<p><strong><em>Data frame is the most common data structure when manipulating ecological data</em></strong>. A dataset loaded from a spread sheet (we will address this later) will be automatically reconized as a data frame. Here is an example:</p>
+<p><strong><em>Data frame is the most common data structure when manipulating ecological data</em></strong>. A data set loaded from a spread sheet (we will address this later) will be automatically recognized as a data frame. Here is an example:</p>
 <pre class="r"><code># Create data frame
 X &lt;- c(&quot;Pristine&quot;, &quot;Pristine&quot;, &quot;Disturbed&quot;, &quot;Disturbed&quot;, &quot;Pristine&quot;) # Lake type
 Y &lt;- c(1.2, 2.2, 10.9, 50.0, 3.0) # TSS: total suspended solids (mg/L)
@@ -718,11 +718,76 @@ dat2</code></pre>
 <pre><code>## [1] 2.133333</code></pre>
 <pre class="r"><code>mean(dat2$TSS)</code></pre>
 <pre><code>## [1] 30.45</code></pre>
-<p>R provides many useful functions for summarising data. Especially, <code>apply</code> family functions are very useful to summarize your data. Here, we use <code>tapply()</code> function as an example. We use a vector of values that we want to summarize in the first argument, and put “INDEX” variable indicating group names (in this case, <code>"Pristine"</code>" or <code>"Disturbed"</code>).</p>
+<p>R provides many useful functions for summarizing data. Especially, <code>apply</code> family functions are very useful to summarize your data. Here, we use <code>tapply()</code> function as an example. We use a vector of values that we want to summarize in the first argument, and put “INDEX” variable indicating group names (in this case, <code>"Pristine"</code>" or <code>"Disturbed"</code>).</p>
 <pre class="r"><code>tapply(X = dat$TSS, INDEX = dat$LakeType, FUN = mean)</code></pre>
 <pre><code>## Disturbed  Pristine 
 ## 30.450000  2.133333</code></pre>
 <p>This matches what we calculated above using <code>dat1</code> and <code>dat2</code>, but with much less efforts.</p>
+</div>
+</div>
+<div id="exercise" class="section level1">
+<h1><span class="header-section-number">5</span> Exercise</h1>
+<div id="basics" class="section level2">
+<h2><span class="header-section-number">5.1</span> Basics</h2>
+<div id="vector-1" class="section level3">
+<h3><span class="header-section-number">5.1.1</span> Vector</h3>
+<ul>
+<li>Create three numeric vectors with length 3, 6 and 20, respectively. Each vector must be created using different functions in R.</li>
+<li>Create three character vectors with length 3, 6 and 20, respectively. Each vector must be created using different functions in R.</li>
+</ul>
+</div>
+<div id="matrix-1" class="section level3">
+<h3><span class="header-section-number">5.1.2</span> Matrix</h3>
+<ul>
+<li>Create a numeric matrix with 4 rows and 4 columns. Each column must contain identical elements.</li>
+<li>Create a numeric matrix with 4 rows and 4 columns. Each row must contain identical elements.</li>
+<li>Create a character matrix with 4 rows and 4 columns. Each column must contain identical elements.</li>
+<li>Create a character matrix with 4 rows and 4 columns. Each row must contain identical elements.</li>
+<li>Check the data structure (high-level) of each matrix.</li>
+</ul>
+</div>
+<div id="dataframe" class="section level3">
+<h3><span class="header-section-number">5.1.3</span> Dataframe</h3>
+<ul>
+<li>Create a dataframe with 3 variables (name variables as <code>X</code>, <code>Y</code> and <code>Z</code>. <code>X</code> must be <code>character</code> while <code>Y</code> and <code>Z</code> must be <code>numeric</code>.</li>
+<li>Check the data structure (higher-level) of <code>X</code>, <code>Y</code> and <code>Z</code></li>
+</ul>
+</div>
+</div>
+<div id="advanced" class="section level2">
+<h2><span class="header-section-number">5.2</span> Advanced</h2>
+<div id="vector-2" class="section level3">
+<h3><span class="header-section-number">5.2.1</span> Vector</h3>
+<p>Copy the following script to your R script:</p>
+<pre class="r"><code>set.seed(1)
+x &lt;- rnorm(100)</code></pre>
+<ul>
+<li>Identify element IDs of <code>x</code> that are greater than <code>2.0</code></li>
+<li>Identify element values of <code>x</code> that are greater than <code>2.0</code></li>
+</ul>
+</div>
+<div id="matrix-2" class="section level3">
+<h3><span class="header-section-number">5.2.2</span> Matrix</h3>
+<p>Copy the following script to your R script:</p>
+<pre class="r"><code>set.seed(1)
+X &lt;- matrix(rnorm(100), nrow = 10, ncol = 10)</code></pre>
+<ul>
+<li>Identify element IDs of <code>X</code> that are greater than <code>2.0</code> (<strong>specify row and column IDs</strong>)</li>
+<li>Identify element values of <code>X</code> that are greater than <code>2.0</code> and caluculate the mean.</li>
+</ul>
+</div>
+<div id="data-frame-1" class="section level3">
+<h3><span class="header-section-number">5.2.3</span> Data Frame</h3>
+<p>Copy the following script to your R script:</p>
+<pre class="r"><code>set.seed(1)
+x &lt;- rnorm(100, mean = 10, sd = 3)
+y &lt;- rpois(100, lambda = 10)
+z &lt;- rep(c(&quot;VA&quot;, &quot;NC&quot;), 50)
+dat &lt;- data.frame(temperature = x, abundance = y, state = z)</code></pre>
+<ul>
+<li>Calculate means of <code>temperature</code> and <code>abundance</code> for states <code>VA</code> and <code>NC</code> separately</li>
+</ul>
+</div>
 </div>
 </div>
 
