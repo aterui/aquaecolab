@@ -12,7 +12,11 @@ navbar:
           href: r_01.html
         - text: "R Basics"
           href: r_02.html
-
+  right:
+    - text: ""
+      icon: fa-github
+      href: https://github.com/AkiraTerui/aquaecolab
+  
 output:
   html_document:
     css: styles.css

@@ -1,18 +1,23 @@
 ---
-pagetitle: "index"
+pagetitle: "AquatiQuE"
 ---
 
 ```{r logo, echo = FALSE, fig.height = 2, fig.width = 20}
 
-par(mar = c(0,0,0,0)); n <- 500
+par(mar = c(0,0,0,0))
+
+# set parameters
 set.seed(1)
+n <- 500
 y <- rnorm(n); x <- -1*rexp(n, rate = 0.075)
-alpha <- runif(n, 0, 0.5)
-plot(y ~ x, ann = F, axes = F, ylim= c(-4, 4), pch = 21,
-     bg = rgb(runif(n, 0, 1), runif(n, 0, 1), runif(n, 0, 1), alpha = runif(n, 0, 0.1)), col = NA,
-     #col = rgb(0, 0.1, 0.5, alpha = runif(n, 0, 0.5)),
+alpha <- runif(n, 0, 0.5); lim <- 1
+
+# plot
+plot(y ~ x, ann = F, axes = F, ylim= c(-lim, lim), pch = 21,
+     bg = rgb(runif(n, 0, 0.1), runif(n, 0, 1), runif(n, 0, 1), alpha = runif(n, 0, 0.15)), col = NA,
+     #col = rgb(runif(n, 0, 1), runif(n, 0, 1), runif(n, 0, 1), alpha = runif(n, 0, 0.1)),
      cex = runif(n, 0, 8) )
-text("AquatiQuE", x = min(x) + 5, y = -0.5, cex = 5, col = grey(0.3), adj = 0)
+text("AquatiQuE", x = min(x), y = mean(y), cex = 5, col = grey(0.3), adj = 0)
 
 ```
 
