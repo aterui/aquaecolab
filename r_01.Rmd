@@ -236,7 +236,7 @@ Y
 
 # File Management
 
-As you proceed, the number of files will increase. It is really important to have basic rules for **how to locate and name your files in your computer**. Here are some recommendations:
+As you proceed, the number of files will increase. It is critical to learn basic rules of **how to locate and name your files in your computer**. Here are some recommendations:
 
 - Put all the relevant files in a single folder.
   - R scripts and associated files should be saved in the project folder.
