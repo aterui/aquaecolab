@@ -242,13 +242,13 @@ As you proceed, the number of files will increase. It is critical to learn basic
   - R scripts and associated files should be saved in the project folder.
   - Create a new R project when working on different topics. Do not mix them up in a single folder.
 - Avoid space and period when naming files. Instead, use underscore or hyphen.
-  - Bad: `script week1.R`
-  - Good: `script_week1.R` `script-week1.R`
+  - Do: `script_week1.R` `script-week1.R`
+  - Don't: `script week1.R`
 - Use lowercases.
-  - Bad: `Script_week1.R`
-  - Good: `script_week1.R`
+  - Do: `script_week1.R`
+  - Don't: `Script_week1.R`
 - Keep consistent.
   - For example, if your R script deals with figures, then name it `figure_XXX.R` (`XXX` identifies further details).
 - Numbering will help keep your folder/directory organized.
-  - `figure_temperature`, `figure_precipitation`...this will work, but the order of files in the folder looks messy.
-  - `figure_01_temperature.R`, `figure_02_precipitation`...this will organize files numerically by group (`figure`).
+  - `figure_temperature.R`, `figure_precipitation.R`...this will work, but the order of files may be confusing.
+  - `figure_01_temperature.R`, `figure_02_precipitation.R`...this will organize files by group (`figure`) and numerically.
