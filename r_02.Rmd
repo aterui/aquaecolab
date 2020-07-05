@@ -4,7 +4,6 @@ output:
   html_document:
     toc: true
     toc_float: true
-    number_sections: true
 ---
 
 # Data Types and Structures

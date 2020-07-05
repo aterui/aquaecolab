@@ -8,9 +8,9 @@ navbar:
       href: index.html
     - text: "R"
       menu:
-        - text: "Getting Started"
-          href: r_01.html
         - text: "R Basics"
+          href: r_01.html
+        - text: "tidyverse"
           href: r_02.html
   right:
     - text: ""

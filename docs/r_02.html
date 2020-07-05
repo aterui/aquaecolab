@@ -365,16 +365,22 @@ div.tocify {
   </a>
   <ul class="dropdown-menu" role="menu">
     <li>
-      <a href="r_01.html">Getting Started</a>
+      <a href="r_01.html">R Basics</a>
     </li>
     <li>
-      <a href="r_02.html">R Basics</a>
+      <a href="r_02.html">tidyverse</a>
     </li>
   </ul>
 </li>
       </ul>
       <ul class="nav navbar-nav navbar-right">
-        
+        <li>
+  <a href="https://github.com/AkiraTerui/aquaecolab">
+    <span class="fa fa-github"></span>
+     
+    
+  </a>
+</li>
       </ul>
     </div><!--/.nav-collapse -->
   </div><!--/.container -->
@@ -390,7 +396,7 @@ div.tocify {
 
 
 <div id="data-types-and-structures" class="section level1">
-<h1><span class="header-section-number">1</span> Data Types and Structures</h1>
+<h1>Data Types and Structures</h1>
 <p>R has 6 basic <strong>data types</strong>.</p>
 <ul>
 <li>character: <code>"aquatic"</code>, <code>"ecology"</code> (no order)</li>
@@ -408,9 +414,9 @@ div.tocify {
 </ul>
 </div>
 <div id="vector" class="section level1">
-<h1><span class="header-section-number">2</span> Vector</h1>
+<h1>Vector</h1>
 <div id="vector---create-vector" class="section level2">
-<h2><span class="header-section-number">2.1</span> Vector - Create Vector</h2>
+<h2>Vector - Create Vector</h2>
 <p>Below are examples of atomic character vectors, numeric vectors, integer vectors, etc. There are many ways to create vector data. The following examples use <code>c()</code>, <code>:</code>, <code>seq()</code>, <code>rep()</code>:</p>
 <pre class="r"><code>#ex.1a manually create a vector using c()
 X &lt;- c(1,3,4,8)
@@ -448,7 +454,7 @@ X</code></pre>
 ## [35] 4.4 4.5 4.6 4.7 4.8 4.9 5.0</code></pre>
 </div>
 <div id="vector---check-features" class="section level2">
-<h2><span class="header-section-number">2.2</span> Vector - Check Features</h2>
+<h2>Vector - Check Features</h2>
 <p>R provides many functions to examine features of vectors and other objects, for example:</p>
 <ul>
 <li><code>class()</code> - what kind of object (data structure) is it (high-level)?</li>
@@ -459,7 +465,7 @@ X</code></pre>
 <li><code>mean()</code> - what is the average number of the data?</li>
 </ul>
 <div id="numeric-vector" class="section level3">
-<h3><span class="header-section-number">2.2.1</span> Numeric Vector</h3>
+<h3>Numeric Vector</h3>
 <pre class="r"><code>X &lt;- c(1.2, 3.1, 4.0, 8.2)
 X</code></pre>
 <pre><code>## [1] 1.2 3.1 4.0 8.2</code></pre>
@@ -475,7 +481,7 @@ X</code></pre>
 <pre><code>## [1] 4.125</code></pre>
 </div>
 <div id="character-vector" class="section level3">
-<h3><span class="header-section-number">2.2.2</span> Character Vector</h3>
+<h3>Character Vector</h3>
 <pre class="r"><code>Y &lt;- c(&quot;a&quot;, &quot;b&quot;, &quot;c&quot;)
 class(Y)</code></pre>
 <pre><code>## [1] &quot;character&quot;</code></pre>
@@ -484,9 +490,9 @@ class(Y)</code></pre>
 </div>
 </div>
 <div id="vector---access" class="section level2">
-<h2><span class="header-section-number">2.3</span> Vector - Access</h2>
+<h2>Vector - Access</h2>
 <div id="element-id" class="section level3">
-<h3><span class="header-section-number">2.3.1</span> Element ID</h3>
+<h3>Element ID</h3>
 <p>Use brackets <code>[]</code> when accessing specific elements in an object. For example, if you want to access element #2 in the vector <code>X</code>, you may specify as <code>X[2]</code>:</p>
 <pre class="r"><code>X &lt;- c(2,2,3,2,5)
 X[2] # access element #2</code></pre>
@@ -497,7 +503,7 @@ X[2] # access element #2</code></pre>
 <pre><code>## [1] 2 3 2</code></pre>
 </div>
 <div id="equation" class="section level3">
-<h3><span class="header-section-number">2.3.2</span> Equation</h3>
+<h3>Equation</h3>
 <p>R provides many ways to access elements that suffice specific conditions. You can use mathematical symbols to specify what you need, for example:</p>
 <ul>
 <li><code>==</code> equal</li>
@@ -535,9 +541,9 @@ which(X &gt; 2)</code></pre>
 </div>
 </div>
 <div id="matrix" class="section level1">
-<h1><span class="header-section-number">3</span> Matrix</h1>
+<h1>Matrix</h1>
 <div id="matrix---create-matrix" class="section level2">
-<h2><span class="header-section-number">3.1</span> Matrix - Create Matrix</h2>
+<h2>Matrix - Create Matrix</h2>
 <p>Matrix is a set of elements (<em>single data type</em>) that are organized into rows and columns:</p>
 <pre class="r"><code>#ex.1 cbind: combine objects by column
 X &lt;- cbind(c(1,2,3), c(4,5,6))
@@ -561,7 +567,7 @@ X</code></pre>
 ## [3,]    3    6    9</code></pre>
 </div>
 <div id="matrix---check-features" class="section level2">
-<h2><span class="header-section-number">3.2</span> Matrix - Check Features</h2>
+<h2>Matrix - Check Features</h2>
 <p>R provides many functions to examine features of matrix data, for example:</p>
 <ul>
 <li><code>class()</code> what kind of object (data structure) is it (high-level)?</li>
@@ -572,7 +578,7 @@ X</code></pre>
 <li><code>colSums()</code> what is the summed number of the data for each column?</li>
 </ul>
 <div id="integer-matrix" class="section level3">
-<h3><span class="header-section-number">3.2.1</span> Integer Matrix</h3>
+<h3>Integer Matrix</h3>
 <pre class="r"><code>X &lt;- matrix(1:9, nrow = 3, ncol = 3)
 X</code></pre>
 <pre><code>##      [,1] [,2] [,3]
@@ -587,7 +593,7 @@ X</code></pre>
 <pre><code>## [1] 3 3</code></pre>
 </div>
 <div id="character-matrix" class="section level3">
-<h3><span class="header-section-number">3.2.2</span> Character Matrix</h3>
+<h3>Character Matrix</h3>
 <pre class="r"><code>Y &lt;- matrix(c(&quot;a&quot;,&quot;b&quot;, &quot;c&quot;, &quot;d&quot;, &quot;e&quot;, &quot;f&quot;), nrow = 3, ncol = 2)
 Y</code></pre>
 <pre><code>##      [,1] [,2]
@@ -603,7 +609,7 @@ Y</code></pre>
 </div>
 </div>
 <div id="matrix---access" class="section level2">
-<h2><span class="header-section-number">3.3</span> Matrix - Access</h2>
+<h2>Matrix - Access</h2>
 <p>When accessing matrix elements, you need to pick row(s) and/or column(s), for example:</p>
 <pre class="r"><code>X &lt;- matrix(1:9, nrow = 3, ncol = 3)
 X</code></pre>
@@ -656,9 +662,9 @@ X</code></pre>
 </div>
 </div>
 <div id="data-frame" class="section level1">
-<h1><span class="header-section-number">4</span> Data Frame</h1>
+<h1>Data Frame</h1>
 <div id="data-frame---basics" class="section level2">
-<h2><span class="header-section-number">4.1</span> Data Frame - Basics</h2>
+<h2>Data Frame - Basics</h2>
 <p>Data frame is a set of elements that are organized into rows and columns, but differ in several ways.</p>
 <ul>
 <li>it allows <em>multiple data types</em> in different columns</li>
@@ -703,7 +709,7 @@ dat</code></pre>
 ## 4 Disturbed 50.0</code></pre>
 </div>
 <div id="data-frame---advanced" class="section level2">
-<h2><span class="header-section-number">4.2</span> Data Frame - Advanced</h2>
+<h2>Data Frame - Advanced</h2>
 <p>In a data frame, you can pick a subset of data. For example, you might want to pick data only from pristine lakes. You can do this by applying the methods in the vector/matrix section:</p>
 <pre class="r"><code>dat1 &lt;- dat[dat$LakeType == &quot;Pristine&quot;,] # access Pristine lake type
 dat1</code></pre>
@@ -729,18 +735,18 @@ dat2</code></pre>
 </div>
 </div>
 <div id="exercise" class="section level1">
-<h1><span class="header-section-number">5</span> Exercise</h1>
+<h1>Exercise</h1>
 <div id="basics" class="section level2">
-<h2><span class="header-section-number">5.1</span> Basics</h2>
+<h2>Basics</h2>
 <div id="vector-1" class="section level3">
-<h3><span class="header-section-number">5.1.1</span> Vector</h3>
+<h3>Vector</h3>
 <ul>
 <li>Create three numeric vectors with length 3, 6 and 20, respectively. Each vector must be created using different functions in R.</li>
 <li>Create three character vectors with length 3, 6 and 20, respectively. Each vector must be created using different functions in R.</li>
 </ul>
 </div>
 <div id="matrix-1" class="section level3">
-<h3><span class="header-section-number">5.1.2</span> Matrix</h3>
+<h3>Matrix</h3>
 <ul>
 <li>Create a numeric matrix with 4 rows and 4 columns. Each column must contain identical elements.</li>
 <li>Create a numeric matrix with 4 rows and 4 columns. Each row must contain identical elements.</li>
@@ -750,7 +756,7 @@ dat2</code></pre>
 </ul>
 </div>
 <div id="dataframe" class="section level3">
-<h3><span class="header-section-number">5.1.3</span> Dataframe</h3>
+<h3>Dataframe</h3>
 <ul>
 <li>Create a dataframe with 3 variables (name variables as <code>X</code>, <code>Y</code> and <code>Z</code>. <code>X</code> must be <code>character</code> while <code>Y</code> and <code>Z</code> must be <code>numeric</code>.</li>
 <li>Check the data structure (higher-level) of <code>X</code>, <code>Y</code> and <code>Z</code></li>
@@ -758,9 +764,9 @@ dat2</code></pre>
 </div>
 </div>
 <div id="advanced" class="section level2">
-<h2><span class="header-section-number">5.2</span> Advanced</h2>
+<h2>Advanced</h2>
 <div id="vector-2" class="section level3">
-<h3><span class="header-section-number">5.2.1</span> Vector</h3>
+<h3>Vector</h3>
 <p>Copy the following script to your R script:</p>
 <pre class="r"><code>set.seed(1)
 x &lt;- rnorm(100)</code></pre>
@@ -770,7 +776,7 @@ x &lt;- rnorm(100)</code></pre>
 </ul>
 </div>
 <div id="matrix-2" class="section level3">
-<h3><span class="header-section-number">5.2.2</span> Matrix</h3>
+<h3>Matrix</h3>
 <p>Copy the following script to your R script:</p>
 <pre class="r"><code>set.seed(1)
 X &lt;- matrix(rnorm(100), nrow = 10, ncol = 10)</code></pre>
@@ -780,7 +786,7 @@ X &lt;- matrix(rnorm(100), nrow = 10, ncol = 10)</code></pre>
 </ul>
 </div>
 <div id="data-frame-1" class="section level3">
-<h3><span class="header-section-number">5.2.3</span> Data Frame</h3>
+<h3>Data Frame</h3>
 <p>Copy the following script to your R script:</p>
 <pre class="r"><code>set.seed(1)
 x &lt;- rnorm(100, mean = 10, sd = 3)
