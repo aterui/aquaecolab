@@ -1,5 +1,5 @@
 ---
-title: "R Basics"
+title: "R BASICS"
 output:
   html_document:
     toc: true
@@ -7,7 +7,11 @@ output:
     number_sections: true
 ---
 
-# Getting Started
+---
+
+# GETTING STARTED
+
+---
 
 ## Install R and R Studio
 
@@ -17,7 +21,8 @@ R and R Studio can be installed from the following websites:
 - [R Studio](https://rStudio.com/products/rStudio/download/)
 
 While R is stand-alone software, I strongly recommend to use it with R Studio. R Studio has many functions that help your data analysis.
-
+\
+\
 
 ## Basic Setup
 
@@ -28,77 +33,110 @@ While R is stand-alone software, I strongly recommend to use it with R Studio. R
 R Studio interface. The left half of the screen is **“console”** where you put your script to execute calculation/data manipulation/analysis (ignore the tab “Terminal” at this point). The right bottom shows a folder in which you are working now – i.e., **“working folder or directory”**. R does not recognize any files outside of this folder, so be sure to pick the right directory when you work in R.
 
 ### Create Project
-As you proceed, numerous materials will be produced, making it harder to put relevant things in one place. However, R Studio will help organize files by creating a project. To initiate the process of creating a project, **click the icon on the top bar or `File`**:
+As you proceed, numerous materials will be generated. How do we manage files? No worries, R Studio will help organize files by creating a project. To initiate the process of creating a project:
 
-![](image/R_image2.png)
+a. go to `File > New Project` on the top menu
+b. select `New Directory`
+c. select `New Project`
 
-Select `New Directory`:
-
-![](image/R_image3.png)
-
-Select `New Project`:
-
-![](image/R_image4.png)
-
-A new window pops up and prompts you to name a directory and where to put the directory in your computer. Click `Browse` to select a location for the directory. I would create a folder for R projects (e.g., `RProject`) and put a project directory under this folder. Click **Create Project** once you decided directory name and location:
+A new window pops up and prompts you to name a directory and where to put the directory in your computer. Click `Browse` to select a location for the directory. I would create a folder for R projects (e.g., `RProject`) and save project directories under this folder. Click **Create Project** once you decided directory name and location:
 
 ![](image/R_image5.png)
 
-### Locate Yourself
-
+### Find Where You Are
 Once you created a project, R Studio will take you to where the R project is located. Check the current directory using the following script:
 
 ```{r}
 getwd()
 ```
 
-If the path indicates where you are supposed to be, that's fine. However, when you next open R Studio, the initial location could be somewhere else. In that case, go to `File > Open Project` and open the `.Rproj` file that you just created. This will take you to the directory you are supposed to be.
-
-
-
+However, when you next open R Studio, the initial location could be somewhere else. In that case, go to `File > Open Project` and open the `.Rproj` file that you just created. This will take you to the directory you are supposed to be.
+\
+\
 
 ## Object
 
+### Create Object
 Let’s play with R. Put the following script in your console.
 
 ```{r}
-X <- c(10.1, 5.3, 8.8, 6.7, 8.2)
+x <- c(10.1, 5.3, 8.8, 6.7, 8.2)
 ```
 
-This script creates a vector of numbers composed of {10.1, 5.3, 8.8, 6.7, 8.2}. `X` is a ‘box’ where the vector information is stored, and ‘<-’ is the arrow that command R to store {10.1, 5.3, 8.8, 6.7, 8.2} in a box `X`. `X` is refered to as an **object**. Let’s see what’s in `X`:
+This script creates a vector of numbers composed of {10.1, 5.3, 8.8, 6.7, 8.2}. `x` is a ‘box’ where the vector information is stored, and ‘<-’ is the arrow that commands R to store {10.1, 5.3, 8.8, 6.7, 8.2} in a box `x`. `x` is refered to as an **object**. Let’s see what’s in `x`:
 
 ```{r}
-X
+x
 ```
 
-R has many functions that calculate the mean, median, etc. Let’s calculate a mean and median for `X`:
+R has many functions that calculate the mean, median, etc. Let’s calculate a mean and median for `x`:
 
 ```{r}
-mean(X)
-median(X)
+mean(x)
+median(x)
 ```
 
-Also, you can pick an element(s) that you want. Numbers in brackets ‘[]’ specifies the numbered ID of each element. In the above example, element `X[3]` is `8.8`. You can extract this information with the following script:
+Also, you can pick an element(s) as you wish. Numbers in brackets `[]` specifies the numbered ID of each element. In the above example, element `x[3]` is `8.8`. You can extract this information with the following script:
 
 ```{r}
-X[3]
+x[3]
 ```
 
 You can also choose multiple elements simultaneously. For example, `3:5` specifies elements starting from 3 to 5 (colon creates a sequence of numbers):
 
 ```{r}
 3:5
-X[3:5]
+x[3:5]
 ```
 
 If you want to pick elements that are not ordered sequentially, you can use `c()` to specify multiple elements:
 
 ```{r}
 c(1,4)
-X[c(1,4)]
+x[c(1,4)]
 ```
 
+### Case Sensitive
+Importantly, **objects are case sensitive**. Let's see what happens when you create an object `x` (lower case):
+
+```{r}
+# create an object `x` (lower case)
+x <- 3
+
+# check what's in object `x` (lower)
+print(x) 
+```
+
+There is a number saved in the object `x`. Try `X` (upper case):
+
+```{r, error = TRUE}
+
+print(X)
+
+```
+
+This returns a message `Error: object 'X' not found`. This is because R distinguishes lower and upper cases. To see the difference, create the object `X`:
+
+```{r}
+
+# create an object `x` (upper case)
+X <- 5
+
+# check what's in object `X` (upper)
+print(X) 
+
+# check what's in object `x` (lower)
+print(x) 
+
+```
+
+Thus, lower `x` and upper `X` can save different information.
+\
+\
+
 ## Arithmetic Operations
+
+### Number
 
 Addition
 
@@ -141,38 +179,75 @@ sqrt(4)
 4^(1/2)
 ```
 
+### Object
 
-## R Script & Console
+R can handle arithmatic opeartions between objects. Prepare objects `x` and `y`:
 
-In R Studio, we rarely write scripts directly in R console, where scripts are executed. This is because console does not save your scripts, so it is difficult to keep records of data manipulation and analysis. Instead, we write our scripts in ‘R script’, which lets you save and organize scripts in a separate window while enabling you to run scripts in R console quickly.
+```{r}
 
-## Create R Script
+x <- 1:5
+y <- 2:6
 
-To create ‘R script’, click an icon on the top bar and go to “R script” or “Ctrl + Shift + N”. Then, you will see a new window of R script in the left top:
+print(x)
+print(y)
 
-![](image/R_image6.png)
+```
+
+You can use objects intead of directly entering numbers. R automatically performs arithmatic operations for each element. For example, enter `y-x`:
+
+```{r}
+y - x
+```
+
+This is equivalent to:
+
+$$
+y[1] - x[1]\\
+y[2] - y[2]\\
+...\\
+y[n] - x[n]
+$$
+
+You can save the results as another object:
+
+```{r}
+z <- y - x
+print(z)
+```
+\
+\
+
+## R Script
+
+In R Studio, we rarely write scripts directly in R console. This is because console **does NOT save your scripts**, so it is difficult to keep records of data manipulation and analysis. Instead, we write our scripts in an **R script**, which enables you save and organize scripts in a separate window and allows you to run scripts when you are ready.
+
+### Create R Script
+
+To create an **R script**:
+
+a. go to `File > New File > R Script` (or `Ctrl + Shift + N`)
+b. then, you will see a new window of R script in the left top
 
 ![](image/R_image7.png)
 
-## Run Scripts
+### Run R Script
 
 You can run your script from the R script window. Write the following scripts:
 
 ```{r eval = F}
-X <- c(10.1, 5.3, 8.8, 6.7, 8.2)
-mean(X)
+x <- c(10.1, 5.3, 8.8, 6.7, 8.2)
+mean(x)
 ```
 
+Once you write scripts in the R Script window, the tab text will turn into <span style="color: red;">red</span>.
+This means this **R Script** file is edited but **unsaved**. You can save the file by `Ctrl + s` or by clicking the `floppy disk` icon on the top bar.
 Writing these scripts in the R script window does not execute any calculation. To execute, select lines and `Ctrl + Enter`. Selected scripts will appear in the console and execute what you commanded:
 
 ![](image/R_image8.png)
+\
+\
 
-![](image/R_image9.png)
-
-Red ink tab indicates that your R script file is unsaved since your last edits.
-
-
-## Compile a Report
+## Compile Report
 
 R Studio has a function to compile a report from R scripts (see also [R Markdown: The Definitive Guide](https://bookdown.org/yihui/rmarkdown/) for details). Include the following script on the top of the R script file to put your information:
 
@@ -219,8 +294,8 @@ For example, the following script is compiled like this:
 #' This appears outside boxes
 
 # inbox comment here
-X <- c(1, 2, 3, 4)
-X
+x <- c(1, 2, 3, 4)
+x
 
 #' # Header 2.1
 #' ## Header 2.2
@@ -228,13 +303,14 @@ X
 #' This text can be used to guide readers
 
 # inbox comment here
-Y <- 1:9
-Y
+y <- 1:9
+y
 
 ```
 
 ![](image/R_image11.png)
-
+\
+\
 
 ## File Management
 
@@ -253,13 +329,16 @@ As you proceed, the number of files will increase. It is critical to learn basic
   - For example, if your R script deals with figures, then name it `figure_XXX.R` (`XXX` identifies further details).
 - Numbering will help keep your folder/directory organized.
   - `figure_temperature.R`, `figure_precipitation.R`...this will work, but the order of files may be confusing.
-  - `figure_01_temperature.R`, `figure_02_precipitation.R`...this will organize files by group (`figure`) and numerically.
-
-
+  - `figure01_temperature.R`, `figure02_precipitation.R`...this will order files by group (`figure`) and then numerically.
+\
+\
 
 ---
 
-# Data Types and Structures
+
+# DATA STRUCTURE
+
+---
 
 ## Overview
 
@@ -274,9 +353,12 @@ R has 6 basic **data types**.
 
 These elements form one of the following **data structures**.  
 
-- vector: a series of elements. ***A single data type is allowed in a single vector***
-- matrix: elements organized into rows and columns. ***A single data type is allowed in a single matrix***
-- data frame: looks similar to a matrix, but allows ***different data types in different columns***
+- **vector**: a series of elements. A single data type is allowed in a single vector
+- **matrix**: elements organized into rows and columns. A single data type is allowed in a single matrix
+- **data frame**: looks similar to a matrix, but allows different data types in different columns
+
+\
+\
 
 ## Vector
 ### Create Vector
@@ -286,36 +368,36 @@ Below are examples of atomic character vectors, numeric vectors, integer vectors
 ```{r}
 
 #ex.1a manually create a vector using c()
-X <- c(1,3,4,8)
-X
+x <- c(1,3,4,8)
+x
 
 #ex.1b character
-X <- c("a", "b", "c")
-X
+x <- c("a", "b", "c")
+x
 
 #ex.1c logical
-X <- c(TRUE, FALSE, FALSE)
-X
+x <- c(TRUE, FALSE, FALSE)
+x
 
 #ex.2 sequence of numbers
-X <- 1:5
-X
+x <- 1:5
+x
 
 #ex.3a replicate same numbers or characters
-X <- rep(2, 5) # replicate 2 five times
-X
+x <- rep(2, 5) # replicate 2 five times
+x
 
 #ex.3b replicate same numbers or characters
-X <- rep("a", 5) # replicate "a" five times
-X
+x <- rep("a", 5) # replicate "a" five times
+x
 
 #ex.4a use seq() function
-X <- seq(1, 5, by = 1)
-X
+x <- seq(1, 5, by = 1)
+x
 
 #ex.4b use seq() function
-X <- seq(1, 5, by = 0.1)
-X
+x <- seq(1, 5, by = 0.1)
+x
 
 ```
 
@@ -330,49 +412,49 @@ R provides many functions to examine features of vectors and other objects, for 
 - `sum()` - what is the summed number of the data?
 - `mean()` - what is the average number of the data?
 
-#### Numeric Vector
+**Numeric Vector**
 
 ```{r}
 
-X <- c(1.2, 3.1, 4.0, 8.2)
-X
-class(X)
-typeof(X)
-length(X)
-sum(X)
-mean(X)
+x <- c(1.2, 3.1, 4.0, 8.2)
+x
+class(x)
+typeof(x)
+length(x)
+sum(x)
+mean(x)
 
 ```
 
-#### Character Vector
+**Character Vector**
 
 ```{r}
 
-Y <- c("a", "b", "c")
-class(Y)
-length(Y)
+y <- c("a", "b", "c")
+class(y)
+length(y)
 
 ```
   
 ### Access
-#### Element ID
 
+**Element ID**\
 Use brackets `[]` when accessing specific elements in an object.
-For example, if you want to access element #2 in the vector `X`, you may specify as `X[2]`:
+For example, if you want to access element #2 in the vector `x`, you may specify as `x[2]`:
 
 ```{r}
 
-X <- c(2,2,3,2,5)
-X[2] # access element #2
-X[c(2,4)] # access elements #2 and 4
-X[2:4] # access elements #2-4
+x <- c(2,2,3,2,5)
+x[2] # access element #2
+x[c(2,4)] # access elements #2 and 4
+x[2:4] # access elements #2-4
 
 ```
 
-#### Equation
+**Equation**\
 
 R provides many ways to access elements that suffice specific conditions. You can use mathematical symbols to specify what you need, for example:
-
+o
 - `==` equal
 - `>` larger than
 - `>=` equal & larger than
@@ -380,18 +462,18 @@ R provides many ways to access elements that suffice specific conditions. You ca
 - `<=` equal & smaller than
 - `which()` a function that returns element # that suffices the specified condition
 
-The following examples return a logical vector indicating whether each element in X suffices the specified condition:
+The following examples return a logical vector indicating whether each element in x suffices the specified condition:
 
 ```{r}
 
 # creating a vector
-X <- c(2,2,3,2,5)
+x <- c(2,2,3,2,5)
 
 # ex.1a equal
-X == 2
+x == 2
 
 # ex.1b larger than
-X > 2 
+x > 2 
 
 ```
 
@@ -400,9 +482,9 @@ You can access elements that suffice the specified condition using brackets, for
 ```{r}
 
 # ex.2a equal
-X[X == 2]
+x[x == 2]
 # ex.2b larger than
-X[X > 2]
+x[x > 2]
 
 ```
 
@@ -411,11 +493,14 @@ Using `which()`, you can see which elements (i.e., #) matches what you need:
 ```{r}
 
 # ex.3a equal
-which(X == 2) # returns which elements are equal to 2
+which(x == 2) # returns which elements are equal to 2
 # ex.3b larger than
-which(X > 2)
+which(x > 2)
 
 ```
+
+\
+\
 
 ## Matrix
 ### Create Matrix
@@ -425,16 +510,16 @@ Matrix is a set of elements (*single data type*) that are organized into rows an
 ```{r}
 
 #ex.1 cbind: combine objects by column
-X <- cbind(c(1,2,3), c(4,5,6))
-X
+x <- cbind(c(1,2,3), c(4,5,6))
+x
 
 #ex.2 rbind: combine objects by row
-X <- rbind(c(1,2,3), c(4,5,6))
-X
+x <- rbind(c(1,2,3), c(4,5,6))
+x
 
 #ex.3 matrix: specify elements and the number of rows (nrow) and columns (ncol)
-X <- matrix(1:9, nrow = 3, ncol = 3)
-X
+x <- matrix(1:9, nrow = 3, ncol = 3)
+x
 
 ```
 
@@ -442,34 +527,34 @@ X
 
 R provides many functions to examine features of matrix data, for example:
 
-- `class()` what kind of object (data structure) is it (high-level)?
+- `class()` what kind of object (data type) is it (high-level)?
 - `typeof()` what is the object’s data type (low-level)?
 - `attributes()` does it have any metadata?
 - `dim()` how long are rows and columns?
 - `rowSums()` what is the summed number of the data for each row?
 - `colSums()` what is the summed number of the data for each column?
 
-#### Integer Matrix
+**Integer Matrix**\
 
 ```{r}
 
-X <- matrix(1:9, nrow = 3, ncol = 3)
-X
-class(X)
-typeof(X)
-dim(X)
+x <- matrix(1:9, nrow = 3, ncol = 3)
+x
+class(x)
+typeof(x)
+dim(x)
 
 ```
 
-#### Character Matrix
+**Character Matrix**\
 
 ```{r}
 
-Y <- matrix(c("a","b", "c", "d", "e", "f"), nrow = 3, ncol = 2)
-Y
-class(Y)
-typeof(Y)
-dim(Y)
+y <- matrix(c("a","b", "c", "d", "e", "f"), nrow = 3, ncol = 2)
+y
+class(y)
+typeof(y)
+dim(y)
 
 ```
 
@@ -479,12 +564,12 @@ When accessing matrix elements, you need to pick row(s) and/or column(s), for ex
 
 ```{r}
 
-X <- matrix(1:9, nrow = 3, ncol = 3)
-X
-X[2,3] # access an element in row #2 and colum #3
-X[2,] # access elements in row #2
-X[c(2,3),] # access elements in rows #2 and 3
-X[,c(2,3)] # access elements in columns #2 and 3
+x <- matrix(1:9, nrow = 3, ncol = 3)
+x
+x[2,3] # access an element in row #2 and colum #3
+x[2,] # access elements in row #2
+x[c(2,3),] # access elements in rows #2 and 3
+x[,c(2,3)] # access elements in columns #2 and 3
 
 ```
 
@@ -492,8 +577,8 @@ You can assess each element with mathematical expressions just like vectors:
 
 ```{r}
 
-X == 2 # equal
-X > 2 # larger than
+x == 2 # equal
+x > 2 # larger than
 
 ```
 
@@ -501,8 +586,8 @@ However, care must be taken when accessing elements, as it will be automatically
 
 ```{r}
 
-X[X == 2] # equal
-X[X > 2] # larger than
+x[x == 2] # equal
+x[x > 2] # larger than
 
 ```
 
@@ -510,10 +595,13 @@ X[X > 2] # larger than
 
 ```{r}
 
-which(X == 2, arr.ind = TRUE)
-which(X > 2, arr.ind = TRUE)
+which(x == 2, arr.ind = TRUE)
+which(x > 2, arr.ind = TRUE)
 
 ```
+
+\
+\
 
 ## Data Frame
 
@@ -523,14 +611,14 @@ Data frame is a set of elements that are organized into rows and columns, but di
 - each column has its *name*
 - access columns by name (using `$`)
 
-***Data frame is the most common data structure when manipulating ecological data***. A data set loaded from a spread sheet (we will address this later) will be automatically recognized as a data frame. Here is an example:
+**Data frame is the most common data structure when manipulating ecological data**. A data set loaded from a spread sheet (we will address this later) will be automatically recognized as a data frame. Here is an example:
 
 ```{r}
 
 # Create data frame
-X <- c("Pristine", "Pristine", "Disturbed", "Disturbed", "Pristine") # Lake type
-Y <- c(1.2, 2.2, 10.9, 50.0, 3.0) # TSS: total suspended solids (mg/L)
-dat <- data.frame(LakeType = X, TSS = Y) # X is named as "LakeType" while Y is named as "TSS"
+x <- c("Pristine", "Pristine", "Disturbed", "Disturbed", "Pristine") # Lake type
+y <- c(1.2, 2.2, 10.9, 50.0, 3.0) # TSS: total suspended solids (mg/L)
+dat <- data.frame(LakeType = x, TSS = y) # x is named as "LakeType" while y is named as "TSS"
 dat
 colnames(dat) # call column names
 dat$LakeType # access LakeType
@@ -551,28 +639,20 @@ dat[c(2,4),] # access row #2 and 4
 
 ```
 
+\
+\
+
 ## Exercise
-### Basics
-#### Vector
 
-- Create three numeric vectors with length 3, 6 and 20, respectively. Each vector must be created using different functions in R.
-- Create three character vectors with length 3, 6 and 20, respectively. Each vector must be created using different functions in R.
+To answer the following questions, download a <a href = "file/report01_temp.R" download>template</a> (R script file).
 
-#### Matrix
-- Create a numeric matrix with 4 rows and 4 columns. Each column must contain identical elements.
-- Create a numeric matrix with 4 rows and 4 columns. Each row must contain identical elements.
-- Create a character matrix with 4 rows and 4 columns. Each column must contain identical elements.
-- Create a character matrix with 4 rows and 4 columns. Each row must contain identical elements.
-- Check the data structure (high-level) of each matrix.
+### Vector
 
-#### Dataframe
-- Create a dataframe with 3 variables (name variables as `X`, `Y` and `Z`. `X` must be `character` while `Y` and `Z` must be `numeric`.
-- Check the data structure (higher-level) of `X`, `Y` and `Z`
-
-### Advanced
-#### Vector
-
-Copy the following script to your R script:
+a. Create three numeric vectors with length 3, 6 and 20, respectively. Each vector must be created using different functions in R.
+b. Create three character vectors with length 3, 6 and 20, respectively. Each vector must be created using different functions in R.
+c. Copy the following script to your R script and perform the following analysis:
+  - Identify element IDs of `x` that are greater than `2.0`
+  - Identify element values of `x` that are greater than `2.0`
 
 ```{r, eval = FALSE}
 
@@ -581,26 +661,32 @@ x <- rnorm(100)
 
 ```
 
-- Identify element IDs of `x` that are greater than `2.0`
-- Identify element values of `x` that are greater than `2.0`
 
-#### Matrix
+### Matrix
 
-Copy the following script to your R script:
+a. Create a numeric matrix with 4 rows and 4 columns. Each column must contain identical elements.
+b. Create a numeric matrix with 4 rows and 4 columns. Each row must contain identical elements.
+c. Create a character matrix with 4 rows and 4 columns. Each column must contain identical elements.
+d. Create a character matrix with 4 rows and 4 columns. Each row must contain identical elements.
+e. Copy the following script to your R script and perform the following analysis:
+  - Identify element IDs of `x` that are greater than `2.0` (**specify row and column IDs**)
+  - Identify element values of `x` that are greater than `2.0` and caluculate the mean.
 
 ```{r, eval = FALSE}
 
 set.seed(1)
-X <- matrix(rnorm(100), nrow = 10, ncol = 10)
+x <- matrix(rnorm(100), nrow = 10, ncol = 10)
 
 ```
 
-- Identify element IDs of `X` that are greater than `2.0` (**specify row and column IDs**)
-- Identify element values of `X` that are greater than `2.0` and caluculate the mean.
 
-#### Data Frame
 
-Copy the following script to your R script:
+### Data Frame
+
+a. Create a dataframe of 3 variables with 10 elements (name variables as `x`, `y` and `z`. `x` must be `character` while `y` and `z` must be `numeric`.
+b. Check the data structure (higher-level) of `x`, `y` and `z`
+c. Copy the following script to your R script and perform the following analysis:
+  - Calculate the means of `temperature` and `abundance` for states `VA` and `NC` separately - use `tapply()` function
 
 ```{r, eval = FALSE}
 
@@ -612,4 +698,3 @@ dat <- data.frame(temperature = x, abundance = y, state = z)
 
 ```
 
-- Calculate means of `temperature` and `abundance` for states `VA` and `NC` separately
