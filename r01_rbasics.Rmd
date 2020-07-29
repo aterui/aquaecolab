@@ -4,6 +4,7 @@ output:
   html_document:
     toc: true
     toc_float: true
+    number_sections: true
 ---
 
 # Getting Started
@@ -55,8 +56,6 @@ If the path indicates where you are supposed to be, that's fine. However, when y
 
 
 
-
-## Simple Calculations
 
 ## Object
 
@@ -266,7 +265,7 @@ As you proceed, the number of files will increase. It is critical to learn basic
 
 R has 6 basic **data types**.
 
-- character: `"aquatic"`, `"ecology"` (noo order)
+- character: `"aquatic"`, `"ecology"` (no order)
 - factor: similar to character, but has *levels* (alphabetically ordered by default)
 - numeric: `20.0` , `15.5`
 - integer: `3`, `7`

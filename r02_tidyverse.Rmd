@@ -1,0 +1,42 @@
+---
+title: "Tidyverse"
+output:
+  html_document:
+    toc: true
+    toc_float: true
+    number_sections: true
+---
+
+```{r, include = F}
+
+library(tidyverse)
+
+```
+
+
+# Tidyverse
+[Tidyverse](https://www.tidyverse.org/packages/) is an R package that allow effective data manipulation, visualization and more. In this section, enter the following script upfront (and every time you open a new R session) so you can use functions in `tidyverse` package:
+
+```{r, eval = F}
+
+install.packages("tidyverse")
+library(tidyverse)
+
+```
+
+
+## Data transformation
+
+Data transformation is a critical component of data analysis. You can use spreadsheets or similar to manage your data. However, this form of data manipulation/transformation should be limited to the process of creating the primary dataset. There are several reasons for this. **First and foremost, a spreadsheet does NOT keep records of your edits.** If you make any mistake during the process of data transformation, those will be unnoticed. **Second, a spreadsheet is not well suited to data transformation.** You may need to iterate the same transformation multiple times, and you will make an error sooner or later.
+
+### Filter rows
+
+### Select columns
+
+### Add new variables
+
+### Grouping
+
+### Drop NAs
+
+### 

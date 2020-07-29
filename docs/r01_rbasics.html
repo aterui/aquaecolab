@@ -1,0 +1,1049 @@
+<!DOCTYPE html>
+
+<html>
+
+<head>
+
+<meta charset="utf-8" />
+<meta name="generator" content="pandoc" />
+<meta http-equiv="X-UA-Compatible" content="IE=EDGE" />
+
+
+
+
+<title>R Basics</title>
+
+<script src="site_libs/jquery-1.11.3/jquery.min.js"></script>
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<link href="site_libs/bootstrap-3.3.5/css/paper.min.css" rel="stylesheet" />
+<script src="site_libs/bootstrap-3.3.5/js/bootstrap.min.js"></script>
+<script src="site_libs/bootstrap-3.3.5/shim/html5shiv.min.js"></script>
+<script src="site_libs/bootstrap-3.3.5/shim/respond.min.js"></script>
+<script src="site_libs/jqueryui-1.11.4/jquery-ui.min.js"></script>
+<link href="site_libs/tocify-1.9.1/jquery.tocify.css" rel="stylesheet" />
+<script src="site_libs/tocify-1.9.1/jquery.tocify.js"></script>
+<script src="site_libs/navigation-1.1/tabsets.js"></script>
+<link href="site_libs/highlightjs-9.12.0/default.css" rel="stylesheet" />
+<script src="site_libs/highlightjs-9.12.0/highlight.js"></script>
+<link href="site_libs/font-awesome-5.1.0/css/all.css" rel="stylesheet" />
+<link href="site_libs/font-awesome-5.1.0/css/v4-shims.css" rel="stylesheet" />
+
+<style type="text/css">code{white-space: pre;}</style>
+<style type="text/css">
+  pre:not([class]) {
+    background-color: white;
+  }
+</style>
+<script type="text/javascript">
+if (window.hljs) {
+  hljs.configure({languages: []});
+  hljs.initHighlightingOnLoad();
+  if (document.readyState && document.readyState === "complete") {
+    window.setTimeout(function() { hljs.initHighlighting(); }, 0);
+  }
+}
+</script>
+
+
+
+<style type="text/css">
+h1 {
+  font-size: 34px;
+}
+h1.title {
+  font-size: 38px;
+}
+h2 {
+  font-size: 30px;
+}
+h3 {
+  font-size: 24px;
+}
+h4 {
+  font-size: 18px;
+}
+h5 {
+  font-size: 16px;
+}
+h6 {
+  font-size: 12px;
+}
+.table th:not([align]) {
+  text-align: left;
+}
+</style>
+
+<link rel="stylesheet" href="styles.css" type="text/css" />
+
+
+
+<style type = "text/css">
+.main-container {
+  max-width: 940px;
+  margin-left: auto;
+  margin-right: auto;
+}
+code {
+  color: inherit;
+  background-color: rgba(0, 0, 0, 0.04);
+}
+img {
+  max-width:100%;
+}
+.tabbed-pane {
+  padding-top: 12px;
+}
+.html-widget {
+  margin-bottom: 20px;
+}
+button.code-folding-btn:focus {
+  outline: none;
+}
+summary {
+  display: list-item;
+}
+</style>
+
+
+<style type="text/css">
+/* padding for bootstrap navbar */
+body {
+  padding-top: 64px;
+  padding-bottom: 40px;
+}
+/* offset scroll position for anchor links (for fixed navbar)  */
+.section h1 {
+  padding-top: 69px;
+  margin-top: -69px;
+}
+.section h2 {
+  padding-top: 69px;
+  margin-top: -69px;
+}
+.section h3 {
+  padding-top: 69px;
+  margin-top: -69px;
+}
+.section h4 {
+  padding-top: 69px;
+  margin-top: -69px;
+}
+.section h5 {
+  padding-top: 69px;
+  margin-top: -69px;
+}
+.section h6 {
+  padding-top: 69px;
+  margin-top: -69px;
+}
+.dropdown-submenu {
+  position: relative;
+}
+.dropdown-submenu>.dropdown-menu {
+  top: 0;
+  left: 100%;
+  margin-top: -6px;
+  margin-left: -1px;
+  border-radius: 0 6px 6px 6px;
+}
+.dropdown-submenu:hover>.dropdown-menu {
+  display: block;
+}
+.dropdown-submenu>a:after {
+  display: block;
+  content: " ";
+  float: right;
+  width: 0;
+  height: 0;
+  border-color: transparent;
+  border-style: solid;
+  border-width: 5px 0 5px 5px;
+  border-left-color: #cccccc;
+  margin-top: 5px;
+  margin-right: -10px;
+}
+.dropdown-submenu:hover>a:after {
+  border-left-color: #ffffff;
+}
+.dropdown-submenu.pull-left {
+  float: none;
+}
+.dropdown-submenu.pull-left>.dropdown-menu {
+  left: -100%;
+  margin-left: 10px;
+  border-radius: 6px 0 6px 6px;
+}
+</style>
+
+<script>
+// manage active state of menu based on current page
+$(document).ready(function () {
+  // active menu anchor
+  href = window.location.pathname
+  href = href.substr(href.lastIndexOf('/') + 1)
+  if (href === "")
+    href = "index.html";
+  var menuAnchor = $('a[href="' + href + '"]');
+
+  // mark it active
+  menuAnchor.parent().addClass('active');
+
+  // if it's got a parent navbar menu mark it active as well
+  menuAnchor.closest('li.dropdown').addClass('active');
+});
+</script>
+
+<!-- tabsets -->
+
+<style type="text/css">
+.tabset-dropdown > .nav-tabs {
+  display: inline-table;
+  max-height: 500px;
+  min-height: 44px;
+  overflow-y: auto;
+  background: white;
+  border: 1px solid #ddd;
+  border-radius: 4px;
+}
+
+.tabset-dropdown > .nav-tabs > li.active:before {
+  content: "";
+  font-family: 'Glyphicons Halflings';
+  display: inline-block;
+  padding: 10px;
+  border-right: 1px solid #ddd;
+}
+
+.tabset-dropdown > .nav-tabs.nav-tabs-open > li.active:before {
+  content: "&#xe258;";
+  border: none;
+}
+
+.tabset-dropdown > .nav-tabs.nav-tabs-open:before {
+  content: "";
+  font-family: 'Glyphicons Halflings';
+  display: inline-block;
+  padding: 10px;
+  border-right: 1px solid #ddd;
+}
+
+.tabset-dropdown > .nav-tabs > li.active {
+  display: block;
+}
+
+.tabset-dropdown > .nav-tabs > li > a,
+.tabset-dropdown > .nav-tabs > li > a:focus,
+.tabset-dropdown > .nav-tabs > li > a:hover {
+  border: none;
+  display: inline-block;
+  border-radius: 4px;
+  background-color: transparent;
+}
+
+.tabset-dropdown > .nav-tabs.nav-tabs-open > li {
+  display: block;
+  float: none;
+}
+
+.tabset-dropdown > .nav-tabs > li {
+  display: none;
+}
+</style>
+
+<!-- code folding -->
+
+
+
+<style type="text/css">
+
+#TOC {
+  margin: 25px 0px 20px 0px;
+}
+@media (max-width: 768px) {
+#TOC {
+  position: relative;
+  width: 100%;
+}
+}
+
+@media print {
+.toc-content {
+  /* see https://github.com/w3c/csswg-drafts/issues/4434 */
+  float: right;
+}
+}
+
+.toc-content {
+  padding-left: 30px;
+  padding-right: 40px;
+}
+
+div.main-container {
+  max-width: 1200px;
+}
+
+div.tocify {
+  width: 20%;
+  max-width: 260px;
+  max-height: 85%;
+}
+
+@media (min-width: 768px) and (max-width: 991px) {
+  div.tocify {
+    width: 25%;
+  }
+}
+
+@media (max-width: 767px) {
+  div.tocify {
+    width: 100%;
+    max-width: none;
+  }
+}
+
+.tocify ul, .tocify li {
+  line-height: 20px;
+}
+
+.tocify-subheader .tocify-item {
+  font-size: 0.90em;
+}
+
+.tocify .list-group-item {
+  border-radius: 0px;
+}
+
+
+</style>
+
+
+
+</head>
+
+<body>
+
+
+<div class="container-fluid main-container">
+
+
+<!-- setup 3col/9col grid for toc_float and main content  -->
+<div class="row-fluid">
+<div class="col-xs-12 col-sm-4 col-md-3">
+<div id="TOC" class="tocify">
+</div>
+</div>
+
+<div class="toc-content col-xs-12 col-sm-8 col-md-9">
+
+
+
+
+<div class="navbar navbar-default  navbar-fixed-top" role="navigation">
+  <div class="container">
+    <div class="navbar-header">
+      <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar">
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+      </button>
+      <a class="navbar-brand" href="index.html">AquatiQuE</a>
+    </div>
+    <div id="navbar" class="navbar-collapse collapse">
+      <ul class="nav navbar-nav">
+        <li>
+  <a href="index.html">
+    <span class="fa fa-home"></span>
+     
+    
+  </a>
+</li>
+<li class="dropdown">
+  <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">
+    R
+     
+    <span class="caret"></span>
+  </a>
+  <ul class="dropdown-menu" role="menu">
+    <li>
+      <a href="r_01.html">R Basics</a>
+    </li>
+    <li>
+      <a href="r_02.html">tidyverse</a>
+    </li>
+  </ul>
+</li>
+      </ul>
+      <ul class="nav navbar-nav navbar-right">
+        <li>
+  <a href="https://github.com/AkiraTerui/aquaecolab">
+    <span class="fa fa-github"></span>
+     
+    
+  </a>
+</li>
+      </ul>
+    </div><!--/.nav-collapse -->
+  </div><!--/.container -->
+</div><!--/.navbar -->
+
+<div class="fluid-row" id="header">
+
+
+
+<h1 class="title toc-ignore">R Basics</h1>
+
+</div>
+
+
+<div id="getting-started" class="section level1">
+<h1><span class="header-section-number">1</span> Getting Started</h1>
+<div id="install-r-and-r-studio" class="section level2">
+<h2><span class="header-section-number">1.1</span> Install R and R Studio</h2>
+<p>R and R Studio can be installed from the following websites:</p>
+<ul>
+<li><a href="https://www.r-project.org/">R</a> (you can choose any CRAN mirror to download)</li>
+<li><a href="https://rStudio.com/products/rStudio/download/">R Studio</a></li>
+</ul>
+<p>While R is stand-alone software, I strongly recommend to use it with R Studio. R Studio has many functions that help your data analysis.</p>
+</div>
+<div id="basic-setup" class="section level2">
+<h2><span class="header-section-number">1.2</span> Basic Setup</h2>
+<div id="interface" class="section level3">
+<h3><span class="header-section-number">1.2.1</span> Interface</h3>
+<p><img src="image/R_image1.png" /></p>
+<p>R Studio interface. The left half of the screen is <strong>“console”</strong> where you put your script to execute calculation/data manipulation/analysis (ignore the tab “Terminal” at this point). The right bottom shows a folder in which you are working now – i.e., <strong>“working folder or directory”</strong>. R does not recognize any files outside of this folder, so be sure to pick the right directory when you work in R.</p>
+</div>
+<div id="create-project" class="section level3">
+<h3><span class="header-section-number">1.2.2</span> Create Project</h3>
+<p>As you proceed, numerous materials will be produced, making it harder to put relevant things in one place. However, R Studio will help organize files by creating a project. To initiate the process of creating a project, <strong>click the icon on the top bar or <code>File</code></strong>:</p>
+<p><img src="image/R_image2.png" /></p>
+<p>Select <code>New Directory</code>:</p>
+<p><img src="image/R_image3.png" /></p>
+<p>Select <code>New Project</code>:</p>
+<p><img src="image/R_image4.png" /></p>
+<p>A new window pops up and prompts you to name a directory and where to put the directory in your computer. Click <code>Browse</code> to select a location for the directory. I would create a folder for R projects (e.g., <code>RProject</code>) and put a project directory under this folder. Click <strong>Create Project</strong> once you decided directory name and location:</p>
+<p><img src="image/R_image5.png" /></p>
+</div>
+<div id="locate-yourself" class="section level3">
+<h3><span class="header-section-number">1.2.3</span> Locate Yourself</h3>
+<p>Once you created a project, R Studio will take you to where the R project is located. Check the current directory using the following script:</p>
+<pre class="r"><code>getwd()</code></pre>
+<pre><code>## [1] &quot;C:/Users/Akira/OneDrive - UNCG/Documents/GitHub/aquaecolab&quot;</code></pre>
+<p>If the path indicates where you are supposed to be, that’s fine. However, when you next open R Studio, the initial location could be somewhere else. In that case, go to <code>File &gt; Open Project</code> and open the <code>.Rproj</code> file that you just created. This will take you to the directory you are supposed to be.</p>
+</div>
+</div>
+<div id="object" class="section level2">
+<h2><span class="header-section-number">1.3</span> Object</h2>
+<p>Let’s play with R. Put the following script in your console.</p>
+<pre class="r"><code>X &lt;- c(10.1, 5.3, 8.8, 6.7, 8.2)</code></pre>
+<p>This script creates a vector of numbers composed of {10.1, 5.3, 8.8, 6.7, 8.2}. <code>X</code> is a ‘box’ where the vector information is stored, and ‘&lt;-’ is the arrow that command R to store {10.1, 5.3, 8.8, 6.7, 8.2} in a box <code>X</code>. <code>X</code> is refered to as an <strong>object</strong>. Let’s see what’s in <code>X</code>:</p>
+<pre class="r"><code>X</code></pre>
+<pre><code>## [1] 10.1  5.3  8.8  6.7  8.2</code></pre>
+<p>R has many functions that calculate the mean, median, etc. Let’s calculate a mean and median for <code>X</code>:</p>
+<pre class="r"><code>mean(X)</code></pre>
+<pre><code>## [1] 7.82</code></pre>
+<pre class="r"><code>median(X)</code></pre>
+<pre><code>## [1] 8.2</code></pre>
+<p>Also, you can pick an element(s) that you want. Numbers in brackets ‘[]’ specifies the numbered ID of each element. In the above example, element <code>X[3]</code> is <code>8.8</code>. You can extract this information with the following script:</p>
+<pre class="r"><code>X[3]</code></pre>
+<pre><code>## [1] 8.8</code></pre>
+<p>You can also choose multiple elements simultaneously. For example, <code>3:5</code> specifies elements starting from 3 to 5 (colon creates a sequence of numbers):</p>
+<pre class="r"><code>3:5</code></pre>
+<pre><code>## [1] 3 4 5</code></pre>
+<pre class="r"><code>X[3:5]</code></pre>
+<pre><code>## [1] 8.8 6.7 8.2</code></pre>
+<p>If you want to pick elements that are not ordered sequentially, you can use <code>c()</code> to specify multiple elements:</p>
+<pre class="r"><code>c(1,4)</code></pre>
+<pre><code>## [1] 1 4</code></pre>
+<pre class="r"><code>X[c(1,4)]</code></pre>
+<pre><code>## [1] 10.1  6.7</code></pre>
+</div>
+<div id="arithmetic-operations" class="section level2">
+<h2><span class="header-section-number">1.4</span> Arithmetic Operations</h2>
+<p>Addition</p>
+<pre class="r"><code>1 + 1</code></pre>
+<pre><code>## [1] 2</code></pre>
+<pre class="r"><code>121 + 123</code></pre>
+<pre><code>## [1] 244</code></pre>
+<p>Subtraction</p>
+<pre class="r"><code>1 - 1 </code></pre>
+<pre><code>## [1] 0</code></pre>
+<pre class="r"><code>121 - 123</code></pre>
+<pre><code>## [1] -2</code></pre>
+<p>Multiplication</p>
+<pre class="r"><code>1 * 1</code></pre>
+<pre><code>## [1] 1</code></pre>
+<pre class="r"><code>121 * 123</code></pre>
+<pre><code>## [1] 14883</code></pre>
+<p>Division</p>
+<pre class="r"><code>1 / 1</code></pre>
+<pre><code>## [1] 1</code></pre>
+<pre class="r"><code>121 / 123</code></pre>
+<pre><code>## [1] 0.9837398</code></pre>
+<p>Power</p>
+<pre class="r"><code>2^2</code></pre>
+<pre><code>## [1] 4</code></pre>
+<p>Square root</p>
+<pre class="r"><code>sqrt(4)</code></pre>
+<pre><code>## [1] 2</code></pre>
+<pre class="r"><code>4^(1/2)</code></pre>
+<pre><code>## [1] 2</code></pre>
+</div>
+<div id="r-script-console" class="section level2">
+<h2><span class="header-section-number">1.5</span> R Script &amp; Console</h2>
+<p>In R Studio, we rarely write scripts directly in R console, where scripts are executed. This is because console does not save your scripts, so it is difficult to keep records of data manipulation and analysis. Instead, we write our scripts in ‘R script’, which lets you save and organize scripts in a separate window while enabling you to run scripts in R console quickly.</p>
+</div>
+<div id="create-r-script" class="section level2">
+<h2><span class="header-section-number">1.6</span> Create R Script</h2>
+<p>To create ‘R script’, click an icon on the top bar and go to “R script” or “Ctrl + Shift + N”. Then, you will see a new window of R script in the left top:</p>
+<p><img src="image/R_image6.png" /></p>
+<p><img src="image/R_image7.png" /></p>
+</div>
+<div id="run-scripts" class="section level2">
+<h2><span class="header-section-number">1.7</span> Run Scripts</h2>
+<p>You can run your script from the R script window. Write the following scripts:</p>
+<pre class="r"><code>X &lt;- c(10.1, 5.3, 8.8, 6.7, 8.2)
+mean(X)</code></pre>
+<p>Writing these scripts in the R script window does not execute any calculation. To execute, select lines and <code>Ctrl + Enter</code>. Selected scripts will appear in the console and execute what you commanded:</p>
+<p><img src="image/R_image8.png" /></p>
+<p><img src="image/R_image9.png" /></p>
+<p>Red ink tab indicates that your R script file is unsaved since your last edits.</p>
+</div>
+<div id="compile-a-report" class="section level2">
+<h2><span class="header-section-number">1.8</span> Compile a Report</h2>
+<p>R Studio has a function to compile a report from R scripts (see also <a href="https://bookdown.org/yihui/rmarkdown/">R Markdown: The Definitive Guide</a> for details). Include the following script on the top of the R script file to put your information:</p>
+<pre class="r"><code>#&#39; ---
+#&#39; title: &quot;Report&quot;
+#&#39; author: Your Name
+#&#39; date: Jan 16, 2020
+#&#39; output: html_document
+#&#39; ---</code></pre>
+<p>Each argument determines the following:</p>
+<ul>
+<li><code>title</code> title of your report</li>
+<li><code>author</code> this appears below the title in the compiled report</li>
+<li><code>date</code> date created</li>
+<li><code>output</code> output format; use <code>html_document</code></li>
+</ul>
+<p>Click on the “compile” button on the top. This creates a report from your R script:</p>
+<p><img src="image/R_image10.png" /></p>
+<p>The R Studio will start compiling your report. Here is some rules when compiling a report.</p>
+<ul>
+<li>Your script will appear in a grey box. Put <code>#</code> if you want leave a comment on the script.</li>
+<li>Output from your script will appear in a white box with double sharps</li>
+<li>Text after <code>#'</code> will show up outside a grey box (text after <code>#</code> will be regarded as Header)</li>
+</ul>
+<p>For example, the following script is compiled like this:</p>
+<pre class="r"><code>#&#39; ---
+#&#39; title: &quot;Report&quot;
+#&#39; author: Your Name
+#&#39; date: Jan 16, 2020
+#&#39; output: html_document
+#&#39; ---
+
+#&#39; # Header 1.1
+#&#39; ## Header 1.2
+#&#39; ### Header 1.3
+#&#39; This appears outside boxes
+
+# inbox comment here
+X &lt;- c(1, 2, 3, 4)
+X
+
+#&#39; # Header 2.1
+#&#39; ## Header 2.2
+#&#39; ### Header 2.3
+#&#39; This text can be used to guide readers
+
+# inbox comment here
+Y &lt;- 1:9
+Y</code></pre>
+<p><img src="image/R_image11.png" /></p>
+</div>
+<div id="file-management" class="section level2">
+<h2><span class="header-section-number">1.9</span> File Management</h2>
+<p>As you proceed, the number of files will increase. It is critical to learn basic rules of <strong>how to locate and name your files in your computer</strong>. Here are some recommendations:</p>
+<ul>
+<li>Put all the relevant files in a single folder.
+<ul>
+<li>R scripts and associated files should be saved in the project folder.</li>
+<li>Create a new R project when working on different topics. Do not mix them up in a single folder.</li>
+</ul></li>
+<li>Avoid space and period when naming files. Instead, use underscore or hyphen.
+<ul>
+<li>Do: <code>script_week1.R</code> <code>script-week1.R</code></li>
+<li>Don’t: <code>script week1.R</code></li>
+</ul></li>
+<li>Use lowercases.
+<ul>
+<li>Do: <code>script_week1.R</code></li>
+<li>Don’t: <code>Script_week1.R</code></li>
+</ul></li>
+<li>Keep consistent.
+<ul>
+<li>For example, if your R script deals with figures, then name it <code>figure_XXX.R</code> (<code>XXX</code> identifies further details).</li>
+</ul></li>
+<li>Numbering will help keep your folder/directory organized.
+<ul>
+<li><code>figure_temperature.R</code>, <code>figure_precipitation.R</code>…this will work, but the order of files may be confusing.</li>
+<li><code>figure_01_temperature.R</code>, <code>figure_02_precipitation.R</code>…this will organize files by group (<code>figure</code>) and numerically.</li>
+</ul></li>
+</ul>
+<hr />
+</div>
+</div>
+<div id="data-types-and-structures" class="section level1">
+<h1><span class="header-section-number">2</span> Data Types and Structures</h1>
+<div id="overview" class="section level2">
+<h2><span class="header-section-number">2.1</span> Overview</h2>
+<p>R has 6 basic <strong>data types</strong>.</p>
+<ul>
+<li>character: <code>"aquatic"</code>, <code>"ecology"</code> (noo order)</li>
+<li>factor: similar to character, but has <em>levels</em> (alphabetically ordered by default)</li>
+<li>numeric: <code>20.0</code> , <code>15.5</code></li>
+<li>integer: <code>3</code>, <code>7</code></li>
+<li>logical: <code>TRUE</code> , <code>FALSE</code></li>
+<li>complex: <code>1+2i</code> (complex numbers with real and imaginary parts)</li>
+</ul>
+<p>These elements form one of the following <strong>data structures</strong>.</p>
+<ul>
+<li>vector: a series of elements. <strong><em>A single data type is allowed in a single vector</em></strong></li>
+<li>matrix: elements organized into rows and columns. <strong><em>A single data type is allowed in a single matrix</em></strong></li>
+<li>data frame: looks similar to a matrix, but allows <strong><em>different data types in different columns</em></strong></li>
+</ul>
+</div>
+<div id="vector" class="section level2">
+<h2><span class="header-section-number">2.2</span> Vector</h2>
+<div id="create-vector" class="section level3">
+<h3><span class="header-section-number">2.2.1</span> Create Vector</h3>
+<p>Below are examples of atomic character vectors, numeric vectors, integer vectors, etc. There are many ways to create vector data. The following examples use <code>c()</code>, <code>:</code>, <code>seq()</code>, <code>rep()</code>:</p>
+<pre class="r"><code>#ex.1a manually create a vector using c()
+X &lt;- c(1,3,4,8)
+X</code></pre>
+<pre><code>## [1] 1 3 4 8</code></pre>
+<pre class="r"><code>#ex.1b character
+X &lt;- c(&quot;a&quot;, &quot;b&quot;, &quot;c&quot;)
+X</code></pre>
+<pre><code>## [1] &quot;a&quot; &quot;b&quot; &quot;c&quot;</code></pre>
+<pre class="r"><code>#ex.1c logical
+X &lt;- c(TRUE, FALSE, FALSE)
+X</code></pre>
+<pre><code>## [1]  TRUE FALSE FALSE</code></pre>
+<pre class="r"><code>#ex.2 sequence of numbers
+X &lt;- 1:5
+X</code></pre>
+<pre><code>## [1] 1 2 3 4 5</code></pre>
+<pre class="r"><code>#ex.3a replicate same numbers or characters
+X &lt;- rep(2, 5) # replicate 2 five times
+X</code></pre>
+<pre><code>## [1] 2 2 2 2 2</code></pre>
+<pre class="r"><code>#ex.3b replicate same numbers or characters
+X &lt;- rep(&quot;a&quot;, 5) # replicate &quot;a&quot; five times
+X</code></pre>
+<pre><code>## [1] &quot;a&quot; &quot;a&quot; &quot;a&quot; &quot;a&quot; &quot;a&quot;</code></pre>
+<pre class="r"><code>#ex.4a use seq() function
+X &lt;- seq(1, 5, by = 1)
+X</code></pre>
+<pre><code>## [1] 1 2 3 4 5</code></pre>
+<pre class="r"><code>#ex.4b use seq() function
+X &lt;- seq(1, 5, by = 0.1)
+X</code></pre>
+<pre><code>##  [1] 1.0 1.1 1.2 1.3 1.4 1.5 1.6 1.7 1.8 1.9 2.0 2.1 2.2 2.3 2.4 2.5 2.6
+## [18] 2.7 2.8 2.9 3.0 3.1 3.2 3.3 3.4 3.5 3.6 3.7 3.8 3.9 4.0 4.1 4.2 4.3
+## [35] 4.4 4.5 4.6 4.7 4.8 4.9 5.0</code></pre>
+</div>
+<div id="check-features" class="section level3">
+<h3><span class="header-section-number">2.2.2</span> Check Features</h3>
+<p>R provides many functions to examine features of vectors and other objects, for example:</p>
+<ul>
+<li><code>class()</code> - what kind of object (data structure) is it (high-level)?</li>
+<li><code>typeof()</code> - what is the object’s data type (low-level)?</li>
+<li><code>attributes()</code> - does it have any metadata?</li>
+<li><code>length()</code> - how long is it? What about two dimensional objects?</li>
+<li><code>sum()</code> - what is the summed number of the data?</li>
+<li><code>mean()</code> - what is the average number of the data?</li>
+</ul>
+<div id="numeric-vector" class="section level4">
+<h4><span class="header-section-number">2.2.2.1</span> Numeric Vector</h4>
+<pre class="r"><code>X &lt;- c(1.2, 3.1, 4.0, 8.2)
+X</code></pre>
+<pre><code>## [1] 1.2 3.1 4.0 8.2</code></pre>
+<pre class="r"><code>class(X)</code></pre>
+<pre><code>## [1] &quot;numeric&quot;</code></pre>
+<pre class="r"><code>typeof(X)</code></pre>
+<pre><code>## [1] &quot;double&quot;</code></pre>
+<pre class="r"><code>length(X)</code></pre>
+<pre><code>## [1] 4</code></pre>
+<pre class="r"><code>sum(X)</code></pre>
+<pre><code>## [1] 16.5</code></pre>
+<pre class="r"><code>mean(X)</code></pre>
+<pre><code>## [1] 4.125</code></pre>
+</div>
+<div id="character-vector" class="section level4">
+<h4><span class="header-section-number">2.2.2.2</span> Character Vector</h4>
+<pre class="r"><code>Y &lt;- c(&quot;a&quot;, &quot;b&quot;, &quot;c&quot;)
+class(Y)</code></pre>
+<pre><code>## [1] &quot;character&quot;</code></pre>
+<pre class="r"><code>length(Y)</code></pre>
+<pre><code>## [1] 3</code></pre>
+</div>
+</div>
+<div id="access" class="section level3">
+<h3><span class="header-section-number">2.2.3</span> Access</h3>
+<div id="element-id" class="section level4">
+<h4><span class="header-section-number">2.2.3.1</span> Element ID</h4>
+<p>Use brackets <code>[]</code> when accessing specific elements in an object. For example, if you want to access element #2 in the vector <code>X</code>, you may specify as <code>X[2]</code>:</p>
+<pre class="r"><code>X &lt;- c(2,2,3,2,5)
+X[2] # access element #2</code></pre>
+<pre><code>## [1] 2</code></pre>
+<pre class="r"><code>X[c(2,4)] # access elements #2 and 4</code></pre>
+<pre><code>## [1] 2 2</code></pre>
+<pre class="r"><code>X[2:4] # access elements #2-4</code></pre>
+<pre><code>## [1] 2 3 2</code></pre>
+</div>
+<div id="equation" class="section level4">
+<h4><span class="header-section-number">2.2.3.2</span> Equation</h4>
+<p>R provides many ways to access elements that suffice specific conditions. You can use mathematical symbols to specify what you need, for example:</p>
+<ul>
+<li><code>==</code> equal</li>
+<li><code>&gt;</code> larger than</li>
+<li><code>&gt;=</code> equal &amp; larger than</li>
+<li><code>&lt;</code> smaller than</li>
+<li><code>&lt;=</code> equal &amp; smaller than</li>
+<li><code>which()</code> a function that returns element # that suffices the specified condition</li>
+</ul>
+<p>The following examples return a logical vector indicating whether each element in X suffices the specified condition:</p>
+<pre class="r"><code># creating a vector
+X &lt;- c(2,2,3,2,5)
+
+# ex.1a equal
+X == 2</code></pre>
+<pre><code>## [1]  TRUE  TRUE FALSE  TRUE FALSE</code></pre>
+<pre class="r"><code># ex.1b larger than
+X &gt; 2 </code></pre>
+<pre><code>## [1] FALSE FALSE  TRUE FALSE  TRUE</code></pre>
+<p>You can access elements that suffice the specified condition using brackets, for example:</p>
+<pre class="r"><code># ex.2a equal
+X[X == 2]</code></pre>
+<pre><code>## [1] 2 2 2</code></pre>
+<pre class="r"><code># ex.2b larger than
+X[X &gt; 2]</code></pre>
+<pre><code>## [1] 3 5</code></pre>
+<p>Using <code>which()</code>, you can see which elements (i.e., #) matches what you need:</p>
+<pre class="r"><code># ex.3a equal
+which(X == 2) # returns which elements are equal to 2</code></pre>
+<pre><code>## [1] 1 2 4</code></pre>
+<pre class="r"><code># ex.3b larger than
+which(X &gt; 2)</code></pre>
+<pre><code>## [1] 3 5</code></pre>
+</div>
+</div>
+</div>
+<div id="matrix" class="section level2">
+<h2><span class="header-section-number">2.3</span> Matrix</h2>
+<div id="create-matrix" class="section level3">
+<h3><span class="header-section-number">2.3.1</span> Create Matrix</h3>
+<p>Matrix is a set of elements (<em>single data type</em>) that are organized into rows and columns:</p>
+<pre class="r"><code>#ex.1 cbind: combine objects by column
+X &lt;- cbind(c(1,2,3), c(4,5,6))
+X</code></pre>
+<pre><code>##      [,1] [,2]
+## [1,]    1    4
+## [2,]    2    5
+## [3,]    3    6</code></pre>
+<pre class="r"><code>#ex.2 rbind: combine objects by row
+X &lt;- rbind(c(1,2,3), c(4,5,6))
+X</code></pre>
+<pre><code>##      [,1] [,2] [,3]
+## [1,]    1    2    3
+## [2,]    4    5    6</code></pre>
+<pre class="r"><code>#ex.3 matrix: specify elements and the number of rows (nrow) and columns (ncol)
+X &lt;- matrix(1:9, nrow = 3, ncol = 3)
+X</code></pre>
+<pre><code>##      [,1] [,2] [,3]
+## [1,]    1    4    7
+## [2,]    2    5    8
+## [3,]    3    6    9</code></pre>
+</div>
+<div id="check-features-1" class="section level3">
+<h3><span class="header-section-number">2.3.2</span> Check Features</h3>
+<p>R provides many functions to examine features of matrix data, for example:</p>
+<ul>
+<li><code>class()</code> what kind of object (data structure) is it (high-level)?</li>
+<li><code>typeof()</code> what is the object’s data type (low-level)?</li>
+<li><code>attributes()</code> does it have any metadata?</li>
+<li><code>dim()</code> how long are rows and columns?</li>
+<li><code>rowSums()</code> what is the summed number of the data for each row?</li>
+<li><code>colSums()</code> what is the summed number of the data for each column?</li>
+</ul>
+<div id="integer-matrix" class="section level4">
+<h4><span class="header-section-number">2.3.2.1</span> Integer Matrix</h4>
+<pre class="r"><code>X &lt;- matrix(1:9, nrow = 3, ncol = 3)
+X</code></pre>
+<pre><code>##      [,1] [,2] [,3]
+## [1,]    1    4    7
+## [2,]    2    5    8
+## [3,]    3    6    9</code></pre>
+<pre class="r"><code>class(X)</code></pre>
+<pre><code>## [1] &quot;matrix&quot;</code></pre>
+<pre class="r"><code>typeof(X)</code></pre>
+<pre><code>## [1] &quot;integer&quot;</code></pre>
+<pre class="r"><code>dim(X)</code></pre>
+<pre><code>## [1] 3 3</code></pre>
+</div>
+<div id="character-matrix" class="section level4">
+<h4><span class="header-section-number">2.3.2.2</span> Character Matrix</h4>
+<pre class="r"><code>Y &lt;- matrix(c(&quot;a&quot;,&quot;b&quot;, &quot;c&quot;, &quot;d&quot;, &quot;e&quot;, &quot;f&quot;), nrow = 3, ncol = 2)
+Y</code></pre>
+<pre><code>##      [,1] [,2]
+## [1,] &quot;a&quot;  &quot;d&quot; 
+## [2,] &quot;b&quot;  &quot;e&quot; 
+## [3,] &quot;c&quot;  &quot;f&quot;</code></pre>
+<pre class="r"><code>class(Y)</code></pre>
+<pre><code>## [1] &quot;matrix&quot;</code></pre>
+<pre class="r"><code>typeof(Y)</code></pre>
+<pre><code>## [1] &quot;character&quot;</code></pre>
+<pre class="r"><code>dim(Y)</code></pre>
+<pre><code>## [1] 3 2</code></pre>
+</div>
+</div>
+<div id="access-1" class="section level3">
+<h3><span class="header-section-number">2.3.3</span> Access</h3>
+<p>When accessing matrix elements, you need to pick row(s) and/or column(s), for example:</p>
+<pre class="r"><code>X &lt;- matrix(1:9, nrow = 3, ncol = 3)
+X</code></pre>
+<pre><code>##      [,1] [,2] [,3]
+## [1,]    1    4    7
+## [2,]    2    5    8
+## [3,]    3    6    9</code></pre>
+<pre class="r"><code>X[2,3] # access an element in row #2 and colum #3</code></pre>
+<pre><code>## [1] 8</code></pre>
+<pre class="r"><code>X[2,] # access elements in row #2</code></pre>
+<pre><code>## [1] 2 5 8</code></pre>
+<pre class="r"><code>X[c(2,3),] # access elements in rows #2 and 3</code></pre>
+<pre><code>##      [,1] [,2] [,3]
+## [1,]    2    5    8
+## [2,]    3    6    9</code></pre>
+<pre class="r"><code>X[,c(2,3)] # access elements in columns #2 and 3</code></pre>
+<pre><code>##      [,1] [,2]
+## [1,]    4    7
+## [2,]    5    8
+## [3,]    6    9</code></pre>
+<p>You can assess each element with mathematical expressions just like vectors:</p>
+<pre class="r"><code>X == 2 # equal</code></pre>
+<pre><code>##       [,1]  [,2]  [,3]
+## [1,] FALSE FALSE FALSE
+## [2,]  TRUE FALSE FALSE
+## [3,] FALSE FALSE FALSE</code></pre>
+<pre class="r"><code>X &gt; 2 # larger than</code></pre>
+<pre><code>##       [,1] [,2] [,3]
+## [1,] FALSE TRUE TRUE
+## [2,] FALSE TRUE TRUE
+## [3,]  TRUE TRUE TRUE</code></pre>
+<p>However, care must be taken when accessing elements, as it will be automatically converted to vector data:</p>
+<pre class="r"><code>X[X == 2] # equal</code></pre>
+<pre><code>## [1] 2</code></pre>
+<pre class="r"><code>X[X &gt; 2] # larger than</code></pre>
+<pre><code>## [1] 3 4 5 6 7 8 9</code></pre>
+<p><code>which()</code> needs an additional argument to return both row and column #:</p>
+<pre class="r"><code>which(X == 2, arr.ind = TRUE)</code></pre>
+<pre><code>##      row col
+## [1,]   2   1</code></pre>
+<pre class="r"><code>which(X &gt; 2, arr.ind = TRUE)</code></pre>
+<pre><code>##      row col
+## [1,]   3   1
+## [2,]   1   2
+## [3,]   2   2
+## [4,]   3   2
+## [5,]   1   3
+## [6,]   2   3
+## [7,]   3   3</code></pre>
+</div>
+</div>
+<div id="data-frame" class="section level2">
+<h2><span class="header-section-number">2.4</span> Data Frame</h2>
+<p>Data frame is a set of elements that are organized into rows and columns, but differ in several ways.</p>
+<ul>
+<li>it allows <em>multiple data types</em> in different columns</li>
+<li>each column has its <em>name</em></li>
+<li>access columns by name (using <code>$</code>)</li>
+</ul>
+<p><strong><em>Data frame is the most common data structure when manipulating ecological data</em></strong>. A data set loaded from a spread sheet (we will address this later) will be automatically recognized as a data frame. Here is an example:</p>
+<pre class="r"><code># Create data frame
+X &lt;- c(&quot;Pristine&quot;, &quot;Pristine&quot;, &quot;Disturbed&quot;, &quot;Disturbed&quot;, &quot;Pristine&quot;) # Lake type
+Y &lt;- c(1.2, 2.2, 10.9, 50.0, 3.0) # TSS: total suspended solids (mg/L)
+dat &lt;- data.frame(LakeType = X, TSS = Y) # X is named as &quot;LakeType&quot; while Y is named as &quot;TSS&quot;
+dat</code></pre>
+<pre><code>##    LakeType  TSS
+## 1  Pristine  1.2
+## 2  Pristine  2.2
+## 3 Disturbed 10.9
+## 4 Disturbed 50.0
+## 5  Pristine  3.0</code></pre>
+<pre class="r"><code>colnames(dat) # call column names</code></pre>
+<pre><code>## [1] &quot;LakeType&quot; &quot;TSS&quot;</code></pre>
+<pre class="r"><code>dat$LakeType # access LakeType</code></pre>
+<pre><code>## [1] Pristine  Pristine  Disturbed Disturbed Pristine 
+## Levels: Disturbed Pristine</code></pre>
+<pre class="r"><code>dat$TSS # access TSS</code></pre>
+<pre><code>## [1]  1.2  2.2 10.9 50.0  3.0</code></pre>
+<pre class="r"><code>class(dat) # check feature</code></pre>
+<pre><code>## [1] &quot;data.frame&quot;</code></pre>
+<pre class="r"><code>class(dat$LakeType) # check feature of LakeType</code></pre>
+<pre><code>## [1] &quot;factor&quot;</code></pre>
+<pre class="r"><code>class(dat$TSS) # check feature of TSS</code></pre>
+<pre><code>## [1] &quot;numeric&quot;</code></pre>
+<p>You can access elements like a matrix as well:</p>
+<pre class="r"><code>dat[,1] # access column #1</code></pre>
+<pre><code>## [1] Pristine  Pristine  Disturbed Disturbed Pristine 
+## Levels: Disturbed Pristine</code></pre>
+<pre class="r"><code>dat[1,] # access row #1</code></pre>
+<pre><code>##   LakeType TSS
+## 1 Pristine 1.2</code></pre>
+<pre class="r"><code>dat[c(2,4),] # access row #2 and 4</code></pre>
+<pre><code>##    LakeType  TSS
+## 2  Pristine  2.2
+## 4 Disturbed 50.0</code></pre>
+</div>
+<div id="exercise" class="section level2">
+<h2><span class="header-section-number">2.5</span> Exercise</h2>
+<div id="basics" class="section level3">
+<h3><span class="header-section-number">2.5.1</span> Basics</h3>
+<div id="vector-1" class="section level4">
+<h4><span class="header-section-number">2.5.1.1</span> Vector</h4>
+<ul>
+<li>Create three numeric vectors with length 3, 6 and 20, respectively. Each vector must be created using different functions in R.</li>
+<li>Create three character vectors with length 3, 6 and 20, respectively. Each vector must be created using different functions in R.</li>
+</ul>
+</div>
+<div id="matrix-1" class="section level4">
+<h4><span class="header-section-number">2.5.1.2</span> Matrix</h4>
+<ul>
+<li>Create a numeric matrix with 4 rows and 4 columns. Each column must contain identical elements.</li>
+<li>Create a numeric matrix with 4 rows and 4 columns. Each row must contain identical elements.</li>
+<li>Create a character matrix with 4 rows and 4 columns. Each column must contain identical elements.</li>
+<li>Create a character matrix with 4 rows and 4 columns. Each row must contain identical elements.</li>
+<li>Check the data structure (high-level) of each matrix.</li>
+</ul>
+</div>
+<div id="dataframe" class="section level4">
+<h4><span class="header-section-number">2.5.1.3</span> Dataframe</h4>
+<ul>
+<li>Create a dataframe with 3 variables (name variables as <code>X</code>, <code>Y</code> and <code>Z</code>. <code>X</code> must be <code>character</code> while <code>Y</code> and <code>Z</code> must be <code>numeric</code>.</li>
+<li>Check the data structure (higher-level) of <code>X</code>, <code>Y</code> and <code>Z</code></li>
+</ul>
+</div>
+</div>
+<div id="advanced" class="section level3">
+<h3><span class="header-section-number">2.5.2</span> Advanced</h3>
+<div id="vector-2" class="section level4">
+<h4><span class="header-section-number">2.5.2.1</span> Vector</h4>
+<p>Copy the following script to your R script:</p>
+<pre class="r"><code>set.seed(1)
+x &lt;- rnorm(100)</code></pre>
+<ul>
+<li>Identify element IDs of <code>x</code> that are greater than <code>2.0</code></li>
+<li>Identify element values of <code>x</code> that are greater than <code>2.0</code></li>
+</ul>
+</div>
+<div id="matrix-2" class="section level4">
+<h4><span class="header-section-number">2.5.2.2</span> Matrix</h4>
+<p>Copy the following script to your R script:</p>
+<pre class="r"><code>set.seed(1)
+X &lt;- matrix(rnorm(100), nrow = 10, ncol = 10)</code></pre>
+<ul>
+<li>Identify element IDs of <code>X</code> that are greater than <code>2.0</code> (<strong>specify row and column IDs</strong>)</li>
+<li>Identify element values of <code>X</code> that are greater than <code>2.0</code> and caluculate the mean.</li>
+</ul>
+</div>
+<div id="data-frame-1" class="section level4">
+<h4><span class="header-section-number">2.5.2.3</span> Data Frame</h4>
+<p>Copy the following script to your R script:</p>
+<pre class="r"><code>set.seed(1)
+x &lt;- rnorm(100, mean = 10, sd = 3)
+y &lt;- rpois(100, lambda = 10)
+z &lt;- rep(c(&quot;VA&quot;, &quot;NC&quot;), 50)
+dat &lt;- data.frame(temperature = x, abundance = y, state = z)</code></pre>
+<ul>
+<li>Calculate means of <code>temperature</code> and <code>abundance</code> for states <code>VA</code> and <code>NC</code> separately</li>
+</ul>
+</div>
+</div>
+</div>
+</div>
+
+
+
+</div>
+</div>
+
+</div>
+
+<script>
+
+// add bootstrap table styles to pandoc tables
+function bootstrapStylePandocTables() {
+  $('tr.header').parent('thead').parent('table').addClass('table table-condensed');
+}
+$(document).ready(function () {
+  bootstrapStylePandocTables();
+});
+
+
+</script>
+
+<!-- tabsets -->
+
+<script>
+$(document).ready(function () {
+  window.buildTabsets("TOC");
+});
+
+$(document).ready(function () {
+  $('.tabset-dropdown > .nav-tabs > li').click(function () {
+    $(this).parent().toggleClass('nav-tabs-open')
+  });
+});
+</script>
+
+<!-- code folding -->
+
+<script>
+$(document).ready(function ()  {
+
+    // move toc-ignore selectors from section div to header
+    $('div.section.toc-ignore')
+        .removeClass('toc-ignore')
+        .children('h1,h2,h3,h4,h5').addClass('toc-ignore');
+
+    // establish options
+    var options = {
+      selectors: "h1,h2,h3",
+      theme: "bootstrap3",
+      context: '.toc-content',
+      hashGenerator: function (text) {
+        return text.replace(/[.\\/?&!#<>]/g, '').replace(/\s/g, '_');
+      },
+      ignoreSelector: ".toc-ignore",
+      scrollTo: 0
+    };
+    options.showAndHide = true;
+    options.smoothScroll = true;
+
+    // tocify
+    var toc = $("#TOC").tocify(options).data("toc-tocify");
+});
+</script>
+
+<!-- dynamically load mathjax for compatibility with self-contained -->
+<script>
+  (function () {
+    var script = document.createElement("script");
+    script.type = "text/javascript";
+    script.src  = "https://mathjax.rstudio.com/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML";
+    document.getElementsByTagName("head")[0].appendChild(script);
+  })();
+</script>
+
+</body>
+</html>
