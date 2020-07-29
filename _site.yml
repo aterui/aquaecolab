@@ -9,9 +9,9 @@ navbar:
     - text: "R"
       menu:
         - text: "R Basics"
-          href: r_01.html
+          href: r01_rbasics.html
         - text: "tidyverse"
-          href: r_02.html
+          href: r02_tidyverse.html
   right:
     - text: ""
       icon: fa-github
