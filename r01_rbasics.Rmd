@@ -657,7 +657,7 @@ dat[c(2,4),] # access row #2 and 4
 
 ## Exercise
 
-For the following exercise, download a <a href = "file/report01_temp.R" download>template</a> (R script file).
+Download a <a href = "file/report01_temp.R" download>template</a> (R script file).
 
 ### Vector
 
@@ -873,7 +873,7 @@ axis(2, las = 2)
 
 ## Exercise
 
-For the following exercise, download a <a href="file/report02_temp.R" download>template</a> (R script file).
+Download a <a href="file/report02_temp.R" download>template</a> (R script file).
 
 ### `plot()` function
 
