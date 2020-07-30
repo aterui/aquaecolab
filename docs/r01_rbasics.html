@@ -25,6 +25,8 @@
 <script src="site_libs/navigation-1.1/tabsets.js"></script>
 <link href="site_libs/highlightjs-9.12.0/default.css" rel="stylesheet" />
 <script src="site_libs/highlightjs-9.12.0/highlight.js"></script>
+<link href="site_libs/pagedtable-1.1/css/pagedtable.css" rel="stylesheet" />
+<script src="site_libs/pagedtable-1.1/js/pagedtable.js"></script>
 <link href="site_libs/font-awesome-5.1.0/css/all.css" rel="stylesheet" />
 <link href="site_libs/font-awesome-5.1.0/css/v4-shims.css" rel="stylesheet" />
 
@@ -444,7 +446,7 @@ div.tocify {
 <h3><span class="header-section-number">1.3.1</span> Create Object</h3>
 <p>Let’s play with R. Put the following script in your console.</p>
 <pre class="r"><code>x &lt;- c(10.1, 5.3, 8.8, 6.7, 8.2)</code></pre>
-<p>This script creates a vector of numbers composed of {10.1, 5.3, 8.8, 6.7, 8.2}. <code>x</code> is a ‘box’ where the vector information is stored, and ‘&lt;-’ is the arrow that commands R to store {10.1, 5.3, 8.8, 6.7, 8.2} in a box <code>x</code>. <code>x</code> is refered to as an <strong>object</strong>. Let’s see what’s in <code>x</code>:</p>
+<p>This script creates a vector of numbers composed of {10.1, 5.3, 8.8, 6.7, 8.2}. <code>x</code> is a ‘box’ where the vector information is stored, and ‘&lt;-’ is the arrow that commands R to store {10.1, 5.3, 8.8, 6.7, 8.2} in a box <code>x</code>. <code>x</code> is referred to as an <strong>object</strong>. Let’s see what’s in <code>x</code>:</p>
 <pre class="r"><code>x</code></pre>
 <pre><code>## [1] 10.1  5.3  8.8  6.7  8.2</code></pre>
 <p>R has many functions that calculate the mean, median, etc. Let’s calculate a mean and median for <code>x</code>:</p>
@@ -528,7 +530,7 @@ print(x) </code></pre>
 </div>
 <div id="object-1" class="section level3">
 <h3><span class="header-section-number">1.4.2</span> Object</h3>
-<p>R can handle arithmatic opeartions between objects. Prepare objects <code>x</code> and <code>y</code>:</p>
+<p>R can handle arithmetic operations between objects. Prepare objects <code>x</code> and <code>y</code>:</p>
 <pre class="r"><code>x &lt;- 1:5
 y &lt;- 2:6
 
@@ -536,7 +538,7 @@ print(x)</code></pre>
 <pre><code>## [1] 1 2 3 4 5</code></pre>
 <pre class="r"><code>print(y)</code></pre>
 <pre><code>## [1] 2 3 4 5 6</code></pre>
-<p>You can use objects intead of directly entering numbers. R automatically performs arithmatic operations for each element. For example, enter <code>y-x</code>:</p>
+<p>You can use objects instead of directly entering numbers. R automatically performs arithmetic operations for each element. For example, enter <code>y-x</code>:</p>
 <pre class="r"><code>y - x</code></pre>
 <pre><code>## [1] 1 1 1 1 1</code></pre>
 <p>This is equivalent to:</p>
@@ -645,7 +647,7 @@ y</code></pre>
 <li>Do: <code>script_week1.R</code> <code>script-week1.R</code></li>
 <li>Don’t: <code>script week1.R</code></li>
 </ul></li>
-<li>Use lowercases.
+<li>Use lowercase.
 <ul>
 <li>Do: <code>script_week1.R</code></li>
 <li>Don’t: <code>Script_week1.R</code></li>
@@ -773,8 +775,7 @@ x[2] # access element #2</code></pre>
 <pre class="r"><code>x[2:4] # access elements #2-4</code></pre>
 <pre><code>## [1] 2 3 2</code></pre>
 <p><strong>Equation</strong><br />
-</p>
-<p>R provides many ways to access elements that suffice specific conditions. You can use mathematical symbols to specify what you need, for example: o - <code>==</code> equal - <code>&gt;</code> larger than - <code>&gt;=</code> equal &amp; larger than - <code>&lt;</code> smaller than - <code>&lt;=</code> equal &amp; smaller than - <code>which()</code> a function that returns element # that suffices the specified condition</p>
+R provides many ways to access elements that suffice specific conditions. You can use mathematical symbols to specify what you need, for example: o - <code>==</code> equal - <code>&gt;</code> larger than - <code>&gt;=</code> equal &amp; larger than - <code>&lt;</code> smaller than - <code>&lt;=</code> equal &amp; smaller than - <code>which()</code> a function that returns element # that suffices the specified condition</p>
 <p>The following examples return a logical vector indicating whether each element in x suffices the specified condition:</p>
 <pre class="r"><code># creating a vector
 x &lt;- c(2,2,3,2,5)
@@ -800,7 +801,6 @@ which(x == 2) # returns which elements are equal to 2</code></pre>
 which(x &gt; 2)</code></pre>
 <pre><code>## [1] 3 5</code></pre>
 <p><br />
-<br />
 </p>
 </div>
 </div>
@@ -928,11 +928,11 @@ x</code></pre>
 </div>
 <div id="data-frame" class="section level2">
 <h2><span class="header-section-number">2.4</span> Data Frame</h2>
-<p>Data frame is a set of elements that are organized into rows and columns, but differ in several ways.</p>
+<p>Data frame is a set of elements that are organized into rows and columns, but differ from matrix in several ways.</p>
 <ul>
 <li>it allows <em>multiple data types</em> in different columns</li>
 <li>each column has its <em>name</em></li>
-<li>access columns by name (using <code>$</code>)</li>
+<li>you can access columns by name (using <code>$</code>)</li>
 </ul>
 <p><strong>Data frame is the most common data structure when manipulating ecological data</strong>. A data set loaded from a spread sheet (we will address this later) will be automatically recognized as a data frame. Here is an example:</p>
 <pre class="r"><code># Create data frame
@@ -940,12 +940,11 @@ x &lt;- c(&quot;Pristine&quot;, &quot;Pristine&quot;, &quot;Disturbed&quot;, &qu
 y &lt;- c(1.2, 2.2, 10.9, 50.0, 3.0) # TSS: total suspended solids (mg/L)
 dat &lt;- data.frame(LakeType = x, TSS = y) # x is named as &quot;LakeType&quot; while y is named as &quot;TSS&quot;
 dat</code></pre>
-<pre><code>##    LakeType  TSS
-## 1  Pristine  1.2
-## 2  Pristine  2.2
-## 3 Disturbed 10.9
-## 4 Disturbed 50.0
-## 5  Pristine  3.0</code></pre>
+<div data-pagedtable="false">
+<script data-pagedtable-source type="application/json">
+{"columns":[{"label":["LakeType"],"name":[1],"type":["fctr"],"align":["left"]},{"label":["TSS"],"name":[2],"type":["dbl"],"align":["right"]}],"data":[{"1":"Pristine","2":"1.2"},{"1":"Pristine","2":"2.2"},{"1":"Disturbed","2":"10.9"},{"1":"Disturbed","2":"50.0"},{"1":"Pristine","2":"3.0"}],"options":{"columns":{"min":{},"max":[10]},"rows":{"min":[10],"max":[10]},"pages":{}}}
+  </script>
+</div>
 <pre class="r"><code>colnames(dat) # call column names</code></pre>
 <pre><code>## [1] &quot;LakeType&quot; &quot;TSS&quot;</code></pre>
 <pre class="r"><code>dat$LakeType # access LakeType</code></pre>
@@ -964,12 +963,17 @@ dat</code></pre>
 <pre><code>## [1] Pristine  Pristine  Disturbed Disturbed Pristine 
 ## Levels: Disturbed Pristine</code></pre>
 <pre class="r"><code>dat[1,] # access row #1</code></pre>
-<pre><code>##   LakeType TSS
-## 1 Pristine 1.2</code></pre>
+<div data-pagedtable="false">
+<script data-pagedtable-source type="application/json">
+{"columns":[{"label":[""],"name":["_rn_"],"type":[""],"align":["left"]},{"label":["LakeType"],"name":[1],"type":["fctr"],"align":["left"]},{"label":["TSS"],"name":[2],"type":["dbl"],"align":["right"]}],"data":[{"1":"Pristine","2":"1.2","_rn_":"1"}],"options":{"columns":{"min":{},"max":[10]},"rows":{"min":[10],"max":[10]},"pages":{}}}
+  </script>
+</div>
 <pre class="r"><code>dat[c(2,4),] # access row #2 and 4</code></pre>
-<pre><code>##    LakeType  TSS
-## 2  Pristine  2.2
-## 4 Disturbed 50.0</code></pre>
+<div data-pagedtable="false">
+<script data-pagedtable-source type="application/json">
+{"columns":[{"label":[""],"name":["_rn_"],"type":[""],"align":["left"]},{"label":["LakeType"],"name":[1],"type":["fctr"],"align":["left"]},{"label":["TSS"],"name":[2],"type":["dbl"],"align":["right"]}],"data":[{"1":"Pristine","2":"2.2","_rn_":"2"},{"1":"Disturbed","2":"50.0","_rn_":"4"}],"options":{"columns":{"min":{},"max":[10]},"rows":{"min":[10],"max":[10]},"pages":{}}}
+  </script>
+</div>
 <p><br />
 <br />
 </p>
@@ -1002,7 +1006,7 @@ x &lt;- rnorm(100)</code></pre>
 </ol>
 <ul>
 <li>Identify element IDs of <code>x</code> that are greater than <code>2.0</code> (<strong>specify row and column IDs</strong>)</li>
-<li>Identify element values of <code>x</code> that are greater than <code>2.0</code> and caluculate the mean.</li>
+<li>Identify element values of <code>x</code> that are greater than <code>2.0</code> and calculate the mean.</li>
 </ul>
 <pre class="r"><code>set.seed(1)
 x &lt;- matrix(rnorm(100), nrow = 10, ncol = 10)</code></pre>
@@ -1010,7 +1014,7 @@ x &lt;- matrix(rnorm(100), nrow = 10, ncol = 10)</code></pre>
 <div id="data-frame-1" class="section level3">
 <h3><span class="header-section-number">2.5.3</span> Data Frame</h3>
 <ol style="list-style-type: lower-alpha">
-<li>Create a dataframe of 3 variables with 10 elements (name variables as <code>x</code>, <code>y</code> and <code>z</code>. <code>x</code> must be <code>character</code> while <code>y</code> and <code>z</code> must be <code>numeric</code>.</li>
+<li>Create a data frame of 3 variables with 10 elements (name variables as <code>x</code>, <code>y</code> and <code>z</code>. <code>x</code> must be <code>character</code> while <code>y</code> and <code>z</code> must be <code>numeric</code>.</li>
 <li>Check the data structure (higher-level) of <code>x</code>, <code>y</code> and <code>z</code></li>
 <li>Copy the following script to your R script and perform the following analysis:</li>
 </ol>
@@ -1022,7 +1026,104 @@ x &lt;- rnorm(100, mean = 10, sd = 3)
 y &lt;- rpois(100, lambda = 10)
 z &lt;- rep(c(&quot;VA&quot;, &quot;NC&quot;), 50)
 dat &lt;- data.frame(temperature = x, abundance = y, state = z)</code></pre>
+<p><br />
+<br />
+</p>
+<hr />
 </div>
+</div>
+</div>
+<div id="visualization" class="section level1">
+<h1><span class="header-section-number">3</span> VISUALIZATION</h1>
+<hr />
+<div id="overview-1" class="section level2">
+<h2><span class="header-section-number">3.1</span> Overview</h2>
+<p>R has a number of functions that help visualize data. <code>graphics</code> provides R functions for base graphics (<a href="https://www.rdocumentation.org/packages/graphics/versions/3.6.2">list of functions</a>). We will use <code>iris</code>, the built-in data set in R, for this exercise.</p>
+<pre class="r"><code>iris</code></pre>
+<div data-pagedtable="false">
+<script data-pagedtable-source type="application/json">
+{"columns":[{"label":["Sepal.Length"],"name":[1],"type":["dbl"],"align":["right"]},{"label":["Sepal.Width"],"name":[2],"type":["dbl"],"align":["right"]},{"label":["Petal.Length"],"name":[3],"type":["dbl"],"align":["right"]},{"label":["Petal.Width"],"name":[4],"type":["dbl"],"align":["right"]},{"label":["Species"],"name":[5],"type":["fctr"],"align":["left"]}],"data":[{"1":"5.1","2":"3.5","3":"1.4","4":"0.2","5":"setosa"},{"1":"4.9","2":"3.0","3":"1.4","4":"0.2","5":"setosa"},{"1":"4.7","2":"3.2","3":"1.3","4":"0.2","5":"setosa"},{"1":"4.6","2":"3.1","3":"1.5","4":"0.2","5":"setosa"},{"1":"5.0","2":"3.6","3":"1.4","4":"0.2","5":"setosa"},{"1":"5.4","2":"3.9","3":"1.7","4":"0.4","5":"setosa"},{"1":"4.6","2":"3.4","3":"1.4","4":"0.3","5":"setosa"},{"1":"5.0","2":"3.4","3":"1.5","4":"0.2","5":"setosa"},{"1":"4.4","2":"2.9","3":"1.4","4":"0.2","5":"setosa"},{"1":"4.9","2":"3.1","3":"1.5","4":"0.1","5":"setosa"},{"1":"5.4","2":"3.7","3":"1.5","4":"0.2","5":"setosa"},{"1":"4.8","2":"3.4","3":"1.6","4":"0.2","5":"setosa"},{"1":"4.8","2":"3.0","3":"1.4","4":"0.1","5":"setosa"},{"1":"4.3","2":"3.0","3":"1.1","4":"0.1","5":"setosa"},{"1":"5.8","2":"4.0","3":"1.2","4":"0.2","5":"setosa"},{"1":"5.7","2":"4.4","3":"1.5","4":"0.4","5":"setosa"},{"1":"5.4","2":"3.9","3":"1.3","4":"0.4","5":"setosa"},{"1":"5.1","2":"3.5","3":"1.4","4":"0.3","5":"setosa"},{"1":"5.7","2":"3.8","3":"1.7","4":"0.3","5":"setosa"},{"1":"5.1","2":"3.8","3":"1.5","4":"0.3","5":"setosa"},{"1":"5.4","2":"3.4","3":"1.7","4":"0.2","5":"setosa"},{"1":"5.1","2":"3.7","3":"1.5","4":"0.4","5":"setosa"},{"1":"4.6","2":"3.6","3":"1.0","4":"0.2","5":"setosa"},{"1":"5.1","2":"3.3","3":"1.7","4":"0.5","5":"setosa"},{"1":"4.8","2":"3.4","3":"1.9","4":"0.2","5":"setosa"},{"1":"5.0","2":"3.0","3":"1.6","4":"0.2","5":"setosa"},{"1":"5.0","2":"3.4","3":"1.6","4":"0.4","5":"setosa"},{"1":"5.2","2":"3.5","3":"1.5","4":"0.2","5":"setosa"},{"1":"5.2","2":"3.4","3":"1.4","4":"0.2","5":"setosa"},{"1":"4.7","2":"3.2","3":"1.6","4":"0.2","5":"setosa"},{"1":"4.8","2":"3.1","3":"1.6","4":"0.2","5":"setosa"},{"1":"5.4","2":"3.4","3":"1.5","4":"0.4","5":"setosa"},{"1":"5.2","2":"4.1","3":"1.5","4":"0.1","5":"setosa"},{"1":"5.5","2":"4.2","3":"1.4","4":"0.2","5":"setosa"},{"1":"4.9","2":"3.1","3":"1.5","4":"0.2","5":"setosa"},{"1":"5.0","2":"3.2","3":"1.2","4":"0.2","5":"setosa"},{"1":"5.5","2":"3.5","3":"1.3","4":"0.2","5":"setosa"},{"1":"4.9","2":"3.6","3":"1.4","4":"0.1","5":"setosa"},{"1":"4.4","2":"3.0","3":"1.3","4":"0.2","5":"setosa"},{"1":"5.1","2":"3.4","3":"1.5","4":"0.2","5":"setosa"},{"1":"5.0","2":"3.5","3":"1.3","4":"0.3","5":"setosa"},{"1":"4.5","2":"2.3","3":"1.3","4":"0.3","5":"setosa"},{"1":"4.4","2":"3.2","3":"1.3","4":"0.2","5":"setosa"},{"1":"5.0","2":"3.5","3":"1.6","4":"0.6","5":"setosa"},{"1":"5.1","2":"3.8","3":"1.9","4":"0.4","5":"setosa"},{"1":"4.8","2":"3.0","3":"1.4","4":"0.3","5":"setosa"},{"1":"5.1","2":"3.8","3":"1.6","4":"0.2","5":"setosa"},{"1":"4.6","2":"3.2","3":"1.4","4":"0.2","5":"setosa"},{"1":"5.3","2":"3.7","3":"1.5","4":"0.2","5":"setosa"},{"1":"5.0","2":"3.3","3":"1.4","4":"0.2","5":"setosa"},{"1":"7.0","2":"3.2","3":"4.7","4":"1.4","5":"versicolor"},{"1":"6.4","2":"3.2","3":"4.5","4":"1.5","5":"versicolor"},{"1":"6.9","2":"3.1","3":"4.9","4":"1.5","5":"versicolor"},{"1":"5.5","2":"2.3","3":"4.0","4":"1.3","5":"versicolor"},{"1":"6.5","2":"2.8","3":"4.6","4":"1.5","5":"versicolor"},{"1":"5.7","2":"2.8","3":"4.5","4":"1.3","5":"versicolor"},{"1":"6.3","2":"3.3","3":"4.7","4":"1.6","5":"versicolor"},{"1":"4.9","2":"2.4","3":"3.3","4":"1.0","5":"versicolor"},{"1":"6.6","2":"2.9","3":"4.6","4":"1.3","5":"versicolor"},{"1":"5.2","2":"2.7","3":"3.9","4":"1.4","5":"versicolor"},{"1":"5.0","2":"2.0","3":"3.5","4":"1.0","5":"versicolor"},{"1":"5.9","2":"3.0","3":"4.2","4":"1.5","5":"versicolor"},{"1":"6.0","2":"2.2","3":"4.0","4":"1.0","5":"versicolor"},{"1":"6.1","2":"2.9","3":"4.7","4":"1.4","5":"versicolor"},{"1":"5.6","2":"2.9","3":"3.6","4":"1.3","5":"versicolor"},{"1":"6.7","2":"3.1","3":"4.4","4":"1.4","5":"versicolor"},{"1":"5.6","2":"3.0","3":"4.5","4":"1.5","5":"versicolor"},{"1":"5.8","2":"2.7","3":"4.1","4":"1.0","5":"versicolor"},{"1":"6.2","2":"2.2","3":"4.5","4":"1.5","5":"versicolor"},{"1":"5.6","2":"2.5","3":"3.9","4":"1.1","5":"versicolor"},{"1":"5.9","2":"3.2","3":"4.8","4":"1.8","5":"versicolor"},{"1":"6.1","2":"2.8","3":"4.0","4":"1.3","5":"versicolor"},{"1":"6.3","2":"2.5","3":"4.9","4":"1.5","5":"versicolor"},{"1":"6.1","2":"2.8","3":"4.7","4":"1.2","5":"versicolor"},{"1":"6.4","2":"2.9","3":"4.3","4":"1.3","5":"versicolor"},{"1":"6.6","2":"3.0","3":"4.4","4":"1.4","5":"versicolor"},{"1":"6.8","2":"2.8","3":"4.8","4":"1.4","5":"versicolor"},{"1":"6.7","2":"3.0","3":"5.0","4":"1.7","5":"versicolor"},{"1":"6.0","2":"2.9","3":"4.5","4":"1.5","5":"versicolor"},{"1":"5.7","2":"2.6","3":"3.5","4":"1.0","5":"versicolor"},{"1":"5.5","2":"2.4","3":"3.8","4":"1.1","5":"versicolor"},{"1":"5.5","2":"2.4","3":"3.7","4":"1.0","5":"versicolor"},{"1":"5.8","2":"2.7","3":"3.9","4":"1.2","5":"versicolor"},{"1":"6.0","2":"2.7","3":"5.1","4":"1.6","5":"versicolor"},{"1":"5.4","2":"3.0","3":"4.5","4":"1.5","5":"versicolor"},{"1":"6.0","2":"3.4","3":"4.5","4":"1.6","5":"versicolor"},{"1":"6.7","2":"3.1","3":"4.7","4":"1.5","5":"versicolor"},{"1":"6.3","2":"2.3","3":"4.4","4":"1.3","5":"versicolor"},{"1":"5.6","2":"3.0","3":"4.1","4":"1.3","5":"versicolor"},{"1":"5.5","2":"2.5","3":"4.0","4":"1.3","5":"versicolor"},{"1":"5.5","2":"2.6","3":"4.4","4":"1.2","5":"versicolor"},{"1":"6.1","2":"3.0","3":"4.6","4":"1.4","5":"versicolor"},{"1":"5.8","2":"2.6","3":"4.0","4":"1.2","5":"versicolor"},{"1":"5.0","2":"2.3","3":"3.3","4":"1.0","5":"versicolor"},{"1":"5.6","2":"2.7","3":"4.2","4":"1.3","5":"versicolor"},{"1":"5.7","2":"3.0","3":"4.2","4":"1.2","5":"versicolor"},{"1":"5.7","2":"2.9","3":"4.2","4":"1.3","5":"versicolor"},{"1":"6.2","2":"2.9","3":"4.3","4":"1.3","5":"versicolor"},{"1":"5.1","2":"2.5","3":"3.0","4":"1.1","5":"versicolor"},{"1":"5.7","2":"2.8","3":"4.1","4":"1.3","5":"versicolor"},{"1":"6.3","2":"3.3","3":"6.0","4":"2.5","5":"virginica"},{"1":"5.8","2":"2.7","3":"5.1","4":"1.9","5":"virginica"},{"1":"7.1","2":"3.0","3":"5.9","4":"2.1","5":"virginica"},{"1":"6.3","2":"2.9","3":"5.6","4":"1.8","5":"virginica"},{"1":"6.5","2":"3.0","3":"5.8","4":"2.2","5":"virginica"},{"1":"7.6","2":"3.0","3":"6.6","4":"2.1","5":"virginica"},{"1":"4.9","2":"2.5","3":"4.5","4":"1.7","5":"virginica"},{"1":"7.3","2":"2.9","3":"6.3","4":"1.8","5":"virginica"},{"1":"6.7","2":"2.5","3":"5.8","4":"1.8","5":"virginica"},{"1":"7.2","2":"3.6","3":"6.1","4":"2.5","5":"virginica"},{"1":"6.5","2":"3.2","3":"5.1","4":"2.0","5":"virginica"},{"1":"6.4","2":"2.7","3":"5.3","4":"1.9","5":"virginica"},{"1":"6.8","2":"3.0","3":"5.5","4":"2.1","5":"virginica"},{"1":"5.7","2":"2.5","3":"5.0","4":"2.0","5":"virginica"},{"1":"5.8","2":"2.8","3":"5.1","4":"2.4","5":"virginica"},{"1":"6.4","2":"3.2","3":"5.3","4":"2.3","5":"virginica"},{"1":"6.5","2":"3.0","3":"5.5","4":"1.8","5":"virginica"},{"1":"7.7","2":"3.8","3":"6.7","4":"2.2","5":"virginica"},{"1":"7.7","2":"2.6","3":"6.9","4":"2.3","5":"virginica"},{"1":"6.0","2":"2.2","3":"5.0","4":"1.5","5":"virginica"},{"1":"6.9","2":"3.2","3":"5.7","4":"2.3","5":"virginica"},{"1":"5.6","2":"2.8","3":"4.9","4":"2.0","5":"virginica"},{"1":"7.7","2":"2.8","3":"6.7","4":"2.0","5":"virginica"},{"1":"6.3","2":"2.7","3":"4.9","4":"1.8","5":"virginica"},{"1":"6.7","2":"3.3","3":"5.7","4":"2.1","5":"virginica"},{"1":"7.2","2":"3.2","3":"6.0","4":"1.8","5":"virginica"},{"1":"6.2","2":"2.8","3":"4.8","4":"1.8","5":"virginica"},{"1":"6.1","2":"3.0","3":"4.9","4":"1.8","5":"virginica"},{"1":"6.4","2":"2.8","3":"5.6","4":"2.1","5":"virginica"},{"1":"7.2","2":"3.0","3":"5.8","4":"1.6","5":"virginica"},{"1":"7.4","2":"2.8","3":"6.1","4":"1.9","5":"virginica"},{"1":"7.9","2":"3.8","3":"6.4","4":"2.0","5":"virginica"},{"1":"6.4","2":"2.8","3":"5.6","4":"2.2","5":"virginica"},{"1":"6.3","2":"2.8","3":"5.1","4":"1.5","5":"virginica"},{"1":"6.1","2":"2.6","3":"5.6","4":"1.4","5":"virginica"},{"1":"7.7","2":"3.0","3":"6.1","4":"2.3","5":"virginica"},{"1":"6.3","2":"3.4","3":"5.6","4":"2.4","5":"virginica"},{"1":"6.4","2":"3.1","3":"5.5","4":"1.8","5":"virginica"},{"1":"6.0","2":"3.0","3":"4.8","4":"1.8","5":"virginica"},{"1":"6.9","2":"3.1","3":"5.4","4":"2.1","5":"virginica"},{"1":"6.7","2":"3.1","3":"5.6","4":"2.4","5":"virginica"},{"1":"6.9","2":"3.1","3":"5.1","4":"2.3","5":"virginica"},{"1":"5.8","2":"2.7","3":"5.1","4":"1.9","5":"virginica"},{"1":"6.8","2":"3.2","3":"5.9","4":"2.3","5":"virginica"},{"1":"6.7","2":"3.3","3":"5.7","4":"2.5","5":"virginica"},{"1":"6.7","2":"3.0","3":"5.2","4":"2.3","5":"virginica"},{"1":"6.3","2":"2.5","3":"5.0","4":"1.9","5":"virginica"},{"1":"6.5","2":"3.0","3":"5.2","4":"2.0","5":"virginica"},{"1":"6.2","2":"3.4","3":"5.4","4":"2.3","5":"virginica"},{"1":"5.9","2":"3.0","3":"5.1","4":"1.8","5":"virginica"}],"options":{"columns":{"min":{},"max":[10]},"rows":{"min":[10],"max":[10]},"pages":{}}}
+  </script>
+</div>
+<p><br />
+<br />
+</p>
+</div>
+<div id="plot" class="section level2">
+<h2><span class="header-section-number">3.2</span> <code>plot()</code></h2>
+<p>When plotting data, what’s you need is to specify the <strong>formula</strong>. For example, if you want to visualize the relationship between <code>x</code> and <code>y</code> (<code>y</code> on the vertical axis and <code>x</code> on the horizontal axis), the formula would be <code>y ~ x</code> (the left side of the formula will be on the vertical axis). In the <code>iris</code> data set, the following columns are available: <code>Sepal.Length</code> <code>Sepal.Width</code> <code>Petal.Length</code> <code>Petal.Width</code> <code>Species</code>. In the following example, the relationship between <code>Sepal.Length</code> and <code>Sepal.Width</code> is plotted:</p>
+<pre class="r"><code>plot(Sepal.Length ~ Sepal.Width, data = iris)</code></pre>
+<p><img src="r01_rbasics_files/figure-html/unnamed-chunk-43-1.png" width="480" /></p>
+<p>The argument <code>data =</code> tells the function the data set from which the variables (<code>Sepal.Length</code> and <code>Sepal.Width</code>) are extracted. The above figure is the default setting, and you may customize it as necessary. Below is an example of how you may customize:</p>
+<p><strong>Symbol</strong><br />
+<code>pch</code> argument. Choose from <code>1</code> to <code>25</code> (google <strong>r plot pch</strong> for details)</p>
+<pre class="r"><code>plot(Sepal.Length ~ Sepal.Width, data = iris,
+     pch = 19)</code></pre>
+<p><img src="r01_rbasics_files/figure-html/unnamed-chunk-44-1.png" width="480" /></p>
+<p><strong>Symbol size</strong><br />
+<code>cex</code> argument. <code>cex = 1</code> is the default value. <code>cex = 2</code> is as twice large as default value.</p>
+<pre class="r"><code>plot(Sepal.Length ~ Sepal.Width, data = iris,
+     pch = 19, cex = 2)</code></pre>
+<p><img src="r01_rbasics_files/figure-html/unnamed-chunk-45-1.png" width="480" /></p>
+<p><strong>Symbol color (border)</strong><br />
+<code>col</code> argument (double quote <code>"color name"</code> when specifying). Google <strong>r color name</strong> for more options.</p>
+<pre class="r"><code>plot(Sepal.Length ~ Sepal.Width, data = iris,
+     pch = 21, cex = 2, col = &quot;gray&quot;)</code></pre>
+<p><img src="r01_rbasics_files/figure-html/unnamed-chunk-46-1.png" width="480" /></p>
+<p><strong>Symbol color (fill)</strong><br />
+<code>bg</code> argument (double quote <code>"color name"</code> when specifying). Available for a subset of symbol options (some symbols have pre-defined filled color).</p>
+<pre class="r"><code>plot(Sepal.Length ~ Sepal.Width, data = iris,
+     pch = 21, cex = 2, bg = &quot;lightgray&quot;)</code></pre>
+<p><img src="r01_rbasics_files/figure-html/unnamed-chunk-47-1.png" width="480" /></p>
+<p><strong>Label</strong><br />
+<code>ylab</code> or <code>xlab</code> arguments. Provide <code>"double-quoted text"</code>.</p>
+<pre class="r"><code>plot(Sepal.Length ~ Sepal.Width, data = iris,
+     pch = 21, cex = 2, bg = &quot;lightgray&quot;,
+     xlab = &quot;Sepal width (cm)&quot;, ylab = &quot;Sepal length (cm)&quot;)</code></pre>
+<p><img src="r01_rbasics_files/figure-html/unnamed-chunk-48-1.png" width="480" /></p>
+<p><strong>Axis</strong><br />
+Delete axes with <code>axes = F</code> and re-draw with <code>box()</code> and <code>axis()</code> functions.</p>
+<pre class="r"><code>plot(Sepal.Length ~ Sepal.Width, data = iris,
+     pch = 21, cex = 2, bg = &quot;lightgray&quot;,
+     xlab = &quot;Sepal width (cm)&quot;, ylab = &quot;Sepal length (cm)&quot;,
+     axes = F)
+box(bty = &quot;l&quot;) # L-shaped border lines
+axis(1) # 1: draw x-axis
+axis(2, las = 2) # 2: draw y-axis, las = 2: make axis lables horizontal</code></pre>
+<p><img src="r01_rbasics_files/figure-html/unnamed-chunk-49-1.png" width="480" /></p>
+</div>
+<div id="boxplot" class="section level2">
+<h2><span class="header-section-number">3.3</span> <code>boxplot()</code></h2>
+<p><code>boxplot()</code> is used when the x-axis is factor-type data (by default, <code>plot()</code> will produce a boxplot when x-axis is a factor variable). In the <code>iris</code> dataset, the column <code>Species</code> is a factor variable. Compare <code>Sepal.Length</code> among species using <code>boxplot()</code>.</p>
+<pre class="r"><code>boxplot(Sepal.Length ~ Species, data = iris)</code></pre>
+<p><img src="r01_rbasics_files/figure-html/unnamed-chunk-50-1.png" width="480" /></p>
+<p>You can customize as in <code>plot()</code>, but slighlty different.</p>
+<p><strong>Box color</strong><br />
+<code>col</code> argument.</p>
+<pre class="r"><code>boxplot(Sepal.Length ~ Species, data = iris,
+        col = &quot;salmon&quot;)</code></pre>
+<p><img src="r01_rbasics_files/figure-html/unnamed-chunk-51-1.png" width="480" /></p>
+<p><strong>Border color</strong><br />
+<code>border</code> argument.</p>
+<pre class="r"><code>boxplot(Sepal.Length ~ Species, data = iris,
+        col = &quot;lightgray&quot;, border = &quot;gray&quot;)</code></pre>
+<p><img src="r01_rbasics_files/figure-html/unnamed-chunk-52-1.png" width="480" /></p>
+<p><strong>Box width</strong><br />
+<code>width</code> argument. Provide a vector with the number of factor levels (three in this case as there are three species on x-axis).</p>
+<pre class="r"><code>boxplot(Sepal.Length ~ Species, data = iris,
+        col = &quot;lightgray&quot;, border = &quot;gray&quot;,
+        width = rep(0.5, 3) )</code></pre>
+<p><img src="r01_rbasics_files/figure-html/unnamed-chunk-53-1.png" width="480" /></p>
+<p><strong>Axis</strong><br />
+Delete axes with <code>axes = F</code> and re-draw with <code>box()</code> and <code>axis()</code> functions.</p>
+<pre class="r"><code>boxplot(Sepal.Length ~ Species, data = iris,
+        col = &quot;lightgray&quot;, border = &quot;gray&quot;,
+        width = rep(0.5, 3), ylab = &quot;Sepal length (cm)&quot;,
+        axes = F)
+box(bty = &quot;l&quot;)
+axis(1, at = c(1, 2, 3), labels = c(&quot;Setosa&quot;, &quot;Versicolor&quot;, &quot;Virginica&quot;) )
+axis(2, las = 2)</code></pre>
+<p><img src="r01_rbasics_files/figure-html/unnamed-chunk-54-1.png" width="480" /></p>
 </div>
 </div>
 
