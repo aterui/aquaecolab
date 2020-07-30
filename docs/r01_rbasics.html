@@ -1101,7 +1101,7 @@ axis(2, las = 2) # 2: draw y-axis, las = 2: make axis lables horizontal</code></
 <p><strong>Box color</strong><br />
 <code>col</code> argument.</p>
 <pre class="r"><code>boxplot(Sepal.Length ~ Species, data = iris,
-        col = &quot;salmon&quot;)</code></pre>
+        col = &quot;lightgray&quot;)</code></pre>
 <p><img src="r01_rbasics_files/figure-html/unnamed-chunk-51-1.png" width="480" /></p>
 <p><strong>Border color</strong><br />
 <code>border</code> argument.</p>
@@ -1109,16 +1109,16 @@ axis(2, las = 2) # 2: draw y-axis, las = 2: make axis lables horizontal</code></
         col = &quot;lightgray&quot;, border = &quot;gray&quot;)</code></pre>
 <p><img src="r01_rbasics_files/figure-html/unnamed-chunk-52-1.png" width="480" /></p>
 <p><strong>Box width</strong><br />
-<code>width</code> argument. Provide a vector with the number of factor levels (three in this case as there are three species on x-axis).</p>
+<code>boxwex</code> argument.</p>
 <pre class="r"><code>boxplot(Sepal.Length ~ Species, data = iris,
         col = &quot;lightgray&quot;, border = &quot;gray&quot;,
-        width = rep(0.5, 3) )</code></pre>
+        boxwex = 0.4 )</code></pre>
 <p><img src="r01_rbasics_files/figure-html/unnamed-chunk-53-1.png" width="480" /></p>
 <p><strong>Axis</strong><br />
 Delete axes with <code>axes = F</code> and re-draw with <code>box()</code> and <code>axis()</code> functions.</p>
 <pre class="r"><code>boxplot(Sepal.Length ~ Species, data = iris,
         col = &quot;lightgray&quot;, border = &quot;gray&quot;,
-        width = rep(0.5, 3), ylab = &quot;Sepal length (cm)&quot;,
+        boxwex = 0.4, ylab = &quot;Sepal length (cm)&quot;,
         axes = F)
 box(bty = &quot;l&quot;)
 axis(1, at = c(1, 2, 3), labels = c(&quot;Setosa&quot;, &quot;Versicolor&quot;, &quot;Virginica&quot;) )

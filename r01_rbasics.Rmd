@@ -823,7 +823,7 @@ You can customize as in `plot()`, but slighlty different.
 ```{r}
 
 boxplot(Sepal.Length ~ Species, data = iris,
-        col = "salmon")
+        col = "lightgray")
 
 ```
 
@@ -839,13 +839,13 @@ boxplot(Sepal.Length ~ Species, data = iris,
 
 
 **Box width**\
-`width` argument. Provide a vector with the number of factor levels (three in this case as there are three species on x-axis).
+`boxwex` argument.
 
 ```{r}
 
 boxplot(Sepal.Length ~ Species, data = iris,
         col = "lightgray", border = "gray",
-        width = rep(0.5, 3) )
+        boxwex = 0.4 )
 
 ```
 
@@ -857,7 +857,7 @@ Delete axes with `axes = F` and re-draw with `box()` and `axis()` functions.
 
 boxplot(Sepal.Length ~ Species, data = iris,
         col = "lightgray", border = "gray",
-        width = rep(0.5, 3), ylab = "Sepal length (cm)",
+        boxwex = 0.4, ylab = "Sepal length (cm)",
         axes = F)
 box(bty = "l")
 axis(1, at = c(1, 2, 3), labels = c("Setosa", "Versicolor", "Virginica") )
