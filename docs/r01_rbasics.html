@@ -393,6 +393,7 @@ div.tocify {
 
 
 <h1 class="title toc-ignore">R BASICS</h1>
+<h4 class="date">Latest update “30 July, 2020”</h4>
 
 </div>
 
@@ -935,6 +936,8 @@ x</code></pre>
 <li>you can access columns by name (using <code>$</code>)</li>
 </ul>
 <p><strong>Data frame is the most common data structure when manipulating ecological data</strong>. A data set loaded from a spread sheet (we will address this later) will be automatically recognized as a data frame. Here is an example:</p>
+<p><strong>Create a data frame</strong><br />
+In the following example, variables <code>x</code> and <code>y</code> are organized into a single data frame <code>dat</code>. Variable are renamed when creating a data frame composed of <code>x</code> and <code>y</code>.</p>
 <pre class="r"><code># Create data frame
 x &lt;- c(&quot;Pristine&quot;, &quot;Pristine&quot;, &quot;Disturbed&quot;, &quot;Disturbed&quot;, &quot;Pristine&quot;) # Lake type
 y &lt;- c(1.2, 2.2, 10.9, 50.0, 3.0) # TSS: total suspended solids (mg/L)
@@ -945,19 +948,17 @@ dat</code></pre>
 {"columns":[{"label":["LakeType"],"name":[1],"type":["fctr"],"align":["left"]},{"label":["TSS"],"name":[2],"type":["dbl"],"align":["right"]}],"data":[{"1":"Pristine","2":"1.2"},{"1":"Pristine","2":"2.2"},{"1":"Disturbed","2":"10.9"},{"1":"Disturbed","2":"50.0"},{"1":"Pristine","2":"3.0"}],"options":{"columns":{"min":{},"max":[10]},"rows":{"min":[10],"max":[10]},"pages":{}}}
   </script>
 </div>
+<p><strong>Call column names</strong><br />
+</p>
 <pre class="r"><code>colnames(dat) # call column names</code></pre>
 <pre><code>## [1] &quot;LakeType&quot; &quot;TSS&quot;</code></pre>
+<p><strong>Access by columns</strong><br />
+</p>
 <pre class="r"><code>dat$LakeType # access LakeType</code></pre>
 <pre><code>## [1] Pristine  Pristine  Disturbed Disturbed Pristine 
 ## Levels: Disturbed Pristine</code></pre>
 <pre class="r"><code>dat$TSS # access TSS</code></pre>
 <pre><code>## [1]  1.2  2.2 10.9 50.0  3.0</code></pre>
-<pre class="r"><code>class(dat) # check feature</code></pre>
-<pre><code>## [1] &quot;data.frame&quot;</code></pre>
-<pre class="r"><code>class(dat$LakeType) # check feature of LakeType</code></pre>
-<pre><code>## [1] &quot;factor&quot;</code></pre>
-<pre class="r"><code>class(dat$TSS) # check feature of TSS</code></pre>
-<pre><code>## [1] &quot;numeric&quot;</code></pre>
 <p>You can access elements like a matrix as well:</p>
 <pre class="r"><code>dat[,1] # access column #1</code></pre>
 <pre><code>## [1] Pristine  Pristine  Disturbed Disturbed Pristine 
@@ -1038,7 +1039,7 @@ dat &lt;- data.frame(temperature = x, abundance = y, state = z)</code></pre>
 <hr />
 <div id="overview-1" class="section level2">
 <h2><span class="header-section-number">3.1</span> Overview</h2>
-<p>R has a number of functions that help visualize data. <code>graphics</code> provides R functions for base graphics (<a href="https://www.rdocumentation.org/packages/graphics/versions/3.6.2">list of functions</a>). We will use <code>iris</code>, the built-in data set in R, for this exercise.</p>
+<p>R has a number of functions that help visualize data. <code>graphics</code> provides R functions for base graphics (<a href="https://www.rdocumentation.org/packages/graphics/versions/3.6.2">list of functions</a>). I will use <code>iris</code>, the built-in data set in R, to show how <code>graphics</code> functions work.</p>
 <pre class="r"><code>iris</code></pre>
 <div data-pagedtable="false">
 <script data-pagedtable-source type="application/json">
@@ -1053,36 +1054,47 @@ dat &lt;- data.frame(temperature = x, abundance = y, state = z)</code></pre>
 <h2><span class="header-section-number">3.2</span> <code>plot()</code></h2>
 <p>When plotting data, what’s you need is to specify the <strong>formula</strong>. For example, if you want to visualize the relationship between <code>x</code> and <code>y</code> (<code>y</code> on the vertical axis and <code>x</code> on the horizontal axis), the formula would be <code>y ~ x</code> (the left side of the formula will be on the vertical axis). In the <code>iris</code> data set, the following columns are available: <code>Sepal.Length</code> <code>Sepal.Width</code> <code>Petal.Length</code> <code>Petal.Width</code> <code>Species</code>. In the following example, the relationship between <code>Sepal.Length</code> and <code>Sepal.Width</code> is plotted:</p>
 <pre class="r"><code>plot(Sepal.Length ~ Sepal.Width, data = iris)</code></pre>
-<p><img src="r01_rbasics_files/figure-html/unnamed-chunk-43-1.png" width="480" /></p>
+<p><img src="r01_rbasics_files/figure-html/unnamed-chunk-45-1.png" width="480" /></p>
 <p>The argument <code>data =</code> tells the function the data set from which the variables (<code>Sepal.Length</code> and <code>Sepal.Width</code>) are extracted. The above figure is the default setting, and you may customize it as necessary. Below is an example of how you may customize:</p>
-<p><strong>Symbol</strong><br />
-<code>pch</code> argument. Choose from <code>1</code> to <code>25</code> (google <strong>r plot pch</strong> for details)</p>
+<div id="symbol" class="section level3">
+<h3><span class="header-section-number">3.2.1</span> Symbol</h3>
+<p><code>pch</code> argument. Choose from <code>1</code> to <code>25</code> (google <strong>r plot pch</strong> for details)</p>
 <pre class="r"><code>plot(Sepal.Length ~ Sepal.Width, data = iris,
      pch = 19)</code></pre>
-<p><img src="r01_rbasics_files/figure-html/unnamed-chunk-44-1.png" width="480" /></p>
-<p><strong>Symbol size</strong><br />
-<code>cex</code> argument. <code>cex = 1</code> is the default value. <code>cex = 2</code> is as twice large as default value.</p>
+<p><img src="r01_rbasics_files/figure-html/unnamed-chunk-46-1.png" width="480" /></p>
+</div>
+<div id="symbol-size" class="section level3">
+<h3><span class="header-section-number">3.2.2</span> Symbol size</h3>
+<p><code>cex</code> argument. <code>cex = 1</code> is the default value. <code>cex = 2</code> is as twice large as default value.</p>
 <pre class="r"><code>plot(Sepal.Length ~ Sepal.Width, data = iris,
      pch = 19, cex = 2)</code></pre>
-<p><img src="r01_rbasics_files/figure-html/unnamed-chunk-45-1.png" width="480" /></p>
-<p><strong>Symbol color (border)</strong><br />
-<code>col</code> argument (double quote <code>"color name"</code> when specifying). Google <strong>r color name</strong> for more options.</p>
+<p><img src="r01_rbasics_files/figure-html/unnamed-chunk-47-1.png" width="480" /></p>
+</div>
+<div id="symbol-color-border" class="section level3">
+<h3><span class="header-section-number">3.2.3</span> Symbol color (border)</h3>
+<p><code>col</code> argument (quote <code>"color name"</code> when specifying). Google <strong>r color name</strong> for color options.</p>
 <pre class="r"><code>plot(Sepal.Length ~ Sepal.Width, data = iris,
      pch = 21, cex = 2, col = &quot;gray&quot;)</code></pre>
-<p><img src="r01_rbasics_files/figure-html/unnamed-chunk-46-1.png" width="480" /></p>
-<p><strong>Symbol color (fill)</strong><br />
-<code>bg</code> argument (double quote <code>"color name"</code> when specifying). Available for a subset of symbol options (some symbols have pre-defined filled color).</p>
+<p><img src="r01_rbasics_files/figure-html/unnamed-chunk-48-1.png" width="480" /></p>
+</div>
+<div id="symbol-color-fill" class="section level3">
+<h3><span class="header-section-number">3.2.4</span> Symbol color (fill)</h3>
+<p><code>bg</code> argument (quote <code>"color name"</code> when specifying). Available for a subset of symbol options (some symbols have pre-defined filled color).</p>
 <pre class="r"><code>plot(Sepal.Length ~ Sepal.Width, data = iris,
      pch = 21, cex = 2, bg = &quot;lightgray&quot;)</code></pre>
-<p><img src="r01_rbasics_files/figure-html/unnamed-chunk-47-1.png" width="480" /></p>
-<p><strong>Label</strong><br />
-<code>ylab</code> or <code>xlab</code> arguments. Provide <code>"double-quoted text"</code>.</p>
+<p><img src="r01_rbasics_files/figure-html/unnamed-chunk-49-1.png" width="480" /></p>
+</div>
+<div id="label" class="section level3">
+<h3><span class="header-section-number">3.2.5</span> Label</h3>
+<p><code>ylab</code> or <code>xlab</code> arguments. Provide <code>"quoted text"</code>.</p>
 <pre class="r"><code>plot(Sepal.Length ~ Sepal.Width, data = iris,
      pch = 21, cex = 2, bg = &quot;lightgray&quot;,
      xlab = &quot;Sepal width (cm)&quot;, ylab = &quot;Sepal length (cm)&quot;)</code></pre>
-<p><img src="r01_rbasics_files/figure-html/unnamed-chunk-48-1.png" width="480" /></p>
-<p><strong>Axis</strong><br />
-Delete axes with <code>axes = F</code> and re-draw with <code>box()</code> and <code>axis()</code> functions.</p>
+<p><img src="r01_rbasics_files/figure-html/unnamed-chunk-50-1.png" width="480" /></p>
+</div>
+<div id="axis" class="section level3">
+<h3><span class="header-section-number">3.2.6</span> Axis</h3>
+<p>Delete axes with <code>axes = F</code> and re-draw with <code>box()</code> and <code>axis()</code> functions.</p>
 <pre class="r"><code>plot(Sepal.Length ~ Sepal.Width, data = iris,
      pch = 21, cex = 2, bg = &quot;lightgray&quot;,
      xlab = &quot;Sepal width (cm)&quot;, ylab = &quot;Sepal length (cm)&quot;,
@@ -1090,40 +1102,71 @@ Delete axes with <code>axes = F</code> and re-draw with <code>box()</code> and <
 box(bty = &quot;l&quot;) # L-shaped border lines
 axis(1) # 1: draw x-axis
 axis(2, las = 2) # 2: draw y-axis, las = 2: make axis lables horizontal</code></pre>
-<p><img src="r01_rbasics_files/figure-html/unnamed-chunk-49-1.png" width="480" /></p>
+<p><img src="r01_rbasics_files/figure-html/unnamed-chunk-51-1.png" width="480" /></p>
+</div>
 </div>
 <div id="boxplot" class="section level2">
 <h2><span class="header-section-number">3.3</span> <code>boxplot()</code></h2>
 <p><code>boxplot()</code> is used when the x-axis is factor-type data (by default, <code>plot()</code> will produce a boxplot when x-axis is a factor variable). In the <code>iris</code> dataset, the column <code>Species</code> is a factor variable. Compare <code>Sepal.Length</code> among species using <code>boxplot()</code>.</p>
 <pre class="r"><code>boxplot(Sepal.Length ~ Species, data = iris)</code></pre>
-<p><img src="r01_rbasics_files/figure-html/unnamed-chunk-50-1.png" width="480" /></p>
+<p><img src="r01_rbasics_files/figure-html/unnamed-chunk-52-1.png" width="480" /></p>
 <p>You can customize as in <code>plot()</code>, but slighlty different.</p>
-<p><strong>Box color</strong><br />
-<code>col</code> argument.</p>
+<div id="box-color" class="section level3">
+<h3><span class="header-section-number">3.3.1</span> Box color</h3>
+<p><code>col</code> argument.</p>
 <pre class="r"><code>boxplot(Sepal.Length ~ Species, data = iris,
         col = &quot;lightgray&quot;)</code></pre>
-<p><img src="r01_rbasics_files/figure-html/unnamed-chunk-51-1.png" width="480" /></p>
-<p><strong>Border color</strong><br />
-<code>border</code> argument.</p>
-<pre class="r"><code>boxplot(Sepal.Length ~ Species, data = iris,
-        col = &quot;lightgray&quot;, border = &quot;gray&quot;)</code></pre>
-<p><img src="r01_rbasics_files/figure-html/unnamed-chunk-52-1.png" width="480" /></p>
-<p><strong>Box width</strong><br />
-<code>boxwex</code> argument.</p>
-<pre class="r"><code>boxplot(Sepal.Length ~ Species, data = iris,
-        col = &quot;lightgray&quot;, border = &quot;gray&quot;,
-        boxwex = 0.4 )</code></pre>
 <p><img src="r01_rbasics_files/figure-html/unnamed-chunk-53-1.png" width="480" /></p>
-<p><strong>Axis</strong><br />
-Delete axes with <code>axes = F</code> and re-draw with <code>box()</code> and <code>axis()</code> functions.</p>
+</div>
+<div id="border-color" class="section level3">
+<h3><span class="header-section-number">3.3.2</span> Border color</h3>
+<p><code>border</code> argument.</p>
 <pre class="r"><code>boxplot(Sepal.Length ~ Species, data = iris,
-        col = &quot;lightgray&quot;, border = &quot;gray&quot;,
+        col = &quot;lightgray&quot;, border = &quot;grey48&quot;)</code></pre>
+<p><img src="r01_rbasics_files/figure-html/unnamed-chunk-54-1.png" width="480" /></p>
+</div>
+<div id="box-width" class="section level3">
+<h3><span class="header-section-number">3.3.3</span> Box width</h3>
+<p><code>boxwex</code> argument.</p>
+<pre class="r"><code>boxplot(Sepal.Length ~ Species, data = iris,
+        col = &quot;lightgray&quot;, border = &quot;grey48&quot;,
+        boxwex = 0.4 )</code></pre>
+<p><img src="r01_rbasics_files/figure-html/unnamed-chunk-55-1.png" width="480" /></p>
+</div>
+<div id="axis-1" class="section level3">
+<h3><span class="header-section-number">3.3.4</span> Axis</h3>
+<p>Delete axes with <code>axes = F</code> and re-draw with <code>box()</code> and <code>axis()</code> functions.</p>
+<pre class="r"><code>boxplot(Sepal.Length ~ Species, data = iris,
+        col = &quot;lightgray&quot;, border = &quot;grey48&quot;,
         boxwex = 0.4, ylab = &quot;Sepal length (cm)&quot;,
         axes = F)
 box(bty = &quot;l&quot;)
 axis(1, at = c(1, 2, 3), labels = c(&quot;Setosa&quot;, &quot;Versicolor&quot;, &quot;Virginica&quot;) )
 axis(2, las = 2)</code></pre>
-<p><img src="r01_rbasics_files/figure-html/unnamed-chunk-54-1.png" width="480" /></p>
+<p><img src="r01_rbasics_files/figure-html/unnamed-chunk-56-1.png" width="480" /></p>
+</div>
+</div>
+<div id="exercise-1" class="section level2">
+<h2><span class="header-section-number">3.4</span> Exercise</h2>
+<p>Download a <a href="file/report02_temp.R" download>template</a>.</p>
+<div id="plot-function" class="section level3">
+<h3><span class="header-section-number">3.4.1</span> <code>plot()</code> function</h3>
+<ol style="list-style-type: lower-alpha">
+<li>Plot the relationship between <code>Sepal.Width</code> and <code>Petal.Width</code></li>
+<li>Turn symbol color (border) into red.</li>
+<li>Turn symbol color (fill) into red (set <code>pch = 21</code>).</li>
+<li>Make symbol size larger.</li>
+<li>Make L-shaped plot border (delete border lines on upper and right sides)</li>
+</ol>
+</div>
+<div id="boxplot-function" class="section level3">
+<h3><span class="header-section-number">3.4.2</span> <code>boxplot()</code> function</h3>
+<ol style="list-style-type: lower-alpha">
+<li>Plot the relationship between <code>Petal.Width</code> and <code>Species</code>.</li>
+<li>Turn box color (border) into <code>blue</code>.</li>
+<li>Make box width narrower.</li>
+</ol>
+</div>
 </div>
 </div>
 

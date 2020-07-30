@@ -5,7 +5,7 @@
 #' output: html_document
 #' ---
 
-#' ### 2.5.1 Vector
+#' ### Vector
 #' a. Create three numeric vectors with length 3, 6 and 20, respectively. Each vector must be created using different functions in R.
 
   #ENTER YOUR ANSWER HERE (delete this message when you submit)
@@ -21,7 +21,7 @@
   #ENTER YOUR ANSWER HERE (delete this message when you submit)
 
 
-#' ### 2.5.2 Matrix
+#' ### Matrix
 #' a. Create a numeric matrix with 4 rows and 4 columns. Each column must contain identical elements.
 
   #ENTER YOUR ANSWER HERE (delete this message when you submit)
@@ -45,7 +45,7 @@
   #ENTER YOUR ANSWER HERE (delete this message when you submit)
 
 
-#' ### 2.5.3 Dataframe
+#' ### Dataframe
 #' a. Create a dataframe with 3 variables (name variables as x, y and z. x must be character while y and z must be numeric.
 
   #ENTER YOUR ANSWER HERE (delete this message when you submit)

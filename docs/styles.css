@@ -1,9 +1,12 @@
 /* Whole document: */
-body{
+body {
   font-size: 12pt;
 }
 
-#TOC{
+#TOC {
   margin: 25px 0px 20px 0px;
-  border: none;
+}
+
+hr {
+  border-top: 1px solid gray;
 }

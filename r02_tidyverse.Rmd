@@ -1,10 +1,12 @@
 ---
-title: "Tidyverse"
+title: "tidyverse"
+date: Latest update "`r format(Sys.time(), '%d %B, %Y')`"
 output:
   html_document:
     toc: true
     toc_float: true
     number_sections: true
+    df_print: paged
 ---
 
 ```{r, include = F}
@@ -14,8 +16,8 @@ library(tidyverse)
 ```
 
 
-# Tidyverse
-[Tidyverse](https://www.tidyverse.org/packages/) is an R package that allow effective data manipulation, visualization and more. In this section, enter the following script upfront (and every time you open a new R session) so you can use functions in `tidyverse` package:
+# tidyverse
+[tidyverse](https://www.tidyverse.org/packages/) is an R package that allows effective data manipulation, visualization and more. In this section, enter the following script upfront (and every time you open a new R session) so you can use functions in `tidyverse` package:
 
 ```{r, eval = F}
 
@@ -24,6 +26,7 @@ library(tidyverse)
 
 ```
 
+[tidyverse](https://www.tidyverse.org/packages/) is a collection of useful packages, including `ggplot2` and `dplyr` among others.
 
 ## Data transformation
 
@@ -39,4 +42,4 @@ Data transformation is a critical component of data analysis. You can use spread
 
 ### Drop NAs
 
-### 
+### Arrange orders
