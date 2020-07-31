@@ -461,7 +461,7 @@ x[2:4] # access elements #2-4
 
 **Equation**\
 R provides many ways to access elements that suffice specific conditions. You can use mathematical symbols to specify what you need, for example:
-o
+
 - `==` equal
 - `>` larger than
 - `>=` equal & larger than
