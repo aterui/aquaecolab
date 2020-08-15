@@ -15,11 +15,6 @@ hr {
   border-top: 5px solid #F0F8FF;
 }
 
-.box {
-   display: flex;
-   align-items:center;
-}
-
 .clearfix {
   overflow: auto;
 }
