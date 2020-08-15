@@ -22,5 +22,5 @@ Coming soon
 **Akira Terui**, PI, `a_terui@uncg.edu` [`r icon::fa("github")`](https://github.com/aterui/) [`r icon::fa("user-graduate")`](https://scholar.google.com/citations?user=H9OuCKsAAAAJ&hl=ja&authuser=1) 
 [`r icon::fa("book")`](https://publons.com/researcher/1241876/akira-terui/)\
 
-I am interested in spatial ecology in general. I use streams as a model system to study the significance of branching complexity in natural systems. I am also a lover of freshwater mussels, fish and other aquatic organisms. I enjoy small gardening during quarantine.
+I'm interested in spatial ecology in general. My research spans across multiple taxa, but all tied with a common thread - space. Small gardening became one of my hobbies during quarantine.
 </div>
