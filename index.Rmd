@@ -13,7 +13,7 @@ library(icon)
 
 ---
 
-We study **Aquati**c ecosystems using skills of **Qu**antitative **E**cology. We are particularly excited about combining theoretical, statistical, and field-based approaches to address fundamental and applied questions in spatial ecology. Current key topics include the following:
+We study **Aquati**c ecosystems using skills of **Qu**antitative **E**cology. We are particularly excited about combining theoretical, statistical, and field-based approaches to address fundamental and applied questions in spatial ecology. Looking for opportunities? Visit [`r icon::fa("users")` Join](join.html) for available options. Current key topics in our group include the following:
 
 \
 
@@ -21,7 +21,7 @@ We study **Aquati**c ecosystems using skills of **Qu**antitative **E**cology. We
 
 ### Branching complexity and biodiversity in rivers
 
-Rivers recurrently join to form a fractal branching network, in which geometric properties (e.g., branching patterns) remain similar across spatial scales. We are interested in how this “scale-invariant” complexity drives ecological systems. We tackle this question with mathematical models and big-data synthesis. Core part of this project has recently been funded by NSF ([link](https://nsf.gov/awardsearch/showAward?AWD_ID=2015634&HistoricalAwards=false)) and we are currently looking for a postdoc. See JOIN for details. Photo credit <a href="https://pixabay.com/ja/?utm_source=link-attribution&amp;utm_medium=referral&amp;utm_campaign=image&amp;utm_content=1031760">Pixabay</a>
+Rivers recurrently join to form a fractal branching network, in which geometric properties (e.g., branching patterns) remain similar across spatial scales. We are interested in how this “scale-invariant” complexity drives ecological systems. We tackle this question with mathematical models and big-data synthesis. Core part of this project has recently been funded by NSF ([link](https://nsf.gov/awardsearch/showAward?AWD_ID=2015634&HistoricalAwards=false)) and we are currently looking for a postdoc. See [JOIN](join.html) for details. Photo credit <a href="https://pixabay.com/ja/?utm_source=link-attribution&amp;utm_medium=referral&amp;utm_campaign=image&amp;utm_content=1031760">Pixabay</a>
 
 \
 \
@@ -31,7 +31,7 @@ Rivers recurrently join to form a fractal branching network, in which geometric 
 
 ### Non-random dispersal
 
-Dispersal is a fundamental process that mediates disease spread, metapopulation/metacommunity dynamics, and food webs. Although dispersal is often assumed to be a “stochastic” event in population/community ecology, behavioral ecologists have long recognized that dispersal is triggered by internal (e.g., body size) and/or external (e.g., disturbance) factors. We are interested in integrating behavioral aspects of dispersal into population and community ecology.
+Dispersal is a fundamental process that mediates disease spread, metapopulation/metacommunity dynamics, and food webs. Although dispersal is often assumed to be a “stochastic” event in population/community ecology, behavioral ecologists have long recognized that dispersal is triggered by internal (e.g., body size) and/or external (e.g., disturbance) factors. We are interested in integrating behavioral aspects of dispersal into population and community ecology. Photo credit Akira Terui
 
 \
 \
@@ -42,4 +42,4 @@ Dispersal is a fundamental process that mediates disease spread, metapopulation/
 
 ### Cross-system trophic interactions
 
-Ecosystems are not a stand-alone entity; rather, they are connected through resource flux across ecosystems. We are interested in how aquatic and terrestrial food webs are connected through animal migration (e.g., the emergence of aquatic insects), and how food web interactions mediate transfer of energy across ecosystems.
+Ecosystems are not a stand-alone entity; rather, they are connected through resource flux across ecosystems. We are interested in how aquatic and terrestrial food webs are connected through animal migration (e.g., the emergence of aquatic insects), and how food web interactions mediate transfer of energy across ecosystems. Photo credit Akira Terui

@@ -1,6 +1,6 @@
 ---
 title: "Publication"
-date: Latest update "`r format(Sys.time(), '%d %B, %Y')`"
+date: Latest update - `r format(Sys.time(), '%d %B, %Y')`
 ---
 
 \

@@ -1,6 +1,6 @@
 ---
 title: "R BASICS"
-date: Latest update "`r format(Sys.time(), '%d %B, %Y')`"
+date: Latest update - `r format(Sys.time(), '%d %B, %Y')`
 output:
   html_document:
     toc: true

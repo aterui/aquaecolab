@@ -23,9 +23,6 @@ navbar:
         - text: "R tidyverse"
         - text: "Helpful link"
           href: link.html
-    - text: ""
-      icon: fa-github fa-lg
-      href: https://github.com/aterui/aquaecolab
 
 output:
   html_document:
