@@ -16,19 +16,18 @@ navbar:
       icon: fa-users
       href: join.html
     - text: "Programming"
+      icon: fa-desktop
       menu:
         - text: "R basics"
           href: r01_rbasics.html
         - text: "R tidyverse"
         - text: "Helpful link"
           href: link.html
-
-  right:
     - text: ""
-      icon: fa-github
-      href: https://github.com/AkiraTerui/aquaecolab
-  
+      icon: fa-github fa-lg
+      href: https://github.com/aterui/aquaecolab
+
 output:
   html_document:
     css: styles.css
-    theme: paper
+    theme: cosmo

@@ -13,25 +13,33 @@ library(icon)
 
 ---
 
-We study **Aquati**c ecosystems using skills of **Qu**antitative **E**cology. Quantitative skills are one of the critical components in ecology and provide insights into how ecological communities are structured in nature. We are particularly excited about combining theoretical, statistical, and field-based approaches to address fundamental and applied questions in spatial ecology. Current key topics include the following:
+We study **Aquati**c ecosystems using skills of **Qu**antitative **E**cology. We are particularly excited about combining theoretical, statistical, and field-based approaches to address fundamental and applied questions in spatial ecology. Current key topics include the following:
 
-<img src="image/img01.jpg" style = "width: 40%; margin-right: 20px" align = left></img>
+\
+
+<img src="image/img01.jpg" style = "width: 40%; margin-right: 20px" align = left>
 
 ### Branching complexity and biodiversity in rivers
 
 Rivers recurrently join to form a fractal branching network, in which geometric properties (e.g., branching patterns) remain similar across spatial scales. We are interested in how this “scale-invariant” complexity drives ecological systems. We tackle this question with mathematical models and big-data synthesis. Core part of this project has recently been funded by NSF ([link](https://nsf.gov/awardsearch/showAward?AWD_ID=2015634&HistoricalAwards=false)) and we are currently looking for a postdoc. See JOIN for details. Photo credit <a href="https://pixabay.com/ja/?utm_source=link-attribution&amp;utm_medium=referral&amp;utm_campaign=image&amp;utm_content=1031760">Pixabay</a>
 
 \
-<img src="image/img02.jpg" style = "width: 40%; margin-right: 20px" align = left></img>
+\
+\
+
+<img src="image/img02.jpg" style = "width: 40%; margin-right: 20px" align = left>
 
 ### Non-random dispersal
 
-Dispersal is a fundamental process that mediates disease spread, metapopulation/metacommunity dynamics, and food webs. Although dispersal is often assumed to be a “stochastic” event in population/community ecology, behavioral ecologists have long recognized that dispersal is triggered by internal (e.g., body size) and/or external (e.g., disturbance) factors. We are interested in integrating behavioral perspectives into population and community ecology.
+Dispersal is a fundamental process that mediates disease spread, metapopulation/metacommunity dynamics, and food webs. Although dispersal is often assumed to be a “stochastic” event in population/community ecology, behavioral ecologists have long recognized that dispersal is triggered by internal (e.g., body size) and/or external (e.g., disturbance) factors. We are interested in integrating behavioral aspects of dispersal into population and community ecology.
 
 \
+\
+\
+\
 
-<img src="image/img03.jpg" style = "width: 40%; margin-right: 20px" align = left></img>
+<img src="image/img03.jpg" style = "width: 40%; margin-right: 20px" align = left>
 
 ### Cross-system trophic interactions
 
-Ecosystems are not a stand-alone entity; rather, they are connected through resource flux across ecosystems. We are interested in how aquatic and terrestrial food webs are connected through animal migration (e.g., the emergence of aquatic insects), and how cross-system food web interactions mediate transfer of energy.
+Ecosystems are not a stand-alone entity; rather, they are connected through resource flux across ecosystems. We are interested in how aquatic and terrestrial food webs are connected through animal migration (e.g., the emergence of aquatic insects), and how food web interactions mediate transfer of energy across ecosystems.
