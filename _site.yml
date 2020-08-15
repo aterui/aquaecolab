@@ -21,7 +21,7 @@ navbar:
           href: r01_rbasics.html
         - text: "R tidyverse"
         - text: "Helpful link"
-          href: r03_link.html
+          href: link.html
 
   right:
     - text: ""

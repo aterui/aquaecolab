@@ -1,5 +1,5 @@
 ---
-pagetitle: "Tutorial"
+pagetitle: "AquatiQuE Lab - UNC Greensboro"
 ---
 
 ```{r logo, eval = T, echo = FALSE, fig.height = 2, fig.width = 20}
