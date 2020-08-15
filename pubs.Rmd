@@ -1,0 +1,45 @@
+---
+title: "Publication"
+date: Latest update "`r format(Sys.time(), '%d %B, %Y')`"
+---
+
+\
+
+### In Review
+
+- Terui A et al. Non-random dispersal in sympatric stream fishes: influences of natural disturbance and body size
+- Comte et al. RivFishTIME: A global database of fish time-series to study global change ecology in riverine systems
+
+### Published
+
+- Terui A (in press) Modeling dispersal using mark-recapture data: a comparison of dispersal models. Ecological Research
+- Nakamura F, Watanabe Y, Negishi JN, Akasaka T, Yabuhara Y, Terui A, Yamanaka S, Konno M (in press) Restoration of the shifting mosaic of floodplain forests under a flow regime altered by a dam. Ecological Engineering
+- Terui A, Finlay JC, Hansen AT, Kozarek JL. (2019) Quantifying cryptic function loss during community disassembly. Journal of Applied Ecology 56: 2710-2722
+- Senzaki M, Terui A, Sato F, Fukuda Y, Kataoka Y, Watanuki Y (2019) Long-term declines in common breeding seabirds in Japan. Bird Conservation International 1-13.
+- Terui A, Nishijima S (2019) Spatial disturbance synchrony alters the association of food chain length and ecosystem size. Ecological Research 34: 864-871
+- Negishi JN, Terui A, Badrun N, Miura K, Oiso T, Sumitomo K, Kyuka T, Yonemoto M, Nakamura F (2019) High resilience of aquatic community to a 100-yr flood in a gravel-bed river. Landscape and Ecological Engineering 15: 143-154.
+- Ishiyama N, Ryo M, Kataoka T, Nagayama S, Sueyoshi M, Terui A, Mori T, Akasaka T, Nakamura F. (2018) Predicting the ecological impacts of large dam removals on a river network based on habitat network structure and flow regimes. Conservation Biology 32: 1403-1413.
+- Terui A, Ishiyama N, Urabe H, Ono S, Finlay JC, Nakamura F. (2018) Metapopulation stability in branching river networks. Proceedings of the National Academy of Sciences 115: E5963-E5969.
+- Hanioka M, Yamaura Y, Yamanaka S, Senzaki M, Kawamura K, Terui A, Nakamura F. (2018) How much abandoned farmland is required to harbor comparable species richness and abundance of bird communities in wetland? Hierarchical community model suggests the importance of habitat and landscape variables. Biodiversity and Conservation 27: 1831-1848.
+- Terui A, Negishi JN, Watanabe N, Nakamura F. (2018) Stream resource gradients drive consumption rates of supplemental prey in the adjacent riparian zone. Ecosystems 21: 772-781.
+- Kakinuma K, Terui A, Sasaki T, Koyama A, Jamsran U, Okuro T, Takeuchi K.. (2017) Detection of vegetation trends under highly variable environment after grazing exclusion in Mongolia. Journal of Vegetation Science 28: 965-974.
+- Terui A, Ooue K, Urabe H, Nakamura F. (2017) Parasite infection induces size-dependent host dispersal: consequences for parasite persistence. Proceedings of the Royal Society B: Biological Sciences 284: 20171491.
+- Ooue K, Terui A, Urabe H, Nakamura F. (2017) A delayed effect of the aquatic parasite Margaritifera laevis on the growth of the salmonid host fish Oncorhynchus masou masou. Limnology 18: 345-351.
+- Terui A, Akasaka T, Negishi JN, Uemura F, Nakamura F. (2017) Species-specific use of allochthonous resources by ground beetles (Carabidae) at a river-land interface. Ecological Research 32: 27-35.
+Terui A and Miyazaki Y. (2017) Combined effects of immigration potential and habitat quality on diadromous fishes. Limnology 18: 121-129.
+- Terui A and Miyazaki Y. (2016) Three ecological factors influencing riverine fish diversity in the Shubuto River system, Japan: habitat capacity, habitat heterogeneity and immigration. Limnology 17:143-149.
+- Miyazaki Y and Terui A. (2016) Difference in habitat use between the two related goby species of Gymnogobius opperiens and G. urotaenia: a case study in the Shubuto River System, Hokkaido, Japan. Ichthyological research 63: 317-323.
+- Miyazaki Y and Terui A. (2015) Temporal dynamics of fluvial fish composition caused by marine amphidromous species in the Shubuto River, southwestern Hokkaido, Japan. Ichtyological Research.
+- Terui A, Miyazaki Y, Yoshioka A, Matsuzaki SS. (2015) A cryptic Allee effect: spatial contexts mask an existing fitness-density relationship. Royal Society Open Science 2: 150034.
+- Terui A and Miyazaki Y. (2015) A “parasite-tag” approach reveals long-distance dispersal of the riverine mussel Margaritifera laevis by its host fish. Hydrobiologia 760: 189-196.
+- Terui A, Miyazaki Y, Yoshioka A, Kaifu K, Matsuzaki SS, Washitani I. (2014) Asymmetric dispersal structures a riverine metapopulation of the freshwater pearl mussel Margaritifera laevis. Ecology and Evolution 4: 3004-3014.
+- Terui A, Miyazaki Y, Yoshioka A, Kadoya T, Jopp F, Washitani I. (2014) Dispersal of larvae of Margaritifera laevis by its host fish. Freshwater Science 13: 112-123.
+- Miyazaki Y, Terui A, Senou H, Washitani I. (2013) Illustrated checklist of fishes from the Shubuto River System, southwestern Hokkaido, Japan. Check List 9: 63-72.
+- Miyazaki Y, Terui A, Yoshioka A, Kaifu K, Washitani I. (2013) Fish species composition of temporary small lentic habitats in the floodplains of the Shubuto River System: Factors affecting species richness and suggestions for conservation and restoration. Japanese Journal of Conservation Ecology 18: 55-68. (in Japanese)
+- Terui A, Matsuzaki SS, Kodama K, Tada M, Washitani I. (2011) Factors affecting the local occurrence of the near-threatened bitterling (Tanakia lanceolata) in agricultural canal networks: strong attachment to its potential host mussels. Hydrobiologia 675: 19-28.
+- Kubo S, Terui A, Nishihiro J, Washitani I. (2012) Impact of alien species on the distribution of native submerged macrophytes in small rivers and agricultural canals around Lake Mikata. Japanese Journal of Conservation Ecology 17: 165-173. (in Japanese)
+- Matsuzaki SS, Terui A, Kodama K, Tada M, Yoshida T, Washitani I. (2011) Influence of connectivity, habitat quality and invasive species on egg and larval distributions and local abundance of crucian carp in Japanese agricultural landscapes. Biological Conservation 144: 2081-2087.
+- Miyazaki Y, Terui A, Kubo S, Hatai N, Takahashi K, Saitoh H, Washitani I. (2011) Ecological evaluation of the conservation of fish fauna in the Shubuto River system, southwestern Hokkaido. Japanese Journal of Conservation Ecology 16: 213-219. (in Japanese)
+- Matsuzaki SS, Kodama K, Terui A, Takeshima H, Sato T, Tominaga O, Maeda H, Tada M, Washitani I, Yoshida T.(2011) Changes in the strictly freshwater fish fauna around Lake Mikata, Fukui Prefecture, Japan, inferred from monitoring data and ecological trait information. Japanese Journal of Conservation Ecology 16: 205-212. (in Japanese)
+- Terui A, Miyazaki Y, Matsuzaki SS, Washitani I. (2011) Population status and factors affecting local density of endangered Japanese freshwater pearl mussel Margaritifera laevis in Shubuto river basin, Hokkaido. Japanese Journal of Conservation Ecology 16: 149-157. (in Japanese)
+- Matsuzaki SS, Kodama K, Takeshima H, Terui A, Masui M, Yoshida T, Washitani I. (2010) Invasion of bluegill in Lake Mikata. Japanese Journal of Ichthyology 57: 87-89. (in Japanese)

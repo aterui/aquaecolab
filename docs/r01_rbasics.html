@@ -356,7 +356,14 @@ div.tocify {
   <a href="index.html">
     <span class="fa fa-home"></span>
      
-    
+    Home
+  </a>
+</li>
+<li>
+  <a href="pubs.html">
+    <span class="fa fa-book"></span>
+     
+    Publication
   </a>
 </li>
 <li class="dropdown">
@@ -393,7 +400,7 @@ div.tocify {
 
 
 <h1 class="title toc-ignore">R BASICS</h1>
-<h4 class="date">Latest update “31 July, 2020”</h4>
+<h4 class="date">Latest update “14 August, 2020”</h4>
 
 </div>
 
@@ -728,9 +735,9 @@ x</code></pre>
 <pre class="r"><code>#ex.4b use seq() function
 x &lt;- seq(1, 5, by = 0.1)
 x</code></pre>
-<pre><code>##  [1] 1.0 1.1 1.2 1.3 1.4 1.5 1.6 1.7 1.8 1.9 2.0 2.1 2.2 2.3 2.4 2.5 2.6
-## [18] 2.7 2.8 2.9 3.0 3.1 3.2 3.3 3.4 3.5 3.6 3.7 3.8 3.9 4.0 4.1 4.2 4.3
-## [35] 4.4 4.5 4.6 4.7 4.8 4.9 5.0</code></pre>
+<pre><code>##  [1] 1.0 1.1 1.2 1.3 1.4 1.5 1.6 1.7 1.8 1.9 2.0 2.1 2.2 2.3 2.4 2.5 2.6 2.7 2.8
+## [20] 2.9 3.0 3.1 3.2 3.3 3.4 3.5 3.6 3.7 3.8 3.9 4.0 4.1 4.2 4.3 4.4 4.5 4.6 4.7
+## [39] 4.8 4.9 5.0</code></pre>
 </div>
 <div id="check-features" class="section level3">
 <h3><span class="header-section-number">2.2.2</span> Check Features</h3>
@@ -859,7 +866,7 @@ x</code></pre>
 ## [2,]    2    5    8
 ## [3,]    3    6    9</code></pre>
 <pre class="r"><code>class(x)</code></pre>
-<pre><code>## [1] &quot;matrix&quot;</code></pre>
+<pre><code>## [1] &quot;matrix&quot; &quot;array&quot;</code></pre>
 <pre class="r"><code>typeof(x)</code></pre>
 <pre><code>## [1] &quot;integer&quot;</code></pre>
 <pre class="r"><code>dim(x)</code></pre>
@@ -873,7 +880,7 @@ y</code></pre>
 ## [2,] &quot;b&quot;  &quot;e&quot; 
 ## [3,] &quot;c&quot;  &quot;f&quot;</code></pre>
 <pre class="r"><code>class(y)</code></pre>
-<pre><code>## [1] &quot;matrix&quot;</code></pre>
+<pre><code>## [1] &quot;matrix&quot; &quot;array&quot;</code></pre>
 <pre class="r"><code>typeof(y)</code></pre>
 <pre><code>## [1] &quot;character&quot;</code></pre>
 <pre class="r"><code>dim(y)</code></pre>
@@ -953,7 +960,7 @@ dat &lt;- data.frame(LakeType = x, TSS = y) # x is named as &quot;LakeType&quot;
 dat</code></pre>
 <div data-pagedtable="false">
 <script data-pagedtable-source type="application/json">
-{"columns":[{"label":["LakeType"],"name":[1],"type":["fctr"],"align":["left"]},{"label":["TSS"],"name":[2],"type":["dbl"],"align":["right"]}],"data":[{"1":"Pristine","2":"1.2"},{"1":"Pristine","2":"2.2"},{"1":"Disturbed","2":"10.9"},{"1":"Disturbed","2":"50.0"},{"1":"Pristine","2":"3.0"}],"options":{"columns":{"min":{},"max":[10]},"rows":{"min":[10],"max":[10]},"pages":{}}}
+{"columns":[{"label":["LakeType"],"name":[1],"type":["chr"],"align":["left"]},{"label":["TSS"],"name":[2],"type":["dbl"],"align":["right"]}],"data":[{"1":"Pristine","2":"1.2"},{"1":"Pristine","2":"2.2"},{"1":"Disturbed","2":"10.9"},{"1":"Disturbed","2":"50.0"},{"1":"Pristine","2":"3.0"}],"options":{"columns":{"min":{},"max":[10]},"rows":{"min":[10],"max":[10]},"pages":{}}}
   </script>
 </div>
 <p><strong>Call column names</strong><br />
@@ -963,24 +970,22 @@ dat</code></pre>
 <p><strong>Access by columns</strong><br />
 </p>
 <pre class="r"><code>dat$LakeType # access LakeType</code></pre>
-<pre><code>## [1] Pristine  Pristine  Disturbed Disturbed Pristine 
-## Levels: Disturbed Pristine</code></pre>
+<pre><code>## [1] &quot;Pristine&quot;  &quot;Pristine&quot;  &quot;Disturbed&quot; &quot;Disturbed&quot; &quot;Pristine&quot;</code></pre>
 <pre class="r"><code>dat$TSS # access TSS</code></pre>
 <pre><code>## [1]  1.2  2.2 10.9 50.0  3.0</code></pre>
 <p>You can access elements like a matrix as well:</p>
 <pre class="r"><code>dat[,1] # access column #1</code></pre>
-<pre><code>## [1] Pristine  Pristine  Disturbed Disturbed Pristine 
-## Levels: Disturbed Pristine</code></pre>
+<pre><code>## [1] &quot;Pristine&quot;  &quot;Pristine&quot;  &quot;Disturbed&quot; &quot;Disturbed&quot; &quot;Pristine&quot;</code></pre>
 <pre class="r"><code>dat[1,] # access row #1</code></pre>
 <div data-pagedtable="false">
 <script data-pagedtable-source type="application/json">
-{"columns":[{"label":[""],"name":["_rn_"],"type":[""],"align":["left"]},{"label":["LakeType"],"name":[1],"type":["fctr"],"align":["left"]},{"label":["TSS"],"name":[2],"type":["dbl"],"align":["right"]}],"data":[{"1":"Pristine","2":"1.2","_rn_":"1"}],"options":{"columns":{"min":{},"max":[10]},"rows":{"min":[10],"max":[10]},"pages":{}}}
+{"columns":[{"label":[""],"name":["_rn_"],"type":[""],"align":["left"]},{"label":["LakeType"],"name":[1],"type":["chr"],"align":["left"]},{"label":["TSS"],"name":[2],"type":["dbl"],"align":["right"]}],"data":[{"1":"Pristine","2":"1.2","_rn_":"1"}],"options":{"columns":{"min":{},"max":[10]},"rows":{"min":[10],"max":[10]},"pages":{}}}
   </script>
 </div>
 <pre class="r"><code>dat[c(2,4),] # access row #2 and 4</code></pre>
 <div data-pagedtable="false">
 <script data-pagedtable-source type="application/json">
-{"columns":[{"label":[""],"name":["_rn_"],"type":[""],"align":["left"]},{"label":["LakeType"],"name":[1],"type":["fctr"],"align":["left"]},{"label":["TSS"],"name":[2],"type":["dbl"],"align":["right"]}],"data":[{"1":"Pristine","2":"2.2","_rn_":"2"},{"1":"Disturbed","2":"50.0","_rn_":"4"}],"options":{"columns":{"min":{},"max":[10]},"rows":{"min":[10],"max":[10]},"pages":{}}}
+{"columns":[{"label":[""],"name":["_rn_"],"type":[""],"align":["left"]},{"label":["LakeType"],"name":[1],"type":["chr"],"align":["left"]},{"label":["TSS"],"name":[2],"type":["dbl"],"align":["right"]}],"data":[{"1":"Pristine","2":"2.2","_rn_":"2"},{"1":"Disturbed","2":"50.0","_rn_":"4"}],"options":{"columns":{"min":{},"max":[10]},"rows":{"min":[10],"max":[10]},"pages":{}}}
   </script>
 </div>
 <p><br />

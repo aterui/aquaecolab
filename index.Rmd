@@ -1,36 +1,37 @@
 ---
-pagetitle: "AquatiQuE"
+pagetitle: "Tutorial"
 ---
 
-```{r logo, echo = FALSE, fig.height = 2, fig.width = 20}
+```{r logo, eval = T, echo = FALSE, fig.height = 2, fig.width = 20}
 
-par(mar = c(0,0,0,0))
-
-# set parameters
-set.seed(1)
-n <- 500
-y <- rnorm(n); x <- -1*rexp(n, rate = 0.075)
-alpha <- runif(n, 0, 0.5); lim <- 1
-
-# plot
-plot(y ~ x, ann = F, axes = F, ylim= c(-lim, lim), pch = 21,
-     bg = rgb(runif(n, 0, 0.1), runif(n, 0, 1), runif(n, 0, 1), alpha = runif(n, 0, 0.15)), col = NA,
-     #col = rgb(runif(n, 0, 1), runif(n, 0, 1), runif(n, 0, 1), alpha = runif(n, 0, 0.1)),
-     cex = runif(n, 0, 8) )
-text("AquatiQuE", x = min(x), y = mean(y), cex = 5, col = grey(0.3), adj = 0)
+library(icon)
 
 ```
+\
+
+# `r fa("tint", color = "gray")` AquatiQuE Lab - UNC Greensboro
 
 ---
 
-We study **aquati**c ecosystems using skills of **Qu**antitative **E**cology.
-Our quantitative approach aims at:
+We study **Aquati**c ecosystems using skills of **Qu**antitative **E**cology. Quantitative skills are one of the critical components in ecology and provide insights into how ecological communities are structured in nature. We are particularly excited about combining theoretical, statistical, and field-based approaches to address fundamental and applied questions in spatial ecology. Current key topics include the following:
 
-- generating ecological predictions using mathematical models
-- revealing ecological patterns hidden in the field data
-- maximize the use of existing data that are otherwise wasted
+<img src="image/img01.jpg" style = "width: 40%; margin-right: 20px" align = left></img>
 
-Our goal is to privide novel insights into how ecological communities are stuructured and maintained by studying freshwater ecosystems, especially streams. We are particularly excited about synthesizing theoretical and empirical approaches.
+### Branching complexity and biodiversity in rivers
 
-# Join the lab
-Our lab is located at UNC Greensboro and we welcome inquiries from potential undergrads, grad students and postdocs. Feel free to contact `aquaecoluncg at gmail.com`!
+Rivers recurrently join to form a fractal branching network, in which geometric properties (e.g., branching patterns) remain similar across spatial scales. We are interested in how this “scale-invariant” complexity drives ecological systems. We tackle this question with mathematical models and big-data synthesis. Core part of this project has recently been funded by NSF ([link](https://nsf.gov/awardsearch/showAward?AWD_ID=2015634&HistoricalAwards=false)) and we are currently looking for a postdoc. See JOIN for details. Photo credit <a href="https://pixabay.com/ja/?utm_source=link-attribution&amp;utm_medium=referral&amp;utm_campaign=image&amp;utm_content=1031760">Pixabay</a>
+
+\
+<img src="image/img02.jpg" style = "width: 40%; margin-right: 20px" align = left></img>
+
+### Non-random dispersal
+
+Dispersal is a fundamental process that mediates disease spread, metapopulation/metacommunity dynamics, and food webs. Although dispersal is often assumed to be a “stochastic” event in population/community ecology, behavioral ecologists have long recognized that dispersal is triggered by internal (e.g., body size) and/or external (e.g., disturbance) factors. We are interested in integrating behavioral perspectives into population and community ecology.
+
+\
+
+<img src="image/img03.jpg" style = "width: 40%; margin-right: 20px" align = left></img>
+
+### Cross-system trophic interactions
+
+Ecosystems are not a stand-alone entity; rather, they are connected through resource flux across ecosystems. We are interested in how aquatic and terrestrial food webs are connected through animal migration (e.g., the emergence of aquatic insects), and how cross-system food web interactions mediate transfer of energy.

@@ -1,0 +1,428 @@
+<!DOCTYPE html>
+
+<html>
+
+<head>
+
+<meta charset="utf-8" />
+<meta name="generator" content="pandoc" />
+<meta http-equiv="X-UA-Compatible" content="IE=EDGE" />
+
+
+
+
+<title>Publication</title>
+
+<script src="site_libs/jquery-1.11.3/jquery.min.js"></script>
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<link href="site_libs/bootstrap-3.3.5/css/paper.min.css" rel="stylesheet" />
+<script src="site_libs/bootstrap-3.3.5/js/bootstrap.min.js"></script>
+<script src="site_libs/bootstrap-3.3.5/shim/html5shiv.min.js"></script>
+<script src="site_libs/bootstrap-3.3.5/shim/respond.min.js"></script>
+<script src="site_libs/navigation-1.1/tabsets.js"></script>
+<link href="site_libs/highlightjs-9.12.0/default.css" rel="stylesheet" />
+<script src="site_libs/highlightjs-9.12.0/highlight.js"></script>
+<link href="site_libs/font-awesome-5.1.0/css/all.css" rel="stylesheet" />
+<link href="site_libs/font-awesome-5.1.0/css/v4-shims.css" rel="stylesheet" />
+
+<style type="text/css">code{white-space: pre;}</style>
+<style type="text/css">
+  pre:not([class]) {
+    background-color: white;
+  }
+</style>
+<script type="text/javascript">
+if (window.hljs) {
+  hljs.configure({languages: []});
+  hljs.initHighlightingOnLoad();
+  if (document.readyState && document.readyState === "complete") {
+    window.setTimeout(function() { hljs.initHighlighting(); }, 0);
+  }
+}
+</script>
+
+
+
+<style type="text/css">
+h1 {
+  font-size: 34px;
+}
+h1.title {
+  font-size: 38px;
+}
+h2 {
+  font-size: 30px;
+}
+h3 {
+  font-size: 24px;
+}
+h4 {
+  font-size: 18px;
+}
+h5 {
+  font-size: 16px;
+}
+h6 {
+  font-size: 12px;
+}
+.table th:not([align]) {
+  text-align: left;
+}
+</style>
+
+<link rel="stylesheet" href="styles.css" type="text/css" />
+
+
+
+<style type = "text/css">
+.main-container {
+  max-width: 940px;
+  margin-left: auto;
+  margin-right: auto;
+}
+code {
+  color: inherit;
+  background-color: rgba(0, 0, 0, 0.04);
+}
+img {
+  max-width:100%;
+}
+.tabbed-pane {
+  padding-top: 12px;
+}
+.html-widget {
+  margin-bottom: 20px;
+}
+button.code-folding-btn:focus {
+  outline: none;
+}
+summary {
+  display: list-item;
+}
+</style>
+
+
+<style type="text/css">
+/* padding for bootstrap navbar */
+body {
+  padding-top: 64px;
+  padding-bottom: 40px;
+}
+/* offset scroll position for anchor links (for fixed navbar)  */
+.section h1 {
+  padding-top: 69px;
+  margin-top: -69px;
+}
+.section h2 {
+  padding-top: 69px;
+  margin-top: -69px;
+}
+.section h3 {
+  padding-top: 69px;
+  margin-top: -69px;
+}
+.section h4 {
+  padding-top: 69px;
+  margin-top: -69px;
+}
+.section h5 {
+  padding-top: 69px;
+  margin-top: -69px;
+}
+.section h6 {
+  padding-top: 69px;
+  margin-top: -69px;
+}
+.dropdown-submenu {
+  position: relative;
+}
+.dropdown-submenu>.dropdown-menu {
+  top: 0;
+  left: 100%;
+  margin-top: -6px;
+  margin-left: -1px;
+  border-radius: 0 6px 6px 6px;
+}
+.dropdown-submenu:hover>.dropdown-menu {
+  display: block;
+}
+.dropdown-submenu>a:after {
+  display: block;
+  content: " ";
+  float: right;
+  width: 0;
+  height: 0;
+  border-color: transparent;
+  border-style: solid;
+  border-width: 5px 0 5px 5px;
+  border-left-color: #cccccc;
+  margin-top: 5px;
+  margin-right: -10px;
+}
+.dropdown-submenu:hover>a:after {
+  border-left-color: #ffffff;
+}
+.dropdown-submenu.pull-left {
+  float: none;
+}
+.dropdown-submenu.pull-left>.dropdown-menu {
+  left: -100%;
+  margin-left: 10px;
+  border-radius: 6px 0 6px 6px;
+}
+</style>
+
+<script>
+// manage active state of menu based on current page
+$(document).ready(function () {
+  // active menu anchor
+  href = window.location.pathname
+  href = href.substr(href.lastIndexOf('/') + 1)
+  if (href === "")
+    href = "index.html";
+  var menuAnchor = $('a[href="' + href + '"]');
+
+  // mark it active
+  menuAnchor.parent().addClass('active');
+
+  // if it's got a parent navbar menu mark it active as well
+  menuAnchor.closest('li.dropdown').addClass('active');
+});
+</script>
+
+<!-- tabsets -->
+
+<style type="text/css">
+.tabset-dropdown > .nav-tabs {
+  display: inline-table;
+  max-height: 500px;
+  min-height: 44px;
+  overflow-y: auto;
+  background: white;
+  border: 1px solid #ddd;
+  border-radius: 4px;
+}
+
+.tabset-dropdown > .nav-tabs > li.active:before {
+  content: "";
+  font-family: 'Glyphicons Halflings';
+  display: inline-block;
+  padding: 10px;
+  border-right: 1px solid #ddd;
+}
+
+.tabset-dropdown > .nav-tabs.nav-tabs-open > li.active:before {
+  content: "&#xe258;";
+  border: none;
+}
+
+.tabset-dropdown > .nav-tabs.nav-tabs-open:before {
+  content: "";
+  font-family: 'Glyphicons Halflings';
+  display: inline-block;
+  padding: 10px;
+  border-right: 1px solid #ddd;
+}
+
+.tabset-dropdown > .nav-tabs > li.active {
+  display: block;
+}
+
+.tabset-dropdown > .nav-tabs > li > a,
+.tabset-dropdown > .nav-tabs > li > a:focus,
+.tabset-dropdown > .nav-tabs > li > a:hover {
+  border: none;
+  display: inline-block;
+  border-radius: 4px;
+  background-color: transparent;
+}
+
+.tabset-dropdown > .nav-tabs.nav-tabs-open > li {
+  display: block;
+  float: none;
+}
+
+.tabset-dropdown > .nav-tabs > li {
+  display: none;
+}
+</style>
+
+<!-- code folding -->
+
+
+
+
+</head>
+
+<body>
+
+
+<div class="container-fluid main-container">
+
+
+
+
+<div class="navbar navbar-default  navbar-fixed-top" role="navigation">
+  <div class="container">
+    <div class="navbar-header">
+      <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar">
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+      </button>
+      <a class="navbar-brand" href="index.html">AquatiQuE</a>
+    </div>
+    <div id="navbar" class="navbar-collapse collapse">
+      <ul class="nav navbar-nav">
+        <li>
+  <a href="index.html">
+    <span class="fa fa-home"></span>
+     
+    Home
+  </a>
+</li>
+<li>
+  <a href="pubs.html">
+    <span class="fa fa-book"></span>
+     
+    Publication
+  </a>
+</li>
+<li>
+  <a href="team.html">
+    <span class="fa fa-users"></span>
+     
+    Team
+  </a>
+</li>
+<li class="dropdown">
+  <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">
+    R
+     
+    <span class="caret"></span>
+  </a>
+  <ul class="dropdown-menu" role="menu">
+    <li>
+      <a href="r01_rbasics.html">R Basics</a>
+    </li>
+    <li>
+      <a href="r02_tidyverse.html">tidyverse</a>
+    </li>
+  </ul>
+</li>
+      </ul>
+      <ul class="nav navbar-nav navbar-right">
+        <li>
+  <a href="https://github.com/AkiraTerui/aquaecolab">
+    <span class="fa fa-github"></span>
+     
+    
+  </a>
+</li>
+      </ul>
+    </div><!--/.nav-collapse -->
+  </div><!--/.container -->
+</div><!--/.navbar -->
+
+<div class="fluid-row" id="header">
+
+
+
+<h1 class="title toc-ignore">Publication</h1>
+<h4 class="date">Latest update “14 August, 2020”</h4>
+
+</div>
+
+
+<p><br />
+</p>
+<div id="in-review" class="section level3">
+<h3>In Review</h3>
+<ul>
+<li>Terui A et al. Non-random dispersal in sympatric stream fishes: influences of natural disturbance and body size</li>
+<li>Comte et al. RivFishTIME: A global database of fish time-series to study global change ecology in riverine systems</li>
+</ul>
+</div>
+<div id="published" class="section level3">
+<h3>Published</h3>
+<ul>
+<li>Terui A (in press) Modeling dispersal using mark-recapture data: a comparison of dispersal models. Ecological Research</li>
+<li>Nakamura F, Watanabe Y, Negishi JN, Akasaka T, Yabuhara Y, Terui A, Yamanaka S, Konno M (in press) Restoration of the shifting mosaic of floodplain forests under a flow regime altered by a dam. Ecological Engineering</li>
+<li>Terui A, Finlay JC, Hansen AT, Kozarek JL. (2019) Quantifying cryptic function loss during community disassembly. Journal of Applied Ecology 56: 2710-2722</li>
+<li>Senzaki M, Terui A, Sato F, Fukuda Y, Kataoka Y, Watanuki Y (2019) Long-term declines in common breeding seabirds in Japan. Bird Conservation International 1-13.</li>
+<li>Terui A, Nishijima S (2019) Spatial disturbance synchrony alters the association of food chain length and ecosystem size. Ecological Research 34: 864-871</li>
+<li>Negishi JN, Terui A, Badrun N, Miura K, Oiso T, Sumitomo K, Kyuka T, Yonemoto M, Nakamura F (2019) High resilience of aquatic community to a 100-yr flood in a gravel-bed river. Landscape and Ecological Engineering 15: 143-154.</li>
+<li>Ishiyama N, Ryo M, Kataoka T, Nagayama S, Sueyoshi M, Terui A, Mori T, Akasaka T, Nakamura F. (2018) Predicting the ecological impacts of large dam removals on a river network based on habitat network structure and flow regimes. Conservation Biology 32: 1403-1413.</li>
+<li>Terui A, Ishiyama N, Urabe H, Ono S, Finlay JC, Nakamura F. (2018) Metapopulation stability in branching river networks. Proceedings of the National Academy of Sciences 115: E5963-E5969.</li>
+<li>Hanioka M, Yamaura Y, Yamanaka S, Senzaki M, Kawamura K, Terui A, Nakamura F. (2018) How much abandoned farmland is required to harbor comparable species richness and abundance of bird communities in wetland? Hierarchical community model suggests the importance of habitat and landscape variables. Biodiversity and Conservation 27: 1831-1848.</li>
+<li>Terui A, Negishi JN, Watanabe N, Nakamura F. (2018) Stream resource gradients drive consumption rates of supplemental prey in the adjacent riparian zone. Ecosystems 21: 772-781.</li>
+<li>Kakinuma K, Terui A, Sasaki T, Koyama A, Jamsran U, Okuro T, Takeuchi K.. (2017) Detection of vegetation trends under highly variable environment after grazing exclusion in Mongolia. Journal of Vegetation Science 28: 965-974.</li>
+<li>Terui A, Ooue K, Urabe H, Nakamura F. (2017) Parasite infection induces size-dependent host dispersal: consequences for parasite persistence. Proceedings of the Royal Society B: Biological Sciences 284: 20171491.</li>
+<li>Ooue K, Terui A, Urabe H, Nakamura F. (2017) A delayed effect of the aquatic parasite Margaritifera laevis on the growth of the salmonid host fish Oncorhynchus masou masou. Limnology 18: 345-351.</li>
+<li>Terui A, Akasaka T, Negishi JN, Uemura F, Nakamura F. (2017) Species-specific use of allochthonous resources by ground beetles (Carabidae) at a river-land interface. Ecological Research 32: 27-35. Terui A and Miyazaki Y. (2017) Combined effects of immigration potential and habitat quality on diadromous fishes. Limnology 18: 121-129.</li>
+<li>Terui A and Miyazaki Y. (2016) Three ecological factors influencing riverine fish diversity in the Shubuto River system, Japan: habitat capacity, habitat heterogeneity and immigration. Limnology 17:143-149.</li>
+<li>Miyazaki Y and Terui A. (2016) Difference in habitat use between the two related goby species of Gymnogobius opperiens and G. urotaenia: a case study in the Shubuto River System, Hokkaido, Japan. Ichthyological research 63: 317-323.</li>
+<li>Miyazaki Y and Terui A. (2015) Temporal dynamics of fluvial fish composition caused by marine amphidromous species in the Shubuto River, southwestern Hokkaido, Japan. Ichtyological Research.</li>
+<li>Terui A, Miyazaki Y, Yoshioka A, Matsuzaki SS. (2015) A cryptic Allee effect: spatial contexts mask an existing fitness-density relationship. Royal Society Open Science 2: 150034.</li>
+<li>Terui A and Miyazaki Y. (2015) A “parasite-tag” approach reveals long-distance dispersal of the riverine mussel Margaritifera laevis by its host fish. Hydrobiologia 760: 189-196.</li>
+<li>Terui A, Miyazaki Y, Yoshioka A, Kaifu K, Matsuzaki SS, Washitani I. (2014) Asymmetric dispersal structures a riverine metapopulation of the freshwater pearl mussel Margaritifera laevis. Ecology and Evolution 4: 3004-3014.</li>
+<li>Terui A, Miyazaki Y, Yoshioka A, Kadoya T, Jopp F, Washitani I. (2014) Dispersal of larvae of Margaritifera laevis by its host fish. Freshwater Science 13: 112-123.</li>
+<li>Miyazaki Y, Terui A, Senou H, Washitani I. (2013) Illustrated checklist of fishes from the Shubuto River System, southwestern Hokkaido, Japan. Check List 9: 63-72.</li>
+<li>Miyazaki Y, Terui A, Yoshioka A, Kaifu K, Washitani I. (2013) Fish species composition of temporary small lentic habitats in the floodplains of the Shubuto River System: Factors affecting species richness and suggestions for conservation and restoration. Japanese Journal of Conservation Ecology 18: 55-68. (in Japanese)</li>
+<li>Terui A, Matsuzaki SS, Kodama K, Tada M, Washitani I. (2011) Factors affecting the local occurrence of the near-threatened bitterling (Tanakia lanceolata) in agricultural canal networks: strong attachment to its potential host mussels. Hydrobiologia 675: 19-28.</li>
+<li>Kubo S, Terui A, Nishihiro J, Washitani I. (2012) Impact of alien species on the distribution of native submerged macrophytes in small rivers and agricultural canals around Lake Mikata. Japanese Journal of Conservation Ecology 17: 165-173. (in Japanese)</li>
+<li>Matsuzaki SS, Terui A, Kodama K, Tada M, Yoshida T, Washitani I. (2011) Influence of connectivity, habitat quality and invasive species on egg and larval distributions and local abundance of crucian carp in Japanese agricultural landscapes. Biological Conservation 144: 2081-2087.</li>
+<li>Miyazaki Y, Terui A, Kubo S, Hatai N, Takahashi K, Saitoh H, Washitani I. (2011) Ecological evaluation of the conservation of fish fauna in the Shubuto River system, southwestern Hokkaido. Japanese Journal of Conservation Ecology 16: 213-219. (in Japanese)</li>
+<li>Matsuzaki SS, Kodama K, Terui A, Takeshima H, Sato T, Tominaga O, Maeda H, Tada M, Washitani I, Yoshida T.(2011) Changes in the strictly freshwater fish fauna around Lake Mikata, Fukui Prefecture, Japan, inferred from monitoring data and ecological trait information. Japanese Journal of Conservation Ecology 16: 205-212. (in Japanese)</li>
+<li>Terui A, Miyazaki Y, Matsuzaki SS, Washitani I. (2011) Population status and factors affecting local density of endangered Japanese freshwater pearl mussel Margaritifera laevis in Shubuto river basin, Hokkaido. Japanese Journal of Conservation Ecology 16: 149-157. (in Japanese)</li>
+<li>Matsuzaki SS, Kodama K, Takeshima H, Terui A, Masui M, Yoshida T, Washitani I. (2010) Invasion of bluegill in Lake Mikata. Japanese Journal of Ichthyology 57: 87-89. (in Japanese)</li>
+</ul>
+</div>
+
+
+
+
+</div>
+
+<script>
+
+// add bootstrap table styles to pandoc tables
+function bootstrapStylePandocTables() {
+  $('tr.header').parent('thead').parent('table').addClass('table table-condensed');
+}
+$(document).ready(function () {
+  bootstrapStylePandocTables();
+});
+
+
+</script>
+
+<!-- tabsets -->
+
+<script>
+$(document).ready(function () {
+  window.buildTabsets("TOC");
+});
+
+$(document).ready(function () {
+  $('.tabset-dropdown > .nav-tabs > li').click(function () {
+    $(this).parent().toggleClass('nav-tabs-open')
+  });
+});
+</script>
+
+<!-- code folding -->
+
+
+<!-- dynamically load mathjax for compatibility with self-contained -->
+<script>
+  (function () {
+    var script = document.createElement("script");
+    script.type = "text/javascript";
+    script.src  = "https://mathjax.rstudio.com/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML";
+    document.getElementsByTagName("head")[0].appendChild(script);
+  })();
+</script>
+
+</body>
+</html>

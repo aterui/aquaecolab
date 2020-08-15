@@ -3,15 +3,23 @@ output_dir: "docs"
 navbar:
   title: "AquatiQuE"
   left:
-    - text: ""
+    - text: "About"
       icon: fa-home
       href: index.html
-    - text: "R"
+    - text: "Publication"
+      icon: fa-book
+      href: pubs.html
+    - text: "Team"
+      icon: fa-people-carry
+      href: team.html
+    - text: "Join"
+      icon: fa-users
+      href: team.html
+    - text: "Programming"
       menu:
         - text: "R Basics"
           href: r01_rbasics.html
-        - text: "tidyverse"
-          href: r02_tidyverse.html
+  
   right:
     - text: ""
       icon: fa-github
