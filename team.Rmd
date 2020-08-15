@@ -10,7 +10,7 @@ library(knitr)
 
 <div class="clearfix">
 <img src="image/img_sk.jpg" style = "vertical-align:top; width: 20%" align = left>
-**Seoghyun Kim**, Postdoc, [`r icon::fa("github")`](https://github.com/https://github.com/seoghyunkim/)\
+**Seoghyun Kim**, Postdoc, [`r icon::fa("github")`](https://github.com/seoghyunkim/)\
 
 Coming soon
 </div>
