@@ -3,23 +3,24 @@ title: "Team"
 date: Latest update - `r format(Sys.time(), '%d %B, %Y')`
 ---
 
-**Seoghyun Kim**, Postdoc
+```{r, include = F}
+knitr::opts_chunk$set(echo = F, message = F)
+library(knitr)
+```
 
-Coming soon!
+<div class="clearfix">
+<img src="image/img_sk.jpg" style = "vertical-align:top; width: 20%" align = left>
+**Seoghyun Kim**, Postdoc, [`r icon::fa("github")`](https://github.com/https://github.com/seoghyunkim/)\
 
-**Melanie Stadler**, Ph.D student
+Coming soon
+</div>
 
-Coming soon!
+\
 
-
-<img src="image/img_at.jpg" style = "width: 20%; margin-right: 20px" align = left>
-
-**Akira Terui**, PI [`r icon::fa("github")`](https://github.com/aterui/) [`r icon::fa("user-graduate")`](https://scholar.google.com/citations?user=H9OuCKsAAAAJ&hl=ja&authuser=1) 
-[`r icon::fa("book")`](https://publons.com/researcher/1241876/akira-terui/)
-
+<div class="clearfix">
+<img src="image/img_at.jpg" style = "vertical-align:top; width: 20%" align = left>
+**Akira Terui**, PI, `a_terui@uncg.edu` [`r icon::fa("github")`](https://github.com/aterui/) [`r icon::fa("user-graduate")`](https://scholar.google.com/citations?user=H9OuCKsAAAAJ&hl=ja&authuser=1) 
+[`r icon::fa("book")`](https://publons.com/researcher/1241876/akira-terui/)\
 
 I am interested in spatial ecology in general. I use streams as a model system to study the significance of branching complexity in natural systems. I am also a lover of freshwater mussels, fish and other aquatic organisms. I enjoy small gardening during quarantine.
-
-
-
-
+</div>

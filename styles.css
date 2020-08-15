@@ -14,3 +14,17 @@ h1, h2, h3{
 hr {
   border-top: 5px solid #F0F8FF;
 }
+
+.box {
+   display: flex;
+   align-items:center;
+}
+
+.clearfix {
+  overflow: auto;
+}
+
+img {
+  margin-right: 20px;
+  box-shadow: 5px 5px 10px #ccc;
+}
