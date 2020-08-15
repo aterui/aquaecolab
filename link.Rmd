@@ -1,0 +1,20 @@
+---
+title: "Helpful link"
+---
+
+### R
+
+- [R for Data Science](https://r4ds.had.co.nz/)
+- [R Markdown: The Definitive Guide](https://bookdown.org/yihui/rmarkdown/)
+- [Creating websites in R](https://www.emilyzabor.com/tutorials/rmarkdown_websites_tutorial.html)
+
+### Bayesian modelling
+
+- [Introduction to WinBUGS for Ecologists](https://www.amazon.com/Introduction-WinBUGS-Ecologists-Bayesian-regression/dp/0123786053/ref=sr_1_1?dchild=1&keywords=Introduction+to+WinBUGS+for+Ecologists&qid=1597460036&s=books&sr=1-1)
+- [Bayesian Population Analysis using WinBUGS: A Hierarchical Perspective](https://www.amazon.com/Bayesian-Population-Analysis-using-WinBUGS/dp/0123870208)
+- [Data Analysis Using Regression and Multilevel/Hierarchical Models](https://www.amazon.com/Analysis-Regression-Multilevel-Hierarchical-2006-12-18/dp/B01FIYAH00)
+- [The BUGS Book](https://www.amazon.com/BUGS-Chapman-Texts-Statistical-Science/dp/1584888490)
+
+### GIS
+
+- [R as GIS for Economists](https://tmieno2.github.io/R-as-GIS-for-Economists/)

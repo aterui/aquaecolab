@@ -14,12 +14,15 @@ navbar:
       href: team.html
     - text: "Join"
       icon: fa-users
-      href: team.html
+      href: join.html
     - text: "Programming"
       menu:
-        - text: "R Basics"
+        - text: "R basics"
           href: r01_rbasics.html
-  
+        - text: "R tidyverse"
+        - text: "Helpful link"
+          href: r03_link.html
+
   right:
     - text: ""
       icon: fa-github
