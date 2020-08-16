@@ -16,7 +16,6 @@ library(knitr)
 
 I focus on stream fish ecology and conservation using various techniques such as automated individual tracking techniques and genetic framework. I am a postdoctoral research fellow and am currently handling a huge fish dataset to understand (1) effects of environmental variables on fish metacommunity and (2) co-occurrence of multiple species via positive interactions (e.g., reproductive mutualism). More information is in: https://seoghkim.weebly.com/
 </div>
-
 \
 
 <div class="clearfix">
@@ -24,7 +23,7 @@ I focus on stream fish ecology and conservation using various techniques such as
 **Melanie Stadler**, Ph.D. student [`r icon::fa("researchgate")`](https://www.researchgate.net/profile/Melanie_Stadler)
 
 I grew up in the middle of Kansas, with incredible parents who encouraged my love of nature and wanting to learn about the world around me.  While earning a bachelor’s degree in Biology from UNCG, I was introduced to the world of turtle and tortoise biology and conservation.  I earned an MS in Biological Sciences and GIS certificate from Florida Atlantic University, studying the habitat and foraging ecology of juvenile green turtles on nearshore reefs in Florida.  Prior to returning to North Carolina, I worked as a Sea Turtle Biologist in Florida for eight years where I supervised two nesting beach programs, participated in some amazing research projects, and managed the overhaul and daily operations of two sea turtle rehabilitation centers.  I am interested in spatial ecology, ecological biogeography, and habitat connectivity, especially in turtles and other herp species.  I am excited to be part of UNCG’s Department of Biology, Environmental Health Science PhD program, and I plan to focus my PhD research on threatened bog turtles and their wetland habitat in North Carolina.  I live with my husband, Brian, our bearded dragon, and two dog children in Greensboro.  In my spare time, you will find me running or biking on one of our extraordinary local hiking trails, birdwatching, curled up with a good book, or in the kitchen experimenting with a new vegetarian recipe.
-
+</div>
 \
 
 <div class="clearfix">
@@ -34,7 +33,6 @@ I grew up in the middle of Kansas, with incredible parents who encouraged my lov
 
 I'm interested in spatial ecology in general. My research career started at the University of Tokyo where I studied metapopulation structure of the endagered freshwater mussel *Margaritifera laevis*. After obtaining Ph.D., my research interestes expanded. Thus far, I studied freshwater mussels, fish, aquatic and terrestrial insects, plants, and seabirds in collaboration with excellent researchers across the globe. While my research spans across multiple taxa, all tied with a common thread - space. More recently, I started using mathematical approaches and try to integrate theoretical and field research. I'm a lover of streams, tennis, and programming in R. Small gardening became one of my hobbies during quarantine.
 </div>
-
 \
 
 ### Former Undergraduate Students
