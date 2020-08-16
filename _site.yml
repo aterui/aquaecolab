@@ -1,6 +1,5 @@
 name: "AquatiQuE"
 output_dir: "docs"
-google_analytics: "UA-175522371-1"
 navbar:
   title: "AquatiQuE"
   left:
@@ -31,5 +30,7 @@ navbar:
 
 output:
   html_document:
+    includes:
+      in_header: google_analytics.html
     css: styles.css
     theme: cosmo
