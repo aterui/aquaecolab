@@ -36,5 +36,5 @@ Dispersal is a fundamental process that mediates disease spread, metapopulation/
 
 ### Cross-system trophic interactions
 
-Ecosystems are not a stand-alone entity; rather, they are connected through resource flux across ecosystems. We are interested in how aquatic and terrestrial food webs are connected through animal migration (e.g., the emergence of aquatic insects), and how food web interactions mediate transfer of energy across ecosystems. Photo: Ground beetle *Brachinus stenoderus* aquatic insect emerging from the river
+Ecosystems are not a stand-alone entity; rather, they are connected through resource flux across ecosystems. We are interested in how aquatic and terrestrial food webs are connected through animal migration (e.g., the emergence of aquatic insects), and how food web interactions mediate transfer of energy across ecosystems. Photo: Ground beetle *Brachinus stenoderus* eating aquatic insects emerging from the river
 </div>
