@@ -28,7 +28,7 @@ Rivers recurrently join to form a fractal branching network, in which geometric 
 
 ### Non-random dispersal
 
-Dispersal is a fundamental process that mediates disease spread, metapopulation/metacommunity dynamics, and food webs. Although dispersal is often assumed to be a “stochastic” event in population/community ecology, behavioral ecologists have long recognized that dispersal is triggered by internal (e.g., body size) and/or external (e.g., disturbance) factors. We are interested in integrating behavioral aspects of dispersal into population and community ecology. Photo credit Akira Terui
+Dispersal is a fundamental process that mediates disease spread, metapopulation/metacommunity dynamics, and food webs. Although dispersal is often assumed to be a “stochastic” event in population/community ecology, behavioral ecologists have long recognized that dispersal is triggered by internal (e.g., body size) and/or external (e.g., disturbance) factors. We are interested in integrating behavioral aspects of dispersal into population and community ecology. Photo: Masu salmon *Oncorhynchus masou masou*
 </div>
 \
 <div class="clearfix">
@@ -36,5 +36,5 @@ Dispersal is a fundamental process that mediates disease spread, metapopulation/
 
 ### Cross-system trophic interactions
 
-Ecosystems are not a stand-alone entity; rather, they are connected through resource flux across ecosystems. We are interested in how aquatic and terrestrial food webs are connected through animal migration (e.g., the emergence of aquatic insects), and how food web interactions mediate transfer of energy across ecosystems. Photo credit Akira Terui
+Ecosystems are not a stand-alone entity; rather, they are connected through resource flux across ecosystems. We are interested in how aquatic and terrestrial food webs are connected through animal migration (e.g., the emergence of aquatic insects), and how food web interactions mediate transfer of energy across ecosystems. Photo: Ground beetle *Brachinus stenoderus* aquatic insect emerging from the river
 </div>
