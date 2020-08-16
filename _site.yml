@@ -1,5 +1,6 @@
 name: "AquatiQuE"
 output_dir: "docs"
+google_analytics: "UA-175522371-1"
 navbar:
   title: "AquatiQuE"
   left:
