@@ -4,7 +4,7 @@ title: "Join"
 
 ### We are hiring! – Postdoctoral fellow
 
-Aquatic Ecology Lab at University of North Carolina Greensboro (UNCG) is seeking a postdoctoral fellow (the project summary can be found [here](https://nsf.gov/awardsearch/showAward?AWD_ID=2015634&HistoricalAwards=false)). To apply, visit [Spartan Talent](https://spartantalent.uncg.edu/postings/17605) at UNCG. 
+Aquatic Ecology Lab at University of North Carolina Greensboro (UNCG) is seeking a postdoctoral fellow (the project summary can be found [here](https://nsf.gov/awardsearch/showAward?AWD_ID=2015634&HistoricalAwards=false)). The successful candidate will work with Dr. Akira Terui (UNC Greensboro) and in collaboration with Dr. Jaqcues Finlay (University of Minnesota). To apply, visit [Spartan Talent](https://spartantalent.uncg.edu/postings/17605) at UNCG. 
 
 **Position summary**: The Post-Doctoral Fellow will work on an NSF-funded project which aims to understand the divers of food chain length in rivers. The project employs advanced mathematical and statistical methods to advance the conceptual understanding of how food chain length is determined in natural systems. Therefore, the postdoc should be proficient in programming, preferably in R and/or C++. The postdoc is expected to communicate his/her results through publications in scientific journals, presentations at professional meetings, and/or outreach events.
 
