@@ -23,7 +23,12 @@ navbar:
         - text: "R tidyverse"
         - text: "Helpful link"
           href: link.html
-          
+    - text: "Teaching"
+      icon: fa-user-graduate
+      menu:
+        - text: Seminar in Ecology
+          href: bio605.html
+
   right:
     - icon: fa-code fa-lg
       href: https://github.com/aterui/aquaecolab
@@ -32,5 +37,5 @@ output:
   html_document:
     includes:
       in_header: google_analytics.html
-    css: styles.css
+    css: style_web.css
     theme: cosmo
