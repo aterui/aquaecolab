@@ -136,11 +136,12 @@ The term $dy$ represents the death rate of the predator
 
 Population cycle
 
+<div id="left">
 ```{r}
 
 x <- y <- NULL; x[1] <- y[1] <- 10
 a <- 0.1
-b <- 0.02
+b <- 0.03
 c <- 0.1
 d <- 0.01
 
@@ -154,11 +155,16 @@ plot(x, type="l", col = "salmon",
      axes = F)
 lines(y, col = "steelblue")
 box(bty = "l")
-
-
 ```
+</div>
 
-
+<div id="right">
+```{r}
+plot(x, y, type = "l", col = "salmon", axes = F,
+     ylab = "Predator density", xlab = "Prey density")
+box(bty = "l")
+```
+</div>
 
 ## Food web complexity
 
