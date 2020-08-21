@@ -8,15 +8,13 @@ output:
     number_sections: true
 ---
 
-# COURSE DESCRIPTION AND GENERAL GOALS
+# COURSE DESCRIPTION
 
 Ecology is a branch of biology, studying the interactions between organisms and the environment. In this course, I will cover fundamental theories in ecology. Theory plays an important role in understanding ecological systems, but there is a GAP between theoretical and field research. I aim to narrow this gap through a series of lectures and paper discussions that are designed to link theoretical and field research. We will use R to better understand theory – I do not think just looking at equations enhances your understanding. Instead, I believe drawing figures and linking that experience to real-world examples (i.e., field research) will help understand ecological theories and concepts. Upon the completion of this course, students will be able to:
 
 - Explain the roles of theory and observation in ecology
 - Explain basic ecological concepts, including population dynamics, metapopulations, competitive interactions, and food webs
 - Evaluate the primary literature in a manner that illustrates critical thinking about ecological questions
-
-This course has three components to achieve these learning outcomes. In the first part (week 1 & 2), we will learn basic skills in R. I will provide online materials to help you obtain the skillsets. In the second part (week 3 to 12), we will learn ecological concepts through lectures with R exercise and paper discussion. Topics of population and community ecology will be covered. For each topic, I will give a short lecture with R exercise. After learning the basic concepts in each topic, I will assign relevant research papers and ask students to present a summary. The summary presentation should be 10-20 minutes, followed by a discussion of the paper. In the last part (week 13 & 14), students will write a written review paper synthesizing the current state of knowledge about an ecological topic of their choice. Students will be asked to introduce their synthesis in-class.
 
 # COURSE MATERIALS
 
