@@ -11,9 +11,9 @@
 
 
 <style type="text/css">
-a.sourceLine { display: inline-block; line-height: 1.25; }
-a.sourceLine { pointer-events: none; color: inherit; text-decoration: inherit; }
-a.sourceLine:empty { height: 1.2em; }
+code.sourceCode > span { display: inline-block; line-height: 1.25; }
+code.sourceCode > span { color: inherit; text-decoration: inherit; }
+code.sourceCode > span:empty { height: 1.2em; }
 .sourceCode { overflow: visible; }
 code.sourceCode { white-space: pre; position: relative; }
 div.sourceCode { margin: 1em 0; }
@@ -23,14 +23,16 @@ div.sourceCode { overflow: auto; }
 }
 @media print {
 code.sourceCode { white-space: pre-wrap; }
-a.sourceLine { text-indent: -1em; padding-left: 1em; }
+code.sourceCode > span { text-indent: -5em; padding-left: 5em; }
 }
-pre.numberSource a.sourceLine
-  { position: relative; left: -4em; }
-pre.numberSource a.sourceLine::before
-  { content: attr(title);
+pre.numberSource code
+  { counter-reset: source-line 0; }
+pre.numberSource code > span
+  { position: relative; left: -4em; counter-increment: source-line; }
+pre.numberSource code > span > a:first-child::before
+  { content: counter(source-line);
     position: relative; left: -1em; text-align: right; vertical-align: baseline;
-    border: none; pointer-events: all; display: inline-block;
+    border: none; display: inline-block;
     -webkit-touch-callout: none; -webkit-user-select: none;
     -khtml-user-select: none; -moz-user-select: none;
     -ms-user-select: none; user-select: none;
@@ -39,9 +41,9 @@ pre.numberSource a.sourceLine::before
   }
 pre.numberSource { margin-left: 3em; border-left: 1px solid #aaaaaa;  padding-left: 4px; }
 div.sourceCode
-  {  }
+  {   }
 @media screen {
-a.sourceLine::before { text-decoration: underline; }
+code.sourceCode > span > a:first-child::before { text-decoration: underline; }
 }
 code span.al { color: #ff0000; } /* Alert */
 code span.an { color: #008000; } /* Annotation */
@@ -854,7 +856,7 @@ Y &amp;= 3.0, X_1 = 1.0, and ~ X_2 = 3.0
 </section><section id="tottabetsu-river" class="slide level2">
 <h2>Tottabetsu river</h2>
 <p>Tottabetsu River, Japan</p>
-<p><img src="image_slide/img07.JPG" width="70%"></img></p>
+<p><img src="image_slide/img07.jpg" width="70%"></img></p>
 </section><section id="ground-beetles" class="slide level2">
 <h2>Ground beetles</h2>
 <p>Ground beetle - generalist predator</p>
@@ -862,23 +864,23 @@ Y &amp;= 3.0, X_1 = 1.0, and ~ X_2 = 3.0
 <p><img src="image_slide/img02.jpg"></img> <em>Brachinus stenoderus</em></p>
 </div>
 <div id="right">
-<p><img src="image_slide/img08.JPG"></img> <em>Lithochlaenius noguchii</em></p>
+<p><img src="image_slide/img08.jpg"></img> <em>Lithochlaenius noguchii</em></p>
 </div>
 </section><section id="r-exercise-install-siar" class="slide level2">
 <h2>R exercise: install SIAR</h2>
 <p>Install <code>siar</code> &amp; <code>tidyverse</code> packages</p>
-<div class="sourceCode" id="cb1"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb1-1" title="1"><span class="kw">install.packages</span>(<span class="st">&quot;siar&quot;</span>)</a>
-<a class="sourceLine" id="cb1-2" title="2"><span class="kw">install.packages</span>(<span class="st">&quot;tidyverse&quot;</span>)</a></code></pre></div>
+<div class="sourceCode" id="cb1"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb1-1"><a href="#cb1-1"></a><span class="kw">install.packages</span>(<span class="st">&quot;siar&quot;</span>)</span>
+<span id="cb1-2"><a href="#cb1-2"></a><span class="kw">install.packages</span>(<span class="st">&quot;tidyverse&quot;</span>)</span></code></pre></div>
 <p>Call packages in the current R session<br />
 This will add additional functions to R</p>
-<div class="sourceCode" id="cb2"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb2-1" title="1"><span class="kw">library</span>(siar)</a>
-<a class="sourceLine" id="cb2-2" title="2"><span class="kw">library</span>(tidyverse)</a></code></pre></div>
+<div class="sourceCode" id="cb2"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb2-1"><a href="#cb2-1"></a><span class="kw">library</span>(siar)</span>
+<span id="cb2-2"><a href="#cb2-2"></a><span class="kw">library</span>(tidyverse)</span></code></pre></div>
 <p><small>functions in packages must be called through <code>library()</code> everytime you open a new R session; otherwise you’ll get error messages</small></p>
 </section><section id="r-exercise-read-data" class="slide level2">
 <h2>R exercise: read data</h2>
 <p>Download <code>sample_data.csv</code> and read it into R</p>
-<div class="sourceCode" id="cb3"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb3-1" title="1">dat &lt;-<span class="st"> </span><span class="kw">read.csv</span>(<span class="st">&quot;data/sample_data.csv&quot;</span>)</a>
-<a class="sourceLine" id="cb3-2" title="2"><span class="kw">head</span>(dat)</a></code></pre></div>
+<div class="sourceCode" id="cb3"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb3-1"><a href="#cb3-1"></a>dat &lt;-<span class="st"> </span><span class="kw">read.csv</span>(<span class="st">&quot;data/sample_data.csv&quot;</span>)</span>
+<span id="cb3-2"><a href="#cb3-2"></a><span class="kw">head</span>(dat)</span></code></pre></div>
 <pre><code>##         site     date     species   d13C  d15N
 ## 1 tottabetsu 6/9/2014 grasshopper -28.03 -0.04
 ## 2 tottabetsu 6/9/2014 grasshopper -27.86  2.53
@@ -889,30 +891,30 @@ This will add additional functions to R</p>
 </section><section id="r-exercise-data-formatting" class="slide level2">
 <h2>R exercise: data formatting</h2>
 <p>Check <code>species</code> column</p>
-<div class="sourceCode" id="cb5"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb5-1" title="1"><span class="kw">unique</span>(dat<span class="op">$</span>species)</a></code></pre></div>
+<div class="sourceCode" id="cb5"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb5-1"><a href="#cb5-1"></a><span class="kw">unique</span>(dat<span class="op">$</span>species)</span></code></pre></div>
 <pre><code>## [1] &quot;grasshopper&quot;  &quot;L_noguchii&quot;   &quot;B_stenoderus&quot;</code></pre>
 </section><section id="r-exercise-data-formatting-1" class="slide level2">
 <h2>R exercise: data formatting</h2>
 <p>Filter rows</p>
-<div class="sourceCode" id="cb7"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb7-1" title="1"><span class="co"># L. nogutii</span></a>
-<a class="sourceLine" id="cb7-2" title="2">dat_ln &lt;-<span class="st"> </span><span class="kw">filter</span>(dat, species <span class="op">==</span><span class="st"> &quot;L_noguchii&quot;</span>)</a>
-<a class="sourceLine" id="cb7-3" title="3"><span class="kw">unique</span>(dat_ln<span class="op">$</span>species)</a></code></pre></div>
+<div class="sourceCode" id="cb7"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb7-1"><a href="#cb7-1"></a><span class="co"># L. nogutii</span></span>
+<span id="cb7-2"><a href="#cb7-2"></a>dat_ln &lt;-<span class="st"> </span><span class="kw">filter</span>(dat, species <span class="op">==</span><span class="st"> &quot;L_noguchii&quot;</span>)</span>
+<span id="cb7-3"><a href="#cb7-3"></a><span class="kw">unique</span>(dat_ln<span class="op">$</span>species)</span></code></pre></div>
 <pre><code>## [1] &quot;L_noguchii&quot;</code></pre>
-<div class="sourceCode" id="cb9"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb9-1" title="1"><span class="co"># B. stenoderus</span></a>
-<a class="sourceLine" id="cb9-2" title="2">dat_bs &lt;-<span class="st"> </span><span class="kw">filter</span>(dat, species <span class="op">==</span><span class="st"> &quot;B_stenoderus&quot;</span>)</a>
-<a class="sourceLine" id="cb9-3" title="3"><span class="kw">unique</span>(dat_bs<span class="op">$</span>species)</a></code></pre></div>
+<div class="sourceCode" id="cb9"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb9-1"><a href="#cb9-1"></a><span class="co"># B. stenoderus</span></span>
+<span id="cb9-2"><a href="#cb9-2"></a>dat_bs &lt;-<span class="st"> </span><span class="kw">filter</span>(dat, species <span class="op">==</span><span class="st"> &quot;B_stenoderus&quot;</span>)</span>
+<span id="cb9-3"><a href="#cb9-3"></a><span class="kw">unique</span>(dat_bs<span class="op">$</span>species)</span></code></pre></div>
 <pre><code>## [1] &quot;B_stenoderus&quot;</code></pre>
 </section><section id="r-exercise-convex-hull" class="slide level2">
 <h2>R exercise: convex hull</h2>
 <p>Calculate convex hull with <code>convexhull</code></p>
 <p><code>x</code> carbon data<br />
 <code>y</code> nitrogen data</p>
-<div class="sourceCode" id="cb11"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb11-1" title="1">estln &lt;-<span class="st"> </span><span class="kw">convexhull</span>(<span class="dt">x =</span> dat_ln<span class="op">$</span>d13C, <span class="dt">y =</span> dat_ln<span class="op">$</span>d15N)</a>
-<a class="sourceLine" id="cb11-2" title="2">estbs &lt;-<span class="st"> </span><span class="kw">convexhull</span>(<span class="dt">x =</span> dat_bs<span class="op">$</span>d13C, <span class="dt">y =</span> dat_bs<span class="op">$</span>d15N)</a></code></pre></div>
+<div class="sourceCode" id="cb11"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb11-1"><a href="#cb11-1"></a>estln &lt;-<span class="st"> </span><span class="kw">convexhull</span>(<span class="dt">x =</span> dat_ln<span class="op">$</span>d13C, <span class="dt">y =</span> dat_ln<span class="op">$</span>d15N)</span>
+<span id="cb11-2"><a href="#cb11-2"></a>estbs &lt;-<span class="st"> </span><span class="kw">convexhull</span>(<span class="dt">x =</span> dat_bs<span class="op">$</span>d13C, <span class="dt">y =</span> dat_bs<span class="op">$</span>d15N)</span></code></pre></div>
 </section><section id="r-exercise-covex-hull" class="slide level2">
 <h2>R exercise: covex hull</h2>
 <p>Inspect <em>L. noguchii</em></p>
-<div class="sourceCode" id="cb12"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb12-1" title="1">estln</a></code></pre></div>
+<div class="sourceCode" id="cb12"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb12-1"><a href="#cb12-1"></a>estln</span></code></pre></div>
 <pre><code>## $TA
 ##          [,1]
 ## [1,] 12.95555
@@ -928,7 +930,7 @@ This will add additional functions to R</p>
 </section><section id="r-exercise-covex-hull-1" class="slide level2">
 <h2>R exercise: covex hull</h2>
 <p>Inspect <em>B. stenoderus</em></p>
-<div class="sourceCode" id="cb14"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb14-1" title="1">estbs</a></code></pre></div>
+<div class="sourceCode" id="cb14"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb14-1"><a href="#cb14-1"></a>estbs</span></code></pre></div>
 <pre><code>## $TA
 ##        [,1]
 ## [1,] 12.545
@@ -944,21 +946,21 @@ This will add additional functions to R</p>
 </section><section id="r-exercise-visualize" class="slide level2">
 <h2>R exercise: visualize</h2>
 <p>Visualize the convex hulls</p>
-<div class="sourceCode" id="cb16"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb16-1" title="1"><span class="co"># set plot region</span></a>
-<a class="sourceLine" id="cb16-2" title="2"><span class="kw">plot</span>(<span class="dv">0</span>, <span class="dt">type =</span> <span class="st">&quot;n&quot;</span>,</a>
-<a class="sourceLine" id="cb16-3" title="3">     <span class="dt">xlim =</span> <span class="kw">range</span>(dat_ln<span class="op">$</span>d13C, dat_bs<span class="op">$</span>d13C),</a>
-<a class="sourceLine" id="cb16-4" title="4">     <span class="dt">ylim =</span> <span class="kw">range</span>(dat_ln<span class="op">$</span>d15N, dat_bs<span class="op">$</span>d15N),</a>
-<a class="sourceLine" id="cb16-5" title="5">     <span class="dt">ylab =</span> <span class="st">&quot;delta N&quot;</span>, <span class="dt">xlab =</span> <span class="st">&quot;delta C&quot;</span>)</a>
-<a class="sourceLine" id="cb16-6" title="6"></a>
-<a class="sourceLine" id="cb16-7" title="7"><span class="co"># for L.noguchii</span></a>
-<a class="sourceLine" id="cb16-8" title="8"><span class="kw">points</span>(d15N <span class="op">~</span><span class="st"> </span>d13C, <span class="dt">data =</span> dat_ln, <span class="dt">pch =</span> <span class="dv">19</span>) <span class="co"># add points</span></a>
-<a class="sourceLine" id="cb16-9" title="9"><span class="kw">polygon</span>(estln<span class="op">$</span>xcoords, estln<span class="op">$</span>ycoords) <span class="co"># draw polygon</span></a>
-<a class="sourceLine" id="cb16-10" title="10"></a>
-<a class="sourceLine" id="cb16-11" title="11"><span class="co"># for B.stenoderus</span></a>
-<a class="sourceLine" id="cb16-12" title="12"><span class="kw">points</span>(d15N <span class="op">~</span><span class="st"> </span>d13C, <span class="dt">data =</span> dat_bs, <span class="dt">pch =</span> <span class="dv">21</span>,</a>
-<a class="sourceLine" id="cb16-13" title="13">       <span class="dt">col =</span> <span class="ot">NA</span>, <span class="dt">bg =</span> <span class="kw">grey</span>(<span class="dv">0</span>, <span class="fl">0.2</span>)) <span class="co"># add points</span></a>
-<a class="sourceLine" id="cb16-14" title="14"><span class="kw">polygon</span>(estbs<span class="op">$</span>xcoords, estbs<span class="op">$</span>ycoords,</a>
-<a class="sourceLine" id="cb16-15" title="15">        <span class="dt">col =</span> <span class="kw">grey</span>(<span class="dv">0</span>, <span class="fl">0.2</span>), <span class="dt">border =</span> <span class="kw">grey</span>(<span class="dv">0</span>, <span class="fl">0.5</span>)) <span class="co"># draw polygon</span></a></code></pre></div>
+<div class="sourceCode" id="cb16"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb16-1"><a href="#cb16-1"></a><span class="co"># set plot region</span></span>
+<span id="cb16-2"><a href="#cb16-2"></a><span class="kw">plot</span>(<span class="dv">0</span>, <span class="dt">type =</span> <span class="st">&quot;n&quot;</span>,</span>
+<span id="cb16-3"><a href="#cb16-3"></a>     <span class="dt">xlim =</span> <span class="kw">range</span>(dat_ln<span class="op">$</span>d13C, dat_bs<span class="op">$</span>d13C),</span>
+<span id="cb16-4"><a href="#cb16-4"></a>     <span class="dt">ylim =</span> <span class="kw">range</span>(dat_ln<span class="op">$</span>d15N, dat_bs<span class="op">$</span>d15N),</span>
+<span id="cb16-5"><a href="#cb16-5"></a>     <span class="dt">ylab =</span> <span class="st">&quot;delta N&quot;</span>, <span class="dt">xlab =</span> <span class="st">&quot;delta C&quot;</span>)</span>
+<span id="cb16-6"><a href="#cb16-6"></a></span>
+<span id="cb16-7"><a href="#cb16-7"></a><span class="co"># for L.noguchii</span></span>
+<span id="cb16-8"><a href="#cb16-8"></a><span class="kw">points</span>(d15N <span class="op">~</span><span class="st"> </span>d13C, <span class="dt">data =</span> dat_ln, <span class="dt">pch =</span> <span class="dv">19</span>) <span class="co"># add points</span></span>
+<span id="cb16-9"><a href="#cb16-9"></a><span class="kw">polygon</span>(estln<span class="op">$</span>xcoords, estln<span class="op">$</span>ycoords) <span class="co"># draw polygon</span></span>
+<span id="cb16-10"><a href="#cb16-10"></a></span>
+<span id="cb16-11"><a href="#cb16-11"></a><span class="co"># for B.stenoderus</span></span>
+<span id="cb16-12"><a href="#cb16-12"></a><span class="kw">points</span>(d15N <span class="op">~</span><span class="st"> </span>d13C, <span class="dt">data =</span> dat_bs, <span class="dt">pch =</span> <span class="dv">21</span>,</span>
+<span id="cb16-13"><a href="#cb16-13"></a>       <span class="dt">col =</span> <span class="ot">NA</span>, <span class="dt">bg =</span> <span class="kw">grey</span>(<span class="dv">0</span>, <span class="fl">0.2</span>)) <span class="co"># add points</span></span>
+<span id="cb16-14"><a href="#cb16-14"></a><span class="kw">polygon</span>(estbs<span class="op">$</span>xcoords, estbs<span class="op">$</span>ycoords,</span>
+<span id="cb16-15"><a href="#cb16-15"></a>        <span class="dt">col =</span> <span class="kw">grey</span>(<span class="dv">0</span>, <span class="fl">0.2</span>), <span class="dt">border =</span> <span class="kw">grey</span>(<span class="dv">0</span>, <span class="fl">0.5</span>)) <span class="co"># draw polygon</span></span></code></pre></div>
 </section><section id="r-exercise-visualize-1" class="slide level2">
 <h2>R exercise: visualize</h2>
 <p><img src="lecture05_trophic_files/figure-revealjs/unnamed-chunk-20-1.png" width="480" style="display: block; margin: auto;" /></p>

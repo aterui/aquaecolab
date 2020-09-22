@@ -11,9 +11,9 @@
 
 
 <style type="text/css">
-a.sourceLine { display: inline-block; line-height: 1.25; }
-a.sourceLine { pointer-events: none; color: inherit; text-decoration: inherit; }
-a.sourceLine:empty { height: 1.2em; }
+code.sourceCode > span { display: inline-block; line-height: 1.25; }
+code.sourceCode > span { color: inherit; text-decoration: inherit; }
+code.sourceCode > span:empty { height: 1.2em; }
 .sourceCode { overflow: visible; }
 code.sourceCode { white-space: pre; position: relative; }
 div.sourceCode { margin: 1em 0; }
@@ -23,14 +23,16 @@ div.sourceCode { overflow: auto; }
 }
 @media print {
 code.sourceCode { white-space: pre-wrap; }
-a.sourceLine { text-indent: -1em; padding-left: 1em; }
+code.sourceCode > span { text-indent: -5em; padding-left: 5em; }
 }
-pre.numberSource a.sourceLine
-  { position: relative; left: -4em; }
-pre.numberSource a.sourceLine::before
-  { content: attr(title);
+pre.numberSource code
+  { counter-reset: source-line 0; }
+pre.numberSource code > span
+  { position: relative; left: -4em; counter-increment: source-line; }
+pre.numberSource code > span > a:first-child::before
+  { content: counter(source-line);
     position: relative; left: -1em; text-align: right; vertical-align: baseline;
-    border: none; pointer-events: all; display: inline-block;
+    border: none; display: inline-block;
     -webkit-touch-callout: none; -webkit-user-select: none;
     -khtml-user-select: none; -moz-user-select: none;
     -ms-user-select: none; user-select: none;
@@ -39,9 +41,9 @@ pre.numberSource a.sourceLine::before
   }
 pre.numberSource { margin-left: 3em; border-left: 1px solid #aaaaaa;  padding-left: 4px; }
 div.sourceCode
-  {  }
+  {   }
 @media screen {
-a.sourceLine::before { text-decoration: underline; }
+code.sourceCode > span > a:first-child::before { text-decoration: underline; }
 }
 code span.al { color: #ff0000; } /* Alert */
 code span.an { color: #008000; } /* Annotation */
@@ -678,21 +680,21 @@ N_t &amp;= e^{rt}N_0
 <li><code>seq()</code> is a function to create a vector</li>
 <li>give <code>from</code>, <code>to</code> and <code>length</code></li>
 </ul>
-<div class="sourceCode" id="cb1"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb1-1" title="1">t &lt;-<span class="st"> </span><span class="kw">seq</span>(<span class="dt">from =</span> <span class="dv">0</span>, <span class="dt">to =</span> <span class="dv">50</span>, <span class="dt">length =</span> <span class="dv">100</span>)</a></code></pre></div>
+<div class="sourceCode" id="cb1"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb1-1"><a href="#cb1-1"></a>t &lt;-<span class="st"> </span><span class="kw">seq</span>(<span class="dt">from =</span> <span class="dv">0</span>, <span class="dt">to =</span> <span class="dv">50</span>, <span class="dt">length =</span> <span class="dv">100</span>)</span></code></pre></div>
 </section><section id="r-exercise-check-elements" class="slide level2">
 <h2>R exercise: check elements</h2>
 <p>Check elements</p>
-<div class="sourceCode" id="cb2"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb2-1" title="1"><span class="co"># elements 1 to 5</span></a>
-<a class="sourceLine" id="cb2-2" title="2">t[<span class="dv">1</span><span class="op">:</span><span class="dv">5</span>]</a></code></pre></div>
+<div class="sourceCode" id="cb2"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb2-1"><a href="#cb2-1"></a><span class="co"># elements 1 to 5</span></span>
+<span id="cb2-2"><a href="#cb2-2"></a>t[<span class="dv">1</span><span class="op">:</span><span class="dv">5</span>]</span></code></pre></div>
 <pre><code>## [1] 0.0000000 0.5050505 1.0101010 1.5151515 2.0202020</code></pre>
-<div class="sourceCode" id="cb4"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb4-1" title="1"><span class="co"># elements 96 to 100</span></a>
-<a class="sourceLine" id="cb4-2" title="2">t[<span class="dv">96</span><span class="op">:</span><span class="dv">100</span>]</a></code></pre></div>
+<div class="sourceCode" id="cb4"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb4-1"><a href="#cb4-1"></a><span class="co"># elements 96 to 100</span></span>
+<span id="cb4-2"><a href="#cb4-2"></a>t[<span class="dv">96</span><span class="op">:</span><span class="dv">100</span>]</span></code></pre></div>
 <pre><code>## [1] 47.97980 48.48485 48.98990 49.49495 50.00000</code></pre>
 </section><section id="r-exercise-initial-condition" class="slide level2">
 <h2>R exercise: initial condition</h2>
 <p>Define the initial population size <code>N0</code></p>
-<div class="sourceCode" id="cb6"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb6-1" title="1">N0 &lt;-<span class="st"> </span><span class="dv">10</span></a>
-<a class="sourceLine" id="cb6-2" title="2"><span class="kw">print</span>(N0)</a></code></pre></div>
+<div class="sourceCode" id="cb6"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb6-1"><a href="#cb6-1"></a>N0 &lt;-<span class="st"> </span><span class="dv">10</span></span>
+<span id="cb6-2"><a href="#cb6-2"></a><span class="kw">print</span>(N0)</span></code></pre></div>
 <pre><code>## [1] 10</code></pre>
 </section><section id="r-exercise-growth-rate" class="slide level2">
 <h2>R exercise: growth rate</h2>
@@ -700,8 +702,8 @@ N_t &amp;= e^{rt}N_0
 <ul>
 <li>Set <code>0</code> as a reference case</li>
 </ul>
-<div class="sourceCode" id="cb8"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb8-1" title="1">r0 &lt;-<span class="st"> </span><span class="dv">0</span></a>
-<a class="sourceLine" id="cb8-2" title="2"><span class="kw">print</span>(r0)</a></code></pre></div>
+<div class="sourceCode" id="cb8"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb8-1"><a href="#cb8-1"></a>r0 &lt;-<span class="st"> </span><span class="dv">0</span></span>
+<span id="cb8-2"><a href="#cb8-2"></a><span class="kw">print</span>(r0)</span></code></pre></div>
 <pre><code>## [1] 0</code></pre>
 </section><section id="r-exercise-equation" class="slide level2">
 <h2>R exercise: equation</h2>
@@ -709,11 +711,11 @@ N_t &amp;= e^{rt}N_0
 <ul>
 <li><code>exp(x)</code> is <span class="math inline">\(e^x\)</span></li>
 </ul>
-<div class="sourceCode" id="cb10"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb10-1" title="1">N &lt;-<span class="st"> </span><span class="kw">exp</span>(r0<span class="op">*</span>t)<span class="op">*</span>N0</a></code></pre></div>
+<div class="sourceCode" id="cb10"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb10-1"><a href="#cb10-1"></a>N &lt;-<span class="st"> </span><span class="kw">exp</span>(r0<span class="op">*</span>t)<span class="op">*</span>N0</span></code></pre></div>
 </section><section id="r-exercise-visualize" class="slide level2">
 <h2>R exercise: visualize</h2>
 <p>Visualize with <code>plot()</code></p>
-<div class="sourceCode" id="cb11"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb11-1" title="1"><span class="kw">plot</span>(N <span class="op">~</span><span class="st"> </span>t, <span class="dt">type =</span> <span class="st">&quot;l&quot;</span>, <span class="dt">ylim =</span> <span class="kw">c</span>(<span class="dv">0</span>, <span class="dv">12</span>) )</a></code></pre></div>
+<div class="sourceCode" id="cb11"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb11-1"><a href="#cb11-1"></a><span class="kw">plot</span>(N <span class="op">~</span><span class="st"> </span>t, <span class="dt">type =</span> <span class="st">&quot;l&quot;</span>, <span class="dt">ylim =</span> <span class="kw">c</span>(<span class="dv">0</span>, <span class="dv">12</span>) )</span></code></pre></div>
 <p><img src="lecture02_population-model_files/figure-revealjs/unnamed-chunk-10-1.png" width="288" style="display: block; margin: auto;" /></p>
 </section><section id="r-exercise-growth-rate-1" class="slide level2">
 <h2>R exercise: growth rate</h2>
@@ -721,15 +723,15 @@ N_t &amp;= e^{rt}N_0
 <ul>
 <li>Set <code>r1</code> as <code>-0.1</code></li>
 </ul>
-<div class="sourceCode" id="cb12"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb12-1" title="1">r1 &lt;-<span class="st"> </span><span class="fl">-0.1</span></a>
-<a class="sourceLine" id="cb12-2" title="2">N1 &lt;-<span class="st"> </span><span class="kw">exp</span>(r1<span class="op">*</span>t)<span class="op">*</span>N0</a>
-<a class="sourceLine" id="cb12-3" title="3"><span class="kw">plot</span>(N1 <span class="op">~</span><span class="st"> </span>t, <span class="dt">type =</span> <span class="st">&quot;l&quot;</span>, <span class="dt">ylim =</span> <span class="kw">c</span>(<span class="dv">0</span>, <span class="dv">12</span>), <span class="dt">col =</span> <span class="st">&quot;red&quot;</span>)</a></code></pre></div>
+<div class="sourceCode" id="cb12"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb12-1"><a href="#cb12-1"></a>r1 &lt;-<span class="st"> </span><span class="fl">-0.1</span></span>
+<span id="cb12-2"><a href="#cb12-2"></a>N1 &lt;-<span class="st"> </span><span class="kw">exp</span>(r1<span class="op">*</span>t)<span class="op">*</span>N0</span>
+<span id="cb12-3"><a href="#cb12-3"></a><span class="kw">plot</span>(N1 <span class="op">~</span><span class="st"> </span>t, <span class="dt">type =</span> <span class="st">&quot;l&quot;</span>, <span class="dt">ylim =</span> <span class="kw">c</span>(<span class="dv">0</span>, <span class="dv">12</span>), <span class="dt">col =</span> <span class="st">&quot;red&quot;</span>)</span></code></pre></div>
 <p><img src="lecture02_population-model_files/figure-revealjs/unnamed-chunk-11-1.png" width="288" style="display: block; margin: auto;" /></p>
 </section><section id="r-exercise-compare" class="slide level2">
 <h2>R exercise: compare</h2>
 <p>Compare with <code>N</code></p>
-<div class="sourceCode" id="cb13"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb13-1" title="1"><span class="kw">plot</span>(N1 <span class="op">~</span><span class="st"> </span>t, <span class="dt">type =</span> <span class="st">&quot;l&quot;</span>, <span class="dt">ylim =</span> <span class="kw">c</span>(<span class="dv">0</span>, <span class="dv">12</span>), <span class="dt">col =</span> <span class="st">&quot;red&quot;</span>)</a>
-<a class="sourceLine" id="cb13-2" title="2"><span class="kw">lines</span>(N <span class="op">~</span><span class="st"> </span>t)</a></code></pre></div>
+<div class="sourceCode" id="cb13"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb13-1"><a href="#cb13-1"></a><span class="kw">plot</span>(N1 <span class="op">~</span><span class="st"> </span>t, <span class="dt">type =</span> <span class="st">&quot;l&quot;</span>, <span class="dt">ylim =</span> <span class="kw">c</span>(<span class="dv">0</span>, <span class="dv">12</span>), <span class="dt">col =</span> <span class="st">&quot;red&quot;</span>)</span>
+<span id="cb13-2"><a href="#cb13-2"></a><span class="kw">lines</span>(N <span class="op">~</span><span class="st"> </span>t)</span></code></pre></div>
 <p><img src="lecture02_population-model_files/figure-revealjs/unnamed-chunk-12-1.png" width="288" style="display: block; margin: auto;" /></p>
 </section><section id="theory" class="slide level2">
 <h2>Theory</h2>
@@ -851,10 +853,10 @@ N_t &amp;= \frac{K}{1+(\frac{K-N_0}{N_0})e^{-rt}}
 \]</span></p>
 <p>Create time: <code>t={0...50}</code></p>
 <p>Define parameters: <code>r=1</code>, <code>K=200</code>, <code>N0=10</code></p>
-<div class="sourceCode" id="cb14"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb14-1" title="1">t &lt;-<span class="st"> </span><span class="kw">seq</span>(<span class="dv">0</span>, <span class="dv">50</span>, <span class="dt">length =</span> <span class="dv">100</span>)</a>
-<a class="sourceLine" id="cb14-2" title="2">r &lt;-<span class="st"> </span><span class="dv">1</span></a>
-<a class="sourceLine" id="cb14-3" title="3">K &lt;-<span class="st"> </span><span class="dv">200</span></a>
-<a class="sourceLine" id="cb14-4" title="4">N0 &lt;-<span class="st"> </span><span class="dv">10</span></a></code></pre></div>
+<div class="sourceCode" id="cb14"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb14-1"><a href="#cb14-1"></a>t &lt;-<span class="st"> </span><span class="kw">seq</span>(<span class="dv">0</span>, <span class="dv">50</span>, <span class="dt">length =</span> <span class="dv">100</span>)</span>
+<span id="cb14-2"><a href="#cb14-2"></a>r &lt;-<span class="st"> </span><span class="dv">1</span></span>
+<span id="cb14-3"><a href="#cb14-3"></a>K &lt;-<span class="st"> </span><span class="dv">200</span></span>
+<span id="cb14-4"><a href="#cb14-4"></a>N0 &lt;-<span class="st"> </span><span class="dv">10</span></span></code></pre></div>
 </section><section id="r-exercise-write-the-eq." class="slide level2">
 <h2>R exercise: write the eq.</h2>
 <p><strong>Model</strong></p>
@@ -864,11 +866,11 @@ N_t &amp;= \frac{K}{1+(\frac{K-N_0}{N_0})e^{-rt}}
 \end{align}
 \]</span></p>
 <p>Write in two lines to avoid errors</p>
-<div class="sourceCode" id="cb15"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb15-1" title="1">C &lt;-<span class="st"> </span>(K <span class="op">-</span><span class="st"> </span>N0)<span class="op">/</span>N0</a>
-<a class="sourceLine" id="cb15-2" title="2">N &lt;-<span class="st"> </span>K<span class="op">/</span>(<span class="dv">1</span> <span class="op">+</span><span class="st"> </span>C<span class="op">*</span><span class="kw">exp</span>(<span class="op">-</span>r<span class="op">*</span>t) )</a></code></pre></div>
+<div class="sourceCode" id="cb15"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb15-1"><a href="#cb15-1"></a>C &lt;-<span class="st"> </span>(K <span class="op">-</span><span class="st"> </span>N0)<span class="op">/</span>N0</span>
+<span id="cb15-2"><a href="#cb15-2"></a>N &lt;-<span class="st"> </span>K<span class="op">/</span>(<span class="dv">1</span> <span class="op">+</span><span class="st"> </span>C<span class="op">*</span><span class="kw">exp</span>(<span class="op">-</span>r<span class="op">*</span>t) )</span></code></pre></div>
 </section><section id="r-exercise-visualize-1" class="slide level2">
 <h2>R exercise: visualize</h2>
-<div class="sourceCode" id="cb16"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb16-1" title="1"><span class="kw">plot</span>(N <span class="op">~</span><span class="st"> </span>t, <span class="dt">type =</span> <span class="st">&quot;l&quot;</span>)</a></code></pre></div>
+<div class="sourceCode" id="cb16"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb16-1"><a href="#cb16-1"></a><span class="kw">plot</span>(N <span class="op">~</span><span class="st"> </span>t, <span class="dt">type =</span> <span class="st">&quot;l&quot;</span>)</span></code></pre></div>
 <p><img src="lecture02_population-model_files/figure-revealjs/unnamed-chunk-18-1.png" width="480" style="display: block; margin: auto;" /></p>
 </section><section id="r-exercise-visualize-2" class="slide level2">
 <h2>R exercise: visualize</h2>

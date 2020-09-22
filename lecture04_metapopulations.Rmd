@@ -188,7 +188,7 @@ Plot the relationship b/w $p$ and $mp(1-p)$
 
 ```{r, fig.height = 3, fig.width = 5, echo = TRUE, eval = F}
 
-M <- m*p*c(1-p)
+M <- m*p*(1-p)
 plot(M ~ p, type = "l")
 
 ```
@@ -201,7 +201,7 @@ Plot the relationship b/w $p$ and $mp(1-p)$
 
 ```{r, fig.height = 3, fig.width = 5, echo = TRUE}
 
-M <- m*p*c(1-p)
+M <- m*p*(1-p)
 plot(M ~ p, type = "l")
 
 ```

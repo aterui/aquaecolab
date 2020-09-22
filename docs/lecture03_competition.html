@@ -11,9 +11,9 @@
 
 
 <style type="text/css">
-a.sourceLine { display: inline-block; line-height: 1.25; }
-a.sourceLine { pointer-events: none; color: inherit; text-decoration: inherit; }
-a.sourceLine:empty { height: 1.2em; }
+code.sourceCode > span { display: inline-block; line-height: 1.25; }
+code.sourceCode > span { color: inherit; text-decoration: inherit; }
+code.sourceCode > span:empty { height: 1.2em; }
 .sourceCode { overflow: visible; }
 code.sourceCode { white-space: pre; position: relative; }
 div.sourceCode { margin: 1em 0; }
@@ -23,14 +23,16 @@ div.sourceCode { overflow: auto; }
 }
 @media print {
 code.sourceCode { white-space: pre-wrap; }
-a.sourceLine { text-indent: -1em; padding-left: 1em; }
+code.sourceCode > span { text-indent: -5em; padding-left: 5em; }
 }
-pre.numberSource a.sourceLine
-  { position: relative; left: -4em; }
-pre.numberSource a.sourceLine::before
-  { content: attr(title);
+pre.numberSource code
+  { counter-reset: source-line 0; }
+pre.numberSource code > span
+  { position: relative; left: -4em; counter-increment: source-line; }
+pre.numberSource code > span > a:first-child::before
+  { content: counter(source-line);
     position: relative; left: -1em; text-align: right; vertical-align: baseline;
-    border: none; pointer-events: all; display: inline-block;
+    border: none; display: inline-block;
     -webkit-touch-callout: none; -webkit-user-select: none;
     -khtml-user-select: none; -moz-user-select: none;
     -ms-user-select: none; user-select: none;
@@ -39,9 +41,9 @@ pre.numberSource a.sourceLine::before
   }
 pre.numberSource { margin-left: 3em; border-left: 1px solid #aaaaaa;  padding-left: 4px; }
 div.sourceCode
-  {  }
+  {   }
 @media screen {
-a.sourceLine::before { text-decoration: underline; }
+code.sourceCode > span > a:first-child::before { text-decoration: underline; }
 }
 code span.al { color: #ff0000; } /* Alert */
 code span.an { color: #008000; } /* Annotation */
@@ -574,50 +576,50 @@ document.getElementsByTagName('head')[0].appendChild(style);
 <p>Visualize how <span class="math inline">\(N_2\)</span> impacts <span class="math inline">\(\frac{dN_1}{dt}\)</span></p>
 <p>Set <span class="math inline">\(r\)</span>, <span class="math inline">\(K_1\)</span>, <span class="math inline">\(N_1\)</span>, and <span class="math inline">\(N_2\)</span></p>
 <p><small><span class="math inline">\(N_2\)</span> is set to be <span class="math inline">\(0\)</span> for reference</small></p>
-<div class="sourceCode" id="cb1"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb1-1" title="1">r1 &lt;-<span class="st"> </span><span class="fl">1.5</span></a>
-<a class="sourceLine" id="cb1-2" title="2">K1 &lt;-<span class="st"> </span><span class="dv">100</span></a>
-<a class="sourceLine" id="cb1-3" title="3">N1 &lt;-<span class="st"> </span><span class="kw">seq</span>(<span class="dt">from =</span> <span class="dv">0</span>, <span class="dt">to =</span> <span class="dv">150</span>, <span class="dt">length =</span> <span class="dv">100</span>)</a>
-<a class="sourceLine" id="cb1-4" title="4">N2 &lt;-<span class="st"> </span><span class="dv">0</span> <span class="co"># set 0 as a reference</span></a></code></pre></div>
+<div class="sourceCode" id="cb1"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb1-1"><a href="#cb1-1"></a>r1 &lt;-<span class="st"> </span><span class="fl">1.5</span></span>
+<span id="cb1-2"><a href="#cb1-2"></a>K1 &lt;-<span class="st"> </span><span class="dv">100</span></span>
+<span id="cb1-3"><a href="#cb1-3"></a>N1 &lt;-<span class="st"> </span><span class="kw">seq</span>(<span class="dt">from =</span> <span class="dv">0</span>, <span class="dt">to =</span> <span class="dv">150</span>, <span class="dt">length =</span> <span class="dv">100</span>)</span>
+<span id="cb1-4"><a href="#cb1-4"></a>N2 &lt;-<span class="st"> </span><span class="dv">0</span> <span class="co"># set 0 as a reference</span></span></code></pre></div>
 </section><section id="r-exercise-equation" class="slide level2">
 <h2>R exercise: equation</h2>
 <p>Write equation</p>
 <p><span class="math display">\[
 \frac{dN_1}{dt} = r_1N_1(1-\frac{N_1+N_2}{K_1})\\
 \]</span></p>
-<div class="sourceCode" id="cb2"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb2-1" title="1">dN1_<span class="dv">0</span> &lt;-<span class="st"> </span>r1<span class="op">*</span>N1<span class="op">*</span>(<span class="dv">1</span> <span class="op">-</span><span class="st"> </span>(N1 <span class="op">+</span><span class="st"> </span>N2)<span class="op">/</span>K1)</a></code></pre></div>
+<div class="sourceCode" id="cb2"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb2-1"><a href="#cb2-1"></a>dN1_<span class="dv">0</span> &lt;-<span class="st"> </span>r1<span class="op">*</span>N1<span class="op">*</span>(<span class="dv">1</span> <span class="op">-</span><span class="st"> </span>(N1 <span class="op">+</span><span class="st"> </span>N2)<span class="op">/</span>K1)</span></code></pre></div>
 </section><section id="r-exercise-visualize" class="slide level2">
 <h2>R exercise: visualize</h2>
-<div class="sourceCode" id="cb3"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb3-1" title="1"><span class="kw">plot</span>(dN1_<span class="dv">0</span> <span class="op">~</span><span class="st"> </span>N1, <span class="dt">type =</span> <span class="st">&quot;l&quot;</span>, <span class="dt">ylab =</span> <span class="st">&quot;dN1/dt&quot;</span>) <span class="co"># N2 = 0</span></a>
-<a class="sourceLine" id="cb3-2" title="2"><span class="kw">abline</span>(<span class="dt">h =</span> <span class="dv">0</span>, <span class="dt">col =</span> <span class="kw">grey</span>(<span class="dv">0</span>, <span class="fl">0.2</span>))</a>
-<a class="sourceLine" id="cb3-3" title="3"><span class="kw">points</span>(<span class="dv">100</span>, <span class="dv">0</span>, <span class="dt">cex =</span> CEX)</a></code></pre></div>
+<div class="sourceCode" id="cb3"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb3-1"><a href="#cb3-1"></a><span class="kw">plot</span>(dN1_<span class="dv">0</span> <span class="op">~</span><span class="st"> </span>N1, <span class="dt">type =</span> <span class="st">&quot;l&quot;</span>, <span class="dt">ylab =</span> <span class="st">&quot;dN1/dt&quot;</span>) <span class="co"># N2 = 0</span></span>
+<span id="cb3-2"><a href="#cb3-2"></a><span class="kw">abline</span>(<span class="dt">h =</span> <span class="dv">0</span>, <span class="dt">col =</span> <span class="kw">grey</span>(<span class="dv">0</span>, <span class="fl">0.2</span>))</span>
+<span id="cb3-3"><a href="#cb3-3"></a><span class="kw">points</span>(<span class="dv">100</span>, <span class="dv">0</span>, <span class="dt">cex =</span> CEX)</span></code></pre></div>
 <p><img src="lecture03_competition_files/figure-revealjs/unnamed-chunk-3-1.png" width="480" style="display: block; margin: auto;" /></p>
 </section><section id="r-exercise-visualize-1" class="slide level2">
 <h2>R exercise: visualize</h2>
-<div class="sourceCode" id="cb4"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb4-1" title="1">dN1_<span class="dv">10</span> &lt;-<span class="st"> </span>r1<span class="op">*</span>N1<span class="op">*</span>(<span class="dv">1</span> <span class="op">-</span><span class="st"> </span>(N1 <span class="op">+</span><span class="st"> </span><span class="dv">10</span>)<span class="op">/</span>K1) <span class="co"># N2 = 10</span></a>
-<a class="sourceLine" id="cb4-2" title="2"><span class="kw">plot</span>(dN1_<span class="dv">0</span> <span class="op">~</span><span class="st"> </span>N1, <span class="dt">type =</span> <span class="st">&quot;l&quot;</span>, <span class="dt">ylab =</span> <span class="st">&quot;dN1/dt&quot;</span>)</a>
-<a class="sourceLine" id="cb4-3" title="3"><span class="kw">abline</span>(<span class="dt">h =</span> <span class="dv">0</span>, <span class="dt">col =</span> <span class="kw">grey</span>(<span class="dv">0</span>, <span class="fl">0.2</span>))</a>
-<a class="sourceLine" id="cb4-4" title="4"><span class="kw">lines</span>(dN1_<span class="dv">10</span> <span class="op">~</span><span class="st"> </span>N1, <span class="dt">col =</span> <span class="st">&quot;blue&quot;</span>)</a></code></pre></div>
+<div class="sourceCode" id="cb4"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb4-1"><a href="#cb4-1"></a>dN1_<span class="dv">10</span> &lt;-<span class="st"> </span>r1<span class="op">*</span>N1<span class="op">*</span>(<span class="dv">1</span> <span class="op">-</span><span class="st"> </span>(N1 <span class="op">+</span><span class="st"> </span><span class="dv">10</span>)<span class="op">/</span>K1) <span class="co"># N2 = 10</span></span>
+<span id="cb4-2"><a href="#cb4-2"></a><span class="kw">plot</span>(dN1_<span class="dv">0</span> <span class="op">~</span><span class="st"> </span>N1, <span class="dt">type =</span> <span class="st">&quot;l&quot;</span>, <span class="dt">ylab =</span> <span class="st">&quot;dN1/dt&quot;</span>)</span>
+<span id="cb4-3"><a href="#cb4-3"></a><span class="kw">abline</span>(<span class="dt">h =</span> <span class="dv">0</span>, <span class="dt">col =</span> <span class="kw">grey</span>(<span class="dv">0</span>, <span class="fl">0.2</span>))</span>
+<span id="cb4-4"><a href="#cb4-4"></a><span class="kw">lines</span>(dN1_<span class="dv">10</span> <span class="op">~</span><span class="st"> </span>N1, <span class="dt">col =</span> <span class="st">&quot;blue&quot;</span>)</span></code></pre></div>
 </section><section id="r-exercise-visualize-2" class="slide level2">
 <h2>R exercise: visualize</h2>
-<div class="sourceCode" id="cb5"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb5-1" title="1">dN1_<span class="dv">10</span> &lt;-<span class="st"> </span>r1<span class="op">*</span>N1<span class="op">*</span>(<span class="dv">1</span> <span class="op">-</span><span class="st"> </span>(N1 <span class="op">+</span><span class="st"> </span><span class="dv">10</span>)<span class="op">/</span>K1) <span class="co"># N2 = 10</span></a>
-<a class="sourceLine" id="cb5-2" title="2"><span class="kw">plot</span>(dN1_<span class="dv">0</span> <span class="op">~</span><span class="st"> </span>N1, <span class="dt">type =</span> <span class="st">&quot;l&quot;</span>, <span class="dt">ylab =</span> <span class="st">&quot;dN1/dt&quot;</span>)</a>
-<a class="sourceLine" id="cb5-3" title="3"><span class="kw">abline</span>(<span class="dt">h =</span> <span class="dv">0</span>, <span class="dt">col =</span> <span class="kw">grey</span>(<span class="dv">0</span>, <span class="fl">0.2</span>))</a>
-<a class="sourceLine" id="cb5-4" title="4"><span class="kw">lines</span>(dN1_<span class="dv">10</span> <span class="op">~</span><span class="st"> </span>N1, <span class="dt">col =</span> <span class="st">&quot;blue&quot;</span>)</a></code></pre></div>
+<div class="sourceCode" id="cb5"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb5-1"><a href="#cb5-1"></a>dN1_<span class="dv">10</span> &lt;-<span class="st"> </span>r1<span class="op">*</span>N1<span class="op">*</span>(<span class="dv">1</span> <span class="op">-</span><span class="st"> </span>(N1 <span class="op">+</span><span class="st"> </span><span class="dv">10</span>)<span class="op">/</span>K1) <span class="co"># N2 = 10</span></span>
+<span id="cb5-2"><a href="#cb5-2"></a><span class="kw">plot</span>(dN1_<span class="dv">0</span> <span class="op">~</span><span class="st"> </span>N1, <span class="dt">type =</span> <span class="st">&quot;l&quot;</span>, <span class="dt">ylab =</span> <span class="st">&quot;dN1/dt&quot;</span>)</span>
+<span id="cb5-3"><a href="#cb5-3"></a><span class="kw">abline</span>(<span class="dt">h =</span> <span class="dv">0</span>, <span class="dt">col =</span> <span class="kw">grey</span>(<span class="dv">0</span>, <span class="fl">0.2</span>))</span>
+<span id="cb5-4"><a href="#cb5-4"></a><span class="kw">lines</span>(dN1_<span class="dv">10</span> <span class="op">~</span><span class="st"> </span>N1, <span class="dt">col =</span> <span class="st">&quot;blue&quot;</span>)</span></code></pre></div>
 <p><img src="lecture03_competition_files/figure-revealjs/unnamed-chunk-5-1.png" width="480" style="display: block; margin: auto;" /></p>
 </section><section id="r-exercise-visualize-3" class="slide level2">
 <h2>R exercise: visualize</h2>
-<div class="sourceCode" id="cb6"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb6-1" title="1">dN1_<span class="dv">50</span> &lt;-<span class="st"> </span>r1<span class="op">*</span>N1<span class="op">*</span>(<span class="dv">1</span> <span class="op">-</span><span class="st"> </span>(N1 <span class="op">+</span><span class="st"> </span><span class="dv">50</span>)<span class="op">/</span>K1) <span class="co"># N2 = 50</span></a>
-<a class="sourceLine" id="cb6-2" title="2"><span class="kw">plot</span>(dN1_<span class="dv">0</span> <span class="op">~</span><span class="st"> </span>N1, <span class="dt">type =</span> <span class="st">&quot;l&quot;</span>, <span class="dt">ylab =</span> <span class="st">&quot;dN1/dt&quot;</span>)</a>
-<a class="sourceLine" id="cb6-3" title="3"><span class="kw">abline</span>(<span class="dt">h =</span> <span class="dv">0</span>, <span class="dt">col =</span> <span class="kw">grey</span>(<span class="dv">0</span>, <span class="fl">0.2</span>))</a>
-<a class="sourceLine" id="cb6-4" title="4"><span class="kw">lines</span>(dN1_<span class="dv">10</span> <span class="op">~</span><span class="st"> </span>N1, <span class="dt">col =</span> <span class="st">&quot;blue&quot;</span>)</a>
-<a class="sourceLine" id="cb6-5" title="5"><span class="kw">lines</span>(dN1_<span class="dv">50</span> <span class="op">~</span><span class="st"> </span>N1, <span class="dt">col =</span> <span class="st">&quot;red&quot;</span>)</a></code></pre></div>
+<div class="sourceCode" id="cb6"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb6-1"><a href="#cb6-1"></a>dN1_<span class="dv">50</span> &lt;-<span class="st"> </span>r1<span class="op">*</span>N1<span class="op">*</span>(<span class="dv">1</span> <span class="op">-</span><span class="st"> </span>(N1 <span class="op">+</span><span class="st"> </span><span class="dv">50</span>)<span class="op">/</span>K1) <span class="co"># N2 = 50</span></span>
+<span id="cb6-2"><a href="#cb6-2"></a><span class="kw">plot</span>(dN1_<span class="dv">0</span> <span class="op">~</span><span class="st"> </span>N1, <span class="dt">type =</span> <span class="st">&quot;l&quot;</span>, <span class="dt">ylab =</span> <span class="st">&quot;dN1/dt&quot;</span>)</span>
+<span id="cb6-3"><a href="#cb6-3"></a><span class="kw">abline</span>(<span class="dt">h =</span> <span class="dv">0</span>, <span class="dt">col =</span> <span class="kw">grey</span>(<span class="dv">0</span>, <span class="fl">0.2</span>))</span>
+<span id="cb6-4"><a href="#cb6-4"></a><span class="kw">lines</span>(dN1_<span class="dv">10</span> <span class="op">~</span><span class="st"> </span>N1, <span class="dt">col =</span> <span class="st">&quot;blue&quot;</span>)</span>
+<span id="cb6-5"><a href="#cb6-5"></a><span class="kw">lines</span>(dN1_<span class="dv">50</span> <span class="op">~</span><span class="st"> </span>N1, <span class="dt">col =</span> <span class="st">&quot;red&quot;</span>)</span></code></pre></div>
 </section><section id="r-exercise-visualize-4" class="slide level2">
 <h2>R exercise: visualize</h2>
-<div class="sourceCode" id="cb7"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb7-1" title="1">dN1_<span class="dv">50</span> &lt;-<span class="st"> </span>r1<span class="op">*</span>N1<span class="op">*</span>(<span class="dv">1</span> <span class="op">-</span><span class="st"> </span>(N1 <span class="op">+</span><span class="st"> </span><span class="dv">50</span>)<span class="op">/</span>K1) <span class="co"># N2 = 50</span></a>
-<a class="sourceLine" id="cb7-2" title="2"><span class="kw">plot</span>(dN1_<span class="dv">0</span> <span class="op">~</span><span class="st"> </span>N1, <span class="dt">type =</span> <span class="st">&quot;l&quot;</span>, <span class="dt">ylab =</span> <span class="st">&quot;dN1/dt&quot;</span>)</a>
-<a class="sourceLine" id="cb7-3" title="3"><span class="kw">abline</span>(<span class="dt">h =</span> <span class="dv">0</span>, <span class="dt">col =</span> <span class="kw">grey</span>(<span class="dv">0</span>, <span class="fl">0.2</span>))</a>
-<a class="sourceLine" id="cb7-4" title="4"><span class="kw">lines</span>(dN1_<span class="dv">10</span> <span class="op">~</span><span class="st"> </span>N1, <span class="dt">col =</span> <span class="st">&quot;blue&quot;</span>)</a>
-<a class="sourceLine" id="cb7-5" title="5"><span class="kw">lines</span>(dN1_<span class="dv">50</span> <span class="op">~</span><span class="st"> </span>N1, <span class="dt">col =</span> <span class="st">&quot;red&quot;</span>)</a></code></pre></div>
+<div class="sourceCode" id="cb7"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb7-1"><a href="#cb7-1"></a>dN1_<span class="dv">50</span> &lt;-<span class="st"> </span>r1<span class="op">*</span>N1<span class="op">*</span>(<span class="dv">1</span> <span class="op">-</span><span class="st"> </span>(N1 <span class="op">+</span><span class="st"> </span><span class="dv">50</span>)<span class="op">/</span>K1) <span class="co"># N2 = 50</span></span>
+<span id="cb7-2"><a href="#cb7-2"></a><span class="kw">plot</span>(dN1_<span class="dv">0</span> <span class="op">~</span><span class="st"> </span>N1, <span class="dt">type =</span> <span class="st">&quot;l&quot;</span>, <span class="dt">ylab =</span> <span class="st">&quot;dN1/dt&quot;</span>)</span>
+<span id="cb7-3"><a href="#cb7-3"></a><span class="kw">abline</span>(<span class="dt">h =</span> <span class="dv">0</span>, <span class="dt">col =</span> <span class="kw">grey</span>(<span class="dv">0</span>, <span class="fl">0.2</span>))</span>
+<span id="cb7-4"><a href="#cb7-4"></a><span class="kw">lines</span>(dN1_<span class="dv">10</span> <span class="op">~</span><span class="st"> </span>N1, <span class="dt">col =</span> <span class="st">&quot;blue&quot;</span>)</span>
+<span id="cb7-5"><a href="#cb7-5"></a><span class="kw">lines</span>(dN1_<span class="dv">50</span> <span class="op">~</span><span class="st"> </span>N1, <span class="dt">col =</span> <span class="st">&quot;red&quot;</span>)</span></code></pre></div>
 <p><img src="lecture03_competition_files/figure-revealjs/unnamed-chunk-7-1.png" width="480" style="display: block; margin: auto;" /></p>
 </section><section id="impact-of-competition" class="slide level2">
 <h2>Impact of competition</h2>
@@ -717,20 +719,20 @@ N_{2,t+1} = (\frac{\lambda_2}{1 + \beta_2 N_{2,t} + \gamma_{21}N_{1,t}}) N_{2,t}
 </section><section id="r-exercise-set-parameters-1" class="slide level2">
 <h2>R exercise: set parameters</h2>
 <p>Set <span class="math inline">\(\lambda\)</span>, <span class="math inline">\(\beta_i\)</span>, and <span class="math inline">\(\gamma_{ji}\)</span></p>
-<div class="sourceCode" id="cb8"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb8-1" title="1"><span class="co"># Set equal values of lambda for species 1 and 2</span></a>
-<a class="sourceLine" id="cb8-2" title="2">lambda &lt;-<span class="st"> </span><span class="dv">3</span></a>
-<a class="sourceLine" id="cb8-3" title="3"></a>
-<a class="sourceLine" id="cb8-4" title="4">b1 &lt;-<span class="st"> </span><span class="fl">0.1</span>   <span class="co"># Intra-specific competition</span></a>
-<a class="sourceLine" id="cb8-5" title="5">g21 &lt;-<span class="st"> </span><span class="fl">0.05</span> <span class="co"># Impact of sp1 on sp2</span></a>
-<a class="sourceLine" id="cb8-6" title="6"></a>
-<a class="sourceLine" id="cb8-7" title="7">b2 &lt;-<span class="st"> </span><span class="fl">0.3</span>   <span class="co"># Intra-specific competition</span></a>
-<a class="sourceLine" id="cb8-8" title="8">g12 &lt;-<span class="st"> </span><span class="fl">0.15</span> <span class="co"># Impact of sp2 on sp1</span></a></code></pre></div>
+<div class="sourceCode" id="cb8"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb8-1"><a href="#cb8-1"></a><span class="co"># Set equal values of lambda for species 1 and 2</span></span>
+<span id="cb8-2"><a href="#cb8-2"></a>lambda &lt;-<span class="st"> </span><span class="dv">3</span></span>
+<span id="cb8-3"><a href="#cb8-3"></a></span>
+<span id="cb8-4"><a href="#cb8-4"></a>b1 &lt;-<span class="st"> </span><span class="fl">0.1</span>   <span class="co"># Intra-specific competition</span></span>
+<span id="cb8-5"><a href="#cb8-5"></a>g21 &lt;-<span class="st"> </span><span class="fl">0.05</span> <span class="co"># Impact of sp1 on sp2</span></span>
+<span id="cb8-6"><a href="#cb8-6"></a></span>
+<span id="cb8-7"><a href="#cb8-7"></a>b2 &lt;-<span class="st"> </span><span class="fl">0.3</span>   <span class="co"># Intra-specific competition</span></span>
+<span id="cb8-8"><a href="#cb8-8"></a>g12 &lt;-<span class="st"> </span><span class="fl">0.15</span> <span class="co"># Impact of sp2 on sp1</span></span></code></pre></div>
 </section><section id="r-exercise-initial-abundance" class="slide level2">
 <h2>R exercise: initial abundance</h2>
 <p>Set initial abundance <code>N1[1]</code> and <code>N2[1]</code></p>
-<div class="sourceCode" id="cb9"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb9-1" title="1">N1 &lt;-<span class="st"> </span>N2 &lt;-<span class="st"> </span><span class="ot">NULL</span> <span class="co"># create &quot;NULL&quot; objects</span></a>
-<a class="sourceLine" id="cb9-2" title="2">N1[<span class="dv">1</span>] &lt;-<span class="st"> </span><span class="dv">10</span>  <span class="co"># initial abundance 10</span></a>
-<a class="sourceLine" id="cb9-3" title="3">N2[<span class="dv">1</span>] &lt;-<span class="st"> </span><span class="dv">5</span> <span class="co"># initial abundance 5</span></a></code></pre></div>
+<div class="sourceCode" id="cb9"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb9-1"><a href="#cb9-1"></a>N1 &lt;-<span class="st"> </span>N2 &lt;-<span class="st"> </span><span class="ot">NULL</span> <span class="co"># create &quot;NULL&quot; objects</span></span>
+<span id="cb9-2"><a href="#cb9-2"></a>N1[<span class="dv">1</span>] &lt;-<span class="st"> </span><span class="dv">10</span>  <span class="co"># initial abundance 10</span></span>
+<span id="cb9-3"><a href="#cb9-3"></a>N2[<span class="dv">1</span>] &lt;-<span class="st"> </span><span class="dv">5</span> <span class="co"># initial abundance 5</span></span></code></pre></div>
 </section><section id="r-exercise-equation-1" class="slide level2">
 <h2>R exercise: equation</h2>
 <p>Write the equations</p>
@@ -738,31 +740,31 @@ N_{2,t+1} = (\frac{\lambda_2}{1 + \beta_2 N_{2,t} + \gamma_{21}N_{1,t}}) N_{2,t}
 N_{1,t+1} = (\frac{\lambda_1}{1 + \beta_1 N_{1,t} + \gamma_{12}N_{2,t}}) N_{1,t}\\
 N_{2,t+1} = (\frac{\lambda_2}{1 + \beta_2 N_{2,t} + \gamma_{21}N_{1,t}}) N_{2,t}
 \]</span></p>
-<div class="sourceCode" id="cb10"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb10-1" title="1"><span class="cf">for</span>(t <span class="cf">in</span> <span class="dv">1</span><span class="op">:</span><span class="dv">99</span>){ <span class="co"># simulate 100 time steps</span></a>
-<a class="sourceLine" id="cb10-2" title="2">  N1[t<span class="op">+</span><span class="dv">1</span>] &lt;-<span class="st"> </span>(lambda<span class="op">*</span>N1[t])<span class="op">/</span>(<span class="dv">1</span> <span class="op">+</span><span class="st"> </span>b1<span class="op">*</span>N1[t] <span class="op">+</span><span class="st"> </span>g12<span class="op">*</span>N2[t])</a>
-<a class="sourceLine" id="cb10-3" title="3">  N2[t<span class="op">+</span><span class="dv">1</span>] &lt;-<span class="st"> </span>(lambda<span class="op">*</span>N2[t])<span class="op">/</span>(<span class="dv">1</span> <span class="op">+</span><span class="st"> </span>b2<span class="op">*</span>N2[t] <span class="op">+</span><span class="st"> </span>g21<span class="op">*</span>N1[t])</a>
-<a class="sourceLine" id="cb10-4" title="4">}</a></code></pre></div>
+<div class="sourceCode" id="cb10"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb10-1"><a href="#cb10-1"></a><span class="cf">for</span>(t <span class="cf">in</span> <span class="dv">1</span><span class="op">:</span><span class="dv">99</span>){ <span class="co"># simulate 100 time steps</span></span>
+<span id="cb10-2"><a href="#cb10-2"></a>  N1[t<span class="op">+</span><span class="dv">1</span>] &lt;-<span class="st"> </span>(lambda<span class="op">*</span>N1[t])<span class="op">/</span>(<span class="dv">1</span> <span class="op">+</span><span class="st"> </span>b1<span class="op">*</span>N1[t] <span class="op">+</span><span class="st"> </span>g12<span class="op">*</span>N2[t])</span>
+<span id="cb10-3"><a href="#cb10-3"></a>  N2[t<span class="op">+</span><span class="dv">1</span>] &lt;-<span class="st"> </span>(lambda<span class="op">*</span>N2[t])<span class="op">/</span>(<span class="dv">1</span> <span class="op">+</span><span class="st"> </span>b2<span class="op">*</span>N2[t] <span class="op">+</span><span class="st"> </span>g21<span class="op">*</span>N1[t])</span>
+<span id="cb10-4"><a href="#cb10-4"></a>}</span></code></pre></div>
 </section><section id="r-exercise-print" class="slide level2">
 <h2>R exercise: print</h2>
 <p>Check the first 5 time steps</p>
-<div class="sourceCode" id="cb11"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb11-1" title="1"><span class="kw">print</span>(N1[<span class="dv">1</span><span class="op">:</span><span class="dv">5</span>])</a></code></pre></div>
+<div class="sourceCode" id="cb11"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb11-1"><a href="#cb11-1"></a><span class="kw">print</span>(N1[<span class="dv">1</span><span class="op">:</span><span class="dv">5</span>])</span></code></pre></div>
 <pre><code>## [1] 10.00000 10.90909 11.52000 11.95514 12.27701</code></pre>
-<div class="sourceCode" id="cb13"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb13-1" title="1"><span class="kw">print</span>(N2[<span class="dv">1</span><span class="op">:</span><span class="dv">5</span>])</a></code></pre></div>
+<div class="sourceCode" id="cb13"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb13-1"><a href="#cb13-1"></a><span class="kw">print</span>(N2[<span class="dv">1</span><span class="op">:</span><span class="dv">5</span>])</span></code></pre></div>
 <pre><code>## [1] 5.000000 5.000000 4.925373 4.838899 4.760467</code></pre>
 </section><section id="r-exercise-visualize-5" class="slide level2">
 <h2>R exercise: visualize</h2>
-<div class="sourceCode" id="cb15"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb15-1" title="1">t &lt;-<span class="st"> </span><span class="dv">1</span><span class="op">:</span><span class="kw">length</span>(N1)</a>
-<a class="sourceLine" id="cb15-2" title="2"></a>
-<a class="sourceLine" id="cb15-3" title="3"><span class="kw">plot</span>(N1 <span class="op">~</span><span class="st"> </span>t, <span class="dt">type =</span> <span class="st">&quot;l&quot;</span>, <span class="dt">col =</span> <span class="st">&quot;blue&quot;</span>, <span class="dt">ylab =</span> <span class="st">&quot;N1 or N2&quot;</span>,</a>
-<a class="sourceLine" id="cb15-4" title="4">     <span class="dt">ylim =</span> <span class="kw">c</span>(<span class="dv">0</span>, <span class="kw">max</span>(N1, N2) ) )</a>
-<a class="sourceLine" id="cb15-5" title="5"><span class="kw">lines</span>(N2 <span class="op">~</span><span class="st"> </span>t, <span class="dt">col =</span> <span class="st">&quot;red&quot;</span>)</a></code></pre></div>
+<div class="sourceCode" id="cb15"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb15-1"><a href="#cb15-1"></a>t &lt;-<span class="st"> </span><span class="dv">1</span><span class="op">:</span><span class="kw">length</span>(N1)</span>
+<span id="cb15-2"><a href="#cb15-2"></a></span>
+<span id="cb15-3"><a href="#cb15-3"></a><span class="kw">plot</span>(N1 <span class="op">~</span><span class="st"> </span>t, <span class="dt">type =</span> <span class="st">&quot;l&quot;</span>, <span class="dt">col =</span> <span class="st">&quot;blue&quot;</span>, <span class="dt">ylab =</span> <span class="st">&quot;N1 or N2&quot;</span>,</span>
+<span id="cb15-4"><a href="#cb15-4"></a>     <span class="dt">ylim =</span> <span class="kw">c</span>(<span class="dv">0</span>, <span class="kw">max</span>(N1, N2) ) )</span>
+<span id="cb15-5"><a href="#cb15-5"></a><span class="kw">lines</span>(N2 <span class="op">~</span><span class="st"> </span>t, <span class="dt">col =</span> <span class="st">&quot;red&quot;</span>)</span></code></pre></div>
 </section><section id="r-exercise-visualize-6" class="slide level2">
 <h2>R exercise: visualize</h2>
-<div class="sourceCode" id="cb16"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb16-1" title="1">t &lt;-<span class="st"> </span><span class="dv">1</span><span class="op">:</span><span class="kw">length</span>(N1)</a>
-<a class="sourceLine" id="cb16-2" title="2"></a>
-<a class="sourceLine" id="cb16-3" title="3"><span class="kw">plot</span>(N1 <span class="op">~</span><span class="st"> </span>t, <span class="dt">type =</span> <span class="st">&quot;l&quot;</span>, <span class="dt">col =</span> <span class="st">&quot;blue&quot;</span>, <span class="dt">ylab =</span> <span class="st">&quot;N1 or N2&quot;</span>,</a>
-<a class="sourceLine" id="cb16-4" title="4">     <span class="dt">ylim =</span> <span class="kw">c</span>(<span class="dv">0</span>, <span class="kw">max</span>(N1, N2) ) )</a>
-<a class="sourceLine" id="cb16-5" title="5"><span class="kw">lines</span>(N2 <span class="op">~</span><span class="st"> </span>t, <span class="dt">col =</span> <span class="st">&quot;red&quot;</span>)</a></code></pre></div>
+<div class="sourceCode" id="cb16"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb16-1"><a href="#cb16-1"></a>t &lt;-<span class="st"> </span><span class="dv">1</span><span class="op">:</span><span class="kw">length</span>(N1)</span>
+<span id="cb16-2"><a href="#cb16-2"></a></span>
+<span id="cb16-3"><a href="#cb16-3"></a><span class="kw">plot</span>(N1 <span class="op">~</span><span class="st"> </span>t, <span class="dt">type =</span> <span class="st">&quot;l&quot;</span>, <span class="dt">col =</span> <span class="st">&quot;blue&quot;</span>, <span class="dt">ylab =</span> <span class="st">&quot;N1 or N2&quot;</span>,</span>
+<span id="cb16-4"><a href="#cb16-4"></a>     <span class="dt">ylim =</span> <span class="kw">c</span>(<span class="dv">0</span>, <span class="kw">max</span>(N1, N2) ) )</span>
+<span id="cb16-5"><a href="#cb16-5"></a><span class="kw">lines</span>(N2 <span class="op">~</span><span class="st"> </span>t, <span class="dt">col =</span> <span class="st">&quot;red&quot;</span>)</span></code></pre></div>
 <p><img src="lecture03_competition_files/figure-revealjs/unnamed-chunk-14-1.png" width="480" style="display: block; margin: auto;" /></p>
 </section><section id="model-prediction-2" class="slide level2">
 <h2>Model prediction</h2>
@@ -784,32 +786,32 @@ N_{2,t+1} = (\frac{\lambda_2}{1 + \beta_2 N_{2,t} + \gamma_{21}N_{1,t}}) N_{2,t}
 <p>Intraspecific competition <span class="math inline">\(\beta_{i}\)</span> is <strong>stronger</strong> than interspecific competition <span class="math inline">\(\gamma_{ji}\)</span> for both species (<span class="math inline">\(\beta_i &gt; \gamma_{ji}\)</span>)</p>
 </section><section id="r-exercise-scenario-1" class="slide level2">
 <h2>R exercise: scenario 1</h2>
-<div class="sourceCode" id="cb17"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb17-1" title="1"><span class="co"># Set equal values of lambda for species 1 and 2</span></a>
-<a class="sourceLine" id="cb17-2" title="2">lambda &lt;-<span class="st"> </span><span class="dv">3</span></a>
-<a class="sourceLine" id="cb17-3" title="3"></a>
-<a class="sourceLine" id="cb17-4" title="4">b1 &lt;-<span class="st"> </span><span class="fl">0.1</span>   <span class="co"># Intra-specific competition</span></a>
-<a class="sourceLine" id="cb17-5" title="5">g21 &lt;-<span class="st"> </span><span class="fl">0.05</span> <span class="co"># Impact of sp1 on sp2</span></a>
-<a class="sourceLine" id="cb17-6" title="6"></a>
-<a class="sourceLine" id="cb17-7" title="7">b2 &lt;-<span class="st"> </span><span class="fl">0.3</span>   <span class="co"># Intra-specific competition</span></a>
-<a class="sourceLine" id="cb17-8" title="8">g12 &lt;-<span class="st"> </span><span class="fl">0.15</span> <span class="co"># Impact of sp2 on sp1</span></a>
-<a class="sourceLine" id="cb17-9" title="9"></a>
-<a class="sourceLine" id="cb17-10" title="10"><span class="co"># initial abundance</span></a>
-<a class="sourceLine" id="cb17-11" title="11">N1 &lt;-<span class="st"> </span>N2 &lt;-<span class="st"> </span><span class="ot">NULL</span> <span class="co"># create &quot;NULL&quot; objects</span></a>
-<a class="sourceLine" id="cb17-12" title="12">N1[<span class="dv">1</span>] &lt;-<span class="st"> </span><span class="dv">5</span>  <span class="co"># set initial abundance 5</span></a>
-<a class="sourceLine" id="cb17-13" title="13">N2[<span class="dv">1</span>] &lt;-<span class="st"> </span><span class="dv">10</span> <span class="co"># set initial abundance 10</span></a>
-<a class="sourceLine" id="cb17-14" title="14"></a>
-<a class="sourceLine" id="cb17-15" title="15"><span class="co"># simulate</span></a>
-<a class="sourceLine" id="cb17-16" title="16"><span class="cf">for</span>(t <span class="cf">in</span> <span class="dv">1</span><span class="op">:</span><span class="dv">99</span>){ <span class="co"># simulate 100 time steps</span></a>
-<a class="sourceLine" id="cb17-17" title="17">  N1[t<span class="op">+</span><span class="dv">1</span>] &lt;-<span class="st"> </span>(lambda<span class="op">*</span>N1[t])<span class="op">/</span>(<span class="dv">1</span> <span class="op">+</span><span class="st"> </span>b1<span class="op">*</span>N1[t] <span class="op">+</span><span class="st"> </span>g12<span class="op">*</span>N2[t])</a>
-<a class="sourceLine" id="cb17-18" title="18">  N2[t<span class="op">+</span><span class="dv">1</span>] &lt;-<span class="st"> </span>(lambda<span class="op">*</span>N2[t])<span class="op">/</span>(<span class="dv">1</span> <span class="op">+</span><span class="st"> </span>b2<span class="op">*</span>N2[t] <span class="op">+</span><span class="st"> </span>g21<span class="op">*</span>N1[t])</a>
-<a class="sourceLine" id="cb17-19" title="19">}</a></code></pre></div>
+<div class="sourceCode" id="cb17"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb17-1"><a href="#cb17-1"></a><span class="co"># Set equal values of lambda for species 1 and 2</span></span>
+<span id="cb17-2"><a href="#cb17-2"></a>lambda &lt;-<span class="st"> </span><span class="dv">3</span></span>
+<span id="cb17-3"><a href="#cb17-3"></a></span>
+<span id="cb17-4"><a href="#cb17-4"></a>b1 &lt;-<span class="st"> </span><span class="fl">0.1</span>   <span class="co"># Intra-specific competition</span></span>
+<span id="cb17-5"><a href="#cb17-5"></a>g21 &lt;-<span class="st"> </span><span class="fl">0.05</span> <span class="co"># Impact of sp1 on sp2</span></span>
+<span id="cb17-6"><a href="#cb17-6"></a></span>
+<span id="cb17-7"><a href="#cb17-7"></a>b2 &lt;-<span class="st"> </span><span class="fl">0.3</span>   <span class="co"># Intra-specific competition</span></span>
+<span id="cb17-8"><a href="#cb17-8"></a>g12 &lt;-<span class="st"> </span><span class="fl">0.15</span> <span class="co"># Impact of sp2 on sp1</span></span>
+<span id="cb17-9"><a href="#cb17-9"></a></span>
+<span id="cb17-10"><a href="#cb17-10"></a><span class="co"># initial abundance</span></span>
+<span id="cb17-11"><a href="#cb17-11"></a>N1 &lt;-<span class="st"> </span>N2 &lt;-<span class="st"> </span><span class="ot">NULL</span> <span class="co"># create &quot;NULL&quot; objects</span></span>
+<span id="cb17-12"><a href="#cb17-12"></a>N1[<span class="dv">1</span>] &lt;-<span class="st"> </span><span class="dv">5</span>  <span class="co"># set initial abundance 5</span></span>
+<span id="cb17-13"><a href="#cb17-13"></a>N2[<span class="dv">1</span>] &lt;-<span class="st"> </span><span class="dv">10</span> <span class="co"># set initial abundance 10</span></span>
+<span id="cb17-14"><a href="#cb17-14"></a></span>
+<span id="cb17-15"><a href="#cb17-15"></a><span class="co"># simulate</span></span>
+<span id="cb17-16"><a href="#cb17-16"></a><span class="cf">for</span>(t <span class="cf">in</span> <span class="dv">1</span><span class="op">:</span><span class="dv">99</span>){ <span class="co"># simulate 100 time steps</span></span>
+<span id="cb17-17"><a href="#cb17-17"></a>  N1[t<span class="op">+</span><span class="dv">1</span>] &lt;-<span class="st"> </span>(lambda<span class="op">*</span>N1[t])<span class="op">/</span>(<span class="dv">1</span> <span class="op">+</span><span class="st"> </span>b1<span class="op">*</span>N1[t] <span class="op">+</span><span class="st"> </span>g12<span class="op">*</span>N2[t])</span>
+<span id="cb17-18"><a href="#cb17-18"></a>  N2[t<span class="op">+</span><span class="dv">1</span>] &lt;-<span class="st"> </span>(lambda<span class="op">*</span>N2[t])<span class="op">/</span>(<span class="dv">1</span> <span class="op">+</span><span class="st"> </span>b2<span class="op">*</span>N2[t] <span class="op">+</span><span class="st"> </span>g21<span class="op">*</span>N1[t])</span>
+<span id="cb17-19"><a href="#cb17-19"></a>}</span></code></pre></div>
 </section><section id="r-exercise-scenario-1-1" class="slide level2">
 <h2>R exercise: scenario 1</h2>
-<div class="sourceCode" id="cb18"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb18-1" title="1">t &lt;-<span class="st"> </span><span class="dv">1</span><span class="op">:</span><span class="kw">length</span>(N1)</a>
-<a class="sourceLine" id="cb18-2" title="2"></a>
-<a class="sourceLine" id="cb18-3" title="3"><span class="kw">plot</span>(N1 <span class="op">~</span><span class="st"> </span>t, <span class="dt">type =</span> <span class="st">&quot;l&quot;</span>, <span class="dt">col =</span> <span class="st">&quot;blue&quot;</span>, <span class="dt">ylab =</span> <span class="st">&quot;N1 or N2&quot;</span>,</a>
-<a class="sourceLine" id="cb18-4" title="4">     <span class="dt">ylim =</span> <span class="kw">c</span>(<span class="dv">0</span>, <span class="kw">max</span>(N1,N2) ) )</a>
-<a class="sourceLine" id="cb18-5" title="5"><span class="kw">lines</span>(N2 <span class="op">~</span><span class="st"> </span>t, <span class="dt">col =</span> <span class="st">&quot;red&quot;</span>)</a></code></pre></div>
+<div class="sourceCode" id="cb18"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb18-1"><a href="#cb18-1"></a>t &lt;-<span class="st"> </span><span class="dv">1</span><span class="op">:</span><span class="kw">length</span>(N1)</span>
+<span id="cb18-2"><a href="#cb18-2"></a></span>
+<span id="cb18-3"><a href="#cb18-3"></a><span class="kw">plot</span>(N1 <span class="op">~</span><span class="st"> </span>t, <span class="dt">type =</span> <span class="st">&quot;l&quot;</span>, <span class="dt">col =</span> <span class="st">&quot;blue&quot;</span>, <span class="dt">ylab =</span> <span class="st">&quot;N1 or N2&quot;</span>,</span>
+<span id="cb18-4"><a href="#cb18-4"></a>     <span class="dt">ylim =</span> <span class="kw">c</span>(<span class="dv">0</span>, <span class="kw">max</span>(N1,N2) ) )</span>
+<span id="cb18-5"><a href="#cb18-5"></a><span class="kw">lines</span>(N2 <span class="op">~</span><span class="st"> </span>t, <span class="dt">col =</span> <span class="st">&quot;red&quot;</span>)</span></code></pre></div>
 <p><img src="lecture03_competition_files/figure-revealjs/unnamed-chunk-16-1.png" width="480" style="display: block; margin: auto;" /></p>
 </section><section id="prediction-scenario-1" class="slide level2">
 <h2>Prediction: scenario 1</h2>
@@ -825,34 +827,34 @@ N_{2,t+1} = (\frac{\lambda_2}{1 + \beta_2 N_{2,t} + \gamma_{21}N_{1,t}}) N_{2,t}
 </section><section id="r-exercise-scenario-2" class="slide level2">
 <h2>R exercise: scenario 2</h2>
 <p>Set initial abundance as you like</p>
-<div class="sourceCode" id="cb19"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb19-1" title="1"><span class="co"># Set equal values of lambda for species 1 and 2</span></a>
-<a class="sourceLine" id="cb19-2" title="2">lambda &lt;-<span class="st"> </span><span class="dv">3</span> </a>
-<a class="sourceLine" id="cb19-3" title="3"></a>
-<a class="sourceLine" id="cb19-4" title="4"><span class="co"># in sp.1 equation</span></a>
-<a class="sourceLine" id="cb19-5" title="5">b1 &lt;-<span class="st"> </span><span class="fl">1.5</span></a>
-<a class="sourceLine" id="cb19-6" title="6">g21 &lt;-<span class="st"> </span><span class="fl">1.0</span></a>
-<a class="sourceLine" id="cb19-7" title="7"></a>
-<a class="sourceLine" id="cb19-8" title="8"><span class="co"># in sp.2 equation</span></a>
-<a class="sourceLine" id="cb19-9" title="9">b2 &lt;-<span class="st"> </span><span class="fl">0.1</span></a>
-<a class="sourceLine" id="cb19-10" title="10">g12 &lt;-<span class="st"> </span><span class="fl">0.8</span></a>
-<a class="sourceLine" id="cb19-11" title="11"></a>
-<a class="sourceLine" id="cb19-12" title="12"><span class="co"># initial abundance</span></a>
-<a class="sourceLine" id="cb19-13" title="13">N1 &lt;-<span class="st"> </span>N2 &lt;-<span class="st"> </span><span class="ot">NULL</span> <span class="co"># create &quot;NULL&quot; objects</span></a>
-<a class="sourceLine" id="cb19-14" title="14">N1[<span class="dv">1</span>] &lt;-<span class="st"> </span><span class="dv">10</span></a>
-<a class="sourceLine" id="cb19-15" title="15">N2[<span class="dv">1</span>] &lt;-<span class="st"> </span><span class="dv">8</span></a>
-<a class="sourceLine" id="cb19-16" title="16"></a>
-<a class="sourceLine" id="cb19-17" title="17"><span class="co"># simulate</span></a>
-<a class="sourceLine" id="cb19-18" title="18"><span class="cf">for</span>(t <span class="cf">in</span> <span class="dv">1</span><span class="op">:</span><span class="dv">99</span>){ <span class="co"># simulate 100 time steps</span></a>
-<a class="sourceLine" id="cb19-19" title="19">  N1[t<span class="op">+</span><span class="dv">1</span>] &lt;-<span class="st"> </span>(lambda<span class="op">*</span>N1[t])<span class="op">/</span>(<span class="dv">1</span> <span class="op">+</span><span class="st"> </span>b1<span class="op">*</span>N1[t] <span class="op">+</span><span class="st"> </span>g12<span class="op">*</span>N2[t])</a>
-<a class="sourceLine" id="cb19-20" title="20">  N2[t<span class="op">+</span><span class="dv">1</span>] &lt;-<span class="st"> </span>(lambda<span class="op">*</span>N2[t])<span class="op">/</span>(<span class="dv">1</span> <span class="op">+</span><span class="st"> </span>b2<span class="op">*</span>N2[t] <span class="op">+</span><span class="st"> </span>g21<span class="op">*</span>N1[t])</a>
-<a class="sourceLine" id="cb19-21" title="21">}</a></code></pre></div>
+<div class="sourceCode" id="cb19"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb19-1"><a href="#cb19-1"></a><span class="co"># Set equal values of lambda for species 1 and 2</span></span>
+<span id="cb19-2"><a href="#cb19-2"></a>lambda &lt;-<span class="st"> </span><span class="dv">3</span> </span>
+<span id="cb19-3"><a href="#cb19-3"></a></span>
+<span id="cb19-4"><a href="#cb19-4"></a><span class="co"># in sp.1 equation</span></span>
+<span id="cb19-5"><a href="#cb19-5"></a>b1 &lt;-<span class="st"> </span><span class="fl">1.5</span></span>
+<span id="cb19-6"><a href="#cb19-6"></a>g21 &lt;-<span class="st"> </span><span class="fl">1.0</span></span>
+<span id="cb19-7"><a href="#cb19-7"></a></span>
+<span id="cb19-8"><a href="#cb19-8"></a><span class="co"># in sp.2 equation</span></span>
+<span id="cb19-9"><a href="#cb19-9"></a>b2 &lt;-<span class="st"> </span><span class="fl">0.1</span></span>
+<span id="cb19-10"><a href="#cb19-10"></a>g12 &lt;-<span class="st"> </span><span class="fl">0.8</span></span>
+<span id="cb19-11"><a href="#cb19-11"></a></span>
+<span id="cb19-12"><a href="#cb19-12"></a><span class="co"># initial abundance</span></span>
+<span id="cb19-13"><a href="#cb19-13"></a>N1 &lt;-<span class="st"> </span>N2 &lt;-<span class="st"> </span><span class="ot">NULL</span> <span class="co"># create &quot;NULL&quot; objects</span></span>
+<span id="cb19-14"><a href="#cb19-14"></a>N1[<span class="dv">1</span>] &lt;-<span class="st"> </span><span class="dv">10</span></span>
+<span id="cb19-15"><a href="#cb19-15"></a>N2[<span class="dv">1</span>] &lt;-<span class="st"> </span><span class="dv">8</span></span>
+<span id="cb19-16"><a href="#cb19-16"></a></span>
+<span id="cb19-17"><a href="#cb19-17"></a><span class="co"># simulate</span></span>
+<span id="cb19-18"><a href="#cb19-18"></a><span class="cf">for</span>(t <span class="cf">in</span> <span class="dv">1</span><span class="op">:</span><span class="dv">99</span>){ <span class="co"># simulate 100 time steps</span></span>
+<span id="cb19-19"><a href="#cb19-19"></a>  N1[t<span class="op">+</span><span class="dv">1</span>] &lt;-<span class="st"> </span>(lambda<span class="op">*</span>N1[t])<span class="op">/</span>(<span class="dv">1</span> <span class="op">+</span><span class="st"> </span>b1<span class="op">*</span>N1[t] <span class="op">+</span><span class="st"> </span>g12<span class="op">*</span>N2[t])</span>
+<span id="cb19-20"><a href="#cb19-20"></a>  N2[t<span class="op">+</span><span class="dv">1</span>] &lt;-<span class="st"> </span>(lambda<span class="op">*</span>N2[t])<span class="op">/</span>(<span class="dv">1</span> <span class="op">+</span><span class="st"> </span>b2<span class="op">*</span>N2[t] <span class="op">+</span><span class="st"> </span>g21<span class="op">*</span>N1[t])</span>
+<span id="cb19-21"><a href="#cb19-21"></a>}</span></code></pre></div>
 </section><section id="r-exercise-scenario-2-1" class="slide level2">
 <h2>R exercise: scenario 2</h2>
-<div class="sourceCode" id="cb20"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb20-1" title="1">t &lt;-<span class="st"> </span><span class="dv">1</span><span class="op">:</span><span class="kw">length</span>(N1)</a>
-<a class="sourceLine" id="cb20-2" title="2"></a>
-<a class="sourceLine" id="cb20-3" title="3"><span class="kw">plot</span>(N1 <span class="op">~</span><span class="st"> </span>t, <span class="dt">type =</span> <span class="st">&quot;l&quot;</span>, <span class="dt">col =</span> <span class="st">&quot;blue&quot;</span>, <span class="dt">ylab =</span> <span class="st">&quot;N1 or N2&quot;</span>,</a>
-<a class="sourceLine" id="cb20-4" title="4">     <span class="dt">ylim =</span> <span class="kw">c</span>(<span class="dv">0</span>, <span class="kw">max</span>(N1, N2) ) )</a>
-<a class="sourceLine" id="cb20-5" title="5"><span class="kw">lines</span>(N2 <span class="op">~</span><span class="st"> </span>t, <span class="dt">col =</span> <span class="st">&quot;red&quot;</span>)</a></code></pre></div>
+<div class="sourceCode" id="cb20"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb20-1"><a href="#cb20-1"></a>t &lt;-<span class="st"> </span><span class="dv">1</span><span class="op">:</span><span class="kw">length</span>(N1)</span>
+<span id="cb20-2"><a href="#cb20-2"></a></span>
+<span id="cb20-3"><a href="#cb20-3"></a><span class="kw">plot</span>(N1 <span class="op">~</span><span class="st"> </span>t, <span class="dt">type =</span> <span class="st">&quot;l&quot;</span>, <span class="dt">col =</span> <span class="st">&quot;blue&quot;</span>, <span class="dt">ylab =</span> <span class="st">&quot;N1 or N2&quot;</span>,</span>
+<span id="cb20-4"><a href="#cb20-4"></a>     <span class="dt">ylim =</span> <span class="kw">c</span>(<span class="dv">0</span>, <span class="kw">max</span>(N1, N2) ) )</span>
+<span id="cb20-5"><a href="#cb20-5"></a><span class="kw">lines</span>(N2 <span class="op">~</span><span class="st"> </span>t, <span class="dt">col =</span> <span class="st">&quot;red&quot;</span>)</span></code></pre></div>
 <p><img src="lecture03_competition_files/figure-revealjs/unnamed-chunk-18-1.png" width="480" style="display: block; margin: auto;" /></p>
 </section><section id="prediction-scenario-2" class="slide level2">
 <h2>Prediction: scenario 2</h2>
@@ -872,34 +874,34 @@ N_{2,t+1} = (\frac{\lambda_2}{1 + \beta_2 N_{2,t} + \gamma_{21}N_{1,t}}) N_{2,t}
 </section><section id="r-exercise-scenario-3" class="slide level2">
 <h2>R exercise: scenario 3</h2>
 <p>Set initial abundance as you like</p>
-<div class="sourceCode" id="cb21"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb21-1" title="1"><span class="co"># Set equal values of lambda for species 1 and 2</span></a>
-<a class="sourceLine" id="cb21-2" title="2">lambda &lt;-<span class="st"> </span><span class="dv">3</span> </a>
-<a class="sourceLine" id="cb21-3" title="3"></a>
-<a class="sourceLine" id="cb21-4" title="4"><span class="co"># in sp.1 equation</span></a>
-<a class="sourceLine" id="cb21-5" title="5">b1 &lt;-<span class="st"> </span><span class="fl">0.1</span></a>
-<a class="sourceLine" id="cb21-6" title="6">g21 &lt;-<span class="st"> </span><span class="fl">0.2</span></a>
-<a class="sourceLine" id="cb21-7" title="7"></a>
-<a class="sourceLine" id="cb21-8" title="8"><span class="co"># in sp.2 equation</span></a>
-<a class="sourceLine" id="cb21-9" title="9">b2 &lt;-<span class="st"> </span><span class="fl">0.2</span></a>
-<a class="sourceLine" id="cb21-10" title="10">g12 &lt;-<span class="st"> </span><span class="fl">0.4</span></a>
-<a class="sourceLine" id="cb21-11" title="11"></a>
-<a class="sourceLine" id="cb21-12" title="12"><span class="co"># initial abundance</span></a>
-<a class="sourceLine" id="cb21-13" title="13">N1 &lt;-<span class="st"> </span>N2 &lt;-<span class="st"> </span><span class="ot">NULL</span> <span class="co"># create &quot;NULL&quot; objects</span></a>
-<a class="sourceLine" id="cb21-14" title="14">N1[<span class="dv">1</span>] &lt;-<span class="st"> </span><span class="dv">1</span></a>
-<a class="sourceLine" id="cb21-15" title="15">N2[<span class="dv">1</span>] &lt;-<span class="st"> </span><span class="fl">1.5</span></a>
-<a class="sourceLine" id="cb21-16" title="16"></a>
-<a class="sourceLine" id="cb21-17" title="17"><span class="co"># simulate</span></a>
-<a class="sourceLine" id="cb21-18" title="18"><span class="cf">for</span>(t <span class="cf">in</span> <span class="dv">1</span><span class="op">:</span><span class="dv">99</span>){ <span class="co"># simulate 100 time steps</span></a>
-<a class="sourceLine" id="cb21-19" title="19">  N1[t<span class="op">+</span><span class="dv">1</span>] &lt;-<span class="st"> </span>(lambda<span class="op">*</span>N1[t])<span class="op">/</span>(<span class="dv">1</span> <span class="op">+</span><span class="st"> </span>b1<span class="op">*</span>N1[t] <span class="op">+</span><span class="st"> </span>g12<span class="op">*</span>N2[t])</a>
-<a class="sourceLine" id="cb21-20" title="20">  N2[t<span class="op">+</span><span class="dv">1</span>] &lt;-<span class="st"> </span>(lambda<span class="op">*</span>N2[t])<span class="op">/</span>(<span class="dv">1</span> <span class="op">+</span><span class="st"> </span>b2<span class="op">*</span>N2[t] <span class="op">+</span><span class="st"> </span>g21<span class="op">*</span>N1[t])</a>
-<a class="sourceLine" id="cb21-21" title="21">}</a></code></pre></div>
+<div class="sourceCode" id="cb21"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb21-1"><a href="#cb21-1"></a><span class="co"># Set equal values of lambda for species 1 and 2</span></span>
+<span id="cb21-2"><a href="#cb21-2"></a>lambda &lt;-<span class="st"> </span><span class="dv">3</span> </span>
+<span id="cb21-3"><a href="#cb21-3"></a></span>
+<span id="cb21-4"><a href="#cb21-4"></a><span class="co"># in sp.1 equation</span></span>
+<span id="cb21-5"><a href="#cb21-5"></a>b1 &lt;-<span class="st"> </span><span class="fl">0.1</span></span>
+<span id="cb21-6"><a href="#cb21-6"></a>g21 &lt;-<span class="st"> </span><span class="fl">0.2</span></span>
+<span id="cb21-7"><a href="#cb21-7"></a></span>
+<span id="cb21-8"><a href="#cb21-8"></a><span class="co"># in sp.2 equation</span></span>
+<span id="cb21-9"><a href="#cb21-9"></a>b2 &lt;-<span class="st"> </span><span class="fl">0.2</span></span>
+<span id="cb21-10"><a href="#cb21-10"></a>g12 &lt;-<span class="st"> </span><span class="fl">0.4</span></span>
+<span id="cb21-11"><a href="#cb21-11"></a></span>
+<span id="cb21-12"><a href="#cb21-12"></a><span class="co"># initial abundance</span></span>
+<span id="cb21-13"><a href="#cb21-13"></a>N1 &lt;-<span class="st"> </span>N2 &lt;-<span class="st"> </span><span class="ot">NULL</span> <span class="co"># create &quot;NULL&quot; objects</span></span>
+<span id="cb21-14"><a href="#cb21-14"></a>N1[<span class="dv">1</span>] &lt;-<span class="st"> </span><span class="dv">1</span></span>
+<span id="cb21-15"><a href="#cb21-15"></a>N2[<span class="dv">1</span>] &lt;-<span class="st"> </span><span class="fl">1.5</span></span>
+<span id="cb21-16"><a href="#cb21-16"></a></span>
+<span id="cb21-17"><a href="#cb21-17"></a><span class="co"># simulate</span></span>
+<span id="cb21-18"><a href="#cb21-18"></a><span class="cf">for</span>(t <span class="cf">in</span> <span class="dv">1</span><span class="op">:</span><span class="dv">99</span>){ <span class="co"># simulate 100 time steps</span></span>
+<span id="cb21-19"><a href="#cb21-19"></a>  N1[t<span class="op">+</span><span class="dv">1</span>] &lt;-<span class="st"> </span>(lambda<span class="op">*</span>N1[t])<span class="op">/</span>(<span class="dv">1</span> <span class="op">+</span><span class="st"> </span>b1<span class="op">*</span>N1[t] <span class="op">+</span><span class="st"> </span>g12<span class="op">*</span>N2[t])</span>
+<span id="cb21-20"><a href="#cb21-20"></a>  N2[t<span class="op">+</span><span class="dv">1</span>] &lt;-<span class="st"> </span>(lambda<span class="op">*</span>N2[t])<span class="op">/</span>(<span class="dv">1</span> <span class="op">+</span><span class="st"> </span>b2<span class="op">*</span>N2[t] <span class="op">+</span><span class="st"> </span>g21<span class="op">*</span>N1[t])</span>
+<span id="cb21-21"><a href="#cb21-21"></a>}</span></code></pre></div>
 </section><section id="r-exercise-scenario-3-1" class="slide level2">
 <h2>R exercise: scenario 3</h2>
-<div class="sourceCode" id="cb22"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb22-1" title="1">t &lt;-<span class="st"> </span><span class="dv">1</span><span class="op">:</span><span class="kw">length</span>(N1)</a>
-<a class="sourceLine" id="cb22-2" title="2"></a>
-<a class="sourceLine" id="cb22-3" title="3"><span class="kw">plot</span>(N1 <span class="op">~</span><span class="st"> </span>t, <span class="dt">type =</span> <span class="st">&quot;l&quot;</span>, <span class="dt">col =</span> <span class="st">&quot;blue&quot;</span>, <span class="dt">ylab =</span> <span class="st">&quot;N1 or N2&quot;</span>,</a>
-<a class="sourceLine" id="cb22-4" title="4">     <span class="dt">ylim =</span> <span class="kw">c</span>(<span class="dv">0</span>, <span class="kw">max</span>(N1, N2) ) )</a>
-<a class="sourceLine" id="cb22-5" title="5"><span class="kw">lines</span>(N2 <span class="op">~</span><span class="st"> </span>t, <span class="dt">col =</span> <span class="st">&quot;red&quot;</span>)</a></code></pre></div>
+<div class="sourceCode" id="cb22"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb22-1"><a href="#cb22-1"></a>t &lt;-<span class="st"> </span><span class="dv">1</span><span class="op">:</span><span class="kw">length</span>(N1)</span>
+<span id="cb22-2"><a href="#cb22-2"></a></span>
+<span id="cb22-3"><a href="#cb22-3"></a><span class="kw">plot</span>(N1 <span class="op">~</span><span class="st"> </span>t, <span class="dt">type =</span> <span class="st">&quot;l&quot;</span>, <span class="dt">col =</span> <span class="st">&quot;blue&quot;</span>, <span class="dt">ylab =</span> <span class="st">&quot;N1 or N2&quot;</span>,</span>
+<span id="cb22-4"><a href="#cb22-4"></a>     <span class="dt">ylim =</span> <span class="kw">c</span>(<span class="dv">0</span>, <span class="kw">max</span>(N1, N2) ) )</span>
+<span id="cb22-5"><a href="#cb22-5"></a><span class="kw">lines</span>(N2 <span class="op">~</span><span class="st"> </span>t, <span class="dt">col =</span> <span class="st">&quot;red&quot;</span>)</span></code></pre></div>
 <p><img src="lecture03_competition_files/figure-revealjs/unnamed-chunk-20-1.png" width="480" style="display: block; margin: auto;" /></p>
 </section><section id="prediction-scenario-3" class="slide level2">
 <h2>Prediction: scenario 3</h2>

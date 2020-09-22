@@ -11,9 +11,9 @@
 
 
 <style type="text/css">
-a.sourceLine { display: inline-block; line-height: 1.25; }
-a.sourceLine { pointer-events: none; color: inherit; text-decoration: inherit; }
-a.sourceLine:empty { height: 1.2em; }
+code.sourceCode > span { display: inline-block; line-height: 1.25; }
+code.sourceCode > span { color: inherit; text-decoration: inherit; }
+code.sourceCode > span:empty { height: 1.2em; }
 .sourceCode { overflow: visible; }
 code.sourceCode { white-space: pre; position: relative; }
 div.sourceCode { margin: 1em 0; }
@@ -23,14 +23,16 @@ div.sourceCode { overflow: auto; }
 }
 @media print {
 code.sourceCode { white-space: pre-wrap; }
-a.sourceLine { text-indent: -1em; padding-left: 1em; }
+code.sourceCode > span { text-indent: -5em; padding-left: 5em; }
 }
-pre.numberSource a.sourceLine
-  { position: relative; left: -4em; }
-pre.numberSource a.sourceLine::before
-  { content: attr(title);
+pre.numberSource code
+  { counter-reset: source-line 0; }
+pre.numberSource code > span
+  { position: relative; left: -4em; counter-increment: source-line; }
+pre.numberSource code > span > a:first-child::before
+  { content: counter(source-line);
     position: relative; left: -1em; text-align: right; vertical-align: baseline;
-    border: none; pointer-events: all; display: inline-block;
+    border: none; display: inline-block;
     -webkit-touch-callout: none; -webkit-user-select: none;
     -khtml-user-select: none; -moz-user-select: none;
     -ms-user-select: none; user-select: none;
@@ -39,9 +41,9 @@ pre.numberSource a.sourceLine::before
   }
 pre.numberSource { margin-left: 3em; border-left: 1px solid #aaaaaa;  padding-left: 4px; }
 div.sourceCode
-  {  }
+  {   }
 @media screen {
-a.sourceLine::before { text-decoration: underline; }
+code.sourceCode > span > a:first-child::before { text-decoration: underline; }
 }
 code span.al { color: #ff0000; } /* Alert */
 code span.an { color: #008000; } /* Annotation */
@@ -623,7 +625,7 @@ FCL = \frac{\delta ^{15}N_{predator} - \delta ^{15}N_{base}}{\Delta_N} + TP_{bas
 </section><section id="tottabetsu-river" class="slide level2">
 <h2>Tottabetsu river</h2>
 <p>Tottabetsu River, Japan</p>
-<p><img src="image_slide/img07.JPG" width="70%"></img></p>
+<p><img src="image_slide/img07.jpg" width="70%"></img></p>
 </section><section id="ground-beetles" class="slide level2">
 <h2>Ground beetles</h2>
 <p>Ground beetle - generalist predator</p>
@@ -631,13 +633,13 @@ FCL = \frac{\delta ^{15}N_{predator} - \delta ^{15}N_{base}}{\Delta_N} + TP_{bas
 <p><img src="image_slide/img02.jpg"></img> <em>Brachinus stenoderus</em></p>
 </div>
 <div id="right">
-<p><img src="image_slide/img08.JPG"></img> <em>Lithochlaenius noguchii</em></p>
+<p><img src="image_slide/img08.jpg"></img> <em>Lithochlaenius noguchii</em></p>
 </div>
 </section><section id="r-exercise-data" class="slide level2">
 <h2>R exercise: data</h2>
 <p>Download <code>sample_data.csv</code> and read it into R</p>
-<div class="sourceCode" id="cb1"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb1-1" title="1">dat &lt;-<span class="st"> </span><span class="kw">read.csv</span>(<span class="st">&quot;data/sample_data.csv&quot;</span>)</a>
-<a class="sourceLine" id="cb1-2" title="2"><span class="kw">head</span>(dat)</a></code></pre></div>
+<div class="sourceCode" id="cb1"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb1-1"><a href="#cb1-1"></a>dat &lt;-<span class="st"> </span><span class="kw">read.csv</span>(<span class="st">&quot;data/sample_data.csv&quot;</span>)</span>
+<span id="cb1-2"><a href="#cb1-2"></a><span class="kw">head</span>(dat)</span></code></pre></div>
 <pre><code>##         site     date     species   d13C  d15N
 ## 1 tottabetsu 6/9/2014 grasshopper -28.03 -0.04
 ## 2 tottabetsu 6/9/2014 grasshopper -27.86  2.53
@@ -648,19 +650,19 @@ FCL = \frac{\delta ^{15}N_{predator} - \delta ^{15}N_{base}}{\Delta_N} + TP_{bas
 </section><section id="r-exercise-data-formatting" class="slide level2">
 <h2>R exercise: data formatting</h2>
 <p>Check <code>species</code> column</p>
-<div class="sourceCode" id="cb3"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb3-1" title="1"><span class="kw">unique</span>(dat<span class="op">$</span>species)</a></code></pre></div>
+<div class="sourceCode" id="cb3"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb3-1"><a href="#cb3-1"></a><span class="kw">unique</span>(dat<span class="op">$</span>species)</span></code></pre></div>
 <pre><code>## [1] &quot;grasshopper&quot;  &quot;L_noguchii&quot;   &quot;B_stenoderus&quot;</code></pre>
 <p><code>grasshopper</code> is the base species</p>
 </section><section id="r-exercise-mean-n" class="slide level2">
 <h2>R exercise: mean N</h2>
 <p>Calculate mean <span class="math inline">\(\delta ^{15}N\)</span> for each taxon</p>
-<div class="sourceCode" id="cb5"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb5-1" title="1"><span class="kw">library</span>(tidyverse)</a>
-<a class="sourceLine" id="cb5-2" title="2"></a>
-<a class="sourceLine" id="cb5-3" title="3">datN =<span class="st"> </span>dat <span class="op">%&gt;%</span></a>
-<a class="sourceLine" id="cb5-4" title="4"><span class="st">  </span><span class="kw">group_by</span>(species) <span class="op">%&gt;%</span><span class="st"> </span><span class="co"># grouping by &#39;species&#39;</span></a>
-<a class="sourceLine" id="cb5-5" title="5"><span class="st">  </span><span class="kw">summarize</span>(<span class="dt">meanN =</span> <span class="kw">mean</span>(d15N)) <span class="co"># calculate means for each group</span></a>
-<a class="sourceLine" id="cb5-6" title="6"></a>
-<a class="sourceLine" id="cb5-7" title="7">datN</a></code></pre></div>
+<div class="sourceCode" id="cb5"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb5-1"><a href="#cb5-1"></a><span class="kw">library</span>(tidyverse)</span>
+<span id="cb5-2"><a href="#cb5-2"></a></span>
+<span id="cb5-3"><a href="#cb5-3"></a>datN =<span class="st"> </span>dat <span class="op">%&gt;%</span></span>
+<span id="cb5-4"><a href="#cb5-4"></a><span class="st">  </span><span class="kw">group_by</span>(species) <span class="op">%&gt;%</span><span class="st"> </span><span class="co"># grouping by &#39;species&#39;</span></span>
+<span id="cb5-5"><a href="#cb5-5"></a><span class="st">  </span><span class="kw">summarize</span>(<span class="dt">meanN =</span> <span class="kw">mean</span>(d15N)) <span class="co"># calculate means for each group</span></span>
+<span id="cb5-6"><a href="#cb5-6"></a></span>
+<span id="cb5-7"><a href="#cb5-7"></a>datN</span></code></pre></div>
 <pre><code>## # A tibble: 3 x 2
 ##   species      meanN
 ##   &lt;chr&gt;        &lt;dbl&gt;
@@ -674,17 +676,17 @@ TP_{predator} = \frac{\delta ^{15}N_{predator} - \delta ^{15}N_{base}}{\Delta_N}
 \]</span></p>
 <p>Calculate trophic positions of <em>L. noguchii</em> and <em>B.stenoderus</em></p>
 <p><small>*<span class="math inline">\(\Delta_{N} = 3.4\)</span> and <span class="math inline">\(TP_{base} = 2\)</span> for this example</small></p>
-<div class="sourceCode" id="cb7"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb7-1" title="1">Nbase &lt;-<span class="st"> </span>datN<span class="op">$</span>meanN[<span class="kw">which</span>(datN<span class="op">$</span>species <span class="op">==</span><span class="st"> &quot;grasshopper&quot;</span>)]</a>
-<a class="sourceLine" id="cb7-2" title="2">Nln &lt;-<span class="st"> </span>datN<span class="op">$</span>meanN[<span class="kw">which</span>(datN<span class="op">$</span>species <span class="op">==</span><span class="st"> &quot;L_noguchii&quot;</span>)]</a>
-<a class="sourceLine" id="cb7-3" title="3">Nbs &lt;-<span class="st"> </span>datN<span class="op">$</span>meanN[<span class="kw">which</span>(datN<span class="op">$</span>species <span class="op">==</span><span class="st"> &quot;B_stenoderus&quot;</span>)]</a></code></pre></div>
+<div class="sourceCode" id="cb7"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb7-1"><a href="#cb7-1"></a>Nbase &lt;-<span class="st"> </span>datN<span class="op">$</span>meanN[<span class="kw">which</span>(datN<span class="op">$</span>species <span class="op">==</span><span class="st"> &quot;grasshopper&quot;</span>)]</span>
+<span id="cb7-2"><a href="#cb7-2"></a>Nln &lt;-<span class="st"> </span>datN<span class="op">$</span>meanN[<span class="kw">which</span>(datN<span class="op">$</span>species <span class="op">==</span><span class="st"> &quot;L_noguchii&quot;</span>)]</span>
+<span id="cb7-3"><a href="#cb7-3"></a>Nbs &lt;-<span class="st"> </span>datN<span class="op">$</span>meanN[<span class="kw">which</span>(datN<span class="op">$</span>species <span class="op">==</span><span class="st"> &quot;B_stenoderus&quot;</span>)]</span></code></pre></div>
 </section><section id="r-exercise-trophic-position-1" class="slide level2">
 <h2>R exercise: trophic position</h2>
 <p>Check values</p>
 <p><em>L. noguchii</em>: TP = 3.21<br />
 <em>B. stenoderus</em>: TP = 3.46</p>
-<div class="sourceCode" id="cb8"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb8-1" title="1">TPln</a></code></pre></div>
+<div class="sourceCode" id="cb8"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb8-1"><a href="#cb8-1"></a>TPln</span></code></pre></div>
 <pre><code>## [1] 3.213063</code></pre>
-<div class="sourceCode" id="cb10"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb10-1" title="1">TPbs</a></code></pre></div>
+<div class="sourceCode" id="cb10"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb10-1"><a href="#cb10-1"></a>TPbs</span></code></pre></div>
 <pre><code>## [1] 3.456478</code></pre>
 </section><section id="long-lasting-debate" class="slide level2">
 <h2>Long lasting debate</h2>
@@ -724,7 +726,7 @@ TP_{predator} = \frac{\delta ^{15}N_{predator} - \delta ^{15}N_{base}}{\Delta_N}
 </ul>
 </div>
 <div id="right">
-<p><img src="image_slide/img10.JPG" width="60%"></img></p>
+<p><img src="image_slide/img10.jpg" width="60%"></img></p>
 </div>
 <p><small>Kaunzinger and Morin 1998, Nature</small></p>
 </section><section id="counter-evidence" class="slide level2">
@@ -738,7 +740,7 @@ TP_{predator} = \frac{\delta ^{15}N_{predator} - \delta ^{15}N_{base}}{\Delta_N}
 </ul>
 </div>
 <div id="right">
-<p><img src="image_slide/img11.JPG" width="100%"></img></p>
+<p><img src="image_slide/img11.jpg" width="100%"></img></p>
 </div>
 <p><small>Post et al. 2000, Nature</small></p>
 </section><section id="theory-impaired" class="slide level2">
@@ -766,12 +768,12 @@ TP_{predator} = \frac{\delta ^{15}N_{predator} - \delta ^{15}N_{base}}{\Delta_N}
 </ul>
 </div>
 <div id="right">
-<p><img src="image_slide/img12.JPG" width="90%"></img></p>
+<p><img src="image_slide/img12.jpg" width="90%"></img></p>
 </div>
 <p><small>Post &amp; Takimoto. 2007, Oikos</small></p>
 </section><section id="theoretical-evidence" class="slide level2">
 <h2>Theoretical evidence</h2>
-<p><img src="image_slide/img13.JPG" width="70%"></img></p>
+<p><img src="image_slide/img13.jpg" width="70%"></img></p>
 <p><small> Ward et al. 2017, Nature Communications</small></p>
 </section></section>
 <section><section id="h2-disturbance" class="title-slide slide level1"><h1>H2: disturbance</h1></section><section id="the-dynamic-stability-hypothesis" class="slide level2">
@@ -793,7 +795,7 @@ TP_{predator} = \frac{\delta ^{15}N_{predator} - \delta ^{15}N_{base}}{\Delta_N}
 </ul>
 </div>
 <div id="right">
-<p><img src="image_slide/img14.JPG" width="100%"></img></p>
+<p><img src="image_slide/img14.jpg" width="100%"></img></p>
 </div>
 <p><small>Sabo et al. 2010, Science</small></p>
 </section><section id="counter-evidence-1" class="slide level2">
@@ -807,7 +809,7 @@ TP_{predator} = \frac{\delta ^{15}N_{predator} - \delta ^{15}N_{base}}{\Delta_N}
 </ul>
 </div>
 <div id="right">
-<p><img src="image_slide/img15.JPG" width="100%"></img></p>
+<p><img src="image_slide/img15.jpg" width="100%"></img></p>
 </div>
 <p><small>Warfe et al. 2013, Plos One</small></p>
 </section><section id="theory-impaired-1" class="slide level2">
@@ -857,7 +859,7 @@ TP_{predator} = \frac{\delta ^{15}N_{predator} - \delta ^{15}N_{base}}{\Delta_N}
 </section><section id="empirical-evidence-2" class="slide level2">
 <h2>Empirical evidence</h2>
 <p>Ample empirical evidence - lakes, ponds, and islands</p>
-<p><img src="image_slide/img16.JPG" width="70%"></img></p>
+<p><img src="image_slide/img16.jpg" width="70%"></img></p>
 <p><small>Post et al. 2000, Nature</small></p>
 </section></section>
     </div>
