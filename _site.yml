@@ -27,7 +27,7 @@ navbar:
       icon: fa-user-graduate
       menu:
         - text: Seminar in Ecology
-          href: bio605.html
+          href: https://aterui.github.io/seminar-in-ecology/
 
   right:
     - icon: fa-code fa-lg
