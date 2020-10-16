@@ -13,6 +13,7 @@
 
 <title>R BASICS</title>
 
+<script src="site_libs/header-attrs-2.3/header-attrs.js"></script>
 <script src="site_libs/jquery-1.11.3/jquery.min.js"></script>
 <meta name="viewport" content="width=device-width, initial-scale=1" />
 <link href="site_libs/bootstrap-3.3.5/css/cosmo.min.css" rel="stylesheet" />
@@ -439,17 +440,17 @@ div.tocify {
 
 
 <h1 class="title toc-ignore">R BASICS</h1>
-<h4 class="date">Latest update - 09 October, 2020</h4>
+<h4 class="date">Latest update - 16 October, 2020</h4>
 
 </div>
 
 
 <hr />
-<div id="getting-started" class="section level1">
-<h1><span class="header-section-number">1</span> GETTING STARTED</h1>
+<div id="getting-started" class="section level1" number="1">
+<h1 number="1"><span class="header-section-number">1</span> GETTING STARTED</h1>
 <hr />
-<div id="install-r-and-r-studio" class="section level2">
-<h2><span class="header-section-number">1.1</span> Install R and R Studio</h2>
+<div id="install-r-and-r-studio" class="section level2" number="1.1">
+<h2 number="1.1"><span class="header-section-number">1.1</span> Install R and R Studio</h2>
 <p>R and R Studio can be installed from the following websites:</p>
 <ul>
 <li><a href="https://www.r-project.org/">R</a> (you can choose any CRAN mirror to download)</li>
@@ -459,15 +460,15 @@ div.tocify {
 <br />
 </p>
 </div>
-<div id="basic-setup" class="section level2">
-<h2><span class="header-section-number">1.2</span> Basic Setup</h2>
-<div id="interface" class="section level3">
-<h3><span class="header-section-number">1.2.1</span> Interface</h3>
+<div id="basic-setup" class="section level2" number="1.2">
+<h2 number="1.2"><span class="header-section-number">1.2</span> Basic Setup</h2>
+<div id="interface" class="section level3" number="1.2.1">
+<h3 number="1.2.1"><span class="header-section-number">1.2.1</span> Interface</h3>
 <p><img src="image/R_image1.png" /></p>
 <p>R Studio interface. The left half of the screen is <strong>“console”</strong> where you put your script to execute calculation/data manipulation/analysis (ignore the tab “Terminal” at this point). The right bottom shows a folder in which you are working now – i.e., <strong>“working folder or directory”</strong>. R does not recognize any files outside of this folder, so be sure to pick the right directory when you work in R.</p>
 </div>
-<div id="create-project" class="section level3">
-<h3><span class="header-section-number">1.2.2</span> Create Project</h3>
+<div id="create-project" class="section level3" number="1.2.2">
+<h3 number="1.2.2"><span class="header-section-number">1.2.2</span> Create Project</h3>
 <p>As you proceed, numerous materials will be generated. How do we manage files? No worries, R Studio will help organize files by creating a project. To initiate the process of creating a project:</p>
 <ol style="list-style-type: lower-alpha">
 <li>go to <code>File &gt; New Project</code> on the top menu</li>
@@ -477,8 +478,8 @@ div.tocify {
 <p>A new window pops up and prompts you to name a directory and where to put the directory in your computer. Click <code>Browse</code> to select a location for the directory. I would create a folder for R projects (e.g., <code>RProject</code>) and save project directories under this folder. Click <strong>Create Project</strong> once you decided directory name and location:</p>
 <p><img src="image/R_image5.png" /></p>
 </div>
-<div id="find-where-you-are" class="section level3">
-<h3><span class="header-section-number">1.2.3</span> Find Where You Are</h3>
+<div id="find-where-you-are" class="section level3" number="1.2.3">
+<h3 number="1.2.3"><span class="header-section-number">1.2.3</span> Find Where You Are</h3>
 <p>Once you created a project, R Studio will take you to where the R project is located. Check the current directory using the following script:</p>
 <pre class="r"><code>getwd()</code></pre>
 <pre><code>## [1] &quot;C:/Users/Akira/OneDrive - UNCG/Documents/GitHub/aquaecolab&quot;</code></pre>
@@ -487,10 +488,10 @@ div.tocify {
 </p>
 </div>
 </div>
-<div id="object" class="section level2">
-<h2><span class="header-section-number">1.3</span> Object</h2>
-<div id="create-object" class="section level3">
-<h3><span class="header-section-number">1.3.1</span> Create Object</h3>
+<div id="object" class="section level2" number="1.3">
+<h2 number="1.3"><span class="header-section-number">1.3</span> Object</h2>
+<div id="create-object" class="section level3" number="1.3.1">
+<h3 number="1.3.1"><span class="header-section-number">1.3.1</span> Create Object</h3>
 <p>Let’s play with R. Put the following script in your console.</p>
 <pre class="r"><code>x &lt;- c(10.1, 5.3, 8.8, 6.7, 8.2)</code></pre>
 <p>This script creates a vector of numbers composed of {10.1, 5.3, 8.8, 6.7, 8.2}. <code>x</code> is a ‘box’ where the vector information is stored, and ‘&lt;-’ is the arrow that commands R to store {10.1, 5.3, 8.8, 6.7, 8.2} in a box <code>x</code>. <code>x</code> is referred to as an <strong>object</strong>. Let’s see what’s in <code>x</code>:</p>
@@ -515,8 +516,8 @@ div.tocify {
 <pre class="r"><code>x[c(1,4)]</code></pre>
 <pre><code>## [1] 10.1  6.7</code></pre>
 </div>
-<div id="case-sensitive" class="section level3">
-<h3><span class="header-section-number">1.3.2</span> Case Sensitive</h3>
+<div id="case-sensitive" class="section level3" number="1.3.2">
+<h3 number="1.3.2"><span class="header-section-number">1.3.2</span> Case Sensitive</h3>
 <p>Importantly, <strong>objects are case sensitive</strong>. Let’s see what happens when you create an object <code>x</code> (lower case):</p>
 <pre class="r"><code># create an object `x` (lower case)
 x &lt;- 3
@@ -542,10 +543,10 @@ print(x) </code></pre>
 </p>
 </div>
 </div>
-<div id="arithmetic-operations" class="section level2">
-<h2><span class="header-section-number">1.4</span> Arithmetic Operations</h2>
-<div id="number" class="section level3">
-<h3><span class="header-section-number">1.4.1</span> Number</h3>
+<div id="arithmetic-operations" class="section level2" number="1.4">
+<h2 number="1.4"><span class="header-section-number">1.4</span> Arithmetic Operations</h2>
+<div id="number" class="section level3" number="1.4.1">
+<h3 number="1.4.1"><span class="header-section-number">1.4.1</span> Number</h3>
 <p>Addition</p>
 <pre class="r"><code>1 + 1</code></pre>
 <pre><code>## [1] 2</code></pre>
@@ -575,8 +576,8 @@ print(x) </code></pre>
 <pre class="r"><code>4^(1/2)</code></pre>
 <pre><code>## [1] 2</code></pre>
 </div>
-<div id="object-1" class="section level3">
-<h3><span class="header-section-number">1.4.2</span> Object</h3>
+<div id="object-1" class="section level3" number="1.4.2">
+<h3 number="1.4.2"><span class="header-section-number">1.4.2</span> Object</h3>
 <p>R can handle arithmetic operations between objects. Prepare objects <code>x</code> and <code>y</code>:</p>
 <pre class="r"><code>x &lt;- 1:5
 y &lt;- 2:6
@@ -604,11 +605,11 @@ print(z)</code></pre>
 </p>
 </div>
 </div>
-<div id="r-script" class="section level2">
-<h2><span class="header-section-number">1.5</span> R Script</h2>
+<div id="r-script" class="section level2" number="1.5">
+<h2 number="1.5"><span class="header-section-number">1.5</span> R Script</h2>
 <p>In R Studio, we rarely write scripts directly in R console. This is because console <strong>does NOT save your scripts</strong>, so it is difficult to keep records of data manipulation and analysis. Instead, we write our scripts in an <strong>R script</strong>, which enables you save and organize scripts in a separate window and allows you to run scripts when you are ready.</p>
-<div id="create-r-script" class="section level3">
-<h3><span class="header-section-number">1.5.1</span> Create R Script</h3>
+<div id="create-r-script" class="section level3" number="1.5.1">
+<h3 number="1.5.1"><span class="header-section-number">1.5.1</span> Create R Script</h3>
 <p>To create an <strong>R script</strong>:</p>
 <ol style="list-style-type: lower-alpha">
 <li>go to <code>File &gt; New File &gt; R Script</code> (or <code>Ctrl + Shift + N</code>)</li>
@@ -616,8 +617,8 @@ print(z)</code></pre>
 </ol>
 <p><img src="image/R_image7.png" /></p>
 </div>
-<div id="run-r-script" class="section level3">
-<h3><span class="header-section-number">1.5.2</span> Run R Script</h3>
+<div id="run-r-script" class="section level3" number="1.5.2">
+<h3 number="1.5.2"><span class="header-section-number">1.5.2</span> Run R Script</h3>
 <p>You can run your script from the R script window. Write the following scripts:</p>
 <pre class="r"><code>x &lt;- c(10.1, 5.3, 8.8, 6.7, 8.2)
 mean(x)</code></pre>
@@ -627,8 +628,8 @@ mean(x)</code></pre>
 </p>
 </div>
 </div>
-<div id="compile-report" class="section level2">
-<h2><span class="header-section-number">1.6</span> Compile Report</h2>
+<div id="compile-report" class="section level2" number="1.6">
+<h2 number="1.6"><span class="header-section-number">1.6</span> Compile Report</h2>
 <p>R Studio has a function to compile a report from R scripts (see also <a href="https://bookdown.org/yihui/rmarkdown/">R Markdown: The Definitive Guide</a> for details). Include the following script on the top of the R script file to put your information:</p>
 <pre class="r"><code>#&#39; ---
 #&#39; title: &quot;Report&quot;
@@ -680,8 +681,8 @@ y</code></pre>
 <br />
 </p>
 </div>
-<div id="file-management" class="section level2">
-<h2><span class="header-section-number">1.7</span> File Management</h2>
+<div id="file-management" class="section level2" number="1.7">
+<h2 number="1.7"><span class="header-section-number">1.7</span> File Management</h2>
 <p>As you proceed, the number of files will increase. It is critical to learn basic rules of <strong>how to locate and name your files in your computer</strong>. Here are some recommendations:</p>
 <ul>
 <li>Put all the relevant files in a single folder.
@@ -714,11 +715,11 @@ y</code></pre>
 <hr />
 </div>
 </div>
-<div id="data-structure" class="section level1">
-<h1><span class="header-section-number">2</span> DATA STRUCTURE</h1>
+<div id="data-structure" class="section level1" number="2">
+<h1 number="2"><span class="header-section-number">2</span> DATA STRUCTURE</h1>
 <hr />
-<div id="overview" class="section level2">
-<h2><span class="header-section-number">2.1</span> Overview</h2>
+<div id="overview" class="section level2" number="2.1">
+<h2 number="2.1"><span class="header-section-number">2.1</span> Overview</h2>
 <p>R has 6 basic <strong>data types</strong>.</p>
 <ul>
 <li>character: <code>"aquatic"</code>, <code>"ecology"</code> (no order)</li>
@@ -738,10 +739,10 @@ y</code></pre>
 <br />
 </p>
 </div>
-<div id="vector" class="section level2">
-<h2><span class="header-section-number">2.2</span> Vector</h2>
-<div id="create-vector" class="section level3">
-<h3><span class="header-section-number">2.2.1</span> Create Vector</h3>
+<div id="vector" class="section level2" number="2.2">
+<h2 number="2.2"><span class="header-section-number">2.2</span> Vector</h2>
+<div id="create-vector" class="section level3" number="2.2.1">
+<h3 number="2.2.1"><span class="header-section-number">2.2.1</span> Create Vector</h3>
 <p>Below are examples of atomic character vectors, numeric vectors, integer vectors, etc. There are many ways to create vector data. The following examples use <code>c()</code>, <code>:</code>, <code>seq()</code>, <code>rep()</code>:</p>
 <pre class="r"><code>#ex.1a manually create a vector using c()
 x &lt;- c(1,3,4,8)
@@ -778,8 +779,8 @@ x</code></pre>
 ## [20] 2.9 3.0 3.1 3.2 3.3 3.4 3.5 3.6 3.7 3.8 3.9 4.0 4.1 4.2 4.3 4.4 4.5 4.6 4.7
 ## [39] 4.8 4.9 5.0</code></pre>
 </div>
-<div id="check-features" class="section level3">
-<h3><span class="header-section-number">2.2.2</span> Check Features</h3>
+<div id="check-features" class="section level3" number="2.2.2">
+<h3 number="2.2.2"><span class="header-section-number">2.2.2</span> Check Features</h3>
 <p>R provides many functions to examine features of vectors and other objects, for example:</p>
 <ul>
 <li><code>class()</code> - what kind of object (data structure) is it (high-level)?</li>
@@ -810,8 +811,8 @@ class(y)</code></pre>
 <pre class="r"><code>length(y)</code></pre>
 <pre><code>## [1] 3</code></pre>
 </div>
-<div id="access" class="section level3">
-<h3><span class="header-section-number">2.2.3</span> Access</h3>
+<div id="access" class="section level3" number="2.2.3">
+<h3 number="2.2.3"><span class="header-section-number">2.2.3</span> Access</h3>
 <p><strong>Element ID</strong><br />
 Use brackets <code>[]</code> when accessing specific elements in an object. For example, if you want to access element #2 in the vector <code>x</code>, you may specify as <code>x[2]</code>:</p>
 <pre class="r"><code>x &lt;- c(2,2,3,2,5)
@@ -859,10 +860,10 @@ which(x &gt; 2)</code></pre>
 </p>
 </div>
 </div>
-<div id="matrix" class="section level2">
-<h2><span class="header-section-number">2.3</span> Matrix</h2>
-<div id="create-matrix" class="section level3">
-<h3><span class="header-section-number">2.3.1</span> Create Matrix</h3>
+<div id="matrix" class="section level2" number="2.3">
+<h2 number="2.3"><span class="header-section-number">2.3</span> Matrix</h2>
+<div id="create-matrix" class="section level3" number="2.3.1">
+<h3 number="2.3.1"><span class="header-section-number">2.3.1</span> Create Matrix</h3>
 <p>Matrix is a set of elements (<em>single data type</em>) that are organized into rows and columns:</p>
 <pre class="r"><code>#ex.1 cbind: combine objects by column
 x &lt;- cbind(c(1,2,3), c(4,5,6))
@@ -885,8 +886,8 @@ x</code></pre>
 ## [2,]    2    5    8
 ## [3,]    3    6    9</code></pre>
 </div>
-<div id="check-features-1" class="section level3">
-<h3><span class="header-section-number">2.3.2</span> Check Features</h3>
+<div id="check-features-1" class="section level3" number="2.3.2">
+<h3 number="2.3.2"><span class="header-section-number">2.3.2</span> Check Features</h3>
 <p>R provides many functions to examine features of matrix data, for example:</p>
 <ul>
 <li><code>class()</code> what kind of object (data type) is it (high-level)?</li>
@@ -925,8 +926,8 @@ y</code></pre>
 <pre class="r"><code>dim(y)</code></pre>
 <pre><code>## [1] 3 2</code></pre>
 </div>
-<div id="access-1" class="section level3">
-<h3><span class="header-section-number">2.3.3</span> Access</h3>
+<div id="access-1" class="section level3" number="2.3.3">
+<h3 number="2.3.3"><span class="header-section-number">2.3.3</span> Access</h3>
 <p>When accessing matrix elements, you need to pick row(s) and/or column(s), for example:</p>
 <pre class="r"><code>x &lt;- matrix(1:9, nrow = 3, ncol = 3)
 x</code></pre>
@@ -981,8 +982,8 @@ x</code></pre>
 </p>
 </div>
 </div>
-<div id="data-frame" class="section level2">
-<h2><span class="header-section-number">2.4</span> Data Frame</h2>
+<div id="data-frame" class="section level2" number="2.4">
+<h2 number="2.4"><span class="header-section-number">2.4</span> Data Frame</h2>
 <p>Data frame is a set of elements that are organized into rows and columns, but differ from matrix in several ways.</p>
 <ul>
 <li>it allows <em>multiple data types</em> in different columns</li>
@@ -1031,11 +1032,11 @@ dat</code></pre>
 <br />
 </p>
 </div>
-<div id="exercise" class="section level2">
-<h2><span class="header-section-number">2.5</span> Exercise</h2>
+<div id="exercise" class="section level2" number="2.5">
+<h2 number="2.5"><span class="header-section-number">2.5</span> Exercise</h2>
 <p>Download a <a href = "file/report01_temp.R" download>template</a> (R script file).</p>
-<div id="vector-1" class="section level3">
-<h3><span class="header-section-number">2.5.1</span> Vector</h3>
+<div id="vector-1" class="section level3" number="2.5.1">
+<h3 number="2.5.1"><span class="header-section-number">2.5.1</span> Vector</h3>
 <ol style="list-style-type: lower-alpha">
 <li>Create three numeric vectors with length 3, 6 and 20, respectively. Each vector must be created using different functions in R.</li>
 <li>Create three character vectors with length 3, 6 and 20, respectively. Each vector must be created using different functions in R.</li>
@@ -1048,8 +1049,8 @@ dat</code></pre>
 <pre class="r"><code>set.seed(1)
 x &lt;- rnorm(100)</code></pre>
 </div>
-<div id="matrix-1" class="section level3">
-<h3><span class="header-section-number">2.5.2</span> Matrix</h3>
+<div id="matrix-1" class="section level3" number="2.5.2">
+<h3 number="2.5.2"><span class="header-section-number">2.5.2</span> Matrix</h3>
 <ol style="list-style-type: lower-alpha">
 <li>Create a numeric matrix with 4 rows and 4 columns. Each column must contain identical elements.</li>
 <li>Create a numeric matrix with 4 rows and 4 columns. Each row must contain identical elements.</li>
@@ -1064,8 +1065,8 @@ x &lt;- rnorm(100)</code></pre>
 <pre class="r"><code>set.seed(1)
 x &lt;- matrix(rnorm(100), nrow = 10, ncol = 10)</code></pre>
 </div>
-<div id="data-frame-1" class="section level3">
-<h3><span class="header-section-number">2.5.3</span> Data Frame</h3>
+<div id="data-frame-1" class="section level3" number="2.5.3">
+<h3 number="2.5.3"><span class="header-section-number">2.5.3</span> Data Frame</h3>
 <ol style="list-style-type: lower-alpha">
 <li>Create a data frame of 3 variables with 10 elements (name variables as <code>x</code>, <code>y</code> and <code>z</code>. <code>x</code> must be <code>character</code> while <code>y</code> and <code>z</code> must be <code>numeric</code>.</li>
 <li>Check the data structure (higher-level) of <code>x</code>, <code>y</code> and <code>z</code></li>
@@ -1086,11 +1087,11 @@ dat &lt;- data.frame(temperature = x, abundance = y, state = z)</code></pre>
 </div>
 </div>
 </div>
-<div id="visualization" class="section level1">
-<h1><span class="header-section-number">3</span> VISUALIZATION</h1>
+<div id="visualization" class="section level1" number="3">
+<h1 number="3"><span class="header-section-number">3</span> VISUALIZATION</h1>
 <hr />
-<div id="overview-1" class="section level2">
-<h2><span class="header-section-number">3.1</span> Overview</h2>
+<div id="overview-1" class="section level2" number="3.1">
+<h2 number="3.1"><span class="header-section-number">3.1</span> Overview</h2>
 <p>R has a number of functions that help visualize data. <code>graphics</code> provides R functions for base graphics (<a href="https://www.rdocumentation.org/packages/graphics/versions/3.6.2">list of functions</a>). I will use <code>iris</code>, the built-in data set in R, to show how <code>graphics</code> functions work.</p>
 <pre class="r"><code>iris</code></pre>
 <div data-pagedtable="false">
@@ -1102,50 +1103,50 @@ dat &lt;- data.frame(temperature = x, abundance = y, state = z)</code></pre>
 <br />
 </p>
 </div>
-<div id="plot" class="section level2">
-<h2><span class="header-section-number">3.2</span> <code>plot()</code></h2>
+<div id="plot" class="section level2" number="3.2">
+<h2 number="3.2"><span class="header-section-number">3.2</span> <code>plot()</code></h2>
 <p>When plotting data, what’s you need is to specify the <strong>formula</strong>. For example, if you want to visualize the relationship between <code>x</code> and <code>y</code> (<code>y</code> on the vertical axis and <code>x</code> on the horizontal axis), the formula would be <code>y ~ x</code> (the left side of the formula will be on the vertical axis). In the <code>iris</code> data set, the following columns are available: <code>Sepal.Length</code> <code>Sepal.Width</code> <code>Petal.Length</code> <code>Petal.Width</code> <code>Species</code>. In the following example, the relationship between <code>Sepal.Length</code> and <code>Sepal.Width</code> is plotted:</p>
 <pre class="r"><code>plot(Sepal.Length ~ Sepal.Width, data = iris)</code></pre>
 <p><img src="r01_rbasics_files/figure-html/unnamed-chunk-45-1.png" width="480" /></p>
 <p>The argument <code>data =</code> tells the function the data set from which the variables (<code>Sepal.Length</code> and <code>Sepal.Width</code>) are extracted. The above figure is the default setting, and you may customize it as necessary. Below is an example of how you may customize:</p>
-<div id="symbol" class="section level3">
-<h3><span class="header-section-number">3.2.1</span> Symbol</h3>
+<div id="symbol" class="section level3" number="3.2.1">
+<h3 number="3.2.1"><span class="header-section-number">3.2.1</span> Symbol</h3>
 <p><code>pch</code> argument. Choose from <code>1</code> to <code>25</code> (google <strong>r plot pch</strong> for details)</p>
 <pre class="r"><code>plot(Sepal.Length ~ Sepal.Width, data = iris,
      pch = 19)</code></pre>
 <p><img src="r01_rbasics_files/figure-html/unnamed-chunk-46-1.png" width="480" /></p>
 </div>
-<div id="symbol-size" class="section level3">
-<h3><span class="header-section-number">3.2.2</span> Symbol size</h3>
+<div id="symbol-size" class="section level3" number="3.2.2">
+<h3 number="3.2.2"><span class="header-section-number">3.2.2</span> Symbol size</h3>
 <p><code>cex</code> argument. <code>cex = 1</code> is the default value. <code>cex = 2</code> is as twice large as default value.</p>
 <pre class="r"><code>plot(Sepal.Length ~ Sepal.Width, data = iris,
      pch = 19, cex = 2)</code></pre>
 <p><img src="r01_rbasics_files/figure-html/unnamed-chunk-47-1.png" width="480" /></p>
 </div>
-<div id="symbol-color-border" class="section level3">
-<h3><span class="header-section-number">3.2.3</span> Symbol color (border)</h3>
+<div id="symbol-color-border" class="section level3" number="3.2.3">
+<h3 number="3.2.3"><span class="header-section-number">3.2.3</span> Symbol color (border)</h3>
 <p><code>col</code> argument (quote <code>"color name"</code> when specifying). Google <strong>r color name</strong> for color options.</p>
 <pre class="r"><code>plot(Sepal.Length ~ Sepal.Width, data = iris,
      pch = 21, cex = 2, col = &quot;gray&quot;)</code></pre>
 <p><img src="r01_rbasics_files/figure-html/unnamed-chunk-48-1.png" width="480" /></p>
 </div>
-<div id="symbol-color-fill" class="section level3">
-<h3><span class="header-section-number">3.2.4</span> Symbol color (fill)</h3>
+<div id="symbol-color-fill" class="section level3" number="3.2.4">
+<h3 number="3.2.4"><span class="header-section-number">3.2.4</span> Symbol color (fill)</h3>
 <p><code>bg</code> argument (quote <code>"color name"</code> when specifying). Available for a subset of symbol options (some symbols have pre-defined filled color).</p>
 <pre class="r"><code>plot(Sepal.Length ~ Sepal.Width, data = iris,
      pch = 21, cex = 2, bg = &quot;lightgray&quot;)</code></pre>
 <p><img src="r01_rbasics_files/figure-html/unnamed-chunk-49-1.png" width="480" /></p>
 </div>
-<div id="label" class="section level3">
-<h3><span class="header-section-number">3.2.5</span> Label</h3>
+<div id="label" class="section level3" number="3.2.5">
+<h3 number="3.2.5"><span class="header-section-number">3.2.5</span> Label</h3>
 <p><code>ylab</code> or <code>xlab</code> arguments. Provide <code>"quoted text"</code>.</p>
 <pre class="r"><code>plot(Sepal.Length ~ Sepal.Width, data = iris,
      pch = 21, cex = 2, bg = &quot;lightgray&quot;,
      xlab = &quot;Sepal width (cm)&quot;, ylab = &quot;Sepal length (cm)&quot;)</code></pre>
 <p><img src="r01_rbasics_files/figure-html/unnamed-chunk-50-1.png" width="480" /></p>
 </div>
-<div id="axis" class="section level3">
-<h3><span class="header-section-number">3.2.6</span> Axis</h3>
+<div id="axis" class="section level3" number="3.2.6">
+<h3 number="3.2.6"><span class="header-section-number">3.2.6</span> Axis</h3>
 <p>Delete axes with <code>axes = F</code> and re-draw with <code>box()</code> and <code>axis()</code> functions.</p>
 <pre class="r"><code>plot(Sepal.Length ~ Sepal.Width, data = iris,
      pch = 21, cex = 2, bg = &quot;lightgray&quot;,
@@ -1157,36 +1158,36 @@ axis(2, las = 2) # 2: draw y-axis, las = 2: make axis lables horizontal</code></
 <p><img src="r01_rbasics_files/figure-html/unnamed-chunk-51-1.png" width="480" /></p>
 </div>
 </div>
-<div id="boxplot" class="section level2">
-<h2><span class="header-section-number">3.3</span> <code>boxplot()</code></h2>
+<div id="boxplot" class="section level2" number="3.3">
+<h2 number="3.3"><span class="header-section-number">3.3</span> <code>boxplot()</code></h2>
 <p><code>boxplot()</code> is used when the x-axis is factor-type data (by default, <code>plot()</code> will produce a boxplot when x-axis is a factor variable). In the <code>iris</code> dataset, the column <code>Species</code> is a factor variable. Compare <code>Sepal.Length</code> among species using <code>boxplot()</code>.</p>
 <pre class="r"><code>boxplot(Sepal.Length ~ Species, data = iris)</code></pre>
 <p><img src="r01_rbasics_files/figure-html/unnamed-chunk-52-1.png" width="480" /></p>
 <p>You can customize as in <code>plot()</code>, but slighlty different.</p>
-<div id="box-color" class="section level3">
-<h3><span class="header-section-number">3.3.1</span> Box color</h3>
+<div id="box-color" class="section level3" number="3.3.1">
+<h3 number="3.3.1"><span class="header-section-number">3.3.1</span> Box color</h3>
 <p><code>col</code> argument.</p>
 <pre class="r"><code>boxplot(Sepal.Length ~ Species, data = iris,
         col = &quot;lightgray&quot;)</code></pre>
 <p><img src="r01_rbasics_files/figure-html/unnamed-chunk-53-1.png" width="480" /></p>
 </div>
-<div id="border-color" class="section level3">
-<h3><span class="header-section-number">3.3.2</span> Border color</h3>
+<div id="border-color" class="section level3" number="3.3.2">
+<h3 number="3.3.2"><span class="header-section-number">3.3.2</span> Border color</h3>
 <p><code>border</code> argument.</p>
 <pre class="r"><code>boxplot(Sepal.Length ~ Species, data = iris,
         col = &quot;lightgray&quot;, border = &quot;grey48&quot;)</code></pre>
 <p><img src="r01_rbasics_files/figure-html/unnamed-chunk-54-1.png" width="480" /></p>
 </div>
-<div id="box-width" class="section level3">
-<h3><span class="header-section-number">3.3.3</span> Box width</h3>
+<div id="box-width" class="section level3" number="3.3.3">
+<h3 number="3.3.3"><span class="header-section-number">3.3.3</span> Box width</h3>
 <p><code>boxwex</code> argument.</p>
 <pre class="r"><code>boxplot(Sepal.Length ~ Species, data = iris,
         col = &quot;lightgray&quot;, border = &quot;grey48&quot;,
         boxwex = 0.4 )</code></pre>
 <p><img src="r01_rbasics_files/figure-html/unnamed-chunk-55-1.png" width="480" /></p>
 </div>
-<div id="axis-1" class="section level3">
-<h3><span class="header-section-number">3.3.4</span> Axis</h3>
+<div id="axis-1" class="section level3" number="3.3.4">
+<h3 number="3.3.4"><span class="header-section-number">3.3.4</span> Axis</h3>
 <p>Delete axes with <code>axes = F</code> and re-draw with <code>box()</code> and <code>axis()</code> functions.</p>
 <pre class="r"><code>boxplot(Sepal.Length ~ Species, data = iris,
         col = &quot;lightgray&quot;, border = &quot;grey48&quot;,
@@ -1198,11 +1199,11 @@ axis(2, las = 2)</code></pre>
 <p><img src="r01_rbasics_files/figure-html/unnamed-chunk-56-1.png" width="480" /></p>
 </div>
 </div>
-<div id="exercise-1" class="section level2">
-<h2><span class="header-section-number">3.4</span> Exercise</h2>
+<div id="exercise-1" class="section level2" number="3.4">
+<h2 number="3.4"><span class="header-section-number">3.4</span> Exercise</h2>
 <p>Download a <a href="file/report02_temp.R" download>template</a> (R script file).</p>
-<div id="plot-function" class="section level3">
-<h3><span class="header-section-number">3.4.1</span> <code>plot()</code> function</h3>
+<div id="plot-function" class="section level3" number="3.4.1">
+<h3 number="3.4.1"><span class="header-section-number">3.4.1</span> <code>plot()</code> function</h3>
 <ol style="list-style-type: lower-alpha">
 <li>Plot the relationship between <code>Sepal.Width</code> and <code>Petal.Width</code></li>
 <li>Turn symbol color (border) into red.</li>
@@ -1211,8 +1212,8 @@ axis(2, las = 2)</code></pre>
 <li>Make L-shaped plot border (delete border lines on upper and right sides)</li>
 </ol>
 </div>
-<div id="boxplot-function" class="section level3">
-<h3><span class="header-section-number">3.4.2</span> <code>boxplot()</code> function</h3>
+<div id="boxplot-function" class="section level3" number="3.4.2">
+<h3 number="3.4.2"><span class="header-section-number">3.4.2</span> <code>boxplot()</code> function</h3>
 <ol style="list-style-type: lower-alpha">
 <li>Plot the relationship between <code>Petal.Width</code> and <code>Species</code>.</li>
 <li>Turn box color (border) into <code>blue</code>.</li>

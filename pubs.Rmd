@@ -8,12 +8,12 @@ date: Latest update - `r format(Sys.time(), '%d %B, %Y')`
 ### In Review
 
 - **Terui A** et al. Non-random dispersal in sympatric stream fishes: influences of natural disturbance and body size
-- Comte et al. RivFishTIME: A global database of fish time-series to study global change ecology in riverine systems
 
 ### Published
 
-- **Terui A** (in press) Modeling dispersal using mark-recapture data: a comparison of dispersal models. Ecological Research
-- Nakamura F, Watanabe Y, Negishi JN, Akasaka T, Yabuhara Y, **Terui A**, Yamanaka S, Konno M (in press) Restoration of the shifting mosaic of floodplain forests under a flow regime altered by a dam. Ecological Engineering
+- Comte et al. (in press) RivFishTIME: A global database of fish time-series to study global change ecology in riverine systems. Global Ecology and Biogeography.
+- **Terui A** (2020) Modeling dispersal using mark-recapture data: a comparison of dispersal models. Ecological Research 35: 686-699.
+- Nakamura F, Watanabe Y, Negishi JN, Akasaka T, Yabuhara Y, **Terui A**, Yamanaka S, Konno M (2020) Restoration of the shifting mosaic of floodplain forests under a flow regime altered by a dam. Ecological Engineering 157: 105974.
 - **Terui A**, Finlay JC, Hansen AT, Kozarek JL. (2019) Quantifying cryptic function loss during community disassembly. Journal of Applied Ecology 56: 2710-2722
 - Senzaki M, **Terui A**, Sato F, Fukuda Y, Kataoka Y, Watanuki Y (2019) Long-term declines in common breeding seabirds in Japan. Bird Conservation International 1-13.
 - **Terui A**, Nishijima S (2019) Spatial disturbance synchrony alters the association of food chain length and ecosystem size. Ecological Research 34: 864-871
