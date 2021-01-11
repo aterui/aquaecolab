@@ -19,18 +19,18 @@ My research focuses on stream fish ecology and conservation using various techni
 \
 
 <div class="clearfix">
-<img src="image/img_ms.jpg" style = "vertical-align:top; width: 20%" align = left>
-**Melanie Stadler**, Ph.D. student [`r icon::fa("researchgate")`](https://www.researchgate.net/profile/Melanie_Stadler)
-
-I grew up in the middle of Kansas, with incredible parents who encouraged my love of nature and wanting to learn about the world around me.  While earning a bachelor’s degree in Biology from UNCG, I was introduced to the world of turtle and tortoise biology and conservation.  I earned an MS in Biological Sciences and GIS certificate from Florida Atlantic University, studying the habitat and foraging ecology of juvenile green turtles on nearshore reefs in Florida.  Prior to returning to North Carolina, I worked as a Sea Turtle Biologist in Florida for eight years where I supervised two nesting beach programs, participated in some amazing research projects, and managed the overhaul and daily operations of two sea turtle rehabilitation centers.  I am interested in spatial ecology, ecological biogeography, and habitat connectivity, especially in turtles and other herp species.  I am excited to be part of UNCG’s Department of Biology, Environmental Health Science PhD program, and I plan to focus my PhD research on threatened bog turtles and their wetland habitat in North Carolina.  I live with my husband, Brian, our bearded dragon, and two dog children in Greensboro.  In my spare time, you will find me running or biking on one of our extraordinary local hiking trails, birdwatching, curled up with a good book, or in the kitchen experimenting with a new vegetarian recipe.
-</div>
-\
-
-<div class="clearfix">
 <img src="image/random.jpg" style = "vertical-align:top; width: 20%" align = left>
 **Dr. Justin Pomeranz**, Postdoc\
 
 Coming soon.
+</div>
+\
+
+<div class="clearfix">
+<img src="image/img_ms.jpg" style = "vertical-align:top; width: 20%" align = left>
+**Melanie Stadler**, Ph.D. student [`r icon::fa("researchgate")`](https://www.researchgate.net/profile/Melanie_Stadler)
+
+I grew up in the middle of Kansas, with incredible parents who encouraged my love of nature and wanting to learn about the world around me.  While earning a bachelor’s degree in Biology from UNCG, I was introduced to the world of turtle and tortoise biology and conservation.  I earned an MS in Biological Sciences and GIS certificate from Florida Atlantic University, studying the habitat and foraging ecology of juvenile green turtles on nearshore reefs in Florida.  Prior to returning to North Carolina, I worked as a Sea Turtle Biologist in Florida for eight years where I supervised two nesting beach programs, participated in some amazing research projects, and managed the overhaul and daily operations of two sea turtle rehabilitation centers.  I am interested in spatial ecology, ecological biogeography, and habitat connectivity, especially in turtles and other herp species.  I am excited to be part of UNCG’s Department of Biology, Environmental Health Science PhD program, and I plan to focus my PhD research on threatened bog turtles and their wetland habitat in North Carolina.  I live with my husband, Brian, our bearded dragon, and two dog children in Greensboro.  In my spare time, you will find me running or biking on one of our extraordinary local hiking trails, birdwatching, curled up with a good book, or in the kitchen experimenting with a new vegetarian recipe.
 </div>
 \
 
