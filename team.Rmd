@@ -27,6 +27,14 @@ I grew up in the middle of Kansas, with incredible parents who encouraged my lov
 \
 
 <div class="clearfix">
+<img src="image/random.jpg" style = "vertical-align:top; width: 20%" align = left>
+**Dr. Justin Pomeranz**, Postdoc\
+
+Coming soon.
+</div>
+\
+
+<div class="clearfix">
 <img src="image/img_at.jpg" style = "vertical-align:top; width: 20%" align = left>
 **Dr. Akira Terui**, PI [`r icon::fa("github")`](https://github.com/aterui/) [`r icon::fa("user-graduate")`](https://scholar.google.com/citations?user=H9OuCKsAAAAJ&hl=ja&authuser=1) 
 [`r icon::fa("book")`](https://publons.com/researcher/1241876/akira-terui/)\
@@ -34,6 +42,11 @@ I grew up in the middle of Kansas, with incredible parents who encouraged my lov
 I'm interested in spatial ecology in general. My research career started at the University of Tokyo where I studied metapopulation structure of the endagered freshwater mussel *Margaritifera laevis*. After obtaining Ph.D., my research interests expanded. Thus far, I studied freshwater mussels, fish, aquatic and terrestrial insects, plants, and seabirds in collaboration with excellent researchers across the globe. While my research spans across multiple taxa, all tied with a common thread - space. More recently, I started using mathematical approaches and try to integrate theoretical and field research. I'm a lover of streams, tennis, and programming in R. Small gardening became one of my hobbies during quarantine.
 </div>
 \
+
+### Undergraduate Students
+
+- Mason Ibrahim (Fall 2020 -)
+- Jessica Bribiesca (Spring 2021 -)
 
 ### Former Undergraduate Students
 
