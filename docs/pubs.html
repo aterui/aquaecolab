@@ -20,6 +20,9 @@
 <script src="site_libs/bootstrap-3.3.5/js/bootstrap.min.js"></script>
 <script src="site_libs/bootstrap-3.3.5/shim/html5shiv.min.js"></script>
 <script src="site_libs/bootstrap-3.3.5/shim/respond.min.js"></script>
+<script src="site_libs/jqueryui-1.11.4/jquery-ui.min.js"></script>
+<link href="site_libs/tocify-1.9.1/jquery.tocify.css" rel="stylesheet" />
+<script src="site_libs/tocify-1.9.1/jquery.tocify.js"></script>
 <script src="site_libs/navigation-1.1/tabsets.js"></script>
 <link href="site_libs/highlightjs-9.12.0/default.css" rel="stylesheet" />
 <script src="site_libs/highlightjs-9.12.0/highlight.js"></script>
@@ -272,6 +275,69 @@ $(document).ready(function () {
 
 
 
+<style type="text/css">
+
+#TOC {
+  margin: 25px 0px 20px 0px;
+}
+@media (max-width: 768px) {
+#TOC {
+  position: relative;
+  width: 100%;
+}
+}
+
+@media print {
+.toc-content {
+  /* see https://github.com/w3c/csswg-drafts/issues/4434 */
+  float: right;
+}
+}
+
+.toc-content {
+  padding-left: 30px;
+  padding-right: 40px;
+}
+
+div.main-container {
+  max-width: 1200px;
+}
+
+div.tocify {
+  width: 20%;
+  max-width: 260px;
+  max-height: 85%;
+}
+
+@media (min-width: 768px) and (max-width: 991px) {
+  div.tocify {
+    width: 25%;
+  }
+}
+
+@media (max-width: 767px) {
+  div.tocify {
+    width: 100%;
+    max-width: none;
+  }
+}
+
+.tocify ul, .tocify li {
+  line-height: 20px;
+}
+
+.tocify-subheader .tocify-item {
+  font-size: 0.90em;
+}
+
+.tocify .list-group-item {
+  border-radius: 0px;
+}
+
+
+</style>
+
+
 
 </head>
 
@@ -279,6 +345,16 @@ $(document).ready(function () {
 
 
 <div class="container-fluid main-container">
+
+
+<!-- setup 3col/9col grid for toc_float and main content  -->
+<div class="row-fluid">
+<div class="col-xs-12 col-sm-4 col-md-3">
+<div id="TOC" class="tocify">
+</div>
+</div>
+
+<div class="toc-content col-xs-12 col-sm-8 col-md-9">
 
 
 
@@ -397,7 +473,7 @@ $(document).ready(function () {
 <div id="section-1" class="section level4">
 <h4>2020</h4>
 <ul>
-<li><strong>Terui A</strong> (2020) Modeling dispersal using mark-recapture data: a comparison of dispersal models. Ecological Research 35: 686-699.</li>
+<li><strong>Terui A</strong> (2020) Modeling dispersal using mark1.recapture data: a comparison of dispersal models. Ecological Research 35: 686-699.</li>
 <li>Nakamura F, Watanabe Y, Negishi JN, Akasaka T, Yabuhara Y, <strong>Terui A</strong>, Yamanaka S, Konno M (2020) Restoration of the shifting mosaic of floodplain forests under a flow regime altered by a dam. Ecological Engineering 157: 105974.</li>
 </ul>
 </div>
@@ -416,15 +492,15 @@ $(document).ready(function () {
 <li>Ishiyama N, Ryo M, Kataoka T, Nagayama S, Sueyoshi M, <strong>Terui A</strong>, Mori T, Akasaka T, Nakamura F. (2018) Predicting the ecological impacts of large dam removals on a river network based on habitat network structure and flow regimes. Conservation Biology 32: 1403-1413.</li>
 <li><strong>Terui A</strong>, Ishiyama N, Urabe H, Ono S, Finlay JC, Nakamura F. (2018) Metapopulation stability in branching river networks. Proceedings of the National Academy of Sciences 115: E5963-E5969.</li>
 <li>Hanioka M, Yamaura Y, Yamanaka S, Senzaki M, Kawamura K, <strong>Terui A</strong>, Nakamura F. (2018) How much abandoned farmland is required to harbor comparable species richness and abundance of bird communities in wetland? Hierarchical community model suggests the importance of habitat and landscape variables. Biodiversity and Conservation 27: 1831-1848.</li>
-<li><strong>Terui A</strong>, Negishi JN, Watanabe N, Nakamura F. (2018) Stream resource gradients drive consumption rates of supplemental prey in the adjacent riparian zone. Ecosystems 21: 772-781.</li>
+<li><strong>Terui A</strong>, Negishi JN, Watanabe N, Nakamura F. (2018) Stream resource gradients drive consumption rates of supplemental prey in the adjacent riparian zone. Ecosystems 21: 772-78-</li>
 </ul>
 </div>
 <div id="section-4" class="section level4">
 <h4>2017</h4>
 <ul>
 <li>Kakinuma K, <strong>Terui A</strong>, Sasaki T, Koyama A, Jamsran U, Okuro T, Takeuchi K.. (2017) Detection of vegetation trends under highly variable environment after grazing exclusion in Mongolia. Journal of Vegetation Science 28: 965-974.</li>
-<li><strong>Terui A</strong>, Ooue K, Urabe H, Nakamura F. (2017) Parasite infection induces size-dependent host dispersal: consequences for parasite persistence. Proceedings of the Royal Society B: Biological Sciences 284: 20171491.</li>
-<li>Ooue K, <strong>Terui A</strong>, Urabe H, Nakamura F. (2017) A delayed effect of the aquatic parasite Margaritifera laevis on the growth of the salmonid host fish Oncorhynchus masou masou. Limnology 18: 345-351.</li>
+<li><strong>Terui A</strong>, Ooue K, Urabe H, Nakamura F. (2017) Parasite infection induces size-dependent host dispersal: consequences for parasite persistence. Proceedings of the Royal Society B: Biological Sciences 284: 2017149-</li>
+<li>Ooue K, <strong>Terui A</strong>, Urabe H, Nakamura F. (2017) A delayed effect of the aquatic parasite Margaritifera laevis on the growth of the salmonid host fish Oncorhynchus masou masou. Limnology 18: 345-35-</li>
 <li><strong>Terui A</strong>, Akasaka T, Negishi JN, Uemura F, Nakamura F. (2017) Species-specific use of allochthonous resources by ground beetles (Carabidae) at a river-land interface. Ecological Research 32: 27-35.</li>
 <li><strong>Terui A</strong> and Miyazaki Y. (2017) Combined effects of immigration potential and habitat quality on diadromous fishes. Limnology 18: 121-129.</li>
 </ul>
@@ -484,6 +560,8 @@ $(document).ready(function () {
 
 
 
+</div>
+</div>
 
 </div>
 
@@ -516,6 +594,32 @@ $(document).ready(function () {
 
 <!-- code folding -->
 
+<script>
+$(document).ready(function ()  {
+
+    // move toc-ignore selectors from section div to header
+    $('div.section.toc-ignore')
+        .removeClass('toc-ignore')
+        .children('h1,h2,h3,h4,h5').addClass('toc-ignore');
+
+    // establish options
+    var options = {
+      selectors: "h1,h2,h3,h4",
+      theme: "bootstrap3",
+      context: '.toc-content',
+      hashGenerator: function (text) {
+        return text.replace(/[.\\/?&!#<>]/g, '').replace(/\s/g, '_');
+      },
+      ignoreSelector: ".toc-ignore",
+      scrollTo: 0
+    };
+    options.showAndHide = true;
+    options.smoothScroll = true;
+
+    // tocify
+    var toc = $("#TOC").tocify(options).data("toc-tocify");
+});
+</script>
 
 <!-- dynamically load mathjax for compatibility with self-contained -->
 <script>
