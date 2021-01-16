@@ -11,9 +11,12 @@ date: Latest update - `r format(Sys.time(), '%d %B, %Y')`
 
 ### Published
 
+#### 2021
+
+- Comte et al. (2021) RivFishTIME: A global database of fish time-series to study global change ecology in riverine systems. Global Ecology and Biogeography 30: 38-50.
+
 #### 2020
 
-- Comte et al. (in press) RivFishTIME: A global database of fish time-series to study global change ecology in riverine systems. Global Ecology and Biogeography.
 - **Terui A** (2020) Modeling dispersal using mark-recapture data: a comparison of dispersal models. Ecological Research 35: 686-699.
 - Nakamura F, Watanabe Y, Negishi JN, Akasaka T, Yabuhara Y, **Terui A**, Yamanaka S, Konno M (2020) Restoration of the shifting mosaic of floodplain forests under a flow regime altered by a dam. Ecological Engineering 157: 105974.
 
@@ -43,10 +46,10 @@ date: Latest update - `r format(Sys.time(), '%d %B, %Y')`
 
 - **Terui A** and Miyazaki Y. (2016) Three ecological factors influencing riverine fish diversity in the Shubuto River system, Japan: habitat capacity, habitat heterogeneity and immigration. Limnology 17:143-149.
 - Miyazaki Y and **Terui A**. (2016) Difference in habitat use between the two related goby species of Gymnogobius opperiens and G. urotaenia: a case study in the Shubuto River System, Hokkaido, Japan. Ichthyological research 63: 317-323.
+- Miyazaki Y and **Terui A**. (2016) Temporal dynamics of fluvial fish composition caused by marine amphidromous species in the Shubuto River, southwestern Hokkaido, Japan. Ichtyological Research 63: 173-179.
 
 #### 2015
 
-- Miyazaki Y and **Terui A**. (2015) Temporal dynamics of fluvial fish composition caused by marine amphidromous species in the Shubuto River, southwestern Hokkaido, Japan. Ichtyological Research.
 - **Terui A**, Miyazaki Y, Yoshioka A, Matsuzaki SS. (2015) A cryptic Allee effect: spatial contexts mask an existing fitness-density relationship. Royal Society Open Science 2: 150034.
 - **Terui A** and Miyazaki Y. (2015) A “parasite-tag” approach reveals long-distance dispersal of the riverine mussel Margaritifera laevis by its host fish. Hydrobiologia 760: 189-196.
 
@@ -60,10 +63,13 @@ date: Latest update - `r format(Sys.time(), '%d %B, %Y')`
 - Miyazaki Y, **Terui A**, Senou H, Washitani I. (2013) Illustrated checklist of fishes from the Shubuto River System, southwestern Hokkaido, Japan. Check List 9: 63-72.
 - Miyazaki Y, **Terui A**, Yoshioka A, Kaifu K, Washitani I. (2013) Fish species composition of temporary small lentic habitats in the floodplains of the Shubuto River System: Factors affecting species richness and suggestions for conservation and restoration. Japanese Journal of Conservation Ecology 18: 55-68. (in Japanese)
 
+#### 2012
+
+- Kubo S, **Terui A**, Nishihiro J, Washitani I. (2012) Impact of alien species on the distribution of native submerged macrophytes in small rivers and agricultural canals around Lake Mikata. Japanese Journal of Conservation Ecology 17: 165-173. (in Japanese)
+
 #### 2011
 
 - **Terui A**, Matsuzaki SS, Kodama K, Tada M, Washitani I. (2011) Factors affecting the local occurrence of the near-threatened bitterling (Tanakia lanceolata) in agricultural canal networks: strong attachment to its potential host mussels. Hydrobiologia 675: 19-28.
-- Kubo S, **Terui A**, Nishihiro J, Washitani I. (2012) Impact of alien species on the distribution of native submerged macrophytes in small rivers and agricultural canals around Lake Mikata. Japanese Journal of Conservation Ecology 17: 165-173. (in Japanese)
 - Matsuzaki SS, **Terui A**, Kodama K, Tada M, Yoshida T, Washitani I. (2011) Influence of connectivity, habitat quality and invasive species on egg and larval distributions and local abundance of crucian carp in Japanese agricultural landscapes. Biological Conservation 144: 2081-2087.
 - Miyazaki Y, **Terui A**, Kubo S, Hatai N, Takahashi K, Saitoh H, Washitani I. (2011) Ecological evaluation of the conservation of fish fauna in the Shubuto River system, southwestern Hokkaido. Japanese Journal of Conservation Ecology 16: 213-219. (in Japanese)
 - Matsuzaki SS, Kodama K, **Terui A**, Takeshima H, Sato T, Tominaga O, Maeda H, Tada M, Washitani I, Yoshida T.(2011) Changes in the strictly freshwater fish fauna around Lake Mikata, Fukui Prefecture, Japan, inferred from monitoring data and ecological trait information. Japanese Journal of Conservation Ecology 16: 205-212. (in Japanese)
