@@ -1,0 +1,39 @@
+---
+title: "Github"
+date: Latest update - `r format(Sys.time(), '%d %B, %Y')`
+output:
+  html_document:
+    toc: true
+    toc_float: true
+    number_sections: true
+    df_print: paged
+---
+
+```{r setup, include = FALSE}
+
+knitr::opts_chunk$set(fig.width = 5, fig.height = 5)
+
+```
+
+---
+
+# WHY GITHUB?
+
+---
+Why GitHub? There are two reasons.
+
+- **It keeps your codes (and other materials too) on an online repository**. This feature enables you to share your codes seamlessly with others and to store your codes at a secured place.
+- **It tracks changes in the codes**. Tracking changes is extremely important to avoid unintended errors in your codes. This feature also help avoid creating redundant files.
+
+
+---
+
+# GETTING STARTED
+
+---
+
+## Create your GitHub account
+
+The first step is to create a GitHub account. Go to [GitHub](https://github.com/) and create your account.
+
+
