@@ -20,11 +20,14 @@ knitr::opts_chunk$set(fig.width = 5, fig.height = 5)
 # WHY GITHUB?
 
 ---
+
 Why GitHub? There are two reasons.
 
 - **It keeps your codes (and other materials too) on an online repository**. This feature enables you to share your codes seamlessly with others and to store your codes at a secured place.
 - **It tracks changes in the codes**. Tracking changes is extremely important to avoid unintended errors in your codes. This feature also help avoid creating redundant files.
 
+library(usethis)
+use_git_config(user.name = "Jane Doe", user.email = "jane@example.org")
 
 ---
 
@@ -32,8 +35,19 @@ Why GitHub? There are two reasons.
 
 ---
 
-## Create your GitHub account
+## GitHub account
+The first step is to create a GitHub account. Go to [GitHub](https://github.com/) and create your account (free!). **Give some thoughts on your user name**. My advice is the following:
 
-The first step is to create a GitHub account. Go to [GitHub](https://github.com/) and create your account.
+- Use lowercase only. In programming, most languages do not distinguish upper- and lowercase, creating problems identifying files etc. if you use both. GitHub is case-sensitive anyway but it would be better to follow this convention.
+- Be intuitive (include your name). If you use a user name irrelevant to your name, that makes it difficult to find you on GitHub.
+
+
+## Install Git
+You will need Git to commit and push your codes.
+
+**Windows**: Install Git from [here](https://gitforwindows.org/). 
+
+**Mac**: Follow the instruction [here](https://happygitwithr.com/install-git.html).
+
 
 
