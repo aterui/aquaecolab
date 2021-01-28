@@ -1,5 +1,5 @@
 ---
-title: "Github"
+title: "GitHub"
 date: Latest update - `r format(Sys.time(), '%d %B, %Y')`
 output:
   html_document:
@@ -15,19 +15,6 @@ knitr::opts_chunk$set(fig.width = 5, fig.height = 5)
 
 ```
 
----
-
-# WHY GITHUB?
-
----
-
-Why GitHub? There are two reasons.
-
-- **It keeps your codes (and other materials too) on an online repository**. This feature enables you to share your codes seamlessly with others and to store your codes at a secured place.
-- **It tracks changes in the codes**. Tracking changes is extremely important to avoid unintended errors in your codes. This feature also help avoid creating redundant files.
-
-library(usethis)
-use_git_config(user.name = "Jane Doe", user.email = "jane@example.org")
 
 ---
 
@@ -35,19 +22,150 @@ use_git_config(user.name = "Jane Doe", user.email = "jane@example.org")
 
 ---
 
+## WHY GITHUB?
+
+Why GitHub? There are two reasons.
+
+- **It keeps your codes (and other materials too) on an online repository**. This feature enables you to share your codes seamlessly with others and to store your codes at a secured place.
+- **It tracks changes in the codes**. Tracking changes is extremely important to avoid unintended errors in your codes. This feature also help avoid creating redundant files.
+
+
 ## GitHub account
 The first step is to create a GitHub account. Go to [GitHub](https://github.com/) and create your account (free!). **Give some thoughts on your user name**. My advice is the following:
 
-- Use lowercase only. In programming, most languages do not distinguish upper- and lowercase, creating problems identifying files etc. if you use both. GitHub is case-sensitive anyway but it would be better to follow this convention.
-- Be intuitive (include your name). If you use a user name irrelevant to your name, that makes it difficult to find you on GitHub.
+- Use lowercase only. Most programming languages do not distinguish upper- and lowercase in programming, creating problems when identifying files. GitHub is case-sensitive anyway, but it would be better to follow this convention.
+- Include your name to make it easy to find you on GitHub.
 
 
 ## Install Git
-You will need Git to commit and push your codes.
+You will need Git to commit and push.
 
-**Windows**: Install Git from [here](https://gitforwindows.org/). 
+- **Windows**: Install Git from [here](https://gitforwindows.org/). While installing Git, you will be asked about “Adjusting your PATH environment”. Choose “Git from the command line and also from 3rd-party software” if it is not selected.
 
-**Mac**: Follow the instruction [here](https://happygitwithr.com/install-git.html).
+- **Mac**: Follow the instruction [here](https://happygitwithr.com/install-git.html).
 
 
+## Tell yourself to Git
+
+You can tell who you are to Git using the following script (R console). Make sure to use your github account name for `user.name` and to use the associate email for `user.email`.
+
+```{r, eval=FALSE}
+## install.packages("usethis") # install 'usethis' package if you have not done
+
+library(usethis)
+use_git_config(user.name = "your_github_account", user.email = "youemail@example.org")
+```
+
+
+## Connect Git with Rstudio
+
+Once you installed Git, check the following on your R studio:
+
+- If you see a git pane on the upper right panel, you are good to go.
+- Do `Create Project` > `New Directory` > `New Project`. If you see a check box `Create a git repository`, you are good to go.
+
+If you can't find the above, do the following: `Tools` in the menu bar > `Terminal` > `New Terminal`, and type `where git` in the terminal. This will tell you where git executable is located in your computer. Then, go to `Tools` in the menu bar > `Global Options` > `Git/SVN`. You will see *Git executable* in the box, where you can specify the location of git executable.
+
+![](image/git_image01.png)
+
+## Git client
+
+R studio works seamlessly with Git or GitHub, but it is helpful to use a *Git client* as it provides visual aids. There are choices for a *Git client* (see options [here](https://happygitwithr.com/git-client.html)) but I will use *GitHub Desktop* (available [here](https://desktop.github.com/)) for our exercise. Install GitHub Desktop onto you computer.
+
+
+---
+
+# Create a Git repo
+
+---
+
+## Create an R Project in R Studio
+
+There are several ways to create a GitHub repository. The simplest approach (I believe) is to create an R project in your local computer, then publish it to GitHub via GitHub Desktop. Let's create an R project: `File` in the menu bar > `New Project` > `New Directory` > `New Project`. At this point, you should see the following pop-up:
+
+![](image/git_image02.png)
+
+**Make sure you checked `Create a git repository`!** Otherwise, the created directory will not be recognized by Git (i.e., you cannot link your local directory with the corresponding online repository). Once you created the project (name as `test` for this exercise), open the project through R Studio and make a random R script file and save it (name as `test_script.R`). For example:
+
+```{r, eval = FALSE}
+
+## produce 100 random numbers that follows a normal distribution
+x <- rnorm(100, mean = 0, sd = 1)
+
+## estimate mean
+mean(x)
+
+## estimate SD
+sd(x)
+
+```
+
+
+## Connect with GitHub Desktop
+
+Open GitHub Desktop App. You should see the following GUI:
+
+![](image/git_image03.png)
+
+
+Hit `current repository` (top left) and `Add` > `Add existing repository`.
+
+![](image/git_image04.png)
+
+
+GitHub Desktop will prompt you to enter a local path to your Git repository. Browse and select your directory of the R Project - the local Git repository will show up in the list of repositories in GitHub Desktop (**NOTE**: at this stage, this repository/directory exists only at your local computer, not published to the GitHub!).
+
+## Commit
+
+Your file (R script or else) is saved onto your local directory, but it has not been recorded in Git as a change history. To record your change history in Git, click the directory on GitHub Desktop, and you will see the following:
+
+![](image/git_image05.png)
+
+In the left bar, there is a list of files added to the directory. We want to make a **commit** to record a history of file addition/edits/deletion. There are checkboxes next to each of the new files. If this box is checked, you are going to commit changes to Git. Once you selected the files you want to make a commit, go to the bottom left of the window. There is a small box saying `summary (required)`. This is the place where you can put any title that describes what you did in this commit. For example, I would write `initial commit` for this exercise - from the second commit, you should put an informative commit message so you can track changes when needed. You can google recommendations for how to write commit titles/descriptions. Then hit `commit to master`. Now, changes to the selected files have been recorded in Git.
+
+
+## Push
+
+Remember, your changes are recorded in your local computer but not published in your online repository! To reflect local changes to the online repository, you will need to **push** it via GitHub Desktop. Once you do a **commit**, GitHub Desktop will ask you whether you want to push it to an online repository. If this is the first push, there is no corresponding repository on GitHub, so GitHub Desktop will ask you if you want to publish it on GitHub (**NOTE**: although it says 'publish', your repository is still inaccessible from others - you have to change setting online to make it public):
+
+![](image/git_image06.png)
+
+If you are comfortable with the changes you made, push it!
+
+
+## Edits to existing files
+
+We went through how we get things uploaded onto GitHub, but what happens if we make changes to existing files? To see this, let's make a minor change to your script. We have created a file `test_script.R`:
+
+```{r, eval = FALSE}
+
+## produce 100 random numbers that follows a normal distribution
+x <- rnorm(100, mean = 0, sd = 1)
+
+## estimate mean
+mean(x)
+
+## estimate SD
+sd(x)
+
+```
+
+Edit this:
+
+```{r, eval = FALSE}
+
+## produce 100 random numbers that follows a normal distribution
+x <- rnorm(100, mean = 0, sd = 1)
+
+## estimate mean
+median(x)
+
+## estimate SD
+var(x)
+
+```
+
+After making this change, go to GitHub Desktop again. GitHub Desktop automatically detects the difference between the new and old files and shows which part of the script has been edited! This helps coding quite a bit:
+
+![](image/git_image07.png)
 
