@@ -454,7 +454,7 @@ div.tocify {
 
 
 <h1 class="title toc-ignore">GitHub</h1>
-<h4 class="date">Latest update - 28 January, 2021</h4>
+<h4 class="date">Latest update - 08 February, 2021</h4>
 
 </div>
 
@@ -487,16 +487,8 @@ div.tocify {
 <li><p><strong>Mac</strong>: Follow the instruction <a href="https://happygitwithr.com/install-git.html">here</a>.</p></li>
 </ul>
 </div>
-<div id="tell-yourself-to-git" class="section level2" number="1.4">
-<h2 number="1.4"><span class="header-section-number">1.4</span> Tell yourself to Git</h2>
-<p>You can tell who you are to Git using the following script (R console). Make sure to use your github account name for <code>user.name</code> and to use the associate email for <code>user.email</code>.</p>
-<pre class="r"><code>## install.packages(&quot;usethis&quot;) # install &#39;usethis&#39; package if you have not done
-
-library(usethis)
-use_git_config(user.name = &quot;your_github_account&quot;, user.email = &quot;youemail@example.org&quot;)</code></pre>
-</div>
-<div id="connect-git-with-rstudio" class="section level2" number="1.5">
-<h2 number="1.5"><span class="header-section-number">1.5</span> Connect Git with Rstudio</h2>
+<div id="connect-git-with-rstudio" class="section level2" number="1.4">
+<h2 number="1.4"><span class="header-section-number">1.4</span> Connect Git with Rstudio</h2>
 <p>Once you installed Git, check the following on your R studio:</p>
 <ul>
 <li>If you see a git pane on the upper right panel, you are good to go.</li>
@@ -504,6 +496,14 @@ use_git_config(user.name = &quot;your_github_account&quot;, user.email = &quot;y
 </ul>
 <p>If you can’t find the above, do the following: <code>Tools</code> in the menu bar &gt; <code>Terminal</code> &gt; <code>New Terminal</code>, and type <code>where git</code> in the terminal. This will tell you where git executable is located in your computer. Then, go to <code>Tools</code> in the menu bar &gt; <code>Global Options</code> &gt; <code>Git/SVN</code>. You will see <em>Git executable</em> in the box, where you can specify the location of git executable.</p>
 <p><img src="image/git_image01.png" /></p>
+</div>
+<div id="tell-yourself-to-git" class="section level2" number="1.5">
+<h2 number="1.5"><span class="header-section-number">1.5</span> Tell yourself to Git</h2>
+<p>You can tell who you are to Git using the following script (R console). Make sure to use your github account name for <code>user.name</code> and to use the associate email for <code>user.email</code>.</p>
+<pre class="r"><code>## install.packages(&quot;usethis&quot;) # install &#39;usethis&#39; package if you have not done
+
+library(usethis)
+use_git_config(user.name = &quot;your_github_account&quot;, user.email = &quot;youemail@example.org&quot;)</code></pre>
 </div>
 <div id="git-client" class="section level2" number="1.6">
 <h2 number="1.6"><span class="header-section-number">1.6</span> Git client</h2>

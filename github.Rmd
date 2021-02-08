@@ -45,6 +45,18 @@ You will need Git to commit and push.
 - **Mac**: Follow the instruction [here](https://happygitwithr.com/install-git.html).
 
 
+## Connect Git with Rstudio
+
+Once you installed Git, check the following on your R studio:
+
+- If you see a git pane on the upper right panel, you are good to go.
+- Do `Create Project` > `New Directory` > `New Project`. If you see a check box `Create a git repository`, you are good to go.
+
+If you can't find the above, do the following: `Tools` in the menu bar > `Terminal` > `New Terminal`, and type `where git` in the terminal. This will tell you where git executable is located in your computer. Then, go to `Tools` in the menu bar > `Global Options` > `Git/SVN`. You will see *Git executable* in the box, where you can specify the location of git executable.
+
+![](image/git_image01.png)
+
+
 ## Tell yourself to Git
 
 You can tell who you are to Git using the following script (R console). Make sure to use your github account name for `user.name` and to use the associate email for `user.email`.
@@ -56,17 +68,6 @@ library(usethis)
 use_git_config(user.name = "your_github_account", user.email = "youemail@example.org")
 ```
 
-
-## Connect Git with Rstudio
-
-Once you installed Git, check the following on your R studio:
-
-- If you see a git pane on the upper right panel, you are good to go.
-- Do `Create Project` > `New Directory` > `New Project`. If you see a check box `Create a git repository`, you are good to go.
-
-If you can't find the above, do the following: `Tools` in the menu bar > `Terminal` > `New Terminal`, and type `where git` in the terminal. This will tell you where git executable is located in your computer. Then, go to `Tools` in the menu bar > `Global Options` > `Git/SVN`. You will see *Git executable* in the box, where you can specify the location of git executable.
-
-![](image/git_image01.png)
 
 ## Git client
 
