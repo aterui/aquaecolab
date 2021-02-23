@@ -12,6 +12,7 @@ output:
 
 ### In Review
 
+- **Terui A** et al. Ecosystem size and complexity dictate riverine biodiversity
 - **Terui A** et al. Non-random dispersal in sympatric stream fishes: influences of natural disturbance and body size
 
 ### Published
