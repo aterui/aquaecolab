@@ -8,15 +8,16 @@ output:
     toc_float: true
 ---
 
-### In Review
+### In Review/Preparation
 
--   **Terui A** et al. Emergent dual scaling of riverine biodiversity
+-   **Terui A,** **Kim S**, Dolph CL, Kadoya T, Miyazaki Y. (in review) Emergent dual scaling of riverine biodiversity
+-   **Kim S**, Dolph CL, **Terui A**. (in prep) Positive biotic interactions drive the metapopulation-level association in stream fishes
 
 ### Published
 
 #### 2021
 
--   **Terui A**, Kim S, Pregler K, Kanno Y. (in press) Non-random dispersal in sympatric stream fishes: influences of natural disturbance and body size. *Freshwater Biology*.
+-   **Terui A**, **Kim S**, Pregler K, Kanno Y. (in press) Non-random dispersal in sympatric stream fishes: influences of natural disturbance and body size. *Freshwater Biology*.
 -   Kawajiri K, Ishiyama N, Miura K, **Terui A**, Sueyoshi M, Nakamura F. (2021) The relative effects of biotic and abiotic factors on the recruitment of freshwater mussels (*Margaritifera laevis*). *Water* 13: 1289
 -   Comte L, Carvajal J, Tedesco P, Giam X, Brose U, Eros T, Filipe A, Fortin M-J, Irving K, Jacquet C, Larsen S, Sharma S, Ruhi A, Becker F, Casatti L, Castaldelli G, Dala-Corte R, Davenport S, Franssen N, García-Berthou E, Gavioli A, Gido K, Jimenez-Segura L, Leitão R, McLarney B, Meador J, Milardi M, Moffatt D, Occhi T, Pompeu P, Propst D, Pyron M, Salvador G, Stefferud J, Sutela T, Taylor C, **Terui A**, Urabe H, Vehanen T, Vitule J, Zeni J, Olden J. (2021) RivFishTIME: A global database of fish time-series to study global change ecology in riverine systems. *Global Ecology and Biogeography* 30: 38-50.
 
