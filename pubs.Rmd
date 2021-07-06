@@ -8,10 +8,13 @@ output:
     toc_float: true
 ---
 
+Bold: current/past lab member
+
 ### In Review/Preparation
 
--   **Terui A,** **Kim S**, Dolph CL, Kadoya T, Miyazaki Y. (in review) Emergent dual scaling of riverine biodiversity
--   **Kim S**, Dolph CL, **Terui A**. (in prep) Positive biotic interactions drive the metapopulation-level association in stream fishes
+-   **Terui A,** **Kim S**, Dolph CL, Kadoya T, Miyazaki Y. (in review)
+-   **Kim S**, Dolph CL, **Terui A**. (in prep)
+-   **Pomeranz** et al. (in prep.)
 
 ### Published
 
