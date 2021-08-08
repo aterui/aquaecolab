@@ -2,28 +2,16 @@
 title: "Join"
 ---
 
-### We're hiring!!
-
-The Department of Biology is currently seeking a highly motivated Post-Doctoral Fellow to work in the Aquatic Ecology Laboratory of Dr. Akira Terui (https://aterui.github.io/aquaecolab/). The Post-Doctoral Fellow will work on an NSF-funded project which aims to understand the divers of food chain length in rivers. The project employs mathematical / statistical methods and meta-analysis approaches to advance the conceptual understanding of how food chain length is determined in natural systems. Therefore, the postdoc should be proficient in programming, preferably in R or other relevant languages. The postdoc is expected to communicate his/her results through publications in scientific journals, presentations at professional meetings, and/or outreach events.
-
-If interested, send me an email with a research statement and your CV. The position is open until filled.
-
-
-### Undergraduate students
-
-Students who are interested in freshwater ecology/spatial ecology/quantitative ecology are encouraged to contact me (a_terui at uncg.edu). Opportunities exist to learn field research skills and statistical modeling with R.
-
 ### Graduate students
 
-#### Ph.D position
+Thank you for your interest in my research group! I am always looking for talented students with a strong interest in **the intersection of freshwater ecology and spatial ecology.** If you would like to see whether my research group is a good fit, this is something you might want to consider before contacting me. **Are you interested in ecological concepts or ecology of specific taxa?** If the former, you may be a good fit to my lab and may obtain valuable experiences while you are here. I love freshwater organisms, and enjoy the time playing around streams and lakes; however, we aim to advance conceptual understanding of ecological systems, and we purposefully choose study organisms to achieve this goal.
 
-None at this moment.
-
-#### MS position
-
-None at this moment.
-
+If you are still interested in my research group, contact me (a_terui at uncg.edu). The most updated information for graduate applications at UNCG Biology is available [here](https://biology.uncg.edu/graduate/apply/).
 
 ### Postdocs
 
 I welcome inquiries about postdoctoral projects in our research group. If our research program is a good fit for your interests, please email me (a_terui at uncg.edu) with your CV and a short summary of your research interests (1-2 pages). We can develop collaborative projects through postdoctoral fellowships, such as [Smith Fellowship](https://conbio.org/mini-sites/smith-fellows) and JSPS Postdoctoral Fellowship.
+
+### Undergraduate students
+
+If you are interested in getting research experience in our lab (usually through BIO499 or volunteer), ask the following questions to yourself - (1) **are you interested in freshwater/quantitative/spatial ecology?** (2) **Are you willing to commit substantial amount of time for research (\>= 6 hours a week)?** If you would say YES to both questions, send me an email (a_terui at uncg.edu) with brief statements of your research interests. If your research interests align with what we can offer, and if you can prove yourself a highly motivated student, I will consider accepting you as an undergraduate assistant.
