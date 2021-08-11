@@ -62,47 +62,54 @@ You may need to "filter" rows based on some criteria. `filter()` can help you on
 
 ```{r}
 unique(iris$Species) # check what species exist in the data
-df0 <- filter(iris, Species == "setosa")
+filter(iris, Species == "setosa")
 ```
 
 You can choose two or more species at once:
 
 ```{r}
-df1 <- filter(iris, Species %in% c("setosa", "versicolor"))
+filter(iris, Species %in% c("setosa", "versicolor"))
 ```
 
 Alternatively, you might want to exclude data that belong to a specific species. You can do this by:
 
 ```{r}
-df2 <- filter(iris, Species != "virginica")
+filter(iris, Species != "virginica")
 ```
 
 Numeric variables can also be used to select rows:
 
 ```{r}
-df3 <- filter(iris, Petal.Width > 1.0) # greater than 1.0
-df4 <- filter(iris, Petal.Width >= 1.0) # equal or greater than 1.0
-df5 <- filter(iris, Petal.Width < 1.0) # less than 1.0
-df6 <- filter(iris, Petal.Width <= 1.0) # less than 1.0
+# greater than 1.0
+filter(iris, Petal.Width > 1.0)
+
+# equal or greater than 1.0
+filter(iris, Petal.Width >= 1.0)
+
+# less than 1.0
+filter(iris, Petal.Width < 1.0)
+
+# less than 1.0
+filter(iris, Petal.Width <= 1.0)
 ```
 
 Combined conditional expression is also possible:
 
 ```{r}
 
-# Species equals "setosa" AND Petal.Width larger than 1.0
+# Species equals "setosa" AND Petal.Length larger than 1.8
 
-filter(iris, Species == "setosa" & Petal.Width > 1.0)
+filter(iris, Species == "setosa" & Petal.Length > 1.8)
 
-# Species equals "setosa" OR Petal.Width larger than 1.0
+# Species equals "setosa" OR Petal.Length larger than 5.0
 
-filter(iris, Species == "setosa" | Petal.Width > 1.0)
+filter(iris, Species == "setosa" | Petal.Length > 5)
 ```
 
 ### Exercise
 
--   Check unique elements of the column `Species` in `df0`, `df1`, and `df2`
--   Check the range of `Petal.Width` for `df3` to `df6` . Use `range()` function to find a range of values in the column.
+-   Select rows with species `setosa` and `virginica`
+-   Select rows with species other than `setosa`
 -   Select rows with sepal length greater than 5.0 in `iris`.
 
 ## `select()`: select columns
