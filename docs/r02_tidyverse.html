@@ -434,13 +434,17 @@ library(tidyverse)</code></pre>
 <div id="basic-functions" class="section level1" number="2">
 <h1 number="2"><span class="header-section-number">2</span> BASIC FUNCTIONS</h1>
 <hr />
-<p>Below, I will introduce some useful ‘basic’ functions, followed by guidance on how to combine them via pipe. Before you proceed, let’s check the data set we will use for this exercise. R provides a nice data set <code>iris</code> , which is well suited for this type of exercise. You can check details of the data using <code>View()</code> function.</p>
-<p>Also, you can check variables (column names) as follows:</p>
+<p>Below, I will introduce some useful ‘basic’ functions, followed by guidance on how to combine them via pipe <code>%&gt;%</code>. Before proceeding, let’s check the data set we will use for this exercise. R provides a nice data set <code>iris</code> , which is well suited for this type of exercise. You can see an overview of the data frame using <code>View()</code> function:</p>
+<pre class="r"><code>iris &lt;- as_tibble(iris) # change data frame format to tibble
+View(iris)</code></pre>
+<p>Also, you can extract variables (column names) as follows:</p>
 <pre class="r"><code>colnames(iris)</code></pre>
 <pre><code>## [1] &quot;Sepal.Length&quot; &quot;Sepal.Width&quot;  &quot;Petal.Length&quot; &quot;Petal.Width&quot;  &quot;Species&quot;</code></pre>
 <div id="filter-filter-rows" class="section level2" number="2.1">
 <h2 number="2.1"><span class="header-section-number">2.1</span> <code>filter()</code>: filter rows</h2>
-<p>You may need to “filter” data based on some criteria. <code>filter()</code> can help you on this. Let’s select rows that belong to one species. For character &amp; factor variables, you will need to double-quote them:</p>
+<div id="basic-usage" class="section level3" number="2.1.1">
+<h3 number="2.1.1"><span class="header-section-number">2.1.1</span> Basic usage</h3>
+<p>You may need to “filter” rows based on some criteria. <code>filter()</code> can help you on this. Let’s select rows that belong to one species. For character &amp; factor variables, you will need to double-quote them:</p>
 <pre class="r"><code>unique(iris$Species) # check what species exist in the data</code></pre>
 <pre><code>## [1] setosa     versicolor virginica 
 ## Levels: setosa versicolor virginica</code></pre>
@@ -454,8 +458,33 @@ library(tidyverse)</code></pre>
 df4 &lt;- filter(iris, Petal.Width &gt;= 1.0) # equal or greater than 1.0
 df5 &lt;- filter(iris, Petal.Width &lt; 1.0) # less than 1.0
 df6 &lt;- filter(iris, Petal.Width &lt;= 1.0) # less than 1.0</code></pre>
-<div id="exercise" class="section level3" number="2.1.1">
-<h3 number="2.1.1"><span class="header-section-number">2.1.1</span> Exercise</h3>
+<p>Combined conditional expression is also possible:</p>
+<pre class="r"><code># Species equals &quot;setosa&quot; AND Petal.Width larger than 1.0
+
+filter(iris, Species == &quot;setosa&quot; &amp; Petal.Width &gt; 1.0)</code></pre>
+<pre><code>## # A tibble: 0 x 5
+## # ... with 5 variables: Sepal.Length &lt;dbl&gt;, Sepal.Width &lt;dbl&gt;,
+## #   Petal.Length &lt;dbl&gt;, Petal.Width &lt;dbl&gt;, Species &lt;fct&gt;</code></pre>
+<pre class="r"><code># Species equals &quot;setosa&quot; OR Petal.Width larger than 1.0
+
+filter(iris, Species == &quot;setosa&quot; | Petal.Width &gt; 1.0)</code></pre>
+<pre><code>## # A tibble: 143 x 5
+##    Sepal.Length Sepal.Width Petal.Length Petal.Width Species
+##           &lt;dbl&gt;       &lt;dbl&gt;        &lt;dbl&gt;       &lt;dbl&gt; &lt;fct&gt;  
+##  1          5.1         3.5          1.4         0.2 setosa 
+##  2          4.9         3            1.4         0.2 setosa 
+##  3          4.7         3.2          1.3         0.2 setosa 
+##  4          4.6         3.1          1.5         0.2 setosa 
+##  5          5           3.6          1.4         0.2 setosa 
+##  6          5.4         3.9          1.7         0.4 setosa 
+##  7          4.6         3.4          1.4         0.3 setosa 
+##  8          5           3.4          1.5         0.2 setosa 
+##  9          4.4         2.9          1.4         0.2 setosa 
+## 10          4.9         3.1          1.5         0.1 setosa 
+## # ... with 133 more rows</code></pre>
+</div>
+<div id="exercise" class="section level3" number="2.1.2">
+<h3 number="2.1.2"><span class="header-section-number">2.1.2</span> Exercise</h3>
 <ul>
 <li>Check unique elements of the column <code>Species</code> in <code>df0</code>, <code>df1</code>, and <code>df2</code></li>
 <li>Check the range of <code>Petal.Width</code> for <code>df3</code> to <code>df6</code> . Use <code>range()</code> function to find a range of values in the column.</li>
@@ -465,6 +494,8 @@ df6 &lt;- filter(iris, Petal.Width &lt;= 1.0) # less than 1.0</code></pre>
 </div>
 <div id="select-select-columns" class="section level2" number="2.2">
 <h2 number="2.2"><span class="header-section-number">2.2</span> <code>select()</code>: select columns</h2>
+<div id="basic-usage-1" class="section level3" number="2.2.1">
+<h3 number="2.2.1"><span class="header-section-number">2.2.1</span> Basic usage</h3>
 <p>You can also select columns. Let’s select <code>Petal.Width</code> using <code>select()</code>. This function takes column names as arguments.</p>
 <pre class="r"><code>select(iris, Petal.Width)</code></pre>
 <pre><code>## # A tibble: 150 x 1
@@ -545,8 +576,9 @@ df6 &lt;- filter(iris, Petal.Width &lt;= 1.0) # less than 1.0</code></pre>
 ##  9         2.9         0.2
 ## 10         3.1         0.1
 ## # ... with 140 more rows</code></pre>
-<div id="exercise-1" class="section level3" number="2.2.1">
-<h3 number="2.2.1"><span class="header-section-number">2.2.1</span> Exercise</h3>
+</div>
+<div id="exercise-1" class="section level3" number="2.2.2">
+<h3 number="2.2.2"><span class="header-section-number">2.2.2</span> Exercise</h3>
 <ul>
 <li>Select columns <code>Petal.Width</code> and <code>Species</code></li>
 <li>Select columns other than <code>Species</code></li>
@@ -556,7 +588,9 @@ df6 &lt;- filter(iris, Petal.Width &lt;= 1.0) # less than 1.0</code></pre>
 </div>
 <div id="mutate-add-new-columns" class="section level2" number="2.3">
 <h2 number="2.3"><span class="header-section-number">2.3</span> <code>mutate()</code>: add new columns</h2>
-<p>Somtimes, you want to add new columns to the data frame. We can add new columns with the same number of elements (i.e., number of rows). We use <code>mutate()</code>:</p>
+<div id="basic-usage-2" class="section level3" number="2.3.1">
+<h3 number="2.3.1"><span class="header-section-number">2.3.1</span> Basic usage</h3>
+<p>Sometimes, you want to add new columns to the data frame. We can add new columns with the same number of elements (i.e., number of rows). We use <code>mutate()</code>:</p>
 <pre class="r"><code># new variable x
 x &lt;- 1:nrow(iris)
 
@@ -579,8 +613,11 @@ iris_x</code></pre>
 ## 10          4.9         3.1          1.5         0.1 setosa       10
 ## # ... with 140 more rows</code></pre>
 </div>
+</div>
 <div id="arrange-arrange-row-orders" class="section level2" number="2.4">
 <h2 number="2.4"><span class="header-section-number">2.4</span> <code>arrange()</code>: arrange row orders</h2>
+<div id="basic-usage-3" class="section level3" number="2.4.1">
+<h3 number="2.4.1"><span class="header-section-number">2.4.1</span> Basic usage</h3>
 <p>You can arrange order of rows with <code>arrange()</code> function. Let’s arrange the data by Sepal.Width. By default, the data will be arrange in an ascending order:</p>
 <pre class="r"><code>arrange(iris, Sepal.Width)</code></pre>
 <pre><code>## # A tibble: 150 x 5
@@ -613,8 +650,9 @@ iris_x</code></pre>
 ##  9          5.1         3.8          1.9         0.4 setosa 
 ## 10          5.1         3.8          1.6         0.2 setosa 
 ## # ... with 140 more rows</code></pre>
-<div id="exercise-2" class="section level3" number="2.4.1">
-<h3 number="2.4.1"><span class="header-section-number">2.4.1</span> Exercise</h3>
+</div>
+<div id="exercise-2" class="section level3" number="2.4.2">
+<h3 number="2.4.2"><span class="header-section-number">2.4.2</span> Exercise</h3>
 <ul>
 <li>Arrange rows by <code>Species</code></li>
 </ul>
@@ -622,6 +660,8 @@ iris_x</code></pre>
 </div>
 <div id="slice-choose-specific-rows" class="section level2" number="2.5">
 <h2 number="2.5"><span class="header-section-number">2.5</span> <code>slice()</code> : choose specific rows</h2>
+<div id="basic-usage-4" class="section level3" number="2.5.1">
+<h3 number="2.5.1"><span class="header-section-number">2.5.1</span> Basic usage</h3>
 <p>You can choose specific number of rows using <code>slice()</code>. You just need give the function row numbers to be selected:</p>
 <pre class="r"><code># select row 1
 slice(iris, 1)</code></pre>
@@ -646,8 +686,9 @@ slice(iris, c(1, 3))</code></pre>
 ##          &lt;dbl&gt;       &lt;dbl&gt;        &lt;dbl&gt;       &lt;dbl&gt; &lt;fct&gt;  
 ## 1          5.1         3.5          1.4         0.2 setosa 
 ## 2          4.7         3.2          1.3         0.2 setosa</code></pre>
-<div id="exercise-3" class="section level3" number="2.5.1">
-<h3 number="2.5.1"><span class="header-section-number">2.5.1</span> Exercise</h3>
+</div>
+<div id="exercise-3" class="section level3" number="2.5.2">
+<h3 number="2.5.2"><span class="header-section-number">2.5.2</span> Exercise</h3>
 <ul>
 <li><p>Choose rows 7 to 10</p></li>
 <li><p>Choose rows 5, 9, and 98</p></li>
@@ -656,6 +697,8 @@ slice(iris, c(1, 3))</code></pre>
 </div>
 <div id="pipe" class="section level2" number="2.6">
 <h2 number="2.6"><span class="header-section-number">2.6</span> <code>%&gt;%</code>: pipe</h2>
+<div id="basic-usage-5" class="section level3" number="2.6.1">
+<h3 number="2.6.1"><span class="header-section-number">2.6.1</span> Basic usage</h3>
 <p>Data manipulation usually involves multiple processes. For example, you might want to reduce the number of columns and then filter rows. This can be done with the following script:</p>
 <pre class="r"><code>df_selected &lt;- select(iris, Sepal.Length, Species)
 df_final &lt;- filter(df_selected, Species == &quot;setosa&quot;)
@@ -712,8 +755,9 @@ print(df_short_sepal)</code></pre>
 ## 1          4.3 setosa 
 ## 2          4.4 setosa 
 ## 3          4.4 setosa</code></pre>
-<div id="exercise-4" class="section level3" number="2.6.1">
-<h3 number="2.6.1"><span class="header-section-number">2.6.1</span> Exercise</h3>
+</div>
+<div id="exercise-4" class="section level3" number="2.6.2">
+<h3 number="2.6.2"><span class="header-section-number">2.6.2</span> Exercise</h3>
 <p>Using pipe, do the following:</p>
 <ul>
 <li><p>Find data rows that contain the three widest <code>Sepal.Width</code> for species <code>virginica</code></p></li>
@@ -726,8 +770,8 @@ print(df_short_sepal)</code></pre>
 <div id="group-manipulation" class="section level1" number="3">
 <h1 number="3"><span class="header-section-number">3</span> GROUP MANIPULATION</h1>
 <hr />
-<div id="example" class="section level2" number="3.1">
-<h2 number="3.1"><span class="header-section-number">3.1</span> Example</h2>
+<div id="group_by-and-summarize" class="section level2" number="3.1">
+<h2 number="3.1"><span class="header-section-number">3.1</span> <code>group_by()</code> and <code>summarize()</code></h2>
 <p>One of the beauties in <code>tidyverse</code> is its ability to manipulate data by group - for example, it is very common for ecologists to show summary statistics by species. Such manipulation can be cumbersome, but with <code>tidyverse</code>, magic will happen. We will use <code>group_by()</code> function to create a group structure in a data frame:</p>
 <pre class="r"><code>iris_grouped &lt;- group_by(iris, Species)
 print(iris_grouped)</code></pre>
