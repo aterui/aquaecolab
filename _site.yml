@@ -21,6 +21,7 @@ navbar:
         - text: "R basics"
           href: r01_rbasics.html
         - text: "R tidyverse"
+          href: r02_tidyverse.html
         - text: "GitHub"
           href: github.html
         - text: "Helpful link"
