@@ -20,7 +20,7 @@ library(tidyverse)
 
 ------------------------------------------------------------------------
 
-Data transformation is a critical component of data analysis. You can use spreadsheets or similar to manage your data. However, this form of data manipulation/transformation should be limited to the process of creating the primary data set. There are several reasons for this. **First and foremost, spreadsheets do NOT keep records of your edits.** If you make any mistake during the process of data transformation, it will be unnoticed and cannot be recovered for most cases. **Second, spreadsheets are simply unsuitable for data transformation.** You may need to iterate the same transformation multiple times - you will make errors sooner or later.
+Data manipulation is a critical component of data analysis. You can use spreadsheets or similar to manage your data. However, this form of data manipulation/manipulation should be limited to the process of creating the primary data set. There are several reasons for this. **First and foremost, spreadsheets do NOT keep records of your edits.** If you make any mistake during the process of data manipulation, it will be unnoticed and cannot be recovered for most cases. **Second, spreadsheets are simply unsuitable for data manipulation.** You may need to iterate the same manipulation multiple times - you will make errors sooner or later.
 
 `tidyverse` is an R package that allows for effective data manipulation, visualization and more. In this page, I will focus on a couple of functions that I often use. A more comprehensive guide is available [here](https://r4ds.had.co.nz/index.html). `tidyverse` is not a default package, so you have to type in the following script every time you open up the R studio:
 
@@ -37,7 +37,7 @@ library(tidyverse)
 
 ------------------------------------------------------------------------
 
-# BASIC FUNCTIONS
+# BASIC MANIPULATION
 
 ------------------------------------------------------------------------
 
@@ -276,6 +276,8 @@ Using pipe, do the following:
 
 ## `group_by()` and `summarize()`
 
+### Basic usage
+
 One of the beauties in `tidyverse` is its ability to manipulate data by group - for example, it is very common for ecologists to show summary statistics by species. Such manipulation can be cumbersome, but with `tidyverse`, magic will happen. We will use `group_by()` function to create a group structure in a data frame:
 
 ```{r}
@@ -302,10 +304,18 @@ iris %>%
   print()
 ```
 
-This is a very basic example - you can tweak and combine functions in different ways to achieve your data manipulation effectively.
+This is a very basic example - you can tweak and combine functions in different ways to achieve your data manipulation more effectively.
 
 ### Exercise
 
 -   Estimate the means and SDs of `Sepal.Width` by species.
 
 -   Which species has the widest `Sepal.Width` on average? Combine `group_by()`, `summarize()`, `arrange()`, and `slice()` functions to extract the row with the widest mean of `Sepal.Width`.
+
+------------------------------------------------------------------------
+
+# DATA VISUALIZATION
+
+------------------------------------------------------------------------
+
+## 

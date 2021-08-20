@@ -12,9 +12,9 @@ Bold: current/past lab member
 
 ### In Review/Preparation
 
--   **Terui A,** **Kim S**, Dolph CL, Kadoya T, Miyazaki Y. (in review)
--   **Kim S**, Dolph CL, **Terui A**. (in prep)
--   **Pomeranz** et al. (in prep.)
+-   **Terui A,** **Kim S**, Dolph CL, Kadoya T, Miyazaki Y. Emergent dual scaling of riverine biodiversity (in review) [Preprint](https://www.biorxiv.org/content/10.1101/2021.03.08.434467v1.abstract)
+-   **Kim S**, Dolph CL, **Terui A**. Positive biotic interactions mediate the metapopulation-level association in stream fishes (in review)
+-   **Pomeranz** **JF**, Finlay JC, **Terui A**. Ecosystem size and complexity are external drivers of food chain length in branching networks (in review) [Preprint](https://ecoevorxiv.org/3h2rd/)
 
 ### Published
 

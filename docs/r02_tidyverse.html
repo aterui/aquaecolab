@@ -412,7 +412,7 @@ div.tocify {
 
 
 <h1 class="title toc-ignore">tidyverse</h1>
-<h4 class="date">Latest update 11 August, 2021</h4>
+<h4 class="date">Latest update 20 August, 2021</h4>
 
 </div>
 
@@ -421,7 +421,7 @@ div.tocify {
 <div id="introduction" class="section level1" number="1">
 <h1 number="1"><span class="header-section-number">1</span> INTRODUCTION</h1>
 <hr />
-<p>Data transformation is a critical component of data analysis. You can use spreadsheets or similar to manage your data. However, this form of data manipulation/transformation should be limited to the process of creating the primary data set. There are several reasons for this. <strong>First and foremost, spreadsheets do NOT keep records of your edits.</strong> If you make any mistake during the process of data transformation, it will be unnoticed and cannot be recovered for most cases. <strong>Second, spreadsheets are simply unsuitable for data transformation.</strong> You may need to iterate the same transformation multiple times - you will make errors sooner or later.</p>
+<p>Data manipulation is a critical component of data analysis. You can use spreadsheets or similar to manage your data. However, this form of data manipulation/manipulation should be limited to the process of creating the primary data set. There are several reasons for this. <strong>First and foremost, spreadsheets do NOT keep records of your edits.</strong> If you make any mistake during the process of data manipulation, it will be unnoticed and cannot be recovered for most cases. <strong>Second, spreadsheets are simply unsuitable for data manipulation.</strong> You may need to iterate the same manipulation multiple times - you will make errors sooner or later.</p>
 <p><code>tidyverse</code> is an R package that allows for effective data manipulation, visualization and more. In this page, I will focus on a couple of functions that I often use. A more comprehensive guide is available <a href="https://r4ds.had.co.nz/index.html">here</a>. <code>tidyverse</code> is not a default package, so you have to type in the following script every time you open up the R studio:</p>
 <pre class="r"><code># if you have not installed, install first with install.packages()
 # otherwise skip the first line
@@ -431,8 +431,8 @@ library(tidyverse)</code></pre>
 <p><code>tidyverse</code> is a collection of many useful packages, including <code>ggplot2</code> and <code>dplyr</code>.</p>
 <hr />
 </div>
-<div id="basic-functions" class="section level1" number="2">
-<h1 number="2"><span class="header-section-number">2</span> BASIC FUNCTIONS</h1>
+<div id="basic-manipulation" class="section level1" number="2">
+<h1 number="2"><span class="header-section-number">2</span> BASIC MANIPULATION</h1>
 <hr />
 <p>Below, I will introduce some useful ‘basic’ functions, followed by guidance on how to combine them via pipe <code>%&gt;%</code>. Before proceeding, let’s check the data set we will use for this exercise. R provides a nice data set <code>iris</code> , which is well suited for this type of exercise. You can see an overview of the data frame using <code>View()</code> function:</p>
 <pre class="r"><code>iris &lt;- as_tibble(iris) # change data frame format to tibble
@@ -876,6 +876,8 @@ print(df_short_sepal)</code></pre>
 <hr />
 <div id="group_by-and-summarize" class="section level2" number="3.1">
 <h2 number="3.1"><span class="header-section-number">3.1</span> <code>group_by()</code> and <code>summarize()</code></h2>
+<div id="basic-usage-6" class="section level3" number="3.1.1">
+<h3 number="3.1.1"><span class="header-section-number">3.1.1</span> Basic usage</h3>
 <p>One of the beauties in <code>tidyverse</code> is its ability to manipulate data by group - for example, it is very common for ecologists to show summary statistics by species. Such manipulation can be cumbersome, but with <code>tidyverse</code>, magic will happen. We will use <code>group_by()</code> function to create a group structure in a data frame:</p>
 <pre class="r"><code>iris_grouped &lt;- group_by(iris, Species)
 print(iris_grouped)</code></pre>
@@ -917,14 +919,23 @@ print(iris_grouped)</code></pre>
 ## 1 setosa                  5.01           0.352
 ## 2 versicolor              5.94           0.516
 ## 3 virginica               6.59           0.636</code></pre>
-<p>This is a very basic example - you can tweak and combine functions in different ways to achieve your data manipulation effectively.</p>
-<div id="exercise-5" class="section level3" number="3.1.1">
-<h3 number="3.1.1"><span class="header-section-number">3.1.1</span> Exercise</h3>
+<p>This is a very basic example - you can tweak and combine functions in different ways to achieve your data manipulation more effectively.</p>
+</div>
+<div id="exercise-5" class="section level3" number="3.1.2">
+<h3 number="3.1.2"><span class="header-section-number">3.1.2</span> Exercise</h3>
 <ul>
 <li><p>Estimate the means and SDs of <code>Sepal.Width</code> by species.</p></li>
 <li><p>Which species has the widest <code>Sepal.Width</code> on average? Combine <code>group_by()</code>, <code>summarize()</code>, <code>arrange()</code>, and <code>slice()</code> functions to extract the row with the widest mean of <code>Sepal.Width</code>.</p></li>
 </ul>
+<hr />
 </div>
+</div>
+</div>
+<div id="data-visualization" class="section level1" number="4">
+<h1 number="4"><span class="header-section-number">4</span> DATA VISUALIZATION</h1>
+<hr />
+<div id="section" class="section level2" number="4.1">
+<h2 number="4.1"><span class="header-section-number">4.1</span> </h2>
 </div>
 </div>
 
