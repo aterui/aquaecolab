@@ -19,12 +19,10 @@ My research focuses on stream fish ecology and conservation using various techni
 \
 
 ::: {.clearfix}
-<img src="image/img_jp.jpg" style="vertical-align:top; width: 20%" align="left"/> **Dr. Justin Pomeranz**, Postdoc [`r icon::fa("github")`](https://github.com/Jpomz)
+![](image/img_al.jpeg){align="left" style="vertical-align:top;" width="20%"} **Ashley LaRoque**, Ph.D student
 
-I am a community ecologist with an interest in the structure and function of food webs. I completed my undergraduate and graduate work at Colorado State University, where I received a strong background in the taxonomy and morphology of insects (primarily aquatic insects, but some terrestrial work as well). I completed a Ph.D. at the University of Canterbury on the south island of New Zealand. My research was focused on stream food webs impacted by acid mine drainage. During my doctoral work, I took a quantitative and computational approach and discovered (to my never ending surprise) that I enjoy coding and programming in the R language. I am excited to join Dr. Terui's lab, where I will be developing models to predict food chain length in streams. In my free time, I enjoy climbing on rocks, running on mountain trails, and reading sci-fi and fantasy books.
+Being from Minnesota, my love of freshwater started at a young age. I grew up never more than a half mile from a lake. This allowed me to explore aquatic ecology at a young age. As I dove deeper into my education at the University of Minnesota, I realized the importance of freshwater ecology and earned my Bachelor's degree in Ecology, Evolution, and Behavior. My previous research quantified how temperature change in lakes has impacted the phenology of spawning in freshwater fish. I also have experience on a stable isotope project looking at the impact of invasive species on predatory fish. As a Ph.D. student in Environmental Health Sciences at UNCG, my research revolves around stream ecology. I am working on a mark-recapture study using passive integrated transponder tags to understand fish behavior. Outside of my research in fisheries, I love to go fishing, cook, play with my cat Hudson, and go hiking.
 :::
-
-\
 
 ::: {.clearfix}
 <img src="image/img_ms.jpg" style="vertical-align:top; width: 20%" align="left"/> **Melanie Stadler**, Ph.D. student [`r icon::fa("researchgate")`](https://www.researchgate.net/profile/Melanie_Stadler)
@@ -49,11 +47,12 @@ I'm interested in spatial ecology in general. My research career started at the 
 -   Mason Ibrahim (Fall 2020 -)
 -   Lucia Ramirez-Joseph (Spring 2021 -)
 
-### Former Undergraduate Students
+### Former Lab Members
 
--   Kiersten Dery (Summer 2021)
--   Zaria Bopp (Spring 2021)
--   Jakayla Clyburn (Fall 2019 - Spring 2020)
--   Kirsten Watson (Fall 2019)
+-   Justin Pomeranz, Postdoc (2021)
+-   Kiersten Dery, Undergraduate (Summer 2021)
+-   Zaria Bopp, Undergraduate (Spring 2021)
+-   Jakayla Clyburn, Undergraduate (Fall 2019 - Spring 2020)
+-   Kirsten Watson, Undergraduate (Fall 2019)
 
 NOTE: Team members are alphabetically ordered
