@@ -12,7 +12,6 @@ Bold: current/past lab member
 
 ### In Review/Preparation
 
--   **Terui A,** **Kim S**, Dolph CL, Kadoya T, Miyazaki Y. Emergent dual scaling of riverine biodiversity (in review) [Preprint](https://www.biorxiv.org/content/10.1101/2021.03.08.434467v1.abstract)
 -   **Kim S**, Dolph CL, **Terui A**. Positive biotic interactions mediate the metapopulation-level association in stream fishes (in review)
 -   **Pomeranz** **JF**, Finlay JC, **Terui A**. Ecosystem size and complexity are external drivers of food chain length in branching networks (in review) [Preprint](https://ecoevorxiv.org/3h2rd/)
 
@@ -20,6 +19,7 @@ Bold: current/past lab member
 
 #### 2021
 
+-   **Terui A,** **Kim S**, Dolph CL, Kadoya T, Miyazaki Y. (in press) Emergent dual scaling of riverine biodiversity. *Proceedings of the National Academy of Sciences* [Preprint](https://www.biorxiv.org/content/10.1101/2021.03.08.434467v1.abstract)
 -   **Terui A**, **Kim S**, Pregler K, Kanno Y. (in press) Non-random dispersal in sympatric stream fishes: influences of natural disturbance and body size. *Freshwater Biology*.
 -   Kawajiri K, Ishiyama N, Miura K, **Terui A**, Sueyoshi M, Nakamura F. (2021) The relative effects of biotic and abiotic factors on the recruitment of freshwater mussels (*Margaritifera laevis*). *Water* 13: 1289
 -   Comte L, Carvajal J, Tedesco P, Giam X, Brose U, Eros T, Filipe A, Fortin M-J, Irving K, Jacquet C, Larsen S, Sharma S, Ruhi A, Becker F, Casatti L, Castaldelli G, Dala-Corte R, Davenport S, Franssen N, García-Berthou E, Gavioli A, Gido K, Jimenez-Segura L, Leitão R, McLarney B, Meador J, Milardi M, Moffatt D, Occhi T, Pompeu P, Propst D, Pyron M, Salvador G, Stefferud J, Sutela T, Taylor C, **Terui A**, Urabe H, Vehanen T, Vitule J, Zeni J, Olden J. (2021) RivFishTIME: A global database of fish time-series to study global change ecology in riverine systems. *Global Ecology and Biogeography* 30: 38-50.
