@@ -2,6 +2,12 @@
 title: "Join"
 ---
 
+### We are hiring!
+
+The Aquatique lab at UNCG is seeking a part-time research technician (0.6 FTE). The successful candidate will join an ongoing project exploring environmental drivers of food chain length in river networks. The task will include (1) assemble stable isotope and environmental data from published papers, (2) prepare and format GIS layers, and (3) format data so the data set is readily usable in R. Background knowledge on stable isotopes and GIS is a big plus. We are working in a team - so I am particularly interested in recruiting a candidate who enjoys working in a team environment. The candidate must reside in or willing to move to North Carolina.
+
+If you are interested, **please send me a cover letter with a brief statement of your research interest, your CV, and contact information for three references to a_terui at uncg.edu.** We will review applications immediately and the search will continue until the position is filled.
+
 ### Graduate students
 
 Thank you for your interest in my research group! I am always looking for talented students with a strong interest in **the intersection of freshwater ecology and spatial ecology.** If you would like to see whether my research group is a good fit, this is something you might want to consider before contacting me. **Are you interested in ecological concepts or ecology of specific taxa?** If the former, you may be a good fit to my lab and may obtain valuable experiences while you are here. I love freshwater organisms, and enjoy the time playing around streams and lakes; however, we aim to advance conceptual understanding of ecological systems, and we purposefully choose study organisms to achieve this goal.
