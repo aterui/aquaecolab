@@ -4,7 +4,7 @@ title: "Join"
 
 ### We are hiring!
 
-The Aquatique lab at UNCG is seeking a part-time research technician (0.6 FTE). The successful candidate will join an ongoing project exploring environmental drivers of food chain length in river networks. The task will include (1) assemble stable isotope and environmental data from published papers, (2) prepare and format GIS layers, and (3) format data so the data set is readily usable in R. Background knowledge on stable isotopes and GIS is a big plus. We are working in a team - so I am particularly interested in recruiting a candidate who enjoys working in a team environment. The candidate must reside in or willing to move to North Carolina.
+The Aquatique lab at UNCG is seeking a research technician. The successful candidate will join an ongoing project exploring environmental drivers of food chain length in river networks. The task will include (1) assemble stable isotope and environmental data from published papers, (2) help prepare and format GIS layers. Background knowledge on stable isotopes, R, and/or GIS is a big plus. We are working in a team - so I am particularly interested in recruiting a candidate who enjoys working in a team environment. The candidate must reside in or willing to move to North Carolina.
 
 If you are interested, **please send me a cover letter with a brief statement of your research interest, your CV, and contact information for three references to a_terui at uncg.edu.** We will review applications immediately and the search will continue until the position is filled.
 
