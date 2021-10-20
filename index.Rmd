@@ -15,7 +15,7 @@ library(icon)
 
 ------------------------------------------------------------------------
 
-We study **Aquati**c ecosystems using skills of **Qu**antitative **E**cology. We are particularly excited about combining theoretical, statistical, and field-based approaches to address fundamental and applied questions in spatial ecology. Looking for opportunities? Visit [`r icon::fa("users")` Join](join.html) for available options. Current key topics in our group include the following:
+We study **Aquati**c ecosystems using skills of **Qu**antitative **E**cology. We are particularly excited about combining theoretical, statistical, and field-based approaches to address fundamental and applied questions in spatial ecology. Inquiries? Shoot an email to Akira Terui **a_terui@uncg.edu**. Looking for opportunities? Visit [`r icon::fa("users")` Join](join.html) for available options. Current key topics in our group include the following:
 
 ::: {.clearfix}
 <img src="image/img01.jpg" style="width: 40%" align="left"/>

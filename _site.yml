@@ -41,4 +41,4 @@ output:
     includes:
       in_header: google_analytics.html
     css: style_web.css
-    theme: cosmo
+    theme: paper

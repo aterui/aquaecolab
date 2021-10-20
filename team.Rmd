@@ -42,6 +42,12 @@ I'm interested in spatial ecology in general. My research career started at the 
 
 \
 
+::: {.clearfix}
+![](image/img_cw.jpg){align="left" style="vertical-align:top;" width="150"} **Dr. Charles Wahl**, Postdoc\
+
+My research focus is to understand processes that structure populations and communities in freshwater habitats with a focus on the role of anthropogenic disturbance. Human induced disturbances, such as the introduction of invasive species, habitat fragmentation and eutrophication, are becoming more prevalent. These impacts modify the local (habitat complexity and species interactions) and regional (dispersal) processes that structure ecosystems, resulting in changes to ecological state and altering the movement of energy through the system. I am also interested in how biological control can be used to reduce impacts from invasive species on ecosystem structure and function. Current research as a postdoc in Dr. Akira Terui’s lab involves using metapopulation theory to examine the population and spatial structure of an endangered fish species, topeka shiner (*Notropis topeka*), to guide restoration and conservation efforts.\
+:::
+
 ### Undergraduate Students
 
 -   Jessica Bribiesca (Spring 2021 -)
