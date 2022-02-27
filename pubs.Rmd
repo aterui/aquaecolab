@@ -12,7 +12,8 @@ Bold: current/past lab member
 
 ### In Review/Preparation
 
--   **Pomeranz** **JF**, Finlay JC, **Terui A**. Ecosystem size and complexity are external drivers of food chain length in branching networks (in review) ([Preprint](https://ecoevorxiv.org/3h2rd/))
+-   **Terui A**, Urabe H, Senzaki M, Nishizawa B. Intentional stocking undermines ecological stability (in review; [preprint](https://www.biorxiv.org/content/10.1101/2022.02.24.481650v1))
+-   **Pomeranz** **JF**, Finlay JC, **Terui A**. Ecosystem size and complexity are external drivers of food chain length in branching networks (in review; [preprint](https://ecoevorxiv.org/3h2rd/))
 
 ### Published
 
