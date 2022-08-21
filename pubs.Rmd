@@ -12,6 +12,8 @@ Bold: current/past lab member
 
 ### In Review/Preparation
 
+-   **Kim S**, Dolph CL, **Terui A**. Metacommunity-level consequences of positive species interactions (in prep.)
+-   Shinohara N, Nakadai R, Suzuki Y, **Terui A**. Spatio-termporal dimensions of community assembly (in review)
 -   **Terui A**, Urabe H, Senzaki M, Nishizawa B. Intentional stocking undermines ecological stability (in review; [preprint](https://www.biorxiv.org/content/10.1101/2022.02.24.481650v1))
 -   **Pomeranz** **JF**, Finlay JC, **Terui A**. Ecosystem size and complexity are external drivers of food chain length in branching networks (in review; [preprint](https://ecoevorxiv.org/3h2rd/))
 
@@ -19,7 +21,7 @@ Bold: current/past lab member
 
 #### 2022
 
--   **Kim S**, Dolph CL, **Terui A**. (in press) Metapopulation-level associations in positively interacting stream fishes. *Ecography*
+-   **Kim S**, Dolph CL, **Terui A**. (2022) Metapopulation-level associations in positively interacting stream fishes. *Ecography 3:* e06080
 
 #### 2021
 

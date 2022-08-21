@@ -13,8 +13,8 @@
 
 <title>tidyverse</title>
 
-<script src="site_libs/header-attrs-2.9/header-attrs.js"></script>
-<script src="site_libs/jquery-1.11.3/jquery.min.js"></script>
+<script src="site_libs/header-attrs-2.15/header-attrs.js"></script>
+<script src="site_libs/jquery-3.6.0/jquery-3.6.0.min.js"></script>
 <meta name="viewport" content="width=device-width, initial-scale=1" />
 <link href="site_libs/bootstrap-3.3.5/css/paper.min.css" rel="stylesheet" />
 <script src="site_libs/bootstrap-3.3.5/js/bootstrap.min.js"></script>
@@ -71,6 +71,7 @@ if (window.hljs) {
 
 
 
+
 <link rel="stylesheet" href="style_web.css" type="text/css" />
 
 
@@ -95,6 +96,9 @@ button.code-folding-btn:focus {
 }
 summary {
   display: list-item;
+}
+details > summary > p:only-child {
+  display: inline;
 }
 pre code {
   padding: 0;
@@ -152,11 +156,15 @@ $(document).ready(function () {
     href = "index.html";
   var menuAnchor = $('a[href="' + href + '"]');
 
-  // mark it active
-  menuAnchor.tab('show');
-
-  // if it's got a parent navbar menu mark it active as well
-  menuAnchor.closest('li.dropdown').addClass('active');
+  // mark the anchor link active (and if it's in a dropdown, also mark that active)
+  var dropdown = menuAnchor.closest('li.dropdown');
+  if (window.bootstrap) { // Bootstrap 4+
+    menuAnchor.addClass('active');
+    dropdown.find('> .dropdown-toggle').addClass('active');
+  } else { // Bootstrap 3
+    menuAnchor.parent().addClass('active');
+    dropdown.addClass('active');
+  }
 
   // Navbar adjustments
   var navHeight = $(".navbar").first().height() + 15;
@@ -320,7 +328,7 @@ div.tocify {
 <div class="navbar navbar-default  navbar-fixed-top" role="navigation">
   <div class="container">
     <div class="navbar-header">
-      <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar">
+      <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-bs-toggle="collapse" data-target="#navbar" data-bs-target="#navbar">
         <span class="icon-bar"></span>
         <span class="icon-bar"></span>
         <span class="icon-bar"></span>
@@ -358,7 +366,7 @@ div.tocify {
   </a>
 </li>
 <li class="dropdown">
-  <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">
+  <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
     <span class="fa fa-desktop"></span>
      
     Programming
@@ -381,7 +389,7 @@ div.tocify {
   </ul>
 </li>
 <li class="dropdown">
-  <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">
+  <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
     <span class="fa fa-user-graduate"></span>
      
     Teaching
@@ -412,44 +420,68 @@ div.tocify {
 
 
 <h1 class="title toc-ignore">tidyverse</h1>
-<h4 class="date">Latest update 27 February, 2022</h4>
+<h4 class="date">Latest update 21 August, 2022</h4>
 
 </div>
 
 
 <hr />
 <div id="introduction" class="section level1" number="1">
-<h1 number="1"><span class="header-section-number">1</span> INTRODUCTION</h1>
+<h1><span class="header-section-number">1</span> INTRODUCTION</h1>
 <hr />
-<p>Data manipulation is a critical component of data analysis. You can use spreadsheets or similar to manage your data. However, this form of data manipulation/manipulation should be limited to the process of creating the primary data set. There are several reasons for this. <strong>First and foremost, spreadsheets do NOT keep records of your edits.</strong> If you make any mistake during the process of data manipulation, it will be unnoticed and cannot be recovered for most cases. <strong>Second, spreadsheets are simply unsuitable for data manipulation.</strong> You may need to iterate the same manipulation multiple times - you will make errors sooner or later.</p>
-<p><code>tidyverse</code> is an R package that allows for effective data manipulation, visualization and more. In this page, I will focus on a couple of functions that I often use. A more comprehensive guide is available <a href="https://r4ds.had.co.nz/index.html">here</a>. <code>tidyverse</code> is not a default package, so you have to type in the following script every time you open up the R studio:</p>
+<p>Data manipulation is a critical component of data analysis. You can
+use spreadsheets or similar to manage your data. However, this form of
+data manipulation/manipulation should be limited to the process of
+creating the primary data set. There are several reasons for this.
+<strong>First and foremost, spreadsheets do NOT keep records of your
+edits.</strong> If you make any mistake during the process of data
+manipulation, it will be unnoticed and cannot be recovered for most
+cases. <strong>Second, spreadsheets are simply unsuitable for data
+manipulation.</strong> You may need to iterate the same manipulation
+multiple times - you will make errors sooner or later.</p>
+<p><code>tidyverse</code> is an R package that allows for effective data
+manipulation, visualization and more. In this page, I will focus on a
+couple of functions that I often use. A more comprehensive guide is
+available <a href="https://r4ds.had.co.nz/index.html">here</a>.
+<code>tidyverse</code> is not a default package, so you have to type in
+the following script every time you open up the R studio:</p>
 <pre class="r"><code># if you have not installed, install first with install.packages()
 # otherwise skip the first line
 
 #install.packages(&quot;tidyverse&quot;)
 library(tidyverse)</code></pre>
-<p><code>tidyverse</code> is a collection of many useful packages, including <code>ggplot2</code> and <code>dplyr</code>.</p>
+<p><code>tidyverse</code> is a collection of many useful packages,
+including <code>ggplot2</code> and <code>dplyr</code>.</p>
 <hr />
 </div>
 <div id="basic-manipulation" class="section level1" number="2">
-<h1 number="2"><span class="header-section-number">2</span> BASIC MANIPULATION</h1>
+<h1><span class="header-section-number">2</span> BASIC MANIPULATION</h1>
 <hr />
-<p>Below, I will introduce some useful ‘basic’ functions, followed by guidance on how to combine them via pipe <code>%&gt;%</code>. Before proceeding, let’s check the data set we will use for this exercise. R provides a nice data set <code>iris</code> , which is well suited for this type of exercise. You can see an overview of the data frame using <code>View()</code> function:</p>
+<p>Below, I will introduce some useful ‘basic’ functions, followed by
+guidance on how to combine them via pipe <code>%&gt;%</code>. Before
+proceeding, let’s check the data set we will use for this exercise. R
+provides a nice data set <code>iris</code> , which is well suited for
+this type of exercise. You can see an overview of the data frame using
+<code>View()</code> function:</p>
 <pre class="r"><code>iris &lt;- as_tibble(iris) # change data frame format to tibble
 View(iris)</code></pre>
 <p>Also, you can extract variables (column names) as follows:</p>
 <pre class="r"><code>colnames(iris)</code></pre>
 <pre><code>## [1] &quot;Sepal.Length&quot; &quot;Sepal.Width&quot;  &quot;Petal.Length&quot; &quot;Petal.Width&quot;  &quot;Species&quot;</code></pre>
 <div id="filter-filter-rows" class="section level2" number="2.1">
-<h2 number="2.1"><span class="header-section-number">2.1</span> <code>filter()</code>: filter rows</h2>
+<h2><span class="header-section-number">2.1</span>
+<code>filter()</code>: filter rows</h2>
 <div id="basic-usage" class="section level3" number="2.1.1">
-<h3 number="2.1.1"><span class="header-section-number">2.1.1</span> Basic usage</h3>
-<p>You may need to “filter” rows based on some criteria. <code>filter()</code> can help you on this. Let’s select rows that belong to one species. For character &amp; factor variables, you will need to double-quote them:</p>
+<h3><span class="header-section-number">2.1.1</span> Basic usage</h3>
+<p>You may need to “filter” rows based on some criteria.
+<code>filter()</code> can help you on this. Let’s select rows that
+belong to one species. For character &amp; factor variables, you will
+need to double-quote them:</p>
 <pre class="r"><code>unique(iris$Species) # check what species exist in the data</code></pre>
 <pre><code>## [1] setosa     versicolor virginica 
 ## Levels: setosa versicolor virginica</code></pre>
 <pre class="r"><code>filter(iris, Species == &quot;setosa&quot;)</code></pre>
-<pre><code>## # A tibble: 50 x 5
+<pre><code>## # A tibble: 50 × 5
 ##    Sepal.Length Sepal.Width Petal.Length Petal.Width Species
 ##           &lt;dbl&gt;       &lt;dbl&gt;        &lt;dbl&gt;       &lt;dbl&gt; &lt;fct&gt;  
 ##  1          5.1         3.5          1.4         0.2 setosa 
@@ -462,10 +494,10 @@ View(iris)</code></pre>
 ##  8          5           3.4          1.5         0.2 setosa 
 ##  9          4.4         2.9          1.4         0.2 setosa 
 ## 10          4.9         3.1          1.5         0.1 setosa 
-## # ... with 40 more rows</code></pre>
+## # … with 40 more rows</code></pre>
 <p>You can choose two or more species at once:</p>
 <pre class="r"><code>filter(iris, Species %in% c(&quot;setosa&quot;, &quot;versicolor&quot;))</code></pre>
-<pre><code>## # A tibble: 100 x 5
+<pre><code>## # A tibble: 100 × 5
 ##    Sepal.Length Sepal.Width Petal.Length Petal.Width Species
 ##           &lt;dbl&gt;       &lt;dbl&gt;        &lt;dbl&gt;       &lt;dbl&gt; &lt;fct&gt;  
 ##  1          5.1         3.5          1.4         0.2 setosa 
@@ -478,10 +510,11 @@ View(iris)</code></pre>
 ##  8          5           3.4          1.5         0.2 setosa 
 ##  9          4.4         2.9          1.4         0.2 setosa 
 ## 10          4.9         3.1          1.5         0.1 setosa 
-## # ... with 90 more rows</code></pre>
-<p>Alternatively, you might want to exclude data that belong to a specific species. You can do this by:</p>
+## # … with 90 more rows</code></pre>
+<p>Alternatively, you might want to exclude data that belong to a
+specific species. You can do this by:</p>
 <pre class="r"><code>filter(iris, Species != &quot;virginica&quot;)</code></pre>
-<pre><code>## # A tibble: 100 x 5
+<pre><code>## # A tibble: 100 × 5
 ##    Sepal.Length Sepal.Width Petal.Length Petal.Width Species
 ##           &lt;dbl&gt;       &lt;dbl&gt;        &lt;dbl&gt;       &lt;dbl&gt; &lt;fct&gt;  
 ##  1          5.1         3.5          1.4         0.2 setosa 
@@ -494,11 +527,11 @@ View(iris)</code></pre>
 ##  8          5           3.4          1.5         0.2 setosa 
 ##  9          4.4         2.9          1.4         0.2 setosa 
 ## 10          4.9         3.1          1.5         0.1 setosa 
-## # ... with 90 more rows</code></pre>
+## # … with 90 more rows</code></pre>
 <p>Numeric variables can also be used to select rows:</p>
 <pre class="r"><code># greater than 1.0
 filter(iris, Petal.Width &gt; 1.0)</code></pre>
-<pre><code>## # A tibble: 93 x 5
+<pre><code>## # A tibble: 93 × 5
 ##    Sepal.Length Sepal.Width Petal.Length Petal.Width Species   
 ##           &lt;dbl&gt;       &lt;dbl&gt;        &lt;dbl&gt;       &lt;dbl&gt; &lt;fct&gt;     
 ##  1          7           3.2          4.7         1.4 versicolor
@@ -511,10 +544,10 @@ filter(iris, Petal.Width &gt; 1.0)</code></pre>
 ##  8          6.6         2.9          4.6         1.3 versicolor
 ##  9          5.2         2.7          3.9         1.4 versicolor
 ## 10          5.9         3            4.2         1.5 versicolor
-## # ... with 83 more rows</code></pre>
+## # … with 83 more rows</code></pre>
 <pre class="r"><code># equal or greater than 1.0
 filter(iris, Petal.Width &gt;= 1.0)</code></pre>
-<pre><code>## # A tibble: 100 x 5
+<pre><code>## # A tibble: 100 × 5
 ##    Sepal.Length Sepal.Width Petal.Length Petal.Width Species   
 ##           &lt;dbl&gt;       &lt;dbl&gt;        &lt;dbl&gt;       &lt;dbl&gt; &lt;fct&gt;     
 ##  1          7           3.2          4.7         1.4 versicolor
@@ -527,10 +560,10 @@ filter(iris, Petal.Width &gt;= 1.0)</code></pre>
 ##  8          4.9         2.4          3.3         1   versicolor
 ##  9          6.6         2.9          4.6         1.3 versicolor
 ## 10          5.2         2.7          3.9         1.4 versicolor
-## # ... with 90 more rows</code></pre>
+## # … with 90 more rows</code></pre>
 <pre class="r"><code># less than 1.0
 filter(iris, Petal.Width &lt; 1.0)</code></pre>
-<pre><code>## # A tibble: 50 x 5
+<pre><code>## # A tibble: 50 × 5
 ##    Sepal.Length Sepal.Width Petal.Length Petal.Width Species
 ##           &lt;dbl&gt;       &lt;dbl&gt;        &lt;dbl&gt;       &lt;dbl&gt; &lt;fct&gt;  
 ##  1          5.1         3.5          1.4         0.2 setosa 
@@ -543,10 +576,10 @@ filter(iris, Petal.Width &lt; 1.0)</code></pre>
 ##  8          5           3.4          1.5         0.2 setosa 
 ##  9          4.4         2.9          1.4         0.2 setosa 
 ## 10          4.9         3.1          1.5         0.1 setosa 
-## # ... with 40 more rows</code></pre>
+## # … with 40 more rows</code></pre>
 <pre class="r"><code># less than 1.0
 filter(iris, Petal.Width &lt;= 1.0)</code></pre>
-<pre><code>## # A tibble: 57 x 5
+<pre><code>## # A tibble: 57 × 5
 ##    Sepal.Length Sepal.Width Petal.Length Petal.Width Species
 ##           &lt;dbl&gt;       &lt;dbl&gt;        &lt;dbl&gt;       &lt;dbl&gt; &lt;fct&gt;  
 ##  1          5.1         3.5          1.4         0.2 setosa 
@@ -559,12 +592,12 @@ filter(iris, Petal.Width &lt;= 1.0)</code></pre>
 ##  8          5           3.4          1.5         0.2 setosa 
 ##  9          4.4         2.9          1.4         0.2 setosa 
 ## 10          4.9         3.1          1.5         0.1 setosa 
-## # ... with 47 more rows</code></pre>
+## # … with 47 more rows</code></pre>
 <p>Combined conditional expression is also possible:</p>
 <pre class="r"><code># Species equals &quot;setosa&quot; AND Petal.Length larger than 1.8
 
 filter(iris, Species == &quot;setosa&quot; &amp; Petal.Length &gt; 1.8)</code></pre>
-<pre><code>## # A tibble: 2 x 5
+<pre><code>## # A tibble: 2 × 5
 ##   Sepal.Length Sepal.Width Petal.Length Petal.Width Species
 ##          &lt;dbl&gt;       &lt;dbl&gt;        &lt;dbl&gt;       &lt;dbl&gt; &lt;fct&gt;  
 ## 1          4.8         3.4          1.9         0.2 setosa 
@@ -572,7 +605,7 @@ filter(iris, Species == &quot;setosa&quot; &amp; Petal.Length &gt; 1.8)</code></
 <pre class="r"><code># Species equals &quot;setosa&quot; OR Petal.Length larger than 5.0
 
 filter(iris, Species == &quot;setosa&quot; | Petal.Length &gt; 5)</code></pre>
-<pre><code>## # A tibble: 92 x 5
+<pre><code>## # A tibble: 92 × 5
 ##    Sepal.Length Sepal.Width Petal.Length Petal.Width Species
 ##           &lt;dbl&gt;       &lt;dbl&gt;        &lt;dbl&gt;       &lt;dbl&gt; &lt;fct&gt;  
 ##  1          5.1         3.5          1.4         0.2 setosa 
@@ -585,24 +618,29 @@ filter(iris, Species == &quot;setosa&quot; | Petal.Length &gt; 5)</code></pre>
 ##  8          5           3.4          1.5         0.2 setosa 
 ##  9          4.4         2.9          1.4         0.2 setosa 
 ## 10          4.9         3.1          1.5         0.1 setosa 
-## # ... with 82 more rows</code></pre>
+## # … with 82 more rows</code></pre>
 </div>
 <div id="exercise" class="section level3" number="2.1.2">
-<h3 number="2.1.2"><span class="header-section-number">2.1.2</span> Exercise</h3>
+<h3><span class="header-section-number">2.1.2</span> Exercise</h3>
 <ul>
-<li>Select rows with species <code>setosa</code> and <code>virginica</code></li>
+<li>Select rows with species <code>setosa</code> and
+<code>virginica</code></li>
 <li>Select rows with species other than <code>setosa</code></li>
-<li>Select rows with sepal length greater than 5.0 in <code>iris</code>.</li>
+<li>Select rows with sepal length greater than 5.0 in
+<code>iris</code>.</li>
 </ul>
 </div>
 </div>
 <div id="select-select-columns" class="section level2" number="2.2">
-<h2 number="2.2"><span class="header-section-number">2.2</span> <code>select()</code>: select columns</h2>
+<h2><span class="header-section-number">2.2</span>
+<code>select()</code>: select columns</h2>
 <div id="basic-usage-1" class="section level3" number="2.2.1">
-<h3 number="2.2.1"><span class="header-section-number">2.2.1</span> Basic usage</h3>
-<p>You can also select columns. Let’s select <code>Petal.Width</code> using <code>select()</code>. This function takes column names as arguments.</p>
+<h3><span class="header-section-number">2.2.1</span> Basic usage</h3>
+<p>You can also select columns. Let’s select <code>Petal.Width</code>
+using <code>select()</code>. This function takes column names as
+arguments.</p>
 <pre class="r"><code>select(iris, Petal.Width)</code></pre>
-<pre><code>## # A tibble: 150 x 1
+<pre><code>## # A tibble: 150 × 1
 ##    Petal.Width
 ##          &lt;dbl&gt;
 ##  1         0.2
@@ -615,10 +653,10 @@ filter(iris, Species == &quot;setosa&quot; | Petal.Length &gt; 5)</code></pre>
 ##  8         0.2
 ##  9         0.2
 ## 10         0.1
-## # ... with 140 more rows</code></pre>
+## # … with 140 more rows</code></pre>
 <p>You can select multiple columns like:</p>
 <pre class="r"><code>select(iris, Petal.Width, Petal.Length)</code></pre>
-<pre><code>## # A tibble: 150 x 2
+<pre><code>## # A tibble: 150 × 2
 ##    Petal.Width Petal.Length
 ##          &lt;dbl&gt;        &lt;dbl&gt;
 ##  1         0.2          1.4
@@ -631,10 +669,10 @@ filter(iris, Species == &quot;setosa&quot; | Petal.Length &gt; 5)</code></pre>
 ##  8         0.2          1.5
 ##  9         0.2          1.4
 ## 10         0.1          1.5
-## # ... with 140 more rows</code></pre>
+## # … with 140 more rows</code></pre>
 <p>Or remove specific columns with <code>-</code> notation:</p>
 <pre class="r"><code>select(iris, -Petal.Width)</code></pre>
-<pre><code>## # A tibble: 150 x 4
+<pre><code>## # A tibble: 150 × 4
 ##    Sepal.Length Sepal.Width Petal.Length Species
 ##           &lt;dbl&gt;       &lt;dbl&gt;        &lt;dbl&gt; &lt;fct&gt;  
 ##  1          5.1         3.5          1.4 setosa 
@@ -647,10 +685,10 @@ filter(iris, Species == &quot;setosa&quot; | Petal.Length &gt; 5)</code></pre>
 ##  8          5           3.4          1.5 setosa 
 ##  9          4.4         2.9          1.4 setosa 
 ## 10          4.9         3.1          1.5 setosa 
-## # ... with 140 more rows</code></pre>
+## # … with 140 more rows</code></pre>
 <p>You may pick columns starting with specific strings:</p>
 <pre class="r"><code>select(iris, starts_with(&quot;Petal&quot;))</code></pre>
-<pre><code>## # A tibble: 150 x 2
+<pre><code>## # A tibble: 150 × 2
 ##    Petal.Length Petal.Width
 ##           &lt;dbl&gt;       &lt;dbl&gt;
 ##  1          1.4         0.2
@@ -663,10 +701,10 @@ filter(iris, Species == &quot;setosa&quot; | Petal.Length &gt; 5)</code></pre>
 ##  8          1.5         0.2
 ##  9          1.4         0.2
 ## 10          1.5         0.1
-## # ... with 140 more rows</code></pre>
+## # … with 140 more rows</code></pre>
 <p>Or columns ending with specific strings:</p>
 <pre class="r"><code>select(iris, ends_with(&quot;Width&quot;))</code></pre>
-<pre><code>## # A tibble: 150 x 2
+<pre><code>## # A tibble: 150 × 2
 ##    Sepal.Width Petal.Width
 ##          &lt;dbl&gt;       &lt;dbl&gt;
 ##  1         3.5         0.2
@@ -679,22 +717,26 @@ filter(iris, Species == &quot;setosa&quot; | Petal.Length &gt; 5)</code></pre>
 ##  8         3.4         0.2
 ##  9         2.9         0.2
 ## 10         3.1         0.1
-## # ... with 140 more rows</code></pre>
+## # … with 140 more rows</code></pre>
 </div>
 <div id="exercise-1" class="section level3" number="2.2.2">
-<h3 number="2.2.2"><span class="header-section-number">2.2.2</span> Exercise</h3>
+<h3><span class="header-section-number">2.2.2</span> Exercise</h3>
 <ul>
-<li>Select columns <code>Petal.Width</code> and <code>Species</code></li>
+<li>Select columns <code>Petal.Width</code> and
+<code>Species</code></li>
 <li>Select columns other than <code>Species</code></li>
 <li>Select columns ending with <code>Length</code></li>
 </ul>
 </div>
 </div>
 <div id="mutate-add-new-columns" class="section level2" number="2.3">
-<h2 number="2.3"><span class="header-section-number">2.3</span> <code>mutate()</code>: add new columns</h2>
+<h2><span class="header-section-number">2.3</span>
+<code>mutate()</code>: add new columns</h2>
 <div id="basic-usage-2" class="section level3" number="2.3.1">
-<h3 number="2.3.1"><span class="header-section-number">2.3.1</span> Basic usage</h3>
-<p>Sometimes, you want to add new columns to the data frame. We can add new columns with the same number of elements (i.e., number of rows). We use <code>mutate()</code>:</p>
+<h3><span class="header-section-number">2.3.1</span> Basic usage</h3>
+<p>Sometimes, you want to add new columns to the data frame. We can add
+new columns with the same number of elements (i.e., number of rows). We
+use <code>mutate()</code>:</p>
 <pre class="r"><code># new variable x
 x &lt;- 1:nrow(iris)
 
@@ -702,7 +744,7 @@ x &lt;- 1:nrow(iris)
 iris_x &lt;- mutate(iris, new_var = x)
 
 iris_x</code></pre>
-<pre><code>## # A tibble: 150 x 6
+<pre><code>## # A tibble: 150 × 6
 ##    Sepal.Length Sepal.Width Petal.Length Petal.Width Species new_var
 ##           &lt;dbl&gt;       &lt;dbl&gt;        &lt;dbl&gt;       &lt;dbl&gt; &lt;fct&gt;     &lt;int&gt;
 ##  1          5.1         3.5          1.4         0.2 setosa        1
@@ -715,16 +757,20 @@ iris_x</code></pre>
 ##  8          5           3.4          1.5         0.2 setosa        8
 ##  9          4.4         2.9          1.4         0.2 setosa        9
 ## 10          4.9         3.1          1.5         0.1 setosa       10
-## # ... with 140 more rows</code></pre>
+## # … with 140 more rows</code></pre>
 </div>
 </div>
-<div id="arrange-arrange-row-orders" class="section level2" number="2.4">
-<h2 number="2.4"><span class="header-section-number">2.4</span> <code>arrange()</code>: arrange row orders</h2>
+<div id="arrange-arrange-row-orders" class="section level2"
+number="2.4">
+<h2><span class="header-section-number">2.4</span>
+<code>arrange()</code>: arrange row orders</h2>
 <div id="basic-usage-3" class="section level3" number="2.4.1">
-<h3 number="2.4.1"><span class="header-section-number">2.4.1</span> Basic usage</h3>
-<p>You can arrange order of rows with <code>arrange()</code> function. Let’s arrange the data by Sepal.Width. By default, the data will be arrange in an ascending order:</p>
+<h3><span class="header-section-number">2.4.1</span> Basic usage</h3>
+<p>You can arrange order of rows with <code>arrange()</code> function.
+Let’s arrange the data by Sepal.Width. By default, the data will be
+arrange in an ascending order:</p>
 <pre class="r"><code>arrange(iris, Sepal.Width)</code></pre>
-<pre><code>## # A tibble: 150 x 5
+<pre><code>## # A tibble: 150 × 5
 ##    Sepal.Length Sepal.Width Petal.Length Petal.Width Species   
 ##           &lt;dbl&gt;       &lt;dbl&gt;        &lt;dbl&gt;       &lt;dbl&gt; &lt;fct&gt;     
 ##  1          5           2            3.5         1   versicolor
@@ -737,10 +783,11 @@ iris_x</code></pre>
 ##  8          5           2.3          3.3         1   versicolor
 ##  9          4.9         2.4          3.3         1   versicolor
 ## 10          5.5         2.4          3.8         1.1 versicolor
-## # ... with 140 more rows</code></pre>
-<p>You can do a descending order by wrapping the column name with <code>desc()</code></p>
+## # … with 140 more rows</code></pre>
+<p>You can do a descending order by wrapping the column name with
+<code>desc()</code></p>
 <pre class="r"><code>arrange(iris, desc(Sepal.Width))</code></pre>
-<pre><code>## # A tibble: 150 x 5
+<pre><code>## # A tibble: 150 × 5
 ##    Sepal.Length Sepal.Width Petal.Length Petal.Width Species
 ##           &lt;dbl&gt;       &lt;dbl&gt;        &lt;dbl&gt;       &lt;dbl&gt; &lt;fct&gt;  
 ##  1          5.7         4.4          1.5         0.4 setosa 
@@ -753,29 +800,32 @@ iris_x</code></pre>
 ##  8          5.1         3.8          1.5         0.3 setosa 
 ##  9          5.1         3.8          1.9         0.4 setosa 
 ## 10          5.1         3.8          1.6         0.2 setosa 
-## # ... with 140 more rows</code></pre>
+## # … with 140 more rows</code></pre>
 </div>
 <div id="exercise-2" class="section level3" number="2.4.2">
-<h3 number="2.4.2"><span class="header-section-number">2.4.2</span> Exercise</h3>
+<h3><span class="header-section-number">2.4.2</span> Exercise</h3>
 <ul>
 <li>Arrange rows by <code>Species</code></li>
 </ul>
 </div>
 </div>
-<div id="slice-choose-specific-rows" class="section level2" number="2.5">
-<h2 number="2.5"><span class="header-section-number">2.5</span> <code>slice()</code> : choose specific rows</h2>
+<div id="slice-choose-specific-rows" class="section level2"
+number="2.5">
+<h2><span class="header-section-number">2.5</span> <code>slice()</code>
+: choose specific rows</h2>
 <div id="basic-usage-4" class="section level3" number="2.5.1">
-<h3 number="2.5.1"><span class="header-section-number">2.5.1</span> Basic usage</h3>
-<p>You can choose specific number of rows using <code>slice()</code>. You just need give the function row numbers to be selected:</p>
+<h3><span class="header-section-number">2.5.1</span> Basic usage</h3>
+<p>You can choose specific number of rows using <code>slice()</code>.
+You just need give the function row numbers to be selected:</p>
 <pre class="r"><code># select row 1
 slice(iris, 1)</code></pre>
-<pre><code>## # A tibble: 1 x 5
+<pre><code>## # A tibble: 1 × 5
 ##   Sepal.Length Sepal.Width Petal.Length Petal.Width Species
 ##          &lt;dbl&gt;       &lt;dbl&gt;        &lt;dbl&gt;       &lt;dbl&gt; &lt;fct&gt;  
 ## 1          5.1         3.5          1.4         0.2 setosa</code></pre>
 <pre class="r"><code># select row 1 to 5
 slice(iris, 1:5)</code></pre>
-<pre><code>## # A tibble: 5 x 5
+<pre><code>## # A tibble: 5 × 5
 ##   Sepal.Length Sepal.Width Petal.Length Petal.Width Species
 ##          &lt;dbl&gt;       &lt;dbl&gt;        &lt;dbl&gt;       &lt;dbl&gt; &lt;fct&gt;  
 ## 1          5.1         3.5          1.4         0.2 setosa 
@@ -785,14 +835,14 @@ slice(iris, 1:5)</code></pre>
 ## 5          5           3.6          1.4         0.2 setosa</code></pre>
 <pre class="r"><code># select row 1 to 3
 slice(iris, c(1, 3))</code></pre>
-<pre><code>## # A tibble: 2 x 5
+<pre><code>## # A tibble: 2 × 5
 ##   Sepal.Length Sepal.Width Petal.Length Petal.Width Species
 ##          &lt;dbl&gt;       &lt;dbl&gt;        &lt;dbl&gt;       &lt;dbl&gt; &lt;fct&gt;  
 ## 1          5.1         3.5          1.4         0.2 setosa 
 ## 2          4.7         3.2          1.3         0.2 setosa</code></pre>
 </div>
 <div id="exercise-3" class="section level3" number="2.5.2">
-<h3 number="2.5.2"><span class="header-section-number">2.5.2</span> Exercise</h3>
+<h3><span class="header-section-number">2.5.2</span> Exercise</h3>
 <ul>
 <li><p>Choose rows 7 to 10</p></li>
 <li><p>Choose rows 5, 9, and 98</p></li>
@@ -800,15 +850,18 @@ slice(iris, c(1, 3))</code></pre>
 </div>
 </div>
 <div id="pipe" class="section level2" number="2.6">
-<h2 number="2.6"><span class="header-section-number">2.6</span> <code>%&gt;%</code>: pipe</h2>
+<h2><span class="header-section-number">2.6</span> <code>%&gt;%</code>:
+pipe</h2>
 <div id="basic-usage-5" class="section level3" number="2.6.1">
-<h3 number="2.6.1"><span class="header-section-number">2.6.1</span> Basic usage</h3>
-<p>Data manipulation usually involves multiple processes. For example, you might want to reduce the number of columns and then filter rows. This can be done with the following script:</p>
+<h3><span class="header-section-number">2.6.1</span> Basic usage</h3>
+<p>Data manipulation usually involves multiple processes. For example,
+you might want to reduce the number of columns and then filter rows.
+This can be done with the following script:</p>
 <pre class="r"><code>df_selected &lt;- select(iris, Sepal.Length, Species)
 df_final &lt;- filter(df_selected, Species == &quot;setosa&quot;)
 
 print(df_final)</code></pre>
-<pre><code>## # A tibble: 50 x 2
+<pre><code>## # A tibble: 50 × 2
 ##    Sepal.Length Species
 ##           &lt;dbl&gt; &lt;fct&gt;  
 ##  1          5.1 setosa 
@@ -821,16 +874,23 @@ print(df_final)</code></pre>
 ##  8          5   setosa 
 ##  9          4.4 setosa 
 ## 10          4.9 setosa 
-## # ... with 40 more rows</code></pre>
-<p>However, as the number of processes increases, the temporary data frames will increase - this is problematic from the perspective of readability of codes (critical to avoiding potential errors).</p>
-<p>Most functions in <code>tidyverse</code> package will take a data frame as the first argument and then let you enter the command that you want to perform in the second argument. This arrangement is very useful when combined <strong>with pipe notation <code>%&gt;%</code></strong>. It is a little tricky to explain how pipes work, so let’s take a look at the following example:</p>
+## # … with 40 more rows</code></pre>
+<p>However, as the number of processes increases, the temporary data
+frames will increase - this is problematic from the perspective of
+readability of codes (critical to avoiding potential errors).</p>
+<p>Most functions in <code>tidyverse</code> package will take a data
+frame as the first argument and then let you enter the command that you
+want to perform in the second argument. This arrangement is very useful
+when combined <strong>with pipe notation <code>%&gt;%</code></strong>.
+It is a little tricky to explain how pipes work, so let’s take a look at
+the following example:</p>
 <pre class="r"><code>df_final &lt;- iris %&gt;% 
   select(Sepal.Length,
          Species) %&gt;% 
   filter(Species == &quot;setosa&quot;)
 
 print(df_final)</code></pre>
-<pre><code>## # A tibble: 50 x 2
+<pre><code>## # A tibble: 50 × 2
 ##    Sepal.Length Species
 ##           &lt;dbl&gt; &lt;fct&gt;  
 ##  1          5.1 setosa 
@@ -843,8 +903,11 @@ print(df_final)</code></pre>
 ##  8          5   setosa 
 ##  9          4.4 setosa 
 ## 10          4.9 setosa 
-## # ... with 40 more rows</code></pre>
-<p>The above script performs commands identical to the first example - but the codes are sequentially organized with pipes, which <strong>pass the data frame to the next function as the first argument</strong>. You can add multiple manipulations as many as you want with pipes:</p>
+## # … with 40 more rows</code></pre>
+<p>The above script performs commands identical to the first example -
+but the codes are sequentially organized with pipes, which <strong>pass
+the data frame to the next function as the first argument</strong>. You
+can add multiple manipulations as many as you want with pipes:</p>
 <pre class="r"><code>df_short_sepal &lt;- iris %&gt;% 
   select(Sepal.Length,
          Species) %&gt;% 
@@ -853,7 +916,7 @@ print(df_final)</code></pre>
   slice(1:3)
 
 print(df_short_sepal)</code></pre>
-<pre><code>## # A tibble: 3 x 2
+<pre><code>## # A tibble: 3 × 2
 ##   Sepal.Length Species
 ##          &lt;dbl&gt; &lt;fct&gt;  
 ## 1          4.3 setosa 
@@ -861,27 +924,36 @@ print(df_short_sepal)</code></pre>
 ## 3          4.4 setosa</code></pre>
 </div>
 <div id="exercise-4" class="section level3" number="2.6.2">
-<h3 number="2.6.2"><span class="header-section-number">2.6.2</span> Exercise</h3>
+<h3><span class="header-section-number">2.6.2</span> Exercise</h3>
 <p>Using pipe, do the following:</p>
 <ul>
-<li><p>Find data rows that contain the three widest <code>Sepal.Width</code> for species <code>virginica</code></p></li>
-<li><p>Arrange data rows according to <code>Sepal.Length</code> and add a new column with sequential ID numbers (0 - 100) from the shortest to the longest <code>Sepal.Length</code></p></li>
+<li><p>Find data rows that contain the three widest
+<code>Sepal.Width</code> for species <code>virginica</code></p></li>
+<li><p>Arrange data rows according to <code>Sepal.Length</code> and add
+a new column with sequential ID numbers (0 - 100) from the shortest to
+the longest <code>Sepal.Length</code></p></li>
 </ul>
 <hr />
 </div>
 </div>
 </div>
 <div id="group-manipulation" class="section level1" number="3">
-<h1 number="3"><span class="header-section-number">3</span> GROUP MANIPULATION</h1>
+<h1><span class="header-section-number">3</span> GROUP MANIPULATION</h1>
 <hr />
 <div id="group_by-and-summarize" class="section level2" number="3.1">
-<h2 number="3.1"><span class="header-section-number">3.1</span> <code>group_by()</code> and <code>summarize()</code></h2>
+<h2><span class="header-section-number">3.1</span>
+<code>group_by()</code> and <code>summarize()</code></h2>
 <div id="basic-usage-6" class="section level3" number="3.1.1">
-<h3 number="3.1.1"><span class="header-section-number">3.1.1</span> Basic usage</h3>
-<p>One of the beauties in <code>tidyverse</code> is its ability to manipulate data by group - for example, it is very common for ecologists to show summary statistics by species. Such manipulation can be cumbersome, but with <code>tidyverse</code>, magic will happen. We will use <code>group_by()</code> function to create a group structure in a data frame:</p>
+<h3><span class="header-section-number">3.1.1</span> Basic usage</h3>
+<p>One of the beauties in <code>tidyverse</code> is its ability to
+manipulate data by group - for example, it is very common for ecologists
+to show summary statistics by species. Such manipulation can be
+cumbersome, but with <code>tidyverse</code>, magic will happen. We will
+use <code>group_by()</code> function to create a group structure in a
+data frame:</p>
 <pre class="r"><code>iris_grouped &lt;- group_by(iris, Species)
 print(iris_grouped)</code></pre>
-<pre><code>## # A tibble: 150 x 5
+<pre><code>## # A tibble: 150 × 5
 ## # Groups:   Species [3]
 ##    Sepal.Length Sepal.Width Petal.Length Petal.Width Species
 ##           &lt;dbl&gt;       &lt;dbl&gt;        &lt;dbl&gt;       &lt;dbl&gt; &lt;fct&gt;  
@@ -895,47 +967,58 @@ print(iris_grouped)</code></pre>
 ##  8          5           3.4          1.5         0.2 setosa 
 ##  9          4.4         2.9          1.4         0.2 setosa 
 ## 10          4.9         3.1          1.5         0.1 setosa 
-## # ... with 140 more rows</code></pre>
-<p>It looks like there is no change in the data structure, but in the output, it says there are species groups based on <code>Species</code> column. Once you created a group structure in a data frame, you can manipulate data by group using <code>summarize()</code> function. Let’s estimate the means of <code>Sepal.Length</code> for each species. Pipes are particularly useful here:</p>
+## # … with 140 more rows</code></pre>
+<p>It looks like there is no change in the data structure, but in the
+output, it says there are species groups based on <code>Species</code>
+column. Once you created a group structure in a data frame, you can
+manipulate data by group using <code>summarize()</code> function. Let’s
+estimate the means of <code>Sepal.Length</code> for each species. Pipes
+are particularly useful here:</p>
 <pre class="r"><code>iris %&gt;% 
   group_by(Species) %&gt;% 
   summarize(mean_sepal_length = mean(Sepal.Length)) %&gt;% 
   print()</code></pre>
-<pre><code>## # A tibble: 3 x 2
+<pre><code>## # A tibble: 3 × 2
 ##   Species    mean_sepal_length
 ##   &lt;fct&gt;                  &lt;dbl&gt;
 ## 1 setosa                  5.01
 ## 2 versicolor              5.94
 ## 3 virginica               6.59</code></pre>
-<p>You can use any function to calculate summary statistics. For example, add another ‘summarized’ column for SDs:</p>
+<p>You can use any function to calculate summary statistics. For
+example, add another ‘summarized’ column for SDs:</p>
 <pre class="r"><code>iris %&gt;% 
   group_by(Species) %&gt;% 
   summarize(mean_sepal_length = mean(Sepal.Length),
             sd_sepal_length = sd(Sepal.Length)) %&gt;% 
   print()</code></pre>
-<pre><code>## # A tibble: 3 x 3
+<pre><code>## # A tibble: 3 × 3
 ##   Species    mean_sepal_length sd_sepal_length
 ##   &lt;fct&gt;                  &lt;dbl&gt;           &lt;dbl&gt;
 ## 1 setosa                  5.01           0.352
 ## 2 versicolor              5.94           0.516
 ## 3 virginica               6.59           0.636</code></pre>
-<p>This is a very basic example - you can tweak and combine functions in different ways to achieve your data manipulation more effectively.</p>
+<p>This is a very basic example - you can tweak and combine functions in
+different ways to achieve your data manipulation more effectively.</p>
 </div>
 <div id="exercise-5" class="section level3" number="3.1.2">
-<h3 number="3.1.2"><span class="header-section-number">3.1.2</span> Exercise</h3>
+<h3><span class="header-section-number">3.1.2</span> Exercise</h3>
 <ul>
-<li><p>Estimate the means and SDs of <code>Sepal.Width</code> by species.</p></li>
-<li><p>Which species has the widest <code>Sepal.Width</code> on average? Combine <code>group_by()</code>, <code>summarize()</code>, <code>arrange()</code>, and <code>slice()</code> functions to extract the row with the widest mean of <code>Sepal.Width</code>.</p></li>
+<li><p>Estimate the means and SDs of <code>Sepal.Width</code> by
+species.</p></li>
+<li><p>Which species has the widest <code>Sepal.Width</code> on average?
+Combine <code>group_by()</code>, <code>summarize()</code>,
+<code>arrange()</code>, and <code>slice()</code> functions to extract
+the row with the widest mean of <code>Sepal.Width</code>.</p></li>
 </ul>
 <hr />
 </div>
 </div>
 </div>
 <div id="data-visualization" class="section level1" number="4">
-<h1 number="4"><span class="header-section-number">4</span> DATA VISUALIZATION</h1>
+<h1><span class="header-section-number">4</span> DATA VISUALIZATION</h1>
 <hr />
 <div id="section" class="section level2" number="4.1">
-<h2 number="4.1"><span class="header-section-number">4.1</span> </h2>
+<h2><span class="header-section-number">4.1</span> </h2>
 </div>
 </div>
 

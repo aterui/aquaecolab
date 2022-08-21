@@ -17,27 +17,27 @@ library(icon)
 
 We study **Aquati**c ecosystems using skills of **Qu**antitative **E**cology. We are particularly excited about combining theoretical, statistical, and field-based approaches to address fundamental and applied questions in spatial ecology. Inquiries? Shoot an email to Akira Terui [**a_terui\@uncg.edu**](mailto:a_terui@uncg.edu){.email}. Looking for opportunities? Visit [`r icon::fa("users")` Join](join.html) for available options. Current key topics in our group include the following:
 
-::: {.clearfix}
+::: clearfix
 <img src="image/img01.jpg" style="width: 40%" align="left"/>
 
 ### Branching complexity and biodiversity in rivers
 
-Rivers recurrently join to form a fractal branching network, in which geometric properties (e.g., branching patterns) remain similar across spatial scales. We are interested in how this "scale-invariant" complexity drives ecological systems. We tackle this question with mathematical models and big-data synthesis. Core part of this project has recently been funded by NSF ([link](https://nsf.gov/awardsearch/showAward?AWD_ID=2015634&HistoricalAwards=false)). Photo credit <a href="https://pixabay.com/ja/?utm_source=link-attribution&amp;utm_medium=referral&amp;utm_campaign=image&amp;utm_content=1031760">Pixabay</a>. **Related publications** - [Terui et al. 2018 PNAS](https://www.pnas.org/content/115/26/E5963), [Terui et al 2014 Ecology and Evolution](https://onlinelibrary.wiley.com/doi/full/10.1002/ece3.1135).
+Rivers recurrently join to form a fractal branching network, in which geometric properties (e.g., branching patterns) remain similar across spatial scales. We are interested in how this "scale-invariant" complexity drives ecological systems. We tackle this question with mathematical models and big-data synthesis. Core part of this project has recently been funded by NSF ([link](https://nsf.gov/awardsearch/showAward?AWD_ID=2015634&HistoricalAwards=false)). Photo credit <a href="https://pixabay.com/ja/?utm_source=link-attribution&amp;utm_medium=referral&amp;utm_campaign=image&amp;utm_content=1031760">Pixabay</a>. **Related publications** - [Terui et al. 2018 PNAS](https://www.pnas.org/content/115/26/E5963), [Terui et al 2014 Ecology and Evolution](https://onlinelibrary.wiley.com/doi/full/10.1002/ece3.1135), [Terui et al. 2021 PNAS](https://www.pnas.org/doi/abs/10.1073/pnas.2105574118).
 :::
 
 \
 
-::: {.clearfix}
+::: clearfix
 <img src="image/img02.jpg" style="width: 40%; margin-right: 20px" align="left"/>
 
 ### Non-random dispersal
 
-Dispersal is a fundamental process that mediates disease spread, metapopulation/metacommunity dynamics, and food webs. Although dispersal is often assumed to be a "stochastic" event in population/community ecology, behavioral ecologists have long recognized that dispersal is triggered by internal (e.g., body size) and/or external (e.g., disturbance) factors. We are interested in integrating behavioral aspects of dispersal into population and community ecology. Photo: Masu salmon *Oncorhynchus masou masou.* **Related publications** -Terui et al. 2022 Freshwater Biology, [Terui et al. 2017 Proceedings of the Royal Society B: Biological Sciences](https://royalsocietypublishing.org/doi/full/10.1098/rspb.2017.1491).
+Dispersal is a fundamental process that mediates disease spread, metapopulation/metacommunity dynamics, and food webs. Although dispersal is often assumed to be a "stochastic" event in population/community ecology, behavioral ecologists have long recognized that dispersal is triggered by internal (e.g., body size) and/or external (e.g., disturbance) factors. We are interested in integrating behavioral aspects of dispersal into population and community ecology. Photo: Masu salmon *Oncorhynchus masou masou.* **Related publications** -[Terui et al. 2022 Freshwater Biology](https://onlinelibrary.wiley.com/doi/abs/10.1111/fwb.13796), [Terui et al. 2017 Proceedings of the Royal Society B: Biological Sciences](https://royalsocietypublishing.org/doi/full/10.1098/rspb.2017.1491).
 :::
 
 \
 
-::: {.clearfix}
+::: clearfix
 <img src="image/img03.jpg" style="width: 40%; margin-right: 20px" align="left"/>
 
 ### Cross-system trophic interactions
@@ -47,10 +47,10 @@ Ecosystems are not a stand-alone entity; rather, they are connected through reso
 
 \
 
-::: {.clearfix}
+::: clearfix
 <img src="image/img04.jpg" style="width: 40%; margin-right: 20px" align="left"/>
 
-### Applications of spatial theory to wetland conservation
+### Wetland conservation
 
-We use metapopulation/metacommunity theories to identify important areas to maintain regional population persistence of wetland species. Photo credit: Melanie Stadler
+Where is the best place to conserve? This question is critical to increasing the benefit of conservation efforts in human-dominated landscapes. We use quantitative modeling coupled with metapopulation/metacommunity theories to identify important areas to maintain regional population persistence of wetland species. Photo credit: Melanie Stadler
 :::

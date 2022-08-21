@@ -13,8 +13,8 @@
 
 <title>Team</title>
 
-<script src="site_libs/header-attrs-2.9/header-attrs.js"></script>
-<script src="site_libs/jquery-1.11.3/jquery.min.js"></script>
+<script src="site_libs/header-attrs-2.15/header-attrs.js"></script>
+<script src="site_libs/jquery-3.6.0/jquery-3.6.0.min.js"></script>
 <meta name="viewport" content="width=device-width, initial-scale=1" />
 <link href="site_libs/bootstrap-3.3.5/css/paper.min.css" rel="stylesheet" />
 <script src="site_libs/bootstrap-3.3.5/js/bootstrap.min.js"></script>
@@ -67,6 +67,7 @@ if (window.hljs) {
 
 
 
+
 <link rel="stylesheet" href="style_web.css" type="text/css" />
 
 
@@ -91,6 +92,9 @@ button.code-folding-btn:focus {
 }
 summary {
   display: list-item;
+}
+details > summary > p:only-child {
+  display: inline;
 }
 pre code {
   padding: 0;
@@ -148,11 +152,15 @@ $(document).ready(function () {
     href = "index.html";
   var menuAnchor = $('a[href="' + href + '"]');
 
-  // mark it active
-  menuAnchor.tab('show');
-
-  // if it's got a parent navbar menu mark it active as well
-  menuAnchor.closest('li.dropdown').addClass('active');
+  // mark the anchor link active (and if it's in a dropdown, also mark that active)
+  var dropdown = menuAnchor.closest('li.dropdown');
+  if (window.bootstrap) { // Bootstrap 4+
+    menuAnchor.addClass('active');
+    dropdown.find('> .dropdown-toggle').addClass('active');
+  } else { // Bootstrap 3
+    menuAnchor.parent().addClass('active');
+    dropdown.addClass('active');
+  }
 
   // Navbar adjustments
   var navHeight = $(".navbar").first().height() + 15;
@@ -243,7 +251,7 @@ $(document).ready(function () {
 <div class="navbar navbar-default  navbar-fixed-top" role="navigation">
   <div class="container">
     <div class="navbar-header">
-      <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar">
+      <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-bs-toggle="collapse" data-target="#navbar" data-bs-target="#navbar">
         <span class="icon-bar"></span>
         <span class="icon-bar"></span>
         <span class="icon-bar"></span>
@@ -281,7 +289,7 @@ $(document).ready(function () {
   </a>
 </li>
 <li class="dropdown">
-  <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">
+  <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
     <span class="fa fa-desktop"></span>
      
     Programming
@@ -304,7 +312,7 @@ $(document).ready(function () {
   </ul>
 </li>
 <li class="dropdown">
-  <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">
+  <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
     <span class="fa fa-user-graduate"></span>
      
     Teaching
@@ -335,7 +343,7 @@ $(document).ready(function () {
 
 
 <h1 class="title toc-ignore">Team</h1>
-<h4 class="date">Latest update - 27 February, 2022</h4>
+<h4 class="date">Latest update - 21 August, 2022</h4>
 
 </div>
 
@@ -343,35 +351,116 @@ $(document).ready(function () {
 <div id="current-members" class="section level3">
 <h3>Current members</h3>
 <div class="clearfix">
-<p><img src="image/img_sk.jpg" align="left" style="vertical-align:top;" width="150" /> <strong>Dr. Seoghyun Kim</strong>, Postdoc <a href="https://github.com/seoghyunkim/"><i class="fab  fa-github "></i></a> <a href="https://www.researchgate.net/profile/Seoghyun_Kim"><i class="fab  fa-researchgate "></i></a><br />
+<p><img src="image/img_sk.jpg" align="left" style="vertical-align:top;"
+width="150" /> <strong>Dr. Seoghyun Kim</strong>, Postdoc <a
+href="https://github.com/seoghyunkim/"><i class="fab  fa-github "></i></a>
+<a
+href="https://www.researchgate.net/profile/Seoghyun_Kim"><i class="fab  fa-researchgate "></i></a><br />
 </p>
-<p>My research focuses on stream fish ecology and conservation using various techniques such as automated individual tracking techniques and genetic framework. I am interested in (1) how similar fish species co-exist in their sympatric areas, (2) effects of environmental stressors on fish community structure, and (3) how individual traits (e.g., behavior) affect reproductive success. My doctoral dissertation was to characterize reproductive ecology of nest-building stream fish (bluehead chub) and assess the effects of interactions among individuals and their variation on fitness consequences. As a postdoctoral fellow in Dr. Akira Terui’s lab, I am currently handling a huge dataset to understand impacts of various environmental factors on fish metacommunity. More information is in: <a href="https://seoghkim.weebly.com/" class="uri">https://seoghkim.weebly.com/</a></p>
+<p>My research focuses on stream fish ecology and conservation using
+various techniques such as automated individual tracking techniques and
+genetic framework. I am interested in (1) how similar fish species
+co-exist in their sympatric areas, (2) effects of environmental
+stressors on fish community structure, and (3) how individual traits
+(e.g., behavior) affect reproductive success. My doctoral dissertation
+was to characterize reproductive ecology of nest-building stream fish
+(bluehead chub) and assess the effects of interactions among individuals
+and their variation on fitness consequences. As a postdoctoral fellow in
+Dr. Akira Terui’s lab, I am currently handling a huge dataset to
+understand impacts of various environmental factors on fish
+metacommunity. More information is in: <a
+href="https://seoghkim.weebly.com/"
+class="uri">https://seoghkim.weebly.com/</a></p>
 </div>
 <p><br />
 </p>
 <div class="clearfix">
-<p><img src="image/img_al.jpeg" align="left" style="vertical-align:top;" width="150" /> <strong>Ashley LaRoque</strong>, Ph.D student</p>
-<p>Being from Minnesota, my love of freshwater started at a young age. I grew up never more than a half mile from a lake. This allowed me to explore aquatic ecology at a young age. As I dove deeper into my education at the University of Minnesota, I realized the importance of freshwater ecology and earned my Bachelor’s degree in Ecology, Evolution, and Behavior. My previous research quantified how temperature change in lakes has impacted the phenology of spawning in freshwater fish. I also have experience on a stable isotope project looking at the impact of invasive species on predatory fish. As a Ph.D. student in Environmental Health Sciences at UNCG, my research revolves around stream ecology. I am working on a mark-recapture study using passive integrated transponder tags to understand fish behavior. Outside of my research in fisheries, I love to go fishing, cook, play with my cat Hudson, and go hiking.</p>
+<p><img src="image/img_al.jpeg" align="left" style="vertical-align:top;"
+width="150" /> <strong>Ashley LaRoque</strong>, Ph.D student</p>
+<p>Being from Minnesota, my love of freshwater started at a young age. I
+grew up never more than a half mile from a lake. This allowed me to
+explore aquatic ecology at a young age. As I dove deeper into my
+education at the University of Minnesota, I realized the importance of
+freshwater ecology and earned my Bachelor’s degree in Ecology,
+Evolution, and Behavior. My previous research quantified how temperature
+change in lakes has impacted the phenology of spawning in freshwater
+fish. I also have experience on a stable isotope project looking at the
+impact of invasive species on predatory fish. As a Ph.D. student in
+Environmental Health Sciences at UNCG, my research revolves around
+stream ecology. I am working on a mark-recapture study using passive
+integrated transponder tags to understand fish behavior. Outside of my
+research in fisheries, I love to go fishing, cook, play with my cat
+Hudson, and go hiking.</p>
 </div>
 <p><br />
 </p>
 <div class="clearfix">
-<p><img src="image/img_ms.jpg" align="left" style="vertical-align:top;" width="150" /> <strong>Melanie Stadler</strong>, Ph.D. student <a href="https://www.researchgate.net/profile/Melanie_Stadler"><i class="fab  fa-researchgate "></i></a></p>
-<p>I grew up in the middle of Kansas, with incredible parents who encouraged my love of nature and wanting to learn about the world around me. While earning a bachelor’s degree in Biology from UNCG, I was introduced to the world of turtle and tortoise biology and conservation. I earned an MS in Biological Sciences and GIS certificate from Florida Atlantic University, studying the habitat and foraging ecology of juvenile green turtles on nearshore reefs in Florida. Prior to returning to North Carolina, I worked as a Sea Turtle Biologist in Florida for eight years where I supervised two nesting beach programs, participated in some amazing research projects, and managed the overhaul and daily operations of two sea turtle rehabilitation centers. I am interested in spatial ecology, ecological biogeography, and habitat connectivity, especially in turtles and other herp species. I am excited to be part of UNCG’s Department of Biology, Environmental Health Science PhD program, and I plan to focus my PhD research on threatened bog turtles and their wetland habitat in North Carolina. I live with my husband, Brian, our bearded dragon, and two dog children in Greensboro. In my spare time, you will find me running or biking on one of our extraordinary local hiking trails, birdwatching, curled up with a good book, or in the kitchen experimenting with a new vegetarian recipe.</p>
+<p><img src="image/img_ms.jpg" align="left" style="vertical-align:top;"
+width="150" /> <strong>Melanie Stadler</strong>, Ph.D. student <a
+href="https://www.researchgate.net/profile/Melanie_Stadler"><i class="fab  fa-researchgate "></i></a></p>
+<p>I grew up in the middle of Kansas, with incredible parents who
+encouraged my love of nature and wanting to learn about the world around
+me. While earning a bachelor’s degree in Biology from UNCG, I was
+introduced to the world of turtle and tortoise biology and conservation.
+I earned an MS in Biological Sciences and GIS certificate from Florida
+Atlantic University, studying the habitat and foraging ecology of
+juvenile green turtles on nearshore reefs in Florida. Prior to returning
+to North Carolina, I worked as a Sea Turtle Biologist in Florida for
+eight years where I supervised two nesting beach programs, participated
+in some amazing research projects, and managed the overhaul and daily
+operations of two sea turtle rehabilitation centers. I am interested in
+spatial ecology, ecological biogeography, and habitat connectivity,
+especially in turtles and other herp species. I am excited to be part of
+UNCG’s Department of Biology, Environmental Health Science PhD program,
+and I plan to focus my PhD research on threatened bog turtles and their
+wetland habitat in North Carolina. I live with my husband, Brian, our
+bearded dragon, and two dog children in Greensboro. In my spare time,
+you will find me running or biking on one of our extraordinary local
+hiking trails, birdwatching, curled up with a good book, or in the
+kitchen experimenting with a new vegetarian recipe.</p>
 </div>
 <p><br />
 </p>
 <div class="clearfix">
-<p><img src="image/img_at.jpg" align="left" style="vertical-align:top;" width="150" /> <strong>Dr. Akira Terui</strong>, PI <a href="https://github.com/aterui/"><i class="fab  fa-github "></i></a> <a href="https://scholar.google.com/citations?user=H9OuCKsAAAAJ&amp;hl=ja&amp;authuser=1"><i class="fas  fa-user-graduate "></i></a> <a href="https://publons.com/researcher/1241876/akira-terui/"><i class="fas  fa-book "></i></a><br />
+<p><img src="image/img_at.jpg" align="left" style="vertical-align:top;"
+width="150" /> <strong>Dr. Akira Terui</strong>, PI <a
+href="https://github.com/aterui/"><i class="fab  fa-github "></i></a> <a
+href="https://scholar.google.com/citations?user=H9OuCKsAAAAJ&amp;hl=ja&amp;authuser=1"><i class="fas  fa-user-graduate "></i></a>
+<a
+href="https://publons.com/researcher/1241876/akira-terui/"><i class="fas  fa-book "></i></a><br />
 </p>
-<p>I’m interested in spatial ecology in general. My research career started at the University of Tokyo where I studied metapopulation structure of the endagered freshwater mussel <em>Margaritifera laevis</em>. After obtaining Ph.D., my research interests expanded. Thus far, I studied freshwater mussels, fish, aquatic and terrestrial insects, plants, and seabirds in collaboration with excellent researchers across the globe. While my research spans across multiple taxa, all tied with a common thread - space. More recently, I started using mathematical approaches and try to integrate theoretical and field research. I’m a lover of streams, tennis, and programming in R. Small gardening became one of my hobbies during quarantine.</p>
+<p>I’m interested in spatial ecology in general. My research career
+started at the University of Tokyo where I studied metapopulation
+structure of the endagered freshwater mussel <em>Margaritifera
+laevis</em>. After obtaining Ph.D., my research interests expanded. Thus
+far, I studied freshwater mussels, fish, aquatic and terrestrial
+insects, plants, and seabirds in collaboration with excellent
+researchers across the globe. While my research spans across multiple
+taxa, all tied with a common thread - space. More recently, I started
+using mathematical approaches and try to integrate theoretical and field
+research. I’m a lover of streams, tennis, and programming in R. Small
+gardening became one of my hobbies during quarantine.</p>
 </div>
 <p><br />
 </p>
 <div class="clearfix">
-<p><img src="image/img_cw.jpg" align="left" style="vertical-align:top;" width="150" /> <strong>Dr. Charles Wahl</strong>, Postdoc<br />
+<p><img src="image/img_cw.jpg" align="left" style="vertical-align:top;"
+width="150" /> <strong>Dr. Charles Wahl</strong>, Postdoc<br />
 </p>
-<p>My research focus is to understand processes that structure populations and communities in freshwater habitats with a focus on the role of anthropogenic disturbance. Human induced disturbances, such as the introduction of invasive species, habitat fragmentation and eutrophication, are becoming more prevalent. These impacts modify the local (habitat complexity and species interactions) and regional (dispersal) processes that structure ecosystems, resulting in changes to ecological state and altering the movement of energy through the system. I am also interested in how biological control can be used to reduce impacts from invasive species on ecosystem structure and function. Current research as a postdoc in Dr. Akira Terui’s lab involves using metapopulation theory to examine the population and spatial structure of an endangered fish species, topeka shiner (<em>Notropis topeka</em>), to guide restoration and conservation efforts.<br />
+<p>My research focus is to understand processes that structure
+populations and communities in freshwater habitats with a focus on the
+role of anthropogenic disturbance. Human induced disturbances, such as
+the introduction of invasive species, habitat fragmentation and
+eutrophication, are becoming more prevalent. These impacts modify the
+local (habitat complexity and species interactions) and regional
+(dispersal) processes that structure ecosystems, resulting in changes to
+ecological state and altering the movement of energy through the system.
+I am also interested in how biological control can be used to reduce
+impacts from invasive species on ecosystem structure and function.
+Current research as a postdoc in Dr. Akira Terui’s lab involves using
+metapopulation theory to examine the population and spatial structure of
+an endangered fish species, topeka shiner (<em>Notropis topeka</em>), to
+guide restoration and conservation efforts.<br />
 </p>
 </div>
 </div>

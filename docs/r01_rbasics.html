@@ -13,8 +13,8 @@
 
 <title>R BASICS</title>
 
-<script src="site_libs/header-attrs-2.9/header-attrs.js"></script>
-<script src="site_libs/jquery-1.11.3/jquery.min.js"></script>
+<script src="site_libs/header-attrs-2.15/header-attrs.js"></script>
+<script src="site_libs/jquery-3.6.0/jquery-3.6.0.min.js"></script>
 <meta name="viewport" content="width=device-width, initial-scale=1" />
 <link href="site_libs/bootstrap-3.3.5/css/paper.min.css" rel="stylesheet" />
 <script src="site_libs/bootstrap-3.3.5/js/bootstrap.min.js"></script>
@@ -73,6 +73,7 @@ if (window.hljs) {
 
 
 
+
 <link rel="stylesheet" href="style_web.css" type="text/css" />
 
 
@@ -97,6 +98,9 @@ button.code-folding-btn:focus {
 }
 summary {
   display: list-item;
+}
+details > summary > p:only-child {
+  display: inline;
 }
 pre code {
   padding: 0;
@@ -154,11 +158,15 @@ $(document).ready(function () {
     href = "index.html";
   var menuAnchor = $('a[href="' + href + '"]');
 
-  // mark it active
-  menuAnchor.tab('show');
-
-  // if it's got a parent navbar menu mark it active as well
-  menuAnchor.closest('li.dropdown').addClass('active');
+  // mark the anchor link active (and if it's in a dropdown, also mark that active)
+  var dropdown = menuAnchor.closest('li.dropdown');
+  if (window.bootstrap) { // Bootstrap 4+
+    menuAnchor.addClass('active');
+    dropdown.find('> .dropdown-toggle').addClass('active');
+  } else { // Bootstrap 3
+    menuAnchor.parent().addClass('active');
+    dropdown.addClass('active');
+  }
 
   // Navbar adjustments
   var navHeight = $(".navbar").first().height() + 15;
@@ -322,7 +330,7 @@ div.tocify {
 <div class="navbar navbar-default  navbar-fixed-top" role="navigation">
   <div class="container">
     <div class="navbar-header">
-      <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar">
+      <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-bs-toggle="collapse" data-target="#navbar" data-bs-target="#navbar">
         <span class="icon-bar"></span>
         <span class="icon-bar"></span>
         <span class="icon-bar"></span>
@@ -360,7 +368,7 @@ div.tocify {
   </a>
 </li>
 <li class="dropdown">
-  <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">
+  <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
     <span class="fa fa-desktop"></span>
      
     Programming
@@ -383,7 +391,7 @@ div.tocify {
   </ul>
 </li>
 <li class="dropdown">
-  <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">
+  <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
     <span class="fa fa-user-graduate"></span>
      
     Teaching
@@ -414,95 +422,134 @@ div.tocify {
 
 
 <h1 class="title toc-ignore">R BASICS</h1>
-<h4 class="date">Latest update - 27 February, 2022</h4>
+<h4 class="date">Latest update - 21 August, 2022</h4>
 
 </div>
 
 
 <hr />
 <div id="getting-started" class="section level1" number="1">
-<h1 number="1"><span class="header-section-number">1</span> GETTING STARTED</h1>
+<h1><span class="header-section-number">1</span> GETTING STARTED</h1>
 <hr />
 <div id="install-r-and-r-studio" class="section level2" number="1.1">
-<h2 number="1.1"><span class="header-section-number">1.1</span> Install R and R Studio</h2>
+<h2><span class="header-section-number">1.1</span> Install R and R
+Studio</h2>
 <p>R and R Studio can be installed from the following websites:</p>
 <ul>
-<li><a href="https://www.r-project.org/">R</a> (you can choose any CRAN mirror to download)</li>
-<li><a href="https://rStudio.com/products/rStudio/download/">R Studio</a></li>
+<li><a href="https://www.r-project.org/">R</a> (you can choose any CRAN
+mirror to download)</li>
+<li><a href="https://rStudio.com/products/rStudio/download/">R
+Studio</a></li>
 </ul>
-<p>While R is stand-alone software, I strongly recommend to use it with R Studio. R Studio has many functions that help your data analysis.<br />
+<p>While R is stand-alone software, I strongly recommend to use it with
+R Studio. R Studio has many functions that help your data
+analysis.<br />
 <br />
 </p>
 </div>
 <div id="basic-setup" class="section level2" number="1.2">
-<h2 number="1.2"><span class="header-section-number">1.2</span> Basic Setup</h2>
+<h2><span class="header-section-number">1.2</span> Basic Setup</h2>
 <div id="interface" class="section level3" number="1.2.1">
-<h3 number="1.2.1"><span class="header-section-number">1.2.1</span> Interface</h3>
+<h3><span class="header-section-number">1.2.1</span> Interface</h3>
 <p><img src="image/R_image1.png" /></p>
-<p>R Studio interface. The left half of the screen is <strong>“console”</strong> where you put your script to execute calculation/data manipulation/analysis (ignore the tab “Terminal” at this point). The right bottom shows a folder in which you are working now – i.e., <strong>“working folder or directory”</strong>. R does not recognize any files outside of this folder, so be sure to pick the right directory when you work in R.</p>
+<p>R Studio interface. The left half of the screen is
+<strong>“console”</strong> where you put your script to execute
+calculation/data manipulation/analysis (ignore the tab “Terminal” at
+this point). The right bottom shows a folder in which you are working
+now – i.e., <strong>“working folder or directory”</strong>. R does not
+recognize any files outside of this folder, so be sure to pick the right
+directory when you work in R.</p>
 </div>
 <div id="create-project" class="section level3" number="1.2.2">
-<h3 number="1.2.2"><span class="header-section-number">1.2.2</span> Create Project</h3>
-<p>As you proceed, numerous materials will be generated. How do we manage files? No worries, R Studio will help organize files by creating a project. To initiate the process of creating a project:</p>
+<h3><span class="header-section-number">1.2.2</span> Create Project</h3>
+<p>As you proceed, numerous materials will be generated. How do we
+manage files? No worries, R Studio will help organize files by creating
+a project. To initiate the process of creating a project:</p>
 <ol style="list-style-type: lower-alpha">
 <li>go to <code>File &gt; New Project</code> on the top menu</li>
 <li>select <code>New Directory</code></li>
 <li>select <code>New Project</code></li>
 </ol>
-<p>A new window pops up and prompts you to name a directory and where to put the directory in your computer. Click <code>Browse</code> to select a location for the directory. I would create a folder for R projects (e.g., <code>RProject</code>) and save project directories under this folder. Click <strong>Create Project</strong> once you decided directory name and location:</p>
+<p>A new window pops up and prompts you to name a directory and where to
+put the directory in your computer. Click <code>Browse</code> to select
+a location for the directory. I would create a folder for R projects
+(e.g., <code>RProject</code>) and save project directories under this
+folder. Click <strong>Create Project</strong> once you decided directory
+name and location:</p>
 <p><img src="image/R_image5.png" /></p>
 </div>
 <div id="find-where-you-are" class="section level3" number="1.2.3">
-<h3 number="1.2.3"><span class="header-section-number">1.2.3</span> Find Where You Are</h3>
-<p>Once you created a project, R Studio will take you to where the R project is located. Check the current directory using the following script:</p>
+<h3><span class="header-section-number">1.2.3</span> Find Where You
+Are</h3>
+<p>Once you created a project, R Studio will take you to where the R
+project is located. Check the current directory using the following
+script:</p>
 <pre class="r"><code>getwd()</code></pre>
 <pre><code>## [1] &quot;C:/Users/Akira/OneDrive - UNCG/Documents/github/aquaecolab&quot;</code></pre>
-<p>However, when you next open R Studio, the initial location could be somewhere else. In that case, go to <code>File &gt; Open Project</code> and open the <code>.Rproj</code> file that you just created. This will take you to the directory you are supposed to be.<br />
+<p>However, when you next open R Studio, the initial location could be
+somewhere else. In that case, go to <code>File &gt; Open Project</code>
+and open the <code>.Rproj</code> file that you just created. This will
+take you to the directory you are supposed to be.<br />
 <br />
 </p>
 </div>
 </div>
 <div id="object" class="section level2" number="1.3">
-<h2 number="1.3"><span class="header-section-number">1.3</span> Object</h2>
+<h2><span class="header-section-number">1.3</span> Object</h2>
 <div id="create-object" class="section level3" number="1.3.1">
-<h3 number="1.3.1"><span class="header-section-number">1.3.1</span> Create Object</h3>
+<h3><span class="header-section-number">1.3.1</span> Create Object</h3>
 <p>Let’s play with R. Put the following script in your console.</p>
 <pre class="r"><code>x &lt;- c(10.1, 5.3, 8.8, 6.7, 8.2)</code></pre>
-<p>This script creates a vector of numbers composed of {10.1, 5.3, 8.8, 6.7, 8.2}. <code>x</code> is a ‘box’ where the vector information is stored, and ‘&lt;-’ is the arrow that commands R to store {10.1, 5.3, 8.8, 6.7, 8.2} in a box <code>x</code>. <code>x</code> is referred to as an <strong>object</strong>. Let’s see what’s in <code>x</code>:</p>
+<p>This script creates a vector of numbers composed of {10.1, 5.3, 8.8,
+6.7, 8.2}. <code>x</code> is a ‘box’ where the vector information is
+stored, and ‘&lt;-’ is the arrow that commands R to store {10.1, 5.3,
+8.8, 6.7, 8.2} in a box <code>x</code>. <code>x</code> is referred to as
+an <strong>object</strong>. Let’s see what’s in <code>x</code>:</p>
 <pre class="r"><code>x</code></pre>
 <pre><code>## [1] 10.1  5.3  8.8  6.7  8.2</code></pre>
-<p>R has many functions that calculate the mean, median, etc. Let’s calculate a mean and median for <code>x</code>:</p>
+<p>R has many functions that calculate the mean, median, etc. Let’s
+calculate a mean and median for <code>x</code>:</p>
 <pre class="r"><code>mean(x)</code></pre>
 <pre><code>## [1] 7.82</code></pre>
 <pre class="r"><code>median(x)</code></pre>
 <pre><code>## [1] 8.2</code></pre>
-<p>Also, you can pick an element(s) as you wish. Numbers in brackets <code>[]</code> specifies the numbered ID of each element. In the above example, element <code>x[3]</code> is <code>8.8</code>. You can extract this information with the following script:</p>
+<p>Also, you can pick an element(s) as you wish. Numbers in brackets
+<code>[]</code> specifies the numbered ID of each element. In the above
+example, element <code>x[3]</code> is <code>8.8</code>. You can extract
+this information with the following script:</p>
 <pre class="r"><code>x[3]</code></pre>
 <pre><code>## [1] 8.8</code></pre>
-<p>You can also choose multiple elements simultaneously. For example, <code>3:5</code> specifies elements starting from 3 to 5 (colon creates a sequence of numbers):</p>
+<p>You can also choose multiple elements simultaneously. For example,
+<code>3:5</code> specifies elements starting from 3 to 5 (colon creates
+a sequence of numbers):</p>
 <pre class="r"><code>3:5</code></pre>
 <pre><code>## [1] 3 4 5</code></pre>
 <pre class="r"><code>x[3:5]</code></pre>
 <pre><code>## [1] 8.8 6.7 8.2</code></pre>
-<p>If you want to pick elements that are not ordered sequentially, you can use <code>c()</code> to specify multiple elements:</p>
+<p>If you want to pick elements that are not ordered sequentially, you
+can use <code>c()</code> to specify multiple elements:</p>
 <pre class="r"><code>c(1,4)</code></pre>
 <pre><code>## [1] 1 4</code></pre>
 <pre class="r"><code>x[c(1,4)]</code></pre>
 <pre><code>## [1] 10.1  6.7</code></pre>
 </div>
 <div id="case-sensitive" class="section level3" number="1.3.2">
-<h3 number="1.3.2"><span class="header-section-number">1.3.2</span> Case Sensitive</h3>
-<p>Importantly, <strong>objects are case sensitive</strong>. Let’s see what happens when you create an object <code>x</code> (lower case):</p>
+<h3><span class="header-section-number">1.3.2</span> Case Sensitive</h3>
+<p>Importantly, <strong>objects are case sensitive</strong>. Let’s see
+what happens when you create an object <code>x</code> (lower case):</p>
 <pre class="r"><code># create an object `x` (lower case)
 x &lt;- 3
 
 # check what&#39;s in object `x` (lower)
 print(x) </code></pre>
 <pre><code>## [1] 3</code></pre>
-<p>There is a number saved in the object <code>x</code>. Try <code>X</code> (upper case):</p>
+<p>There is a number saved in the object <code>x</code>. Try
+<code>X</code> (upper case):</p>
 <pre class="r"><code>print(X)</code></pre>
 <pre><code>## Error in print(X): object &#39;X&#39; not found</code></pre>
-<p>This returns a message <code>Error: object 'X' not found</code>. This is because R distinguishes lower and upper cases. To see the difference, create the object <code>X</code>:</p>
+<p>This returns a message <code>Error: object 'X' not found</code>. This
+is because R distinguishes lower and upper cases. To see the difference,
+create the object <code>X</code>:</p>
 <pre class="r"><code># create an object `x` (upper case)
 X &lt;- 5
 
@@ -512,15 +559,17 @@ print(X) </code></pre>
 <pre class="r"><code># check what&#39;s in object `x` (lower)
 print(x) </code></pre>
 <pre><code>## [1] 3</code></pre>
-<p>Thus, lower <code>x</code> and upper <code>X</code> can save different information.<br />
+<p>Thus, lower <code>x</code> and upper <code>X</code> can save
+different information.<br />
 <br />
 </p>
 </div>
 </div>
 <div id="arithmetic-operations" class="section level2" number="1.4">
-<h2 number="1.4"><span class="header-section-number">1.4</span> Arithmetic Operations</h2>
+<h2><span class="header-section-number">1.4</span> Arithmetic
+Operations</h2>
 <div id="number" class="section level3" number="1.4.1">
-<h3 number="1.4.1"><span class="header-section-number">1.4.1</span> Number</h3>
+<h3><span class="header-section-number">1.4.1</span> Number</h3>
 <p>Addition</p>
 <pre class="r"><code>1 + 1</code></pre>
 <pre><code>## [1] 2</code></pre>
@@ -551,8 +600,9 @@ print(x) </code></pre>
 <pre><code>## [1] 2</code></pre>
 </div>
 <div id="object-1" class="section level3" number="1.4.2">
-<h3 number="1.4.2"><span class="header-section-number">1.4.2</span> Object</h3>
-<p>R can handle arithmetic operations between objects. Prepare objects <code>x</code> and <code>y</code>:</p>
+<h3><span class="header-section-number">1.4.2</span> Object</h3>
+<p>R can handle arithmetic operations between objects. Prepare objects
+<code>x</code> and <code>y</code>:</p>
 <pre class="r"><code>x &lt;- 1:5
 y &lt;- 2:6
 
@@ -560,7 +610,9 @@ print(x)</code></pre>
 <pre><code>## [1] 1 2 3 4 5</code></pre>
 <pre class="r"><code>print(y)</code></pre>
 <pre><code>## [1] 2 3 4 5 6</code></pre>
-<p>You can use objects instead of directly entering numbers. R automatically performs arithmetic operations for each element. For example, enter <code>y-x</code>:</p>
+<p>You can use objects instead of directly entering numbers. R
+automatically performs arithmetic operations for each element. For
+example, enter <code>y-x</code>:</p>
 <pre class="r"><code>y - x</code></pre>
 <pre><code>## [1] 1 1 1 1 1</code></pre>
 <p>This is equivalent to:</p>
@@ -580,31 +632,49 @@ print(z)</code></pre>
 </div>
 </div>
 <div id="r-script" class="section level2" number="1.5">
-<h2 number="1.5"><span class="header-section-number">1.5</span> R Script</h2>
-<p>In R Studio, we rarely write scripts directly in R console. This is because console <strong>does NOT save your scripts</strong>, so it is difficult to keep records of data manipulation and analysis. Instead, we write our scripts in an <strong>R script</strong>, which enables you save and organize scripts in a separate window and allows you to run scripts when you are ready.</p>
+<h2><span class="header-section-number">1.5</span> R Script</h2>
+<p>In R Studio, we rarely write scripts directly in R console. This is
+because console <strong>does NOT save your scripts</strong>, so it is
+difficult to keep records of data manipulation and analysis. Instead, we
+write our scripts in an <strong>R script</strong>, which enables you
+save and organize scripts in a separate window and allows you to run
+scripts when you are ready.</p>
 <div id="create-r-script" class="section level3" number="1.5.1">
-<h3 number="1.5.1"><span class="header-section-number">1.5.1</span> Create R Script</h3>
+<h3><span class="header-section-number">1.5.1</span> Create R
+Script</h3>
 <p>To create an <strong>R script</strong>:</p>
 <ol style="list-style-type: lower-alpha">
-<li>go to <code>File &gt; New File &gt; R Script</code> (or <code>Ctrl + Shift + N</code>)</li>
+<li>go to <code>File &gt; New File &gt; R Script</code> (or
+<code>Ctrl + Shift + N</code>)</li>
 <li>then, you will see a new window of R script in the left top</li>
 </ol>
 <p><img src="image/R_image7.png" /></p>
 </div>
 <div id="run-r-script" class="section level3" number="1.5.2">
-<h3 number="1.5.2"><span class="header-section-number">1.5.2</span> Run R Script</h3>
-<p>You can run your script from the R script window. Write the following scripts:</p>
+<h3><span class="header-section-number">1.5.2</span> Run R Script</h3>
+<p>You can run your script from the R script window. Write the following
+scripts:</p>
 <pre class="r"><code>x &lt;- c(10.1, 5.3, 8.8, 6.7, 8.2)
 mean(x)</code></pre>
-<p>Once you write scripts in the R Script window, the tab text will turn into <span style="color: red;">red</span>. This means this <strong>R Script</strong> file is edited but <strong>unsaved</strong>. You can save the file by <code>Ctrl + s</code> or by clicking the <code>floppy disk</code> icon on the top bar. Writing these scripts in the R script window does not execute any calculation. To execute, select lines and <code>Ctrl + Enter</code>. Selected scripts will appear in the console and execute what you commanded:</p>
+<p>Once you write scripts in the R Script window, the tab text will turn
+into <span style="color: red;">red</span>. This means this <strong>R
+Script</strong> file is edited but <strong>unsaved</strong>. You can
+save the file by <code>Ctrl + s</code> or by clicking the
+<code>floppy disk</code> icon on the top bar. Writing these scripts in
+the R script window does not execute any calculation. To execute, select
+lines and <code>Ctrl + Enter</code>. Selected scripts will appear in the
+console and execute what you commanded:</p>
 <p><img src="image/R_image8.png" /><br />
 <br />
 </p>
 </div>
 </div>
 <div id="compile-report" class="section level2" number="1.6">
-<h2 number="1.6"><span class="header-section-number">1.6</span> Compile Report</h2>
-<p>R Studio has a function to compile a report from R scripts (see also <a href="https://bookdown.org/yihui/rmarkdown/">R Markdown: The Definitive Guide</a> for details). Include the following script on the top of the R script file to put your information:</p>
+<h2><span class="header-section-number">1.6</span> Compile Report</h2>
+<p>R Studio has a function to compile a report from R scripts (see also
+<a href="https://bookdown.org/yihui/rmarkdown/">R Markdown: The
+Definitive Guide</a> for details). Include the following script on the
+top of the R script file to put your information:</p>
 <pre class="r"><code>#&#39; ---
 #&#39; title: &quot;Report&quot;
 #&#39; author: Your Name
@@ -614,17 +684,24 @@ mean(x)</code></pre>
 <p>Each argument determines the following:</p>
 <ul>
 <li><code>title</code> title of your report</li>
-<li><code>author</code> this appears below the title in the compiled report</li>
+<li><code>author</code> this appears below the title in the compiled
+report</li>
 <li><code>date</code> date created</li>
-<li><code>output</code> output format; use <code>html_document</code></li>
+<li><code>output</code> output format; use
+<code>html_document</code></li>
 </ul>
-<p>Click on the “compile” button on the top. This creates a report from your R script:</p>
+<p>Click on the “compile” button on the top. This creates a report from
+your R script:</p>
 <p><img src="image/R_image10.png" /></p>
-<p>The R Studio will start compiling your report. Here is some rules when compiling a report.</p>
+<p>The R Studio will start compiling your report. Here is some rules
+when compiling a report.</p>
 <ul>
-<li>Your script will appear in a grey box. Put <code>#</code> if you want leave a comment on the script.</li>
-<li>Output from your script will appear in a white box with double sharps</li>
-<li>Text after <code>#'</code> will show up outside a grey box (text after <code>#</code> will be regarded as Header)</li>
+<li>Your script will appear in a grey box. Put <code>#</code> if you
+want leave a comment on the script.</li>
+<li>Output from your script will appear in a white box with double
+sharps</li>
+<li>Text after <code>#'</code> will show up outside a grey box (text
+after <code>#</code> will be regarded as Header)</li>
 </ul>
 <p>For example, the following script is compiled like this:</p>
 <pre class="r"><code>#&#39; ---
@@ -656,15 +733,20 @@ y</code></pre>
 </p>
 </div>
 <div id="file-management" class="section level2" number="1.7">
-<h2 number="1.7"><span class="header-section-number">1.7</span> File Management</h2>
-<p>As you proceed, the number of files will increase. It is critical to learn basic rules of <strong>how to locate and name your files in your computer</strong>. Here are some recommendations:</p>
+<h2><span class="header-section-number">1.7</span> File Management</h2>
+<p>As you proceed, the number of files will increase. It is critical to
+learn basic rules of <strong>how to locate and name your files in your
+computer</strong>. Here are some recommendations:</p>
 <ul>
 <li>Put all the relevant files in a single folder.
 <ul>
-<li>R scripts and associated files should be saved in the project folder.</li>
-<li>Create a new R project when working on different topics. Do not mix them up in a single folder.</li>
+<li>R scripts and associated files should be saved in the project
+folder.</li>
+<li>Create a new R project when working on different topics. Do not mix
+them up in a single folder.</li>
 </ul></li>
-<li>Avoid space and period when naming files. Instead, use underscore or hyphen.
+<li>Avoid space and period when naming files. Instead, use underscore or
+hyphen.
 <ul>
 <li>Do: <code>script_week1.R</code> <code>script-week1.R</code></li>
 <li>Don’t: <code>script week1.R</code></li>
@@ -676,12 +758,18 @@ y</code></pre>
 </ul></li>
 <li>Keep consistent.
 <ul>
-<li>For example, if your R script deals with figures, then name it <code>figure_XXX.R</code> (<code>XXX</code> identifies further details).</li>
+<li>For example, if your R script deals with figures, then name it
+<code>figure_XXX.R</code> (<code>XXX</code> identifies further
+details).</li>
 </ul></li>
 <li>Numbering will help keep your folder/directory organized.
 <ul>
-<li><code>figure_temperature.R</code>, <code>figure_precipitation.R</code>…this will work, but the order of files may be confusing.</li>
-<li><code>figure01_temperature.R</code>, <code>figure02_precipitation.R</code>…this will order files by group (<code>figure</code>) and then numerically.<br />
+<li><code>figure_temperature.R</code>,
+<code>figure_precipitation.R</code>…this will work, but the order of
+files may be confusing.</li>
+<li><code>figure01_temperature.R</code>,
+<code>figure02_precipitation.R</code>…this will order files by group
+(<code>figure</code>) and then numerically.<br />
 <br />
 </li>
 </ul></li>
@@ -690,34 +778,44 @@ y</code></pre>
 </div>
 </div>
 <div id="data-structure" class="section level1" number="2">
-<h1 number="2"><span class="header-section-number">2</span> DATA STRUCTURE</h1>
+<h1><span class="header-section-number">2</span> DATA STRUCTURE</h1>
 <hr />
 <div id="overview" class="section level2" number="2.1">
-<h2 number="2.1"><span class="header-section-number">2.1</span> Overview</h2>
+<h2><span class="header-section-number">2.1</span> Overview</h2>
 <p>R has 6 basic <strong>data types</strong>.</p>
 <ul>
-<li>character: <code>"aquatic"</code>, <code>"ecology"</code> (no order)</li>
-<li>factor: similar to character, but has <em>levels</em> (alphabetically ordered by default)</li>
+<li>character: <code>"aquatic"</code>, <code>"ecology"</code> (no
+order)</li>
+<li>factor: similar to character, but has <em>levels</em>
+(alphabetically ordered by default)</li>
 <li>numeric: <code>20.0</code> , <code>15.5</code></li>
 <li>integer: <code>3</code>, <code>7</code></li>
 <li>logical: <code>TRUE</code> , <code>FALSE</code></li>
-<li>complex: <code>1+2i</code> (complex numbers with real and imaginary parts)</li>
+<li>complex: <code>1+2i</code> (complex numbers with real and imaginary
+parts)</li>
 </ul>
-<p>These elements form one of the following <strong>data structures</strong>.</p>
+<p>These elements form one of the following <strong>data
+structures</strong>.</p>
 <ul>
-<li><strong>vector</strong>: a series of elements. A single data type is allowed in a single vector</li>
-<li><strong>matrix</strong>: elements organized into rows and columns. A single data type is allowed in a single matrix</li>
-<li><strong>data frame</strong>: looks similar to a matrix, but allows different data types in different columns</li>
+<li><strong>vector</strong>: a series of elements. A single data type is
+allowed in a single vector</li>
+<li><strong>matrix</strong>: elements organized into rows and columns. A
+single data type is allowed in a single matrix</li>
+<li><strong>data frame</strong>: looks similar to a matrix, but allows
+different data types in different columns</li>
 </ul>
 <p><br />
 <br />
 </p>
 </div>
 <div id="vector" class="section level2" number="2.2">
-<h2 number="2.2"><span class="header-section-number">2.2</span> Vector</h2>
+<h2><span class="header-section-number">2.2</span> Vector</h2>
 <div id="create-vector" class="section level3" number="2.2.1">
-<h3 number="2.2.1"><span class="header-section-number">2.2.1</span> Create Vector</h3>
-<p>Below are examples of atomic character vectors, numeric vectors, integer vectors, etc. There are many ways to create vector data. The following examples use <code>c()</code>, <code>:</code>, <code>seq()</code>, <code>rep()</code>:</p>
+<h3><span class="header-section-number">2.2.1</span> Create Vector</h3>
+<p>Below are examples of atomic character vectors, numeric vectors,
+integer vectors, etc. There are many ways to create vector data. The
+following examples use <code>c()</code>, <code>:</code>,
+<code>seq()</code>, <code>rep()</code>:</p>
 <pre class="r"><code>#ex.1a manually create a vector using c()
 x &lt;- c(1,3,4,8)
 x</code></pre>
@@ -754,13 +852,17 @@ x</code></pre>
 ## [39] 4.8 4.9 5.0</code></pre>
 </div>
 <div id="check-features" class="section level3" number="2.2.2">
-<h3 number="2.2.2"><span class="header-section-number">2.2.2</span> Check Features</h3>
-<p>R provides many functions to examine features of vectors and other objects, for example:</p>
+<h3><span class="header-section-number">2.2.2</span> Check Features</h3>
+<p>R provides many functions to examine features of vectors and other
+objects, for example:</p>
 <ul>
-<li><code>class()</code> - what kind of object (data structure) is it (high-level)?</li>
-<li><code>typeof()</code> - what is the object’s data type (low-level)?</li>
+<li><code>class()</code> - what kind of object (data structure) is it
+(high-level)?</li>
+<li><code>typeof()</code> - what is the object’s data type
+(low-level)?</li>
 <li><code>attributes()</code> - does it have any metadata?</li>
-<li><code>length()</code> - how long is it? What about two dimensional objects?</li>
+<li><code>length()</code> - how long is it? What about two dimensional
+objects?</li>
 <li><code>sum()</code> - what is the summed number of the data?</li>
 <li><code>mean()</code> - what is the average number of the data?</li>
 </ul>
@@ -786,9 +888,11 @@ class(y)</code></pre>
 <pre><code>## [1] 3</code></pre>
 </div>
 <div id="access" class="section level3" number="2.2.3">
-<h3 number="2.2.3"><span class="header-section-number">2.2.3</span> Access</h3>
+<h3><span class="header-section-number">2.2.3</span> Access</h3>
 <p><strong>Element ID</strong><br />
-Use brackets <code>[]</code> when accessing specific elements in an object. For example, if you want to access element #2 in the vector <code>x</code>, you may specify as <code>x[2]</code>:</p>
+Use brackets <code>[]</code> when accessing specific elements in an
+object. For example, if you want to access element #2 in the vector
+<code>x</code>, you may specify as <code>x[2]</code>:</p>
 <pre class="r"><code>x &lt;- c(2,2,3,2,5)
 x[2] # access element #2</code></pre>
 <pre><code>## [1] 2</code></pre>
@@ -797,16 +901,20 @@ x[2] # access element #2</code></pre>
 <pre class="r"><code>x[2:4] # access elements #2-4</code></pre>
 <pre><code>## [1] 2 3 2</code></pre>
 <p><strong>Equation</strong><br />
-R provides many ways to access elements that suffice specific conditions. You can use mathematical symbols to specify what you need, for example:</p>
+R provides many ways to access elements that suffice specific
+conditions. You can use mathematical symbols to specify what you need,
+for example:</p>
 <ul>
 <li><code>==</code> equal</li>
 <li><code>&gt;</code> larger than</li>
 <li><code>&gt;=</code> equal &amp; larger than</li>
 <li><code>&lt;</code> smaller than</li>
 <li><code>&lt;=</code> equal &amp; smaller than</li>
-<li><code>which()</code> a function that returns element # that suffices the specified condition</li>
+<li><code>which()</code> a function that returns element # that suffices
+the specified condition</li>
 </ul>
-<p>The following examples return a logical vector indicating whether each element in x suffices the specified condition:</p>
+<p>The following examples return a logical vector indicating whether
+each element in x suffices the specified condition:</p>
 <pre class="r"><code># creating a vector
 x &lt;- c(2,2,3,2,5)
 
@@ -816,14 +924,16 @@ x == 2</code></pre>
 <pre class="r"><code># ex.1b larger than
 x &gt; 2 </code></pre>
 <pre><code>## [1] FALSE FALSE  TRUE FALSE  TRUE</code></pre>
-<p>You can access elements that suffice the specified condition using brackets, for example:</p>
+<p>You can access elements that suffice the specified condition using
+brackets, for example:</p>
 <pre class="r"><code># ex.2a equal
 x[x == 2]</code></pre>
 <pre><code>## [1] 2 2 2</code></pre>
 <pre class="r"><code># ex.2b larger than
 x[x &gt; 2]</code></pre>
 <pre><code>## [1] 3 5</code></pre>
-<p>Using <code>which()</code>, you can see which elements (i.e., #) matches what you need:</p>
+<p>Using <code>which()</code>, you can see which elements (i.e., #)
+matches what you need:</p>
 <pre class="r"><code># ex.3a equal
 which(x == 2) # returns which elements are equal to 2</code></pre>
 <pre><code>## [1] 1 2 4</code></pre>
@@ -835,10 +945,11 @@ which(x &gt; 2)</code></pre>
 </div>
 </div>
 <div id="matrix" class="section level2" number="2.3">
-<h2 number="2.3"><span class="header-section-number">2.3</span> Matrix</h2>
+<h2><span class="header-section-number">2.3</span> Matrix</h2>
 <div id="create-matrix" class="section level3" number="2.3.1">
-<h3 number="2.3.1"><span class="header-section-number">2.3.1</span> Create Matrix</h3>
-<p>Matrix is a set of elements (<em>single data type</em>) that are organized into rows and columns:</p>
+<h3><span class="header-section-number">2.3.1</span> Create Matrix</h3>
+<p>Matrix is a set of elements (<em>single data type</em>) that are
+organized into rows and columns:</p>
 <pre class="r"><code>#ex.1 cbind: combine objects by column
 x &lt;- cbind(c(1,2,3), c(4,5,6))
 x</code></pre>
@@ -861,15 +972,20 @@ x</code></pre>
 ## [3,]    3    6    9</code></pre>
 </div>
 <div id="check-features-1" class="section level3" number="2.3.2">
-<h3 number="2.3.2"><span class="header-section-number">2.3.2</span> Check Features</h3>
-<p>R provides many functions to examine features of matrix data, for example:</p>
+<h3><span class="header-section-number">2.3.2</span> Check Features</h3>
+<p>R provides many functions to examine features of matrix data, for
+example:</p>
 <ul>
-<li><code>class()</code> what kind of object (data type) is it (high-level)?</li>
-<li><code>typeof()</code> what is the object’s data type (low-level)?</li>
+<li><code>class()</code> what kind of object (data type) is it
+(high-level)?</li>
+<li><code>typeof()</code> what is the object’s data type
+(low-level)?</li>
 <li><code>attributes()</code> does it have any metadata?</li>
 <li><code>dim()</code> how long are rows and columns?</li>
-<li><code>rowSums()</code> what is the summed number of the data for each row?</li>
-<li><code>colSums()</code> what is the summed number of the data for each column?</li>
+<li><code>rowSums()</code> what is the summed number of the data for
+each row?</li>
+<li><code>colSums()</code> what is the summed number of the data for
+each column?</li>
 </ul>
 <p><strong>Integer Matrix</strong><br />
 </p>
@@ -901,8 +1017,9 @@ y</code></pre>
 <pre><code>## [1] 3 2</code></pre>
 </div>
 <div id="access-1" class="section level3" number="2.3.3">
-<h3 number="2.3.3"><span class="header-section-number">2.3.3</span> Access</h3>
-<p>When accessing matrix elements, you need to pick row(s) and/or column(s), for example:</p>
+<h3><span class="header-section-number">2.3.3</span> Access</h3>
+<p>When accessing matrix elements, you need to pick row(s) and/or
+column(s), for example:</p>
 <pre class="r"><code>x &lt;- matrix(1:9, nrow = 3, ncol = 3)
 x</code></pre>
 <pre><code>##      [,1] [,2] [,3]
@@ -922,7 +1039,8 @@ x</code></pre>
 ## [1,]    4    7
 ## [2,]    5    8
 ## [3,]    6    9</code></pre>
-<p>You can assess each element with mathematical expressions just like vectors:</p>
+<p>You can assess each element with mathematical expressions just like
+vectors:</p>
 <pre class="r"><code>x == 2 # equal</code></pre>
 <pre><code>##       [,1]  [,2]  [,3]
 ## [1,] FALSE FALSE FALSE
@@ -933,12 +1051,14 @@ x</code></pre>
 ## [1,] FALSE TRUE TRUE
 ## [2,] FALSE TRUE TRUE
 ## [3,]  TRUE TRUE TRUE</code></pre>
-<p>However, care must be taken when accessing elements, as it will be automatically converted to vector data:</p>
+<p>However, care must be taken when accessing elements, as it will be
+automatically converted to vector data:</p>
 <pre class="r"><code>x[x == 2] # equal</code></pre>
 <pre><code>## [1] 2</code></pre>
 <pre class="r"><code>x[x &gt; 2] # larger than</code></pre>
 <pre><code>## [1] 3 4 5 6 7 8 9</code></pre>
-<p><code>which()</code> needs an additional argument to return both row and column #:</p>
+<p><code>which()</code> needs an additional argument to return both row
+and column #:</p>
 <pre class="r"><code>which(x == 2, arr.ind = TRUE)</code></pre>
 <pre><code>##      row col
 ## [1,]   2   1</code></pre>
@@ -957,16 +1077,23 @@ x</code></pre>
 </div>
 </div>
 <div id="data-frame" class="section level2" number="2.4">
-<h2 number="2.4"><span class="header-section-number">2.4</span> Data Frame</h2>
-<p>Data frame is a set of elements that are organized into rows and columns, but differ from matrix in several ways.</p>
+<h2><span class="header-section-number">2.4</span> Data Frame</h2>
+<p>Data frame is a set of elements that are organized into rows and
+columns, but differ from matrix in several ways.</p>
 <ul>
 <li>it allows <em>multiple data types</em> in different columns</li>
 <li>each column has its <em>name</em></li>
 <li>you can access columns by name (using <code>$</code>)</li>
 </ul>
-<p><strong>Data frame is the most common data structure when manipulating ecological data</strong>. A data set loaded from a spread sheet (we will address this later) will be automatically recognized as a data frame. Here is an example:</p>
+<p><strong>Data frame is the most common data structure when
+manipulating ecological data</strong>. A data set loaded from a spread
+sheet (we will address this later) will be automatically recognized as a
+data frame. Here is an example:</p>
 <p><strong>Create a data frame</strong><br />
-In the following example, variables <code>x</code> and <code>y</code> are organized into a single data frame <code>dat</code>. Variable are renamed when creating a data frame composed of <code>x</code> and <code>y</code>.</p>
+In the following example, variables <code>x</code> and <code>y</code>
+are organized into a single data frame <code>dat</code>. Variable are
+renamed when creating a data frame composed of <code>x</code> and
+<code>y</code>.</p>
 <pre class="r"><code># Create data frame
 x &lt;- c(&quot;Pristine&quot;, &quot;Pristine&quot;, &quot;Disturbed&quot;, &quot;Disturbed&quot;, &quot;Pristine&quot;) # Lake type
 y &lt;- c(1.2, 2.2, 10.9, 50.0, 3.0) # TSS: total suspended solids (mg/L)
@@ -1007,47 +1134,68 @@ dat</code></pre>
 </p>
 </div>
 <div id="exercise" class="section level2" number="2.5">
-<h2 number="2.5"><span class="header-section-number">2.5</span> Exercise</h2>
-<p>Download a <a href = "file/report01_temp.R" download>template</a> (R script file).</p>
+<h2><span class="header-section-number">2.5</span> Exercise</h2>
+<p>Download a <a href = "file/report01_temp.R" download>template</a> (R
+script file).</p>
 <div id="vector-1" class="section level3" number="2.5.1">
-<h3 number="2.5.1"><span class="header-section-number">2.5.1</span> Vector</h3>
+<h3><span class="header-section-number">2.5.1</span> Vector</h3>
 <ol style="list-style-type: lower-alpha">
-<li>Create three numeric vectors with length 3, 6 and 20, respectively. Each vector must be created using different functions in R.</li>
-<li>Create three character vectors with length 3, 6 and 20, respectively. Each vector must be created using different functions in R.</li>
-<li>Copy the following script to your R script and perform the following analysis:</li>
+<li>Create three numeric vectors with length 3, 6 and 20, respectively.
+Each vector must be created using different functions in R.</li>
+<li>Create three character vectors with length 3, 6 and 20,
+respectively. Each vector must be created using different functions in
+R.</li>
+<li>Copy the following script to your R script and perform the following
+analysis:</li>
 </ol>
 <ul>
-<li>Identify element IDs of <code>x</code> that are greater than <code>2.0</code></li>
-<li>Identify element values of <code>x</code> that are greater than <code>2.0</code></li>
+<li>Identify element IDs of <code>x</code> that are greater than
+<code>2.0</code></li>
+<li>Identify element values of <code>x</code> that are greater than
+<code>2.0</code></li>
 </ul>
 <pre class="r"><code>set.seed(1)
 x &lt;- rnorm(100)</code></pre>
 </div>
 <div id="matrix-1" class="section level3" number="2.5.2">
-<h3 number="2.5.2"><span class="header-section-number">2.5.2</span> Matrix</h3>
+<h3><span class="header-section-number">2.5.2</span> Matrix</h3>
 <ol style="list-style-type: lower-alpha">
-<li>Create a numeric matrix with 4 rows and 4 columns. Each column must contain identical elements.</li>
-<li>Create a numeric matrix with 4 rows and 4 columns. Each row must contain identical elements.</li>
-<li>Create a character matrix with 4 rows and 4 columns. Each column must contain identical elements.</li>
-<li>Create a character matrix with 4 rows and 4 columns. Each row must contain identical elements.</li>
-<li>Copy the following script to your R script and perform the following analysis:</li>
+<li>Create a numeric matrix with 4 rows and 4 columns. Each column must
+contain identical elements.</li>
+<li>Create a numeric matrix with 4 rows and 4 columns. Each row must
+contain identical elements.</li>
+<li>Create a character matrix with 4 rows and 4 columns. Each column
+must contain identical elements.</li>
+<li>Create a character matrix with 4 rows and 4 columns. Each row must
+contain identical elements.</li>
+<li>Copy the following script to your R script and perform the following
+analysis:</li>
 </ol>
 <ul>
-<li>Identify element IDs of <code>x</code> that are greater than <code>2.0</code> (<strong>specify row and column IDs</strong>)</li>
-<li>Identify element values of <code>x</code> that are greater than <code>2.0</code> and calculate the mean.</li>
+<li>Identify element IDs of <code>x</code> that are greater than
+<code>2.0</code> (<strong>specify row and column IDs</strong>)</li>
+<li>Identify element values of <code>x</code> that are greater than
+<code>2.0</code> and calculate the mean.</li>
 </ul>
 <pre class="r"><code>set.seed(1)
 x &lt;- matrix(rnorm(100), nrow = 10, ncol = 10)</code></pre>
 </div>
 <div id="data-frame-1" class="section level3" number="2.5.3">
-<h3 number="2.5.3"><span class="header-section-number">2.5.3</span> Data Frame</h3>
+<h3><span class="header-section-number">2.5.3</span> Data Frame</h3>
 <ol style="list-style-type: lower-alpha">
-<li>Create a data frame of 3 variables with 10 elements (name variables as <code>x</code>, <code>y</code> and <code>z</code>. <code>x</code> must be <code>character</code> while <code>y</code> and <code>z</code> must be <code>numeric</code>.</li>
-<li>Check the data structure (higher-level) of <code>x</code>, <code>y</code> and <code>z</code></li>
-<li>Copy the following script to your R script and perform the following analysis:</li>
+<li>Create a data frame of 3 variables with 10 elements (name variables
+as <code>x</code>, <code>y</code> and <code>z</code>. <code>x</code>
+must be <code>character</code> while <code>y</code> and <code>z</code>
+must be <code>numeric</code>.</li>
+<li>Check the data structure (higher-level) of <code>x</code>,
+<code>y</code> and <code>z</code></li>
+<li>Copy the following script to your R script and perform the following
+analysis:</li>
 </ol>
 <ul>
-<li>Calculate the means of <code>temperature</code> and <code>abundance</code> for states <code>VA</code> and <code>NC</code> separately - use <code>tapply()</code> function</li>
+<li>Calculate the means of <code>temperature</code> and
+<code>abundance</code> for states <code>VA</code> and <code>NC</code>
+separately - use <code>tapply()</code> function</li>
 </ul>
 <pre class="r"><code>set.seed(1)
 x &lt;- rnorm(100, mean = 10, sd = 3)
@@ -1062,11 +1210,15 @@ dat &lt;- data.frame(temperature = x, abundance = y, state = z)</code></pre>
 </div>
 </div>
 <div id="visualization" class="section level1" number="3">
-<h1 number="3"><span class="header-section-number">3</span> VISUALIZATION</h1>
+<h1><span class="header-section-number">3</span> VISUALIZATION</h1>
 <hr />
 <div id="overview-1" class="section level2" number="3.1">
-<h2 number="3.1"><span class="header-section-number">3.1</span> Overview</h2>
-<p>R has a number of functions that help visualize data. <code>graphics</code> provides R functions for base graphics (<a href="https://www.rdocumentation.org/packages/graphics/versions/3.6.2">list of functions</a>). I will use <code>iris</code>, the built-in data set in R, to show how <code>graphics</code> functions work.</p>
+<h2><span class="header-section-number">3.1</span> Overview</h2>
+<p>R has a number of functions that help visualize data.
+<code>graphics</code> provides R functions for base graphics (<a
+href="https://www.rdocumentation.org/packages/graphics/versions/3.6.2">list
+of functions</a>). I will use <code>iris</code>, the built-in data set
+in R, to show how <code>graphics</code> functions work.</p>
 <pre class="r"><code>iris</code></pre>
 <div data-pagedtable="false">
 <script data-pagedtable-source type="application/json">
@@ -1078,50 +1230,74 @@ dat &lt;- data.frame(temperature = x, abundance = y, state = z)</code></pre>
 </p>
 </div>
 <div id="plot" class="section level2" number="3.2">
-<h2 number="3.2"><span class="header-section-number">3.2</span> <code>plot()</code></h2>
-<p>When plotting data, what’s you need is to specify the <strong>formula</strong>. For example, if you want to visualize the relationship between <code>x</code> and <code>y</code> (<code>y</code> on the vertical axis and <code>x</code> on the horizontal axis), the formula would be <code>y ~ x</code> (the left side of the formula will be on the vertical axis). In the <code>iris</code> data set, the following columns are available: <code>Sepal.Length</code> <code>Sepal.Width</code> <code>Petal.Length</code> <code>Petal.Width</code> <code>Species</code>. In the following example, the relationship between <code>Sepal.Length</code> and <code>Sepal.Width</code> is plotted:</p>
+<h2><span class="header-section-number">3.2</span>
+<code>plot()</code></h2>
+<p>When plotting data, what’s you need is to specify the
+<strong>formula</strong>. For example, if you want to visualize the
+relationship between <code>x</code> and <code>y</code> (<code>y</code>
+on the vertical axis and <code>x</code> on the horizontal axis), the
+formula would be <code>y ~ x</code> (the left side of the formula will
+be on the vertical axis). In the <code>iris</code> data set, the
+following columns are available: <code>Sepal.Length</code>
+<code>Sepal.Width</code> <code>Petal.Length</code>
+<code>Petal.Width</code> <code>Species</code>. In the following example,
+the relationship between <code>Sepal.Length</code> and
+<code>Sepal.Width</code> is plotted:</p>
 <pre class="r"><code>plot(Sepal.Length ~ Sepal.Width, data = iris)</code></pre>
 <p><img src="r01_rbasics_files/figure-html/unnamed-chunk-45-1.png" width="480" /></p>
-<p>The argument <code>data =</code> tells the function the data set from which the variables (<code>Sepal.Length</code> and <code>Sepal.Width</code>) are extracted. The above figure is the default setting, and you may customize it as necessary. Below is an example of how you may customize:</p>
+<p>The argument <code>data =</code> tells the function the data set from
+which the variables (<code>Sepal.Length</code> and
+<code>Sepal.Width</code>) are extracted. The above figure is the default
+setting, and you may customize it as necessary. Below is an example of
+how you may customize:</p>
 <div id="symbol" class="section level3" number="3.2.1">
-<h3 number="3.2.1"><span class="header-section-number">3.2.1</span> Symbol</h3>
-<p><code>pch</code> argument. Choose from <code>1</code> to <code>25</code> (google <strong>r plot pch</strong> for details)</p>
+<h3><span class="header-section-number">3.2.1</span> Symbol</h3>
+<p><code>pch</code> argument. Choose from <code>1</code> to
+<code>25</code> (google <strong>r plot pch</strong> for details)</p>
 <pre class="r"><code>plot(Sepal.Length ~ Sepal.Width, data = iris,
      pch = 19)</code></pre>
 <p><img src="r01_rbasics_files/figure-html/unnamed-chunk-46-1.png" width="480" /></p>
 </div>
 <div id="symbol-size" class="section level3" number="3.2.2">
-<h3 number="3.2.2"><span class="header-section-number">3.2.2</span> Symbol size</h3>
-<p><code>cex</code> argument. <code>cex = 1</code> is the default value. <code>cex = 2</code> is as twice large as default value.</p>
+<h3><span class="header-section-number">3.2.2</span> Symbol size</h3>
+<p><code>cex</code> argument. <code>cex = 1</code> is the default value.
+<code>cex = 2</code> is as twice large as default value.</p>
 <pre class="r"><code>plot(Sepal.Length ~ Sepal.Width, data = iris,
      pch = 19, cex = 2)</code></pre>
 <p><img src="r01_rbasics_files/figure-html/unnamed-chunk-47-1.png" width="480" /></p>
 </div>
 <div id="symbol-color-border" class="section level3" number="3.2.3">
-<h3 number="3.2.3"><span class="header-section-number">3.2.3</span> Symbol color (border)</h3>
-<p><code>col</code> argument (quote <code>"color name"</code> when specifying). Google <strong>r color name</strong> for color options.</p>
+<h3><span class="header-section-number">3.2.3</span> Symbol color
+(border)</h3>
+<p><code>col</code> argument (quote <code>"color name"</code> when
+specifying). Google <strong>r color name</strong> for color options.</p>
 <pre class="r"><code>plot(Sepal.Length ~ Sepal.Width, data = iris,
      pch = 21, cex = 2, col = &quot;gray&quot;)</code></pre>
 <p><img src="r01_rbasics_files/figure-html/unnamed-chunk-48-1.png" width="480" /></p>
 </div>
 <div id="symbol-color-fill" class="section level3" number="3.2.4">
-<h3 number="3.2.4"><span class="header-section-number">3.2.4</span> Symbol color (fill)</h3>
-<p><code>bg</code> argument (quote <code>"color name"</code> when specifying). Available for a subset of symbol options (some symbols have pre-defined filled color).</p>
+<h3><span class="header-section-number">3.2.4</span> Symbol color
+(fill)</h3>
+<p><code>bg</code> argument (quote <code>"color name"</code> when
+specifying). Available for a subset of symbol options (some symbols have
+pre-defined filled color).</p>
 <pre class="r"><code>plot(Sepal.Length ~ Sepal.Width, data = iris,
      pch = 21, cex = 2, bg = &quot;lightgray&quot;)</code></pre>
 <p><img src="r01_rbasics_files/figure-html/unnamed-chunk-49-1.png" width="480" /></p>
 </div>
 <div id="label" class="section level3" number="3.2.5">
-<h3 number="3.2.5"><span class="header-section-number">3.2.5</span> Label</h3>
-<p><code>ylab</code> or <code>xlab</code> arguments. Provide <code>"quoted text"</code>.</p>
+<h3><span class="header-section-number">3.2.5</span> Label</h3>
+<p><code>ylab</code> or <code>xlab</code> arguments. Provide
+<code>"quoted text"</code>.</p>
 <pre class="r"><code>plot(Sepal.Length ~ Sepal.Width, data = iris,
      pch = 21, cex = 2, bg = &quot;lightgray&quot;,
      xlab = &quot;Sepal width (cm)&quot;, ylab = &quot;Sepal length (cm)&quot;)</code></pre>
 <p><img src="r01_rbasics_files/figure-html/unnamed-chunk-50-1.png" width="480" /></p>
 </div>
 <div id="axis" class="section level3" number="3.2.6">
-<h3 number="3.2.6"><span class="header-section-number">3.2.6</span> Axis</h3>
-<p>Delete axes with <code>axes = F</code> and re-draw with <code>box()</code> and <code>axis()</code> functions.</p>
+<h3><span class="header-section-number">3.2.6</span> Axis</h3>
+<p>Delete axes with <code>axes = F</code> and re-draw with
+<code>box()</code> and <code>axis()</code> functions.</p>
 <pre class="r"><code>plot(Sepal.Length ~ Sepal.Width, data = iris,
      pch = 21, cex = 2, bg = &quot;lightgray&quot;,
      xlab = &quot;Sepal width (cm)&quot;, ylab = &quot;Sepal length (cm)&quot;,
@@ -1133,27 +1309,34 @@ axis(2, las = 2) # 2: draw y-axis, las = 2: make axis lables horizontal</code></
 </div>
 </div>
 <div id="boxplot" class="section level2" number="3.3">
-<h2 number="3.3"><span class="header-section-number">3.3</span> <code>boxplot()</code></h2>
-<p><code>boxplot()</code> is used when the x-axis is factor-type data (by default, <code>plot()</code> will produce a boxplot when x-axis is a factor variable). In the <code>iris</code> dataset, the column <code>Species</code> is a factor variable. Compare <code>Sepal.Length</code> among species using <code>boxplot()</code>.</p>
+<h2><span class="header-section-number">3.3</span>
+<code>boxplot()</code></h2>
+<p><code>boxplot()</code> is used when the x-axis is factor-type data
+(by default, <code>plot()</code> will produce a boxplot when x-axis is a
+factor variable). In the <code>iris</code> dataset, the column
+<code>Species</code> is a factor variable. Compare
+<code>Sepal.Length</code> among species using
+<code>boxplot()</code>.</p>
 <pre class="r"><code>boxplot(Sepal.Length ~ Species, data = iris)</code></pre>
 <p><img src="r01_rbasics_files/figure-html/unnamed-chunk-52-1.png" width="480" /></p>
-<p>You can customize as in <code>plot()</code>, but slighlty different.</p>
+<p>You can customize as in <code>plot()</code>, but slighlty
+different.</p>
 <div id="box-color" class="section level3" number="3.3.1">
-<h3 number="3.3.1"><span class="header-section-number">3.3.1</span> Box color</h3>
+<h3><span class="header-section-number">3.3.1</span> Box color</h3>
 <p><code>col</code> argument.</p>
 <pre class="r"><code>boxplot(Sepal.Length ~ Species, data = iris,
         col = &quot;lightgray&quot;)</code></pre>
 <p><img src="r01_rbasics_files/figure-html/unnamed-chunk-53-1.png" width="480" /></p>
 </div>
 <div id="border-color" class="section level3" number="3.3.2">
-<h3 number="3.3.2"><span class="header-section-number">3.3.2</span> Border color</h3>
+<h3><span class="header-section-number">3.3.2</span> Border color</h3>
 <p><code>border</code> argument.</p>
 <pre class="r"><code>boxplot(Sepal.Length ~ Species, data = iris,
         col = &quot;lightgray&quot;, border = &quot;grey48&quot;)</code></pre>
 <p><img src="r01_rbasics_files/figure-html/unnamed-chunk-54-1.png" width="480" /></p>
 </div>
 <div id="box-width" class="section level3" number="3.3.3">
-<h3 number="3.3.3"><span class="header-section-number">3.3.3</span> Box width</h3>
+<h3><span class="header-section-number">3.3.3</span> Box width</h3>
 <p><code>boxwex</code> argument.</p>
 <pre class="r"><code>boxplot(Sepal.Length ~ Species, data = iris,
         col = &quot;lightgray&quot;, border = &quot;grey48&quot;,
@@ -1161,8 +1344,9 @@ axis(2, las = 2) # 2: draw y-axis, las = 2: make axis lables horizontal</code></
 <p><img src="r01_rbasics_files/figure-html/unnamed-chunk-55-1.png" width="480" /></p>
 </div>
 <div id="axis-1" class="section level3" number="3.3.4">
-<h3 number="3.3.4"><span class="header-section-number">3.3.4</span> Axis</h3>
-<p>Delete axes with <code>axes = F</code> and re-draw with <code>box()</code> and <code>axis()</code> functions.</p>
+<h3><span class="header-section-number">3.3.4</span> Axis</h3>
+<p>Delete axes with <code>axes = F</code> and re-draw with
+<code>box()</code> and <code>axis()</code> functions.</p>
 <pre class="r"><code>boxplot(Sepal.Length ~ Species, data = iris,
         col = &quot;lightgray&quot;, border = &quot;grey48&quot;,
         boxwex = 0.4, ylab = &quot;Sepal length (cm)&quot;,
@@ -1174,22 +1358,28 @@ axis(2, las = 2)</code></pre>
 </div>
 </div>
 <div id="exercise-1" class="section level2" number="3.4">
-<h2 number="3.4"><span class="header-section-number">3.4</span> Exercise</h2>
-<p>Download a <a href="file/report02_temp.R" download>template</a> (R script file).</p>
+<h2><span class="header-section-number">3.4</span> Exercise</h2>
+<p>Download a <a href="file/report02_temp.R" download>template</a> (R
+script file).</p>
 <div id="plot-function" class="section level3" number="3.4.1">
-<h3 number="3.4.1"><span class="header-section-number">3.4.1</span> <code>plot()</code> function</h3>
+<h3><span class="header-section-number">3.4.1</span> <code>plot()</code>
+function</h3>
 <ol style="list-style-type: lower-alpha">
-<li>Plot the relationship between <code>Sepal.Width</code> and <code>Petal.Width</code></li>
+<li>Plot the relationship between <code>Sepal.Width</code> and
+<code>Petal.Width</code></li>
 <li>Turn symbol color (border) into red.</li>
 <li>Turn symbol color (fill) into red (set <code>pch = 21</code>).</li>
 <li>Make symbol size larger.</li>
-<li>Make L-shaped plot border (delete border lines on upper and right sides)</li>
+<li>Make L-shaped plot border (delete border lines on upper and right
+sides)</li>
 </ol>
 </div>
 <div id="boxplot-function" class="section level3" number="3.4.2">
-<h3 number="3.4.2"><span class="header-section-number">3.4.2</span> <code>boxplot()</code> function</h3>
+<h3><span class="header-section-number">3.4.2</span>
+<code>boxplot()</code> function</h3>
 <ol style="list-style-type: lower-alpha">
-<li>Plot the relationship between <code>Petal.Width</code> and <code>Species</code>.</li>
+<li>Plot the relationship between <code>Petal.Width</code> and
+<code>Species</code>.</li>
 <li>Turn box color (border) into <code>blue</code>.</li>
 <li>Make box width narrower.</li>
 </ol>
