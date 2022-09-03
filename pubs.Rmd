@@ -36,9 +36,8 @@ lab <- c("S Kim", "JF Pomeranz", "A Terui")
 pubs <- get_publications(sid) %>% 
   as_tibble() %>% 
   arrange(desc(year)) %>% 
-  mutate(author = str_replace(author, "SM Shin-ichiro", "SS Matsuzaki"),
-         ID = row_number()) %>% 
-  select(ID, title, author, journal, year, cites) %>%
+  mutate(author = str_replace(author, "SM Shin-ichiro", "SS Matsuzaki")) %>% 
+  select(title, author, journal, year, cites) %>%
   rename_with(.fn = str_to_sentence)
 
 pubs %>% 
