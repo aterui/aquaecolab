@@ -1,11 +1,7 @@
 ---
 title: "Publication"
 date: Latest update - `r format(Sys.time(), '%d %B, %Y')`
-output:
-  html_document:
-    toc: true
-    toc_depth: 4
-    toc_float: true
+output: html_document
 ---
 
 Bold: current/past lab member
@@ -19,7 +15,7 @@ Bold: current/past lab member
 
 ### Published
 
-```{r, echo = F}
+```{r, echo = F, message=F, warning=F}
 ## GET YOUR PUB LIST
 
 # library -----------------------------------------------------------------
@@ -27,24 +23,33 @@ Bold: current/past lab member
 rm(list = ls())
 pacman::p_load(tidyverse,
                scholar,
-               kableExtra)
+               reactable,
+               reactablefmtr)
 
 # data --------------------------------------------------------------------
 
 ## your google id - can be found in the link bar of your google scholar page
 sid <- "H9OuCKsAAAAJ"
+lab <- c("S Kim", "JF Pomeranz", "A Terui")
 
 ## get publication list
 pubs <- get_publications(sid) %>% 
   as_tibble() %>% 
-  mutate(author = str_replace(author, "SM Shin-ichiro", "SS Matsuzaki"))
+  arrange(desc(year)) %>% 
+  mutate(author = str_replace(author, "SM Shin-ichiro", "SS Matsuzaki"),
+         ID = row_number()) %>% 
+  select(ID, title, author, journal, year, cites) %>%
+  rename_with(.fn = str_to_sentence)
 
 pubs %>% 
-  select(title, author, journal, year, cites) %>%
-  arrange(desc(year)) %>% 
-  rename_with(.fn = str_to_sentence) %>% 
-  DT::datatable()
-  # kbl() %>%
-  # kable_styling(bootstrap_options = c("striped", "hover", "condensed"))
-
+  reactable(searchable = TRUE,
+            pagination = FALSE,
+            columns = list(
+              Cites = colDef(
+               cell = data_bars(pubs,
+                                text_position = "outside-base",
+                                fill_color = viridis::viridis(5))
+               )
+              )
+            )
 ```
