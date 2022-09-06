@@ -1,44 +1,27 @@
-name: "AquatiQuE"
-output_dir: "docs"
+name: "aquaecolab"
+title: "AquatiQuE"
+output_dir: "_site"
 navbar:
   title: "AquatiQuE"
-  left:
+  search: true
+  right:
     - text: "About"
-      icon: fa-home
       href: index.html
     - text: "Publication"
-      icon: fa-book
       href: pubs.html
     - text: "Team"
-      icon: fa-people-carry
       href: team.html
     - text: "Join"
-      icon: fa-users
       href: join.html
-    - text: "Programming"
-      icon: fa-desktop
-      menu:
-        - text: "R basics"
-          href: r01_rbasics.html
-        - text: "R tidyverse"
-          href: r02_tidyverse.html
-        - text: "GitHub"
-          href: github.html
-        - text: "Helpful link"
-          href: link.html
     - text: "Teaching"
-      icon: fa-user-graduate
       menu:
         - text: Seminar in Ecology
           href: https://aterui.github.io/seminar-in-ecology/
-
-  right:
-    - icon: fa-code fa-lg
+    - icon: fa-github
       href: https://github.com/aterui/aquaecolab
-
 output:
-  html_document:
+  distill::distill_article:
+    css: style.css
+    toc: true
     includes:
       in_header: google_analytics.html
-    css: style_web.css
-    theme: paper

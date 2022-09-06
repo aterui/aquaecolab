@@ -1,17 +1,19 @@
 ---
 title: "Publication"
 date: Latest update - `r format(Sys.time(), '%d %B, %Y')`
-output: html_document
 ---
-
-Bold: current/past lab member
 
 ### In Review/Preparation
 
--   **Kim S**, Dolph CL, **Terui A**. Metacommunity-level consequences of positive species interactions (in prep.)
--   Shinohara N, Nakadai R, Suzuki Y, **Terui A**. Spatio-termporal dimensions of community assembly (in review)
--   **Terui A**, Urabe H, Senzaki M, Nishizawa B. Intentional stocking undermines ecological stability (in review; [preprint](https://www.biorxiv.org/content/10.1101/2022.02.24.481650v1))
--   **Pomeranz** **JF**, Finlay JC, **Terui A**. Ecosystem size and complexity are external drivers of food chain length in branching networks (in review; [preprint](https://ecoevorxiv.org/3h2rd/))
+Bold: current/past lab member
+
+1.  **Kim S**, Dolph CL, **Terui A**. Metacommunity-level consequences of positive species interactions (in prep.)
+
+2.  Shinohara N, Nakadai R, Suzuki Y, **Terui A**. Spatio-termporal dimensions of community assembly (in review)
+
+3.  **Terui A**, Urabe H, Senzaki M, Nishizawa B. Intentional stocking undermines ecological stability (in review; [preprint](https://www.biorxiv.org/content/10.1101/2022.02.24.481650v1))
+
+4.  **Pomeranz** **JF**, Finlay JC, **Terui A**. Ecosystem size and complexity are external drivers of food chain length in branching networks (in review; [preprint](https://ecoevorxiv.org/3h2rd/))
 
 ### Published
 
@@ -36,7 +38,8 @@ lab <- c("S Kim", "JF Pomeranz", "A Terui")
 pubs <- get_publications(sid) %>% 
   as_tibble() %>% 
   arrange(desc(year)) %>% 
-  mutate(author = str_replace(author, "SM Shin-ichiro", "SS Matsuzaki")) %>% 
+  mutate(author = str_replace(author, "SM Shin-ichiro", "SS Matsuzaki"),
+         title = str_to_sentence(title)) %>% 
   select(title, author, journal, year, cites) %>%
   rename_with(.fn = str_to_sentence)
 
@@ -44,6 +47,7 @@ pubs %>%
   reactable(searchable = TRUE,
             pagination = FALSE,
             columns = list(
+              Year = colDef(maxWidth = 60),
               Cites = colDef(
                cell = data_bars(pubs,
                                 text_position = "outside-base",
