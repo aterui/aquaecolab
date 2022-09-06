@@ -1,6 +1,6 @@
 name: "aquaecolab"
 title: "AquatiQuE"
-output_dir: "_site"
+output_dir: "docs"
 navbar:
   title: "AquatiQuE"
   search: true
