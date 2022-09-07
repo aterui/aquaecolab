@@ -33,5 +33,5 @@ knitr::include_graphics("image/img03.jpg")
 knitr::include_graphics("image/img_wetland.jpg")
 ```
 
-**Wetland conservation** -- Wetlands are one of the most threatened ecosystems with \> 80% loss at some states since 17th century. Wetland conservation/restoration is now a nation-wide initiative, but where is the best place to conserve? This question is critical to increasing the benefit of conservation efforts in human-dominated landscapes where . We use quantitative modeling coupled with metapopulation/metacommunity theories to identify important areas to maintain regional population persistence of wetland species.
+**Wetland conservation** -- Wetlands are one of the most threatened ecosystems with \> 80% loss at some states since 17th century. Wetland conservation/restoration is now a nation-wide initiative, but where is the best place to conserve? This question is critical to increasing the benefit of conservation efforts in human-dominated landscapes. We use quantitative modeling coupled with metapopulation/metacommunity theories to identify important areas to maintain regional population persistence of wetland species.
 :::
