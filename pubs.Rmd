@@ -39,7 +39,11 @@ pubs <- get_publications(sid) %>%
   as_tibble() %>% 
   arrange(desc(year)) %>% 
   mutate(author = str_replace(author, "SM Shin-ichiro", "SS Matsuzaki"),
-         title = str_to_sentence(title)) %>% 
+         title = str_to_sentence(title),
+         journal = str_to_title(journal),
+         journal = str_replace_all(journal, "Of", "of"),
+         journal = str_replace_all(journal, "And", "and"),
+         journal = str_replace_all(journal, "The", "the")) %>% 
   select(title, author, journal, year, cites) %>%
   rename_with(.fn = str_to_sentence)
 
