@@ -47,11 +47,13 @@ pubs %>%
   reactable(searchable = TRUE,
             pagination = FALSE,
             columns = list(
+              Title = colDef(minWidth = 130),
               Year = colDef(maxWidth = 60),
               Cites = colDef(
-               cell = data_bars(pubs,
-                                text_position = "outside-base",
-                                fill_color = viridis::viridis(5))
+                maxWidth = 100,
+                cell = data_bars(pubs,
+                                 text_position = "outside-base",
+                                 fill_color = viridis::viridis(5))
                )
               )
             )
