@@ -1,7 +1,8 @@
 ---
 title: "Team"
-date: Latest update - `r format(Sys.time(), '%d %B, %Y')`
 ---
+
+Latest update - `r format(Sys.time(), '%d %B, %Y')`
 
 ```{r, include = F}
 knitr::opts_chunk$set(echo = F, message = F)

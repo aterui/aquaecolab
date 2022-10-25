@@ -785,6 +785,7 @@ code span.wa { color: #5e5e5e; font-style: italic; } /* Warning */
   d-article table.gt_table td,
   d-article table.gt_table th {
     border-bottom: none;
+    font-size: 100%;
   }
 
   .html-widget {
@@ -1857,15 +1858,21 @@ code span.wa { color: #5e5e5e; font-style: italic; } /* Warning */
 
       // hoverable references
       $('span.citation[data-cites]').each(function() {
-        if ($(this).children()[0].nodeName == "D-FOOTNOTE") {
-          var fn = $(this).children()[0]
+        const citeChild = $(this).children()[0]
+        // Do not process if @xyz has been used without escaping and without bibliography activated
+        // https://github.com/rstudio/distill/issues/466
+        if (citeChild === undefined) return true
+
+        if (citeChild.nodeName == "D-FOOTNOTE") {
+          var fn = citeChild
           $(this).html(fn.shadowRoot.querySelector("sup"))
           $(this).id = fn.id
           fn.remove()
         }
         var refs = $(this).attr('data-cites').split(" ");
         var refHtml = refs.map(function(ref) {
-          return "<p>" + $('#ref-' + ref).html() + "</p>";
+          // Could use CSS.escape too here, we insure backward compatibility in navigator
+          return "<p>" + $('div[id="ref-' + ref + '"]').html() + "</p>";
         }).join("\n");
         window.tippy(this, {
           allowHTML: true,
@@ -2064,7 +2071,7 @@ code span.wa { color: #5e5e5e; font-style: italic; } /* Warning */
   </script>
 
   <!--/radix_placeholder_distill-->
-  <script src="site_libs/header-attrs-2.16/header-attrs.js"></script>
+  <script src="site_libs/header-attrs-2.17/header-attrs.js"></script>
   <script src="site_libs/popper-2.6.0/popper.min.js"></script>
   <link href="site_libs/tippy-6.2.7/tippy.css" rel="stylesheet" />
   <link href="site_libs/tippy-6.2.7/tippy-light-border.css" rel="stylesheet" />
@@ -2311,47 +2318,20 @@ Teaching
 <nav class="l-text toc figcaption" id="TOC">
 <h3>Contents</h3>
 <ul>
-<li><a href="#graduate-students" id="toc-graduate-students">Graduate
-students</a></li>
+<li><a href="#graduate-students" id="toc-graduate-students">Graduate students</a></li>
 <li><a href="#postdocs" id="toc-postdocs">Postdocs</a></li>
-<li><a href="#undergraduate-students"
-id="toc-undergraduate-students">Undergraduate students</a></li>
+<li><a href="#undergraduate-students" id="toc-undergraduate-students">Undergraduate students</a></li>
 </ul>
 </nav>
 </div>
 <h3 id="graduate-students">Graduate students</h3>
-<p>Thank you for your interest in my research group! I am always looking
-for talented students with a strong interest in <strong>the intersection
-of freshwater ecology and spatial ecology.</strong> If you would like to
-see whether my research group is a good fit, this is something you might
-want to consider before contacting me. <strong>Are you interested in
-ecological concepts or ecology of specific taxa?</strong> If the former,
-you may be a good fit to my lab and may obtain valuable experiences
-while you are here; we aim to advance conceptual understanding of
-ecological systems, and we purposefully choose study organisms to
-achieve this goal.</p>
-<p>If you are still interested in my research group, contact me (a_terui
-at uncg.edu). The most updated information for graduate applications at
-UNCG Biology is available <a
-href="https://biology.uncg.edu/graduate/apply/">here</a>.</p>
+<p>Thank you for your interest in my research group! I am always looking for talented students with a strong interest in <strong>the intersection of freshwater ecology and spatial ecology.</strong> If you would like to see whether my research group is a good fit, this is something you might want to consider before contacting me. <strong>Are you interested in ecological concepts or ecology of specific taxa?</strong> If the former, you may be a good fit to my lab and may obtain valuable experiences while you are here; we aim to advance conceptual understanding of ecological systems, and we purposefully choose study organisms to achieve this goal.</p>
+<p>If you are still interested in my research group, contact me (a_terui at uncg.edu). The most updated information for graduate applications at UNCG Biology is available <a href="https://biology.uncg.edu/graduate/apply/">here</a>.</p>
 <h3 id="postdocs">Postdocs</h3>
-<p>I welcome inquiries about postdoctoral projects in our research
-group. If our research program is a good fit for your interests, please
-email me (a_terui at uncg.edu) with your CV and a short summary of your
-research interests (1-2 pages). We can develop collaborative projects
-through postdoctoral fellowships, such as <a
-href="https://conbio.org/mini-sites/smith-fellows">Smith Fellowship</a>
-and JSPS Postdoctoral Fellowship.</p>
+<p>I welcome inquiries about postdoctoral projects in our research group. If our research program is a good fit for your interests, please email me (a_terui at uncg.edu) with your CV and a short summary of your research interests (1-2 pages). We can develop collaborative projects through postdoctoral fellowships, such as <a href="https://conbio.org/mini-sites/smith-fellows">Smith Fellowship</a> and JSPS Postdoctoral Fellowship.</p>
 <h3 id="undergraduate-students">Undergraduate students</h3>
-<p>If you are interested in getting research experience in our lab, ask
-the following questions to yourself - (1) <strong>are you interested in
-freshwater/quantitative/spatial ecology?</strong> (2) <strong>Are you
-willing to commit substantial amount of time for research (&gt;= 3 hours
-a week)?</strong> If you would say YES to both questions, send me an
-email (a_terui at uncg.edu) with brief statements of your research
-interests.</p>
-<div class="sourceCode" id="cb1"><pre
-class="sourceCode r distill-force-highlighting-css"><code class="sourceCode r"></code></pre></div>
+<p>If you are interested in getting research experience in our lab, ask the following questions to yourself - (1) <strong>are you interested in freshwater/quantitative/spatial ecology?</strong> (2) <strong>Are you willing to commit substantial amount of time for research (&gt;= 3 hours a week)?</strong> If you would say YES to both questions, send me an email (a_terui at uncg.edu) with brief statements of your research interests.</p>
+<div class="sourceCode" id="cb1"><pre class="sourceCode r distill-force-highlighting-css"><code class="sourceCode r"></code></pre></div>
 <!--radix_placeholder_article_footer-->
 <!--/radix_placeholder_article_footer-->
 </div>

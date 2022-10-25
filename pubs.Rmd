@@ -1,7 +1,8 @@
 ---
 title: "Publication"
-date: Latest update - `r format(Sys.time(), '%d %B, %Y')`
 ---
+
+Latest update - `r format(Sys.time(), '%d %B, %Y')`
 
 ### In Review/Preparation
 
@@ -9,11 +10,11 @@ Bold: current/past lab member
 
 1.  **Kim S**, Dolph CL, **Terui A**. Metacommunity-level consequences of positive species interactions (in prep.)
 
-2.  Shinohara N, Nakadai R, Suzuki Y, **Terui A**. Spatio-termporal dimensions of community assembly (in review)
+2.  **Terui A**, Urabe H, Senzaki M, Nishizawa B. Intentional stocking undermines ecological stability (in review; [preprint](https://www.biorxiv.org/content/10.1101/2022.02.24.481650v1))
 
-3.  **Terui A**, Urabe H, Senzaki M, Nishizawa B. Intentional stocking undermines ecological stability (in review; [preprint](https://www.biorxiv.org/content/10.1101/2022.02.24.481650v1))
+3.  **Pomeranz** **JF**, Finlay JC, **Terui A**. Ecosystem size and complexity are external drivers of food chain length in branching networks (in review; [preprint](https://ecoevorxiv.org/3h2rd/))
 
-4.  **Pomeranz** **JF**, Finlay JC, **Terui A**. Ecosystem size and complexity are external drivers of food chain length in branching networks (in review; [preprint](https://ecoevorxiv.org/3h2rd/))
+4.  Shinohara N, Nakadai R, Suzuki Y, **Terui A**. Spatio-termporal dimensions of community assembly (accepted) Population Ecology
 
 ### Published
 
@@ -39,26 +40,21 @@ pubs <- get_publications(sid) %>%
   as_tibble() %>% 
   arrange(desc(year)) %>% 
   mutate(author = str_replace(author, "SM Shin-ichiro", "SS Matsuzaki"),
-         title = str_to_sentence(title),
-         journal = str_to_title(journal),
-         journal = str_replace_all(journal, "Of", "of"),
-         journal = str_replace_all(journal, "And", "and"),
-         journal = str_replace_all(journal, "The", "the")) %>% 
-  select(title, author, journal, year, cites) %>%
+         title = str_to_sentence(title)) %>% 
+  transmute(year = year,
+            item = paste0(author, ". ", title, ". ", journal),
+            cites = cites) %>% 
   rename_with(.fn = str_to_sentence)
 
 pubs %>% 
   reactable(searchable = TRUE,
             pagination = FALSE,
             columns = list(
-              Title = colDef(minWidth = 130),
-              Year = colDef(maxWidth = 60),
-              Cites = colDef(
-                maxWidth = 100,
-                cell = data_bars(pubs,
-                                 text_position = "outside-base",
-                                 fill_color = viridis::viridis(5))
-               )
+              Year = colDef(maxWidth = 70),
+              Cites = colDef(cell = data_bars(pubs,
+                                              text_position = "outside-base",
+                                              fill_color = viridis::viridis(5)),
+                             maxWidth = 100)
               )
             )
 ```

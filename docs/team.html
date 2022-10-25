@@ -92,9 +92,6 @@ code span.wa { color: #5e5e5e; font-style: italic; } /* Warning */
 
 
 
-  <!--  https://schema.org/Article -->
-  <meta property="article:published" itemprop="datePublished" content="2022-07-20"/>
-  <meta property="article:created" itemprop="dateCreated" content="2022-07-20"/>
 
   <!--  https://developers.facebook.com/docs/sharing/webmasters#markup -->
   <meta property="og:title" content="AquatiQuE: Team"/>
@@ -110,7 +107,7 @@ code span.wa { color: #5e5e5e; font-style: italic; } /* Warning */
   <!--radix_placeholder_rmarkdown_metadata-->
 
   <script type="text/json" id="radix-rmarkdown-metadata">
-  {"type":"list","attributes":{"names":{"type":"character","attributes":{},"value":["title","date"]}},"value":[{"type":"character","attributes":{},"value":["Team"]},{"type":"character","attributes":{},"value":["Latest update - 07 September, 2022"]}]}
+  {"type":"list","attributes":{"names":{"type":"character","attributes":{},"value":["title"]}},"value":[{"type":"character","attributes":{},"value":["Team"]}]}
   </script>
   <!--/radix_placeholder_rmarkdown_metadata-->
   <!--radix_placeholder_navigation_in_header-->
@@ -788,6 +785,7 @@ code span.wa { color: #5e5e5e; font-style: italic; } /* Warning */
   d-article table.gt_table td,
   d-article table.gt_table th {
     border-bottom: none;
+    font-size: 100%;
   }
 
   .html-widget {
@@ -1860,15 +1858,21 @@ code span.wa { color: #5e5e5e; font-style: italic; } /* Warning */
 
       // hoverable references
       $('span.citation[data-cites]').each(function() {
-        if ($(this).children()[0].nodeName == "D-FOOTNOTE") {
-          var fn = $(this).children()[0]
+        const citeChild = $(this).children()[0]
+        // Do not process if @xyz has been used without escaping and without bibliography activated
+        // https://github.com/rstudio/distill/issues/466
+        if (citeChild === undefined) return true
+
+        if (citeChild.nodeName == "D-FOOTNOTE") {
+          var fn = citeChild
           $(this).html(fn.shadowRoot.querySelector("sup"))
           $(this).id = fn.id
           fn.remove()
         }
         var refs = $(this).attr('data-cites').split(" ");
         var refHtml = refs.map(function(ref) {
-          return "<p>" + $('#ref-' + ref).html() + "</p>";
+          // Could use CSS.escape too here, we insure backward compatibility in navigator
+          return "<p>" + $('div[id="ref-' + ref + '"]').html() + "</p>";
         }).join("\n");
         window.tippy(this, {
           allowHTML: true,
@@ -2067,7 +2071,7 @@ code span.wa { color: #5e5e5e; font-style: italic; } /* Warning */
   </script>
 
   <!--/radix_placeholder_distill-->
-  <script src="site_libs/header-attrs-2.16/header-attrs.js"></script>
+  <script src="site_libs/header-attrs-2.17/header-attrs.js"></script>
   <link href="site_libs/font-awesome-5.3.1/css/fontawesome-all.min.css" rel="stylesheet" />
   <script src="site_libs/popper-2.6.0/popper.min.js"></script>
   <link href="site_libs/tippy-6.2.7/tippy.css" rel="stylesheet" />
@@ -2265,7 +2269,7 @@ code span.wa { color: #5e5e5e; font-style: italic; } /* Warning */
 <!--radix_placeholder_front_matter-->
 
 <script id="distill-front-matter" type="text/json">
-{"title":"Team","authors":[],"publishedDate":"2022-07-20T00:00:00.000-04:00"}
+{"title":"Team","authors":[]}
 </script>
 
 <!--/radix_placeholder_front_matter-->
@@ -2315,101 +2319,37 @@ Teaching
 <nav class="l-text toc figcaption" id="TOC">
 <h3>Contents</h3>
 <ul>
-<li><a href="#current-members" id="toc-current-members">Current
-members</a></li>
-<li><a href="#former-lab-members" id="toc-former-lab-members">Former Lab
-Members</a></li>
-<li><a href="#undergraduate-students"
-id="toc-undergraduate-students">Undergraduate Students</a></li>
+<li><a href="#current-members" id="toc-current-members">Current members</a></li>
+<li><a href="#former-lab-members" id="toc-former-lab-members">Former Lab Members</a></li>
+<li><a href="#undergraduate-students" id="toc-undergraduate-students">Undergraduate Students</a></li>
 </ul>
 </nav>
 </div>
+<p>Latest update - 25 October, 2022</p>
 <h3 id="current-members">Current members</h3>
 <div class="float-image">
 <div class="layout-chunk" data-layout="l-body">
 <p><img src="image/img_al.jpg" width="200px" style="float:left; padding:10px" /></p>
 </div>
-<p><strong>Ashley LaRoque</strong>, Ph.D student – Being from Minnesota,
-my love of freshwater started at a young age. I grew up never more than
-a half mile from a lake. This allowed me to explore aquatic ecology at a
-young age. As I dove deeper into my education at the University of
-Minnesota, I realized the importance of freshwater ecology and earned my
-Bachelor’s degree in Ecology, Evolution, and Behavior. My previous
-research quantified how temperature change in lakes has impacted the
-phenology of spawning in freshwater fish. I also have experience on a
-stable isotope project looking at the impact of invasive species on
-predatory fish. As a Ph.D. student in Environmental Health Sciences at
-UNCG, my research revolves around stream ecology. I am working on a
-mark-recapture study using passive integrated transponder tags to
-understand fish behavior. Outside of my research in fisheries, I love to
-go fishing, cook, play with my cat Hudson, and go hiking.</p>
+<p><strong>Ashley LaRoque</strong>, Ph.D student – Being from Minnesota, my love of freshwater started at a young age. I grew up never more than a half mile from a lake. This allowed me to explore aquatic ecology at a young age. As I dove deeper into my education at the University of Minnesota, I realized the importance of freshwater ecology and earned my Bachelor’s degree in Ecology, Evolution, and Behavior. My previous research quantified how temperature change in lakes has impacted the phenology of spawning in freshwater fish. I also have experience on a stable isotope project looking at the impact of invasive species on predatory fish. As a Ph.D. student in Environmental Health Sciences at UNCG, my research revolves around stream ecology. I am working on a mark-recapture study using passive integrated transponder tags to understand fish behavior. Outside of my research in fisheries, I love to go fishing, cook, play with my cat Hudson, and go hiking.</p>
 </div>
 <div class="float-image">
 <div class="layout-chunk" data-layout="l-body">
 <p><img src="image/img_ms.jpg" width="200px" style="float:left; padding:10px" /></p>
 </div>
-<p><strong>Melanie Stadler</strong>, Ph.D student – I grew up in the
-middle of Kansas, with incredible parents who encouraged my love of
-nature and wanting to learn about the world around me. While earning a
-bachelor’s degree in Biology from UNCG, I was introduced to the world of
-turtle and tortoise biology and conservation. I earned an MS in
-Biological Sciences and GIS certificate from Florida Atlantic
-University, studying the habitat and foraging ecology of juvenile green
-turtles on nearshore reefs in Florida. Prior to returning to North
-Carolina, I worked as a Sea Turtle Biologist in Florida for eight years
-where I supervised two nesting beach programs, participated in some
-amazing research projects, and managed the overhaul and daily operations
-of two sea turtle rehabilitation centers. I am interested in spatial
-ecology, ecological biogeography, and habitat connectivity, especially
-in turtles and other herp species. I am excited to be part of UNCG’s
-Department of Biology, Environmental Health Science PhD program, and I
-plan to focus my PhD research on threatened bog turtles and their
-wetland habitat in North Carolina. I live with my husband, Brian, our
-bearded dragon, and two dog children in Greensboro. In my spare time,
-you will find me running or biking on one of our extraordinary local
-hiking trails, birdwatching, curled up with a good book, or in the
-kitchen experimenting with a new vegetarian recipe.</p>
+<p><strong>Melanie Stadler</strong>, Ph.D student – I grew up in the middle of Kansas, with incredible parents who encouraged my love of nature and wanting to learn about the world around me. While earning a bachelor’s degree in Biology from UNCG, I was introduced to the world of turtle and tortoise biology and conservation. I earned an MS in Biological Sciences and GIS certificate from Florida Atlantic University, studying the habitat and foraging ecology of juvenile green turtles on nearshore reefs in Florida. Prior to returning to North Carolina, I worked as a Sea Turtle Biologist in Florida for eight years where I supervised two nesting beach programs, participated in some amazing research projects, and managed the overhaul and daily operations of two sea turtle rehabilitation centers. I am interested in spatial ecology, ecological biogeography, and habitat connectivity, especially in turtles and other herp species. I am excited to be part of UNCG’s Department of Biology, Environmental Health Science PhD program, and I plan to focus my PhD research on threatened bog turtles and their wetland habitat in North Carolina. I live with my husband, Brian, our bearded dragon, and two dog children in Greensboro. In my spare time, you will find me running or biking on one of our extraordinary local hiking trails, birdwatching, curled up with a good book, or in the kitchen experimenting with a new vegetarian recipe.</p>
 </div>
 <div class="float-image">
 <div class="layout-chunk" data-layout="l-body">
 <p><img src="image/img_at.jpg" width="200px" style="float:left; padding:10px" /></p>
 </div>
-<p><strong>Dr. Akira Terui</strong>, PI <a
-href="https://github.com/aterui/"><i class="fab  fa-github "></i></a> <a
-href="https://scholar.google.com/citations?user=H9OuCKsAAAAJ&amp;hl=ja&amp;authuser=1"><i class="fas  fa-user-graduate "></i></a>
-<a
-href="https://publons.com/researcher/1241876/akira-terui/"><i class="fas  fa-book "></i></a>
-– I’m interested in spatial ecology in general. My research career
-started at the University of Tokyo where I studied metapopulation
-structure of the endagered freshwater mussel <em>Margaritifera
-laevis</em>. After obtaining Ph.D., my research interests expanded. Thus
-far, I studied freshwater mussels, fish, aquatic and terrestrial
-insects, plants, and seabirds in collaboration with excellent
-researchers across the globe. While my research spans across multiple
-taxa, all tied with a common thread - space. More recently, I started
-using mathematical approaches and try to integrate theoretical and field
-research. I’m a lover of streams, tennis, and programming in R. Small
-gardening became one of my hobbies during quarantine.</p>
+<p><strong>Dr. Akira Terui</strong>, PI <a href="https://github.com/aterui/"></a> <a href="https://scholar.google.com/citations?user=H9OuCKsAAAAJ&amp;hl=ja&amp;authuser=1"></a> <a href="https://publons.com/researcher/1241876/akira-terui/"></a> – I’m interested in spatial ecology in general. My research career started at the University of Tokyo where I studied metapopulation structure of the endagered freshwater mussel <em>Margaritifera laevis</em>. After obtaining Ph.D., my research interests expanded. Thus far, I studied freshwater mussels, fish, aquatic and terrestrial insects, plants, and seabirds in collaboration with excellent researchers across the globe. While my research spans across multiple taxa, all tied with a common thread - space. More recently, I started using mathematical approaches and try to integrate theoretical and field research. I’m a lover of streams, tennis, and programming in R. Small gardening became one of my hobbies during quarantine.</p>
 </div>
 <div class="float-image">
 <div class="layout-chunk" data-layout="l-body">
 <p><img src="image/img_cw.jpg" width="200px" style="float:left; padding:10px" /></p>
 </div>
-<p><strong>Dr. Charles Wahl, Postdoc</strong> – My research focus is to
-understand processes that structure populations and communities in
-freshwater habitats with a focus on the role of anthropogenic
-disturbance. Human induced disturbances, such as the introduction of
-invasive species, habitat fragmentation and eutrophication, are becoming
-more prevalent. These impacts modify the local (habitat complexity and
-species interactions) and regional (dispersal) processes that structure
-ecosystems, resulting in changes to ecological state and altering the
-movement of energy through the system. I am also interested in how
-biological control can be used to reduce impacts from invasive species
-on ecosystem structure and function. Current research as a postdoc in
-Dr. Akira Terui’s lab involves using metapopulation theory to examine
-the population and spatial structure of an endangered fish species,
-topeka shiner (<em>Notropis topeka</em>), to guide restoration and
-conservation efforts.</p>
+<p><strong>Dr. Charles Wahl, Postdoc</strong> – My research focus is to understand processes that structure populations and communities in freshwater habitats with a focus on the role of anthropogenic disturbance. Human induced disturbances, such as the introduction of invasive species, habitat fragmentation and eutrophication, are becoming more prevalent. These impacts modify the local (habitat complexity and species interactions) and regional (dispersal) processes that structure ecosystems, resulting in changes to ecological state and altering the movement of energy through the system. I am also interested in how biological control can be used to reduce impacts from invasive species on ecosystem structure and function. Current research as a postdoc in Dr. Akira Terui’s lab involves using metapopulation theory to examine the population and spatial structure of an endangered fish species, topeka shiner (<em>Notropis topeka</em>), to guide restoration and conservation efforts.</p>
 </div>
 <h3 id="former-lab-members">Former Lab Members</h3>
 <ul>
@@ -2428,8 +2368,7 @@ conservation efforts.</p>
 <li>Kirsten Watson, Undergraduate (Fall 2019)</li>
 </ul>
 <p>NOTE: Team members are alphabetically ordered</p>
-<div class="sourceCode" id="cb1"><pre
-class="sourceCode r distill-force-highlighting-css"><code class="sourceCode r"></code></pre></div>
+<div class="sourceCode" id="cb1"><pre class="sourceCode r distill-force-highlighting-css"><code class="sourceCode r"></code></pre></div>
 <!--radix_placeholder_article_footer-->
 <!--/radix_placeholder_article_footer-->
 </div>

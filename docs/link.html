@@ -785,6 +785,7 @@ code span.wa { color: #5e5e5e; font-style: italic; } /* Warning */
   d-article table.gt_table td,
   d-article table.gt_table th {
     border-bottom: none;
+    font-size: 100%;
   }
 
   .html-widget {
@@ -1857,15 +1858,21 @@ code span.wa { color: #5e5e5e; font-style: italic; } /* Warning */
 
       // hoverable references
       $('span.citation[data-cites]').each(function() {
-        if ($(this).children()[0].nodeName == "D-FOOTNOTE") {
-          var fn = $(this).children()[0]
+        const citeChild = $(this).children()[0]
+        // Do not process if @xyz has been used without escaping and without bibliography activated
+        // https://github.com/rstudio/distill/issues/466
+        if (citeChild === undefined) return true
+
+        if (citeChild.nodeName == "D-FOOTNOTE") {
+          var fn = citeChild
           $(this).html(fn.shadowRoot.querySelector("sup"))
           $(this).id = fn.id
           fn.remove()
         }
         var refs = $(this).attr('data-cites').split(" ");
         var refHtml = refs.map(function(ref) {
-          return "<p>" + $('#ref-' + ref).html() + "</p>";
+          // Could use CSS.escape too here, we insure backward compatibility in navigator
+          return "<p>" + $('div[id="ref-' + ref + '"]').html() + "</p>";
         }).join("\n");
         window.tippy(this, {
           allowHTML: true,
@@ -2064,7 +2071,7 @@ code span.wa { color: #5e5e5e; font-style: italic; } /* Warning */
   </script>
 
   <!--/radix_placeholder_distill-->
-  <script src="site_libs/header-attrs-2.16/header-attrs.js"></script>
+  <script src="site_libs/header-attrs-2.17/header-attrs.js"></script>
   <script src="site_libs/popper-2.6.0/popper.min.js"></script>
   <link href="site_libs/tippy-6.2.7/tippy.css" rel="stylesheet" />
   <link href="site_libs/tippy-6.2.7/tippy-light-border.css" rel="stylesheet" />
@@ -2312,8 +2319,7 @@ Teaching
 <h3>Contents</h3>
 <ul>
 <li><a href="#r" id="toc-r">R</a></li>
-<li><a href="#bayesian-modelling" id="toc-bayesian-modelling">Bayesian
-modelling</a></li>
+<li><a href="#bayesian-modelling" id="toc-bayesian-modelling">Bayesian modelling</a></li>
 <li><a href="#gis" id="toc-gis">GIS</a></li>
 </ul>
 </nav>
@@ -2321,34 +2327,21 @@ modelling</a></li>
 <h3 id="r">R</h3>
 <ul>
 <li><a href="https://r4ds.had.co.nz/">R for Data Science</a></li>
-<li><a href="https://bookdown.org/yihui/rmarkdown/">R Markdown: The
-Definitive Guide</a></li>
-<li><a
-href="https://www.emilyzabor.com/tutorials/rmarkdown_websites_tutorial.html">Creating
-websites in R</a></li>
+<li><a href="https://bookdown.org/yihui/rmarkdown/">R Markdown: The Definitive Guide</a></li>
+<li><a href="https://www.emilyzabor.com/tutorials/rmarkdown_websites_tutorial.html">Creating websites in R</a></li>
 </ul>
 <h3 id="bayesian-modelling">Bayesian modelling</h3>
 <ul>
-<li><a
-href="https://www.amazon.com/Introduction-WinBUGS-Ecologists-Bayesian-regression/dp/0123786053/ref=sr_1_1?dchild=1&amp;keywords=Introduction+to+WinBUGS+for+Ecologists&amp;qid=1597460036&amp;s=books&amp;sr=1-1">Introduction
-to WinBUGS for Ecologists</a></li>
-<li><a
-href="https://www.amazon.com/Bayesian-Population-Analysis-using-WinBUGS/dp/0123870208">Bayesian
-Population Analysis using WinBUGS: A Hierarchical Perspective</a></li>
-<li><a
-href="https://www.amazon.com/Analysis-Regression-Multilevel-Hierarchical-2006-12-18/dp/B01FIYAH00">Data
-Analysis Using Regression and Multilevel/Hierarchical Models</a></li>
-<li><a
-href="https://www.amazon.com/BUGS-Chapman-Texts-Statistical-Science/dp/1584888490">The
-BUGS Book</a></li>
+<li><a href="https://www.amazon.com/Introduction-WinBUGS-Ecologists-Bayesian-regression/dp/0123786053/ref=sr_1_1?dchild=1&amp;keywords=Introduction+to+WinBUGS+for+Ecologists&amp;qid=1597460036&amp;s=books&amp;sr=1-1">Introduction to WinBUGS for Ecologists</a></li>
+<li><a href="https://www.amazon.com/Bayesian-Population-Analysis-using-WinBUGS/dp/0123870208">Bayesian Population Analysis using WinBUGS: A Hierarchical Perspective</a></li>
+<li><a href="https://www.amazon.com/Analysis-Regression-Multilevel-Hierarchical-2006-12-18/dp/B01FIYAH00">Data Analysis Using Regression and Multilevel/Hierarchical Models</a></li>
+<li><a href="https://www.amazon.com/BUGS-Chapman-Texts-Statistical-Science/dp/1584888490">The BUGS Book</a></li>
 </ul>
 <h3 id="gis">GIS</h3>
 <ul>
-<li><a href="https://tmieno2.github.io/R-as-GIS-for-Economists/">R as
-GIS for Economists</a></li>
+<li><a href="https://tmieno2.github.io/R-as-GIS-for-Economists/">R as GIS for Economists</a></li>
 </ul>
-<div class="sourceCode" id="cb1"><pre
-class="sourceCode r distill-force-highlighting-css"><code class="sourceCode r"></code></pre></div>
+<div class="sourceCode" id="cb1"><pre class="sourceCode r distill-force-highlighting-css"><code class="sourceCode r"></code></pre></div>
 <!--radix_placeholder_article_footer-->
 <!--/radix_placeholder_article_footer-->
 </div>
