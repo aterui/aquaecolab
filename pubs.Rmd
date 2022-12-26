@@ -4,17 +4,14 @@ title: "Publication"
 
 Latest update - `r format(Sys.time(), '%d %B, %Y')`
 
+\*current/past lab member
+
 ### In Review/Preparation
 
-Bold: current/past lab member
-
-1.  **Kim S**, Dolph CL, **Terui A**. Metacommunity-level consequences of positive species interactions (in prep.)
-
-2.  **Terui A**, Urabe H, Senzaki M, Nishizawa B. Intentional stocking undermines ecological stability (in review; [preprint](https://www.biorxiv.org/content/10.1101/2022.02.24.481650v1))
-
-3.  **Pomeranz** **JF**, Finlay JC, **Terui A**. Ecosystem size and complexity are external drivers of food chain length in branching networks (in review; [preprint](https://ecoevorxiv.org/3h2rd/))
-
-4.  Shinohara N, Nakadai R, Suzuki Y, **Terui A**. Spatio-termporal dimensions of community assembly (accepted) Population Ecology
+-   Kim S\*, Dolph CL, Terui A\*. Metacommunity-level consequences of positive species interactions (in prep.)
+-   Shibasaki S\* and Terui A\*. Towards the comprehensive understanding of food chain length (in review)
+-   Terui A\*, Urabe H, Senzaki M, Nishizawa B. Intentional stocking undermines ecological stability (in review; [preprint](https://www.biorxiv.org/content/10.1101/2022.02.24.481650v1))
+-   Pomeranz JF\*, Finlay JC, Terui A\*. Ecosystem size and complexity are external drivers of food chain length in branching networks (in review; [preprint](https://ecoevorxiv.org/3h2rd/))
 
 ### Published
 
@@ -33,18 +30,30 @@ pacman::p_load(tidyverse,
 
 ## your google id - can be found in the link bar of your google scholar page
 sid <- "H9OuCKsAAAAJ"
-lab <- c("S Kim", "JF Pomeranz", "A Terui")
+lab <- c("S Kim", "JF Pomeranz", "A Terui", "S Shibasaki")
 
 ## get publication list
 pubs <- get_publications(sid) %>% 
   as_tibble() %>% 
+  filter(!(journal %in% c("EcoEvoRxiv",
+                          "bioRxiv"))) %>% 
   arrange(desc(year)) %>% 
   mutate(author = str_replace(author, "SM Shin-ichiro", "SS Matsuzaki"),
-         title = str_to_sentence(title)) %>% 
+         title = str_to_sentence(title)) %>%
+  select(title, author, journal, year, cites) %>%
   transmute(year = year,
             item = paste0(author, ". ", title, ". ", journal),
             cites = cites) %>% 
   rename_with(.fn = str_to_sentence)
+
+for(i in 1:length(lab)) {
+
+  pubs <- pubs %>%
+    mutate(Item = str_replace(Item,
+                              pattern = lab[i],
+                              replacement = paste0(lab[i], "*")))
+
+}
 
 pubs %>% 
   reactable(searchable = TRUE,
