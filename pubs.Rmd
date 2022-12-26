@@ -31,6 +31,16 @@ pacman::p_load(tidyverse,
 ## your google id - can be found in the link bar of your google scholar page
 sid <- "H9OuCKsAAAAJ"
 lab <- c("S Kim", "JF Pomeranz", "A Terui", "S Shibasaki")
+case <- c("margaritifera",
+          "tanakia",
+          "oncorhynchus",
+          "gymnogobius",
+          "carabidae",
+          "mikata",
+          "shubuto",
+          "hokkaido",
+          "japan",
+          "japanese")
 
 ## get publication list
 pubs <- get_publications(sid) %>% 
@@ -39,22 +49,34 @@ pubs <- get_publications(sid) %>%
                           "bioRxiv"))) %>% 
   arrange(desc(year)) %>% 
   mutate(author = str_replace(author, "SM Shin-ichiro", "SS Matsuzaki"),
-         title = str_to_sentence(title)) %>%
+         title = str_to_sentence(title),
+         journal = str_to_title(journal) %>% 
+           str_replace_all("Of", "of") %>% 
+           str_replace_all("The", "the") %>% 
+           str_replace_all("And", "and")) %>%
   select(title, author, journal, year, cites) %>%
   transmute(year = year,
             item = paste0(author, ". ", title, ". ", journal),
             cites = cites) %>% 
   rename_with(.fn = str_to_sentence)
 
-for(i in 1:length(lab)) {
+## case modify
+for(i in 1:length(case)) {
+  pubs <- pubs %>% 
+    mutate(Item = str_replace_all(Item, 
+                                  case[i],
+                                  str_to_sentence(case[i])))
+}
 
+## mark lab members
+for(i in 1:length(lab)) {
   pubs <- pubs %>%
     mutate(Item = str_replace(Item,
                               pattern = lab[i],
                               replacement = paste0(lab[i], "*")))
-
 }
 
+## print
 pubs %>% 
   reactable(searchable = TRUE,
             pagination = FALSE,
