@@ -8,10 +8,15 @@ Latest update - `r format(Sys.time(), '%d %B, %Y')`
 
 ### In Review/Preparation
 
--   Kim S\*, Dolph CL, Terui A\*. Metacommunity-level consequences of positive species interactions (in prep.)
--   Shibasaki S\* and Terui A\*. Towards the comprehensive understanding of food chain length (in review)
--   Terui A\*, Urabe H, Senzaki M, Nishizawa B. Intentional stocking undermines ecological stability (in review; [preprint](https://www.biorxiv.org/content/10.1101/2022.02.24.481650v1))
--   Pomeranz JF\*, Finlay JC, Terui A\*. Ecosystem size and complexity are external drivers of food chain length in branching networks (in review; [preprint](https://ecoevorxiv.org/3h2rd/))
+Kim S\*, Dolph CL, Terui A\*. Metacommunity-level consequences of positive species interactions (in prep.)
+
+Shibasaki S\* and Terui A\*. Towards the comprehensive understanding of food chain length (in review)
+
+Pomeranz JF\*, Finlay JC, Terui A\*. Ecosystem size and complexity are external drivers of food chain length in branching networks (in review; [preprint](https://ecoevorxiv.org/3h2rd/))
+
+### In press
+
+Terui A\*, Urabe H, Senzaki M, Nishizawa B. Intentional release of native species undermines ecological stability (in press). Proceedings of the National Academy of Sciences
 
 ### Published
 
