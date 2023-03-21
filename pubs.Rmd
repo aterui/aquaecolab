@@ -12,11 +12,11 @@ Kim S\*, Dolph CL, Terui A\*. Metacommunity-level consequences of positive speci
 
 Shibasaki S\* and Terui A\*. Towards the comprehensive understanding of food chain length (in review)
 
-Pomeranz JF\*, Finlay JC, Terui A\*. Ecosystem size and complexity are external drivers of food chain length in branching networks (in review; [preprint](https://ecoevorxiv.org/3h2rd/))
+Pomeranz JF\*, Finlay JC, Terui A\*. Ecosystem size and complexity are external drivers of food chain length in branching networks
 
-### In press
+Ueda et al. Seasonal timing of ecosystem linkage contributes to maintaining life-history variation in a salmonid fish population
 
-Terui A\*, Urabe H, Senzaki M, Nishizawa B. Intentional release of native species undermines ecological stability (in press). Proceedings of the National Academy of Sciences
+Kadoya et al. Universal mechanisms drive metacommunity structure in freshwater fish
 
 ### Published
 
@@ -51,7 +51,8 @@ case <- c("margaritifera",
 pubs <- get_publications(sid) %>% 
   as_tibble() %>% 
   filter(!(journal %in% c("EcoEvoRxiv",
-                          "bioRxiv"))) %>% 
+                          "bioRxiv",
+                          ""))) %>% 
   arrange(desc(year)) %>% 
   mutate(author = str_replace(author, "SM Shin-ichiro", "SS Matsuzaki"),
          title = str_to_sentence(title),
