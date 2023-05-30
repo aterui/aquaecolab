@@ -21,6 +21,14 @@ knitr::include_graphics("image/img_al.jpg")
 
 ::: float-image
 ```{r out.width='200px', out.extra='style="float:left; padding:10px"', echo=FALSE}
+knitr::include_graphics("image/img_ss.jpg")
+```
+
+**Dr. Shota Shibasaki**, Postdoc -- Nature is very complex. When you go outside, you will see many species live together and each species affects others. This makes it very hard to understand and predict ecological dynamics. We cannot easily answer what makes many species coexist and what would happen when some fluctuations change population sizes. Mathematics help us to address such questions. My research interest is to understand and to control ecological systems using mathematics. During my Ph.D. in Switzerland, I proposed two mathematical frameworks to answer how we can maximize the benefits from microbial communities, including energy production and removal of toxic compounds, while controlling the dynamics of microbes. In Dr. Akira’s group, I analyze what determines the properties of food webs using mathematical models and statistics.
+:::
+
+::: float-image
+```{r out.width='200px', out.extra='style="float:left; padding:10px"', echo=FALSE}
 knitr::include_graphics("image/img_ms.jpg")
 ```
 

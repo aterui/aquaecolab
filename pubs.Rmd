@@ -8,8 +8,6 @@ Latest update - `r format(Sys.time(), '%d %B, %Y')`
 
 ### In Review/Preparation
 
-Kim S\*, Dolph CL, Terui A\*. Metacommunity-level consequences of positive species interactions (in prep.)
-
 Shibasaki S\* and Terui A\*. Towards the comprehensive understanding of food chain length (in review)
 
 Pomeranz JF\*, Finlay JC, Terui A\*. Ecosystem size and complexity are external drivers of food chain length in branching networks
