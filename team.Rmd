@@ -56,15 +56,9 @@ knitr::include_graphics("image/img_cw.jpg")
 -   Seoghyn Kim, Postdoc (2020-2022)
 -   Justin Pomeranz, Postdoc (2021)
 
-### Undergraduate Students
+### Undergraduate Students (Independent Project)
 
--   Jessica Bribiesca (Spring 2021 -)
--   Zaria Bopp, Undergraduate (Spring 2021)
--   Jakayla Clyburn, Undergraduate (Fall 2019 - Spring 2020)
--   Kiersten Dery, Undergraduate (Summer 2021)
--   Aisha Hamoud, Undergraduate (Summer 2021 - Spring 2022)
--   Mason Ibrahim (Fall 2020 -)
+-   Mason Ibrahim (Fall 2020 - Spring 2023)
 -   Lucia Ramirez-Joseph, Undergraduate (Spring 2021 - Spring 2022)
--   Kirsten Watson, Undergraduate (Fall 2019)
 
 NOTE: Team members are alphabetically ordered
