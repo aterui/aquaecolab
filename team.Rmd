@@ -43,22 +43,12 @@ knitr::include_graphics("image/img_at.jpg")
 **Dr. [Akira Terui](https://scholar.google.com/citations?user=H9OuCKsAAAAJ&hl=ja&authuser=1)**, PI -- I'm interested in spatial ecology in general. My research career started at the University of Tokyo where I studied metapopulation structure of the endagered freshwater mussel *Margaritifera laevis*. After obtaining Ph.D., my research interests expanded. Thus far, I studied freshwater mussels, fish, aquatic and terrestrial insects, plants, and seabirds in collaboration with excellent researchers across the globe. While my research spans across multiple taxa, all tied with a common thread - space. More recently, I started using mathematical approaches and try to integrate theoretical and field research. I'm a lover of streams, tennis, and programming in R. Small gardening became one of my hobbies during quarantine.
 :::
 
-::: float-image
-```{r out.width='200px', out.extra='style="float:left; padding:10px"', echo=FALSE}
-knitr::include_graphics("image/img_cw.jpg")
-```
-
-**Dr. Charles Wahl, Postdoc** -- My research focus is to understand processes that structure populations and communities in freshwater habitats with a focus on the role of anthropogenic disturbance. Human induced disturbances, such as the introduction of invasive species, habitat fragmentation and eutrophication, are becoming more prevalent. These impacts modify the local (habitat complexity and species interactions) and regional (dispersal) processes that structure ecosystems, resulting in changes to ecological state and altering the movement of energy through the system. I am also interested in how biological control can be used to reduce impacts from invasive species on ecosystem structure and function. Current research as a postdoc in Dr. Akira Terui's lab involves using metapopulation theory to examine the population and spatial structure of an endangered fish species, topeka shiner (*Notropis topeka*), to guide restoration and conservation efforts.
-:::
-
 ### Former Lab Members
 
--   Seoghyn Kim, Postdoc (2020-2022)
--   Justin Pomeranz, Postdoc (2021)
-
-### Undergraduate Students (Independent Project)
-
--   Mason Ibrahim (Fall 2020 - Spring 2023)
--   Lucia Ramirez-Joseph, Undergraduate (Spring 2021 - Spring 2022)
+-   Charles Wahl, Postdoc (2021-2023) Current Position: USGA Ecologist
+-   Seoghyn Kim, Postdoc (2020-2022) Current Position: Assistant Professor at Kangwon National University
+-   Justin Pomeranz, Postdoc (2021) Current Position: Assistant Proefessor at Colorado Mesa University
+-   Mason Ibrahim, Undergrad (Fall 2020 - Spring 2023)
+-   Lucia Ramirez-Joseph, Undergrad (Spring 2021 - Spring 2022)
 
 NOTE: Team members are alphabetically ordered

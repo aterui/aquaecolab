@@ -8,17 +8,19 @@ Latest update - `r format(Sys.time(), '%d %B, %Y')`
 
 ### In Review/Preparation
 
-Shibasaki S\* and Terui A\*. Towards the comprehensive understanding of food chain length (in prep.)
+-   Shibasaki S\* and Terui A\*. Towards the comprehensive understanding of food chain length (in prep.)
 
-Shibasaki S\* and Terui A\*. Food web complexity modulates the environmental impacts on food chain length (in review)
+-   Shibasaki S\* and Terui A\*. Food web complexity modulates the environmental impacts on food chain length (in revision)
 
-Ueda et al. Seasonal timing of ecosystem linkage contributes to maintaining life-history variation in a salmonid fish population
+-   Ueda et al. Seasonal timing of ecosystem linkage contributes to maintaining life-history variation in a salmonid fish population (in revision)
 
-Kadoya et al. Universal mechanisms drive metacommunity structure in freshwater fish
+-   Kadoya et al. Universal mechanisms drive metacommunity structure in freshwater fish (in revision)
 
 ### In Production
 
-Pomeranz JF\*, Finlay JC, Terui A\*. Ecosystem size and complexity are external drivers of food chain length in branching networks. Ecosphere.
+-   Pomeranz JF\*, Finlay JC, Terui A\*. Ecosystem size and complexity are external drivers of food chain length in branching networks. Ecosphere.
+
+-   Terui A. Revisiting scale invariance and scaling in ecology: River fractals as an example. Population Ecology.
 
 ### Published
 
@@ -92,7 +94,7 @@ pubs %>%
               Year = colDef(maxWidth = 70),
               Cites = colDef(cell = data_bars(pubs,
                                               text_position = "outside-base",
-                                              fill_color = viridis::viridis(5)),
+                                              fill_color = MetBrewer::met.brewer("Hiroshige", 5, direction = -1)),
                              maxWidth = 100)
               )
             )
