@@ -20,8 +20,6 @@ Latest update - `r format(Sys.time(), '%d %B, %Y')`
 
 -   Pomeranz JF\*, Finlay JC, Terui A\*. Ecosystem size and complexity are external drivers of food chain length in branching networks. Ecosphere.
 
--   Terui A. Revisiting scale invariance and scaling in ecology: River fractals as an example. Population Ecology.
-
 ### Published
 
 ```{r, echo = F, message=F, warning=F}
