@@ -21,10 +21,10 @@ knitr::include_graphics("image/img_al.jpg")
 
 ::: float-image
 ```{r out.width='200px', out.extra='style="float:left; padding:10px"', echo=FALSE}
-knitr::include_graphics("image/img_ss.jpg")
+knitr::include_graphics("image/img_tl.jpg")
 ```
 
-**Dr. Shota Shibasaki**, Postdoc -- Nature is very complex. When you go outside, you will see many species live together and each species affects others. This makes it very hard to understand and predict ecological dynamics. We cannot easily answer what makes many species coexist and what would happen when some fluctuations change population sizes. Mathematics help us to address such questions. My research interest is to understand and to control ecological systems using mathematics. During my Ph.D. in Switzerland, I proposed two mathematical frameworks to answer how we can maximize the benefits from microbial communities, including energy production and removal of toxic compounds, while controlling the dynamics of microbes. In Dr. Akira’s group, I analyze what determines the properties of food webs using mathematical models and statistics.
+**Dr. Timothy Lee**, Postdoc -- I am originally from Seoul, South Korea and raised in the Pacific Northwest, where I have acquired my long-standing fascination with aquatic ecosystems. Over the years, I have participated in many exciting projects across the world, including sampling demersal fishes in the Sea of Japan and surveying benthic macroinvertebrates in Oregon and Washington’s continental shelf habitats just to name a couple. In collaboration with researchers at the University of Washington and Washington Sea Grant, I also completed an assessment on coastal macroinvertebrate community responses to shoreline armoring removal in the Puget Sound’s coastlines. During my PhD, I completed a large-scale biogeographic study along the U.S. east coast to describe patterns of free-living and parasitic invertebrate communities associated with invasive alga Gracilaria vermiculophylla, and understanding prevalence of parasitic barnacles along salinity gradients in the Pamlico and Neuse Rivers of North Carolina. As a postdoctoral fellow in Dr. Terui’s lab, I am interested in determining which environmental predictors influence complex food web dynamics in riverine systems using quantitative approaches.
 :::
 
 ::: float-image
@@ -45,7 +45,8 @@ knitr::include_graphics("image/img_at.jpg")
 
 ### Former Lab Members
 
--   Charles Wahl, Postdoc (2021-2023) Current Position: USGA Ecologist
+-   Shota Shibasaki, Postdoc (2022-2023) Current Position: Postdoc at National Institute of Genetics
+-   Charles Wahl, Postdoc (2021-2023) Current Position: Ecologist at USGS
 -   Seoghyn Kim, Postdoc (2020-2022) Current Position: Assistant Professor at Kangwon National University
 -   Justin Pomeranz, Postdoc (2021) Current Position: Assistant Proefessor at Colorado Mesa University
 -   Mason Ibrahim, Undergrad (Fall 2020 - Spring 2023)
