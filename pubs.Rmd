@@ -6,13 +6,21 @@ Latest update - `r format(Sys.time(), '%d %B, %Y')`
 
 \*current/past lab member
 
+### Media coverage
+
+Terui et al. 2023, Intentional release of native species undermines ecological stability.
+
+[The Asahi Shimbun](https://www.asahi.com/articles/ASR4K4H5RR47PLBJ001.html), [Tokyo Shimbun](https://www.tokyo-np.co.jp/article/232017), [The Nikkei](https://www.nikkei.com/article/DGKKZO68733800U3A220C2MY1000/), [The Mainichi](https://mainichi.jp/articles/20230228/k00/00m/040/053000c), [NHK world Japan](https://www3.nhk.or.jp/nhkworld/en/news/20230215_28/), [NHK](https://www3.nhk.or.jp/sapporo-news/20230215/7000055208.html), [Science & Culture Journal by NHK](https://www3.nhk.or.jp/news/special/sci_cul/2023/08/story/230831/), [Mongabay](https://news.mongabay.com/2023/05/spamming-streams-with-hatchery-salmon-can-disrupt-ecosystems-study-finds/), [Hatch](https://www.hatchmag.com/articles/more-evidence-releasing-hatchery-reared-native-fish-harmful/7715689) and more
+
 ### In Review/Preparation
 
--   Shibasaki S\* and Terui A\*. Food web complexity modulates the environmental impacts on food chain length (in revision)
+-   Wahl et al. An appoximation approach to spatial connectivity for a data-limited endangered species with implications for habitat restoration (in revision)
 
--   Ueda et al. Seasonal timing of ecosystem linkage contributes to maintaining life-history variation in a salmonid fish population (in revision)
+-   Shibasaki S\* and Terui A\*. Food web complexity modulates the environmental impacts on food chain length (in review)
 
--   Kadoya et al. Universal mechanisms drive metacommunity structure in freshwater fish (in revision)
+-   Ueda et al. Seasonal timing of ecosystem linkage contributes to maintaining life-history variation in a salmonid fish population (in review)
+
+-   Kadoya et al. Universal mechanisms drive metacommunity structure in freshwater fish (in review)
 
 ### Published
 
