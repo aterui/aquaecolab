@@ -13,6 +13,14 @@ library(knitr)
 
 ::: float-image
 ```{r out.width='200px', out.extra='style="float:left; padding:10px"', echo=FALSE}
+knitr::include_graphics("image/img_ei.jpg")
+```
+
+**Ethan Isaac**, Ph.D student -- I was raised in Daytona Beach Florida where I grew a passion for wildlife and biology. After turning 18 I enlisted in the US Air Force and served for five years in Special Warfare as a Tactical Air Control Party operator. During this time, I had two kids, my daughter Elsa and my son Avi. After my service I decided to peruse higher education where I earned my BS in biology and a minor in chemistry here at UNCG! For fun I lift heavy, play outside with my kids, or play inside with my kids!
+:::
+
+::: float-image
+```{r out.width='200px', out.extra='style="float:left; padding:10px"', echo=FALSE}
 knitr::include_graphics("image/img_al.jpg")
 ```
 
@@ -25,14 +33,6 @@ knitr::include_graphics("image/img_tl.jpg")
 ```
 
 **Dr. Timothy Lee**, Postdoc -- I am originally from Seoul, South Korea and raised in the Pacific Northwest, where I have acquired my long-standing fascination with aquatic ecosystems. Over the years, I have participated in many exciting projects across the world, including sampling demersal fishes in the Sea of Japan and surveying benthic macroinvertebrates in Oregon and Washington’s continental shelf habitats just to name a couple. In collaboration with researchers at the University of Washington and Washington Sea Grant, I also completed an assessment on coastal macroinvertebrate community responses to shoreline armoring removal in the Puget Sound’s coastlines. During my PhD, I completed a large-scale biogeographic study along the U.S. east coast to describe patterns of free-living and parasitic invertebrate communities associated with invasive alga Gracilaria vermiculophylla, and understanding prevalence of parasitic barnacles along salinity gradients in the Pamlico and Neuse Rivers of North Carolina. As a postdoctoral fellow in Dr. Terui’s lab, I am interested in determining which environmental predictors influence complex food web dynamics in riverine systems using quantitative approaches.
-:::
-
-::: float-image
-```{r out.width='200px', out.extra='style="float:left; padding:10px"', echo=FALSE}
-knitr::include_graphics("image/img_ms.jpg")
-```
-
-**Melanie Stadler**, Ph.D student -- I grew up in the middle of Kansas, with incredible parents who encouraged my love of nature and wanting to learn about the world around me. While earning a bachelor's degree in Biology from UNCG, I was introduced to the world of turtle and tortoise biology and conservation. I earned an MS in Biological Sciences and GIS certificate from Florida Atlantic University, studying the habitat and foraging ecology of juvenile green turtles on nearshore reefs in Florida. Prior to returning to North Carolina, I worked as a Sea Turtle Biologist in Florida for eight years where I supervised two nesting beach programs, participated in some amazing research projects, and managed the overhaul and daily operations of two sea turtle rehabilitation centers. I am interested in spatial ecology, ecological biogeography, and habitat connectivity, especially in turtles and other herp species. I am excited to be part of UNCG's Department of Biology, Environmental Health Science PhD program, and I plan to focus my PhD research on threatened bog turtles and their wetland habitat in North Carolina. I live with my husband, Brian, our bearded dragon, and two dog children in Greensboro. In my spare time, you will find me running or biking on one of our extraordinary local hiking trails, birdwatching, curled up with a good book, or in the kitchen experimenting with a new vegetarian recipe.
 :::
 
 ::: float-image
