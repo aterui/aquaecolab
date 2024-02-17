@@ -14,13 +14,9 @@ Terui et al. 2023, Intentional release of native species undermines ecological s
 
 ### In Review/Preparation
 
--   Wahl et al. An appoximation approach to spatial connectivity for a data-limited endangered species with implications for habitat restoration (in revision)
-
--   Shibasaki S\* and Terui A\*. Food web complexity modulates the environmental impacts on food chain length (in review)
-
 -   Ueda et al. Seasonal timing of ecosystem linkage contributes to maintaining life-history variation in a salmonid fish population (in review)
 
--   Kadoya et al. Universal mechanisms drive metacommunity structure in freshwater fish (in review)
+-   Kadoya et al. Energetic instability predicts temporal biodiversity change (in review)
 
 ### Published
 
