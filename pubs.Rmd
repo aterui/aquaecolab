@@ -14,9 +14,9 @@ Terui et al. 2023, Intentional release of native species undermines ecological s
 
 ### In Review/Preparation
 
--   Ueda et al. Seasonal timing of ecosystem linkage contributes to maintaining life-history variation in a salmonid fish population (in review)
+-   Ueda et al. Seasonal timing of ecosystem linkage contributes to maintaining life-history variation in a salmonid fish population (in revision)
 
--   Kadoya et al. Energetic instability predicts temporal biodiversity change (in review)
+-   Kadoya et al. Energetic instability predicts temporal biodiversity change (in revision)
 
 ### Published
 
@@ -35,7 +35,11 @@ pacman::p_load(tidyverse,
 
 ## your google id - can be found in the link bar of your google scholar page
 sid <- "H9OuCKsAAAAJ"
-lab <- c("S Kim", "JF Pomeranz", "A Terui", "S Shibasaki")
+lab <- c("S Kim",
+         "JF Pomeranz",
+         "A Terui",
+         "S Shibasaki",
+         "CF Wahl")
 case <- c("margaritifera",
           "tanakia",
           "oncorhynchus",
