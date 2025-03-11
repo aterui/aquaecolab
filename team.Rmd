@@ -67,8 +67,7 @@ df_mentee <- read_csv(here::here("data/mentee.csv")) %>%
   dplyr::select(name = mentee,
                 role = type,
                 from,
-                to,
-                `current position` = current_position) %>% 
+                to) %>% 
   mutate(role = str_to_sentence(role)) %>% 
   arrange(role,
           desc(from)) %>% 
