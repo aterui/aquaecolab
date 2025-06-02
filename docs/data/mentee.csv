@@ -1,37 +1,58 @@
-mentee,role,type,from,to,project,note,current_position
-Keita Ooue,primary,undergraduate,2015,2016,Effects of an aquatic parasite (freshwater mussel) on its fish host (masu salmon),published in *Limnology* (lead author) and *Proceedings of the Royal Society B* (coauthor),"Japanese Ministry of Land, Infrastructure, Transport and Tourism"
-Keita Kawajiri,support,graduate,2017,2019,Factors affecting recruitment success of the freshwater pearl mussel,published in *Water* (lead author),"CTI Engineering CO.,LTD."
-Kristina Morales,comittee member,graduate,2019,2022,NA,NA,NA
-Kathryn Bloodworth,comittee member,graduate,2020,2023,NA,NA,NA
-Rajesh Sigdel,comittee member,graduate,2020,present,NA,NA,NA
-Seoghyun Kim,primary,postdoc,2020,2022,Metacommunity-level impacts of positive species interactions,published in *Ecography* (lead author),Assistant Professor at Kangwon National University
-Justin Pomeranz,primary,postdoc,2020,2020,The role of branching complexity in driving food chain length,published in *Ecosphere*,Assistant Professor at Colorado Mesa University
-Mason Ibrahim,primary,undergraduate,2020,2024,Spatial subsidies in a wetland-stream complex,NA,Master student at Duke University
-Lucia Ramirez-Joseph,primary,undergraduate,2020,2022,Fish growth patterns in an urban stream,NA,Master student at Hampton University
-Olivia Chapman,comittee member,graduate,2021,2022,NA,NA,NA
-Ashley LaRoque,primary,graduate,2021,present,External and internal controls of animal movement in streams,NA,NA
-Charlie Wahl,primary,postdoc,2021,2023,Identifying key habitats for endangered fish species using metapopulation theory,published in *Biological Conservation* (lead author),Ecologist at US Geological Surveys
-Rosalie Terry,comittee member,graduate,2022,2022,NA,removed from committee,NA
-Cassie MacCheyne,comittee member,graduate,2022,2023,NA,NA,NA
-Sara Bennett,comittee member,graduate,2022,present,NA,NA,NA
-Shota Shibasaki,primary,postdoc,2022,2023,The role of branching complexity in driving food chain length,published in *Oikos* (lead author),Postdoc at National Institute of Genetics
-Shiva Thapa,comittee member,graduate,2022,2023,NA,NA,NA
-Tim Lee,primary,postdoc,2023,2024,The role of branching complexity in driving food chain length,NA,Postdoc at Florida State University
-Ethan Isaac,primary,graduate,2024,present,TBD,NA,NA
-Sophia Ronan,comittee member,graduate,2024,present,NA,NA,NA
-Elise Grabda,comittee member,graduate,2024,present,NA,NA,NA
-Luc Lowry,primary,undergraduate,2024,present,TBD,NA,NA
-Kirsten Watson,primary,undergraduate,2019,2019,NA,NA,NA
-Jakayla Clyburn,primary,undergraduate,2020,2020,NA,NA,NA
-Aisha Hamoud,primary,undergraduate,2021,2022,NA,NA,NA
-Lucia Ramirez-Joseph,primary,undergraduate,2021,2022,Fish growth patterns in an urban stream,NA,NA
-Christian Greene,primary,undergraduate,2022,2024,NA,NA,NA
-Emily Lewis,primary,undergraduate,2023,2024,NA,NA,NA
-Itzel Dominguez,primary,undergraduate,2023,2024,NA,NA,NA
-Nicholas Wolff,primary,undergraduate,2022,2023,NA,NA,NA
-Nawal Hussein,primary,undergraduate,2022,2023,NA,NA,NA
-Alan Sobalvaroo-Villata,primary,undergraduate,2024,2024,NA,NA,NA
-Kelly Sharpe,primary,undergraduate,2024,2024,NA,NA,NA
-Monzar Thet-oo,primary,undergraduate,2024,2024,NA,NA,NA
-Neema Adolwa,primary,hischool,2024,2024,NA,NA,NA
-James McCormick,primary,undergraduate,2024,present,NA,NA,NA
+mentee,role,type,degree,from,from_semester,to,to_semester,project,note,current_position,direct_mentor
+Cassie MacCheyne,committee,graduate,MS,2022,Spring,2023,Fall,Water quality measurements to predict macroinvertebrate diversity in Piedmont aquatic habitats,NA,NA,NA
+Elise Grabda,committee,graduate,PhD,2024,Spring,present,NA,Four tiers for shrub encroachment: An investigation into the causes of woody expansion in the North American tallgrass prairie,NA,NA,NA
+Kathryn Bloodworth,committee,graduate,PhD,2020,Spring,2023,Fall,The role of disturbance in Great Plains grassland community dynamics,NA,NA,NA
+Kristina Morales,committee,graduate,PhD,2019,Fall,2022,Spring,Methylmercury production in two urban artificial wetlands,NA,NA,NA
+Olivia Chapman,committee,graduate,MS,2021,Fall,2022,Spring,Gut check: Exploring gastrointestinal morphology as a continuous functional trait in Appalachian small mammal communities,NA,NA,NA
+Rajesh Sigdel,committee,graduate,PhD,2020,Fall,present,NA,Dynamics of large wood in urban streams,NA,NA,NA
+Rosalie Terry,committee,graduate,PhD,2022,Spring,2022,Fall,NA,removed from committee,NA,NA
+Sara Bennett,committee,graduate,MS,2022,Fall,present,NA,TBD,NA,NA,NA
+Shiva Thapa,committee,graduate,PhD,2022,Spring,2023,Spring,NA,removed from committee,NA,NA
+Sophia Ronan,committee,graduate,PhD,2024,Fall,present,NA,TBD,NA,NA,NA
+Kalea Nippert,committee,graduate,PhD,2025,Spring,present,NA,The effects of herbivory on woody plant dynamics in savannas,NA,NA,NA
+Rachael Brenneman,committee,graduate,PhD,2023,Spring,present,NA,Trajectories of above and belowground plant community recovery in tallgrass prairies,NA,NA,NA
+Stephanie Stephen,committee,graduate,MS,2023,Fall,2023,Fall,Chemical contamination and human impacts on a critical Piedmont river,NA,NA,NA
+Amanda Reyes,committee,graduate,MS,2021,Fall,2024,Spring,Genes and fleas (Siphonaptera) of the long-tailed ground squirrel across inner East Asia,NA,NA,NA
+Sangeeta Mahajan,committee,graduate,PhD,2024,Spring,present,NA,Community and regional population mobility: strategies for resilience in Bronze Age Arabia,NA,NA,NA
+Ashley LaRoque,primary,graduate,PhD,2021,Fall,present,NA,Ecological drivers of fish movement and their implications for community dynamics in streams,expected to graduate in Fall 2025,NA,NA
+Ethan Isaac,primary,graduate,PhD,2024,Spring,present,NA,Wetland restoration and the implications on predator distribution and their ecological roles,expected to graduate in Fall 2028,NA,NA
+Keita Kawajiri,support,graduate,MS,2017,NA,2019,NA,Factors affecting recruitment success of the freshwater pearl mussel,NA,"CTI Engineering CO.,LTD.",NA
+Neema Adolwa,primary,high school,NA,2024,Summer,2024,Summer,NA,NA,NA,NA
+Charles Wahl,primary,postdoc,NA,2021,NA,2023,NA,Identifying key habitats for endangered fish species using metapopulation theory,NA,Ecologist at US Geological Surveys,NA
+Justin Pomeranz,primary,postdoc,NA,2020,NA,2020,NA,The role of branching complexity in driving food chain length,NA,Assistant Professor at Colorado Mesa University,NA
+Seoghyun Kim,primary,postdoc,NA,2020,NA,2022,NA,Metacommunity-level impacts of positive species interactions,NA,Assistant Professor at Kangwon National University,NA
+Shota Shibasaki,primary,postdoc,NA,2022,NA,2023,NA,The role of branching complexity in driving food chain length,NA,Assistant Professor at Doshisha University,NA
+Tim Lee,primary,postdoc,NA,2023,NA,2024,NA,The role of branching complexity in driving food chain length,NA,Postdoc at Florida State University,NA
+Aisha Hamoud,primary,undergraduate,NA,2021,Summer,2022,Spring,NA,NA,NA,Akira Terui
+Alan Sobalvaroo-Villata,primary,undergraduate,NA,2024,Spring,2024,Spring,NA,NA,NA,Ashley LaRoque
+Alex Jaynes,primary,undergraduate,NA,2022,Spring,2023,Summer,NA,NA,NA,Melanie Stadler
+Arianna Noiles,primary,undergraduate,NA,2025,Spring,present,NA,NA,NA,NA,Ethan Isaac
+Brad Staley,primary,undergraduate,NA,2025,Spring,present,NA,NA,NA,NA,Ethan Isaac
+Christian Greene,primary,undergraduate,NA,2022,Fall,2024,Spring,NA,NA,NA,Ashley LaRoque
+Daphka Joseph,primary,undergraduate,NA,2022,Spring,2023,Spring,NA,NA,NA,Melanie Stadler
+Emily Lewis,primary,undergraduate,NA,2023,Fall,2024,Spring,NA,NA,NA,Ashley LaRoque
+Emma Petit-Larson,primary,undergraduate,NA,2022,Fall,2023,Summer,NA,NA,NA,Melanie Stadler
+Giomali Sanchez Vergara,primary,undergraduate,NA,2025,Spring,2025,Spring,NA,NA,NA,Ethan Isaac
+Itzel Dominguez,primary,undergraduate,NA,2023,Fall,2024,Spring,NA,NA,NA,Ashley LaRoque
+Jada Byrd,primary,undergraduate,NA,2023,Summer,2023,Summer,NA,NA,NA,Melanie Stadler
+Jakayla Clyburn,primary,undergraduate,NA,2020,Spring,2020,Spring,NA,NA,NA,Akira Terui
+James McCormick,primary,undergraduate,NA,2024,Fall,present,NA,NA,NA,NA,Ethan Isaac
+Jessica Bribiesca,primary,undergraduate,NA,2021,Spring,2022,Spring,Spatial distribution of aquatic snails,Received Biology Department Undergraduate Research Award funding,NA,Seoghyn Kim
+Keita Ooue,primary,undergraduate,NA,2015,NA,2016,NA,Effects of an aquatic parasite (freshwater mussel) on its fish host (masu salmon),NA,"Japanese Ministry of Land, Infrastructure, Transport and Tourism",Akira Terui
+Kelly Sharpe,primary,undergraduate,NA,2024,Spring,2024,Fall,NA,NA,NA,Ashley LaRoque
+Kerri Rosato,primary,undergraduate,NA,2022,Fall,2023,Spring,NA,NA,NA,Melanie Stadler
+Kirsten Watson,primary,undergraduate,NA,2019,Fall,2019,Fall,NA,NA,NA,Akira Terui
+Luc Lowry,primary,undergraduate,NA,2024,Fall,present,NA,Species association patterns in stream networks,NA,NA,Akira Terui
+Lucia Ramirez-Joseph,primary,undergraduate,NA,2021,Summer,2022,Spring,Fish growth patterns in an urban stream,Received Biology Department Undergraduate Research Award funding,Ph.D Student at University of Georgia,Seoghyn Kim
+Mason Ibrahim,primary,technician,NA,2024,Spring,2024,Spring,Spatial subsidies in a wetland-stream complex,NA,NA,Akira Terui
+Mason Ibrahim,primary,undergraduate,NA,2020,Fall,2023,Spring,Spatial subsidies in a wetland-stream complex,Received 2022-2023 Charlotte and W. Dabney White Scholarship,Master student at Duke University,Akira Terui
+Montserrat Robledo Ruvalcaba,primary,undergraduate,NA,2022,Fall,2023,Spring,NA,NA,NA,Melanie Stadler
+Monzar Thet-oo,primary,undergraduate,NA,2024,Spring,2024,Fall,NA,NA,NA,Ashley LaRoque
+Munashe Nyakudya,primary,undergraduate,NA,2022,Fall,2023,Spring,NA,NA,NA,Melanie Stadler
+Nawal Hussein,primary,undergraduate,NA,2022,Fall,2023,Spring,NA,NA,NA,Ashley LaRoque
+Niah Wilson,primary,undergraduate,NA,2025,Spring,present,NA,NA,NA,NA,Ethan Isaac
+Nicholas Wolff,primary,undergraduate,NA,2022,Fall,2023,Spring,NA,NA,NA,Ashley LaRoque
+Nubia Flores,primary,undergraduate,NA,2025,Spring,2025,Spring,NA,NA,NA,Ethan Isaac
+Taya Wilson,primary,undergraduate,NA,2025,Spring,present,NA,NA,NA,NA,Ethan Isaac
+Tyler Bradshaw,primary,undergraduate,NA,2025,Spring,present,NA,NA,NA,NA,Ethan Isaac
+Jonah Piscitelli,primary,graduate,MS,2025,Fall,present,NA,Community assembly in branching river networks,expected to graduate in Spring 2027,NA,NA
