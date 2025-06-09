@@ -29,6 +29,14 @@ knitr::include_graphics("image/img_al.jpg")
 
 ::: float-image
 ```{r out.width='200px', out.extra='style="float:left; padding:10px"', echo=FALSE}
+knitr::include_graphics("image/img_ll.jpg")
+```
+
+**Luc Lowry**, Undergraduate researcher -- Currently, I am an undergraduate student majoring in biology, with minors in chemistry and statistics. I plan to continue my education and pursue a career in ecology research. I enjoy learning about different topics in biology and math. Additionally, I have always had a strong interest in animals and nature, so I decided to pursue a career in these fields. In this lab, I aim to establish a solid foundation in research techniques and statistical analysis, enabling me to navigate graduate school and future career endeavors with greater ease. I am a fan of cats, hiking, and watching TV.
+:::
+
+::: float-image
+```{r out.width='200px', out.extra='style="float:left; padding:10px"', echo=FALSE}
 knitr::include_graphics("image/img_at.jpg")
 ```
 
