@@ -11,6 +11,8 @@ library(knitr)
 
 ### Current members
 
+NOTE: Team members are ordered alphabetically
+
 ::: float-image
 ```{r out.width='200px', out.extra='style="float:left; padding:10px"', echo=FALSE}
 knitr::include_graphics("image/img_ei.jpg")
@@ -42,8 +44,6 @@ knitr::include_graphics("image/img_at.jpg")
 
 **Dr. [Akira Terui](https://scholar.google.com/citations?user=H9OuCKsAAAAJ&hl=ja&authuser=1)**, PI -- I'm interested in spatial ecology in general. My research career started at the University of Tokyo where I studied metapopulation structure of the endangered freshwater mussel *Margaritifera laevis*. After obtaining Ph.D., my research interests expanded. Thus far, I studied freshwater mussels, fish, aquatic and terrestrial insects, plants, and seabirds in collaboration with excellent researchers across the globe. While my research spans across multiple taxa, all tied with a common thread - space. More recently, I started using mathematical approaches and try to integrate theoretical and field research. I'm a lover of streams, tennis, and programming in R. Small gardening became one of my hobbies during quarantine.
 :::
-
-NOTE: Team members are alphabetically ordered
 
 ### Alumni
 
