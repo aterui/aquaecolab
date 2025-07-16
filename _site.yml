@@ -15,8 +15,8 @@ navbar:
       href: join.html
     - text: "Teaching"
       menu:
-        - text: Seminar in Ecology
-          href: https://aterui.github.io/seminar-in-ecology/
+        - text: "BIO708: Biostatistics I"
+          href: https://aterui.github.io/biostats/index.html
     - icon: fa-github
       href: https://github.com/aterui/aquaecolab
 output:
