@@ -15,8 +15,12 @@ navbar:
       href: join.html
     - text: "Teaching"
       menu:
-        - text: "BIO708: Biostatistics I"
+        - text: "Biostatistics"
           href: https://aterui.github.io/biostats/index.html
+        - text: "R-GIS for Ecology"
+          href: https://aterui.github.io/rgis-for-ecology/index.html
+    - text: "Links"  
+      href: link.html
     - icon: fa-github
       href: https://github.com/aterui/aquaecolab
 output:
