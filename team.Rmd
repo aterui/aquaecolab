@@ -39,6 +39,14 @@ knitr::include_graphics("image/img_ll.jpg")
 
 ::: float-image
 ```{r out.width='200px', out.extra='style="float:left; padding:10px"', echo=FALSE}
+knitr::include_graphics("image/img_jp.jpg")
+```
+
+**Jonah Piscitelli**, Master student -- I grew up in the wooded outer fringe of Boston's suburbs, next door to an Audubon wildlife sanctuary. I have always loved being in nature, but my academic interest only formed in my senior year as an undergraduate, when I took an ecology course and first glimpsed the order in the wilderness. Before coming to Greensboro, I held fieldwork and research jobs in Rhode Island, Wisconsin, and Nevada. I am generally interested in big-picture ecological questions. Outside of school and work, I enjoy board games, cooking, and hiking.
+:::
+
+::: float-image
+```{r out.width='200px', out.extra='style="float:left; padding:10px"', echo=FALSE}
 knitr::include_graphics("image/img_at.jpg")
 ```
 
