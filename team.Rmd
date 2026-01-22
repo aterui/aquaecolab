@@ -23,14 +23,6 @@ knitr::include_graphics("image/img_ei.jpg")
 
 ::: float-image
 ```{r out.width='200px', out.extra='style="float:left; padding:10px"', echo=FALSE}
-knitr::include_graphics("image/img_al.jpg")
-```
-
-**Ashley LaRoque**, Ph.D candidate -- Being from Minnesota, my love of freshwater started at a young age. I grew up never more than a half mile from a lake. This allowed me to explore aquatic ecology at a young age. As I dove deeper into my education at the University of Minnesota, I realized the importance of freshwater ecology and earned my Bachelor's degree in Ecology, Evolution, and Behavior. My previous research quantified how temperature change in lakes has impacted the phenology of spawning in freshwater fish. I also have experience on a stable isotope project looking at the impact of invasive species on predatory fish. As a Ph.D. student in Environmental Health Sciences at UNCG, my research revolves around stream ecology. I am working on a mark-recapture study using passive integrated transponder tags to understand fish behavior. Outside of my research in fisheries, I love to go fishing, cook, play with my cat Hudson, and go hiking.
-:::
-
-::: float-image
-```{r out.width='200px', out.extra='style="float:left; padding:10px"', echo=FALSE}
 knitr::include_graphics("image/img_ll.jpg")
 ```
 
