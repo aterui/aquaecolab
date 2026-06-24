@@ -15,6 +15,18 @@ NOTE: Team members are ordered alphabetically
 
 ::: float-image
 ```{r out.width='200px', out.extra='style="float:left; padding:10px"', echo=FALSE}
+knitr::include_graphics("image/img_placeholder.jpg")
+```
+
+**Jessica Huson**, Master student -- I’m Jessica Marie Huson, a master’s student at UNC Greensboro studying aquatic ecology and conservation biology.
+My main interests are in how multiple environmental stressors affect aquatic systems, particularly at the community level.
+I’ve gained a lot of field experience through the Caribbean EcoFS program, where I conducted research on fire coral, and that really solidified my interest in field-based ecology. I’m also a certified rescue diver, so I enjoy combining research with hands-on work in aquatic environments.
+I’m also a mom to my daughter, Layla, which is a big motivation behind my interest in conservation and sustainability.
+Long term, I’m hoping to work in aquatic conservation or a field-based research position.
+:::
+
+::: float-image
+```{r out.width='200px', out.extra='style="float:left; padding:10px"', echo=FALSE}
 knitr::include_graphics("image/img_ei.jpg")
 ```
 
@@ -35,6 +47,14 @@ knitr::include_graphics("image/img_jp.jpg")
 ```
 
 **Jonah Piscitelli**, Master student -- I grew up in the wooded outer fringe of Boston's suburbs, next door to an Audubon wildlife sanctuary. I have always loved being in nature, but my academic interest only formed in my senior year as an undergraduate, when I took an ecology course and first glimpsed the order in the wilderness. Before coming to Greensboro, I held fieldwork and research jobs in Rhode Island, Wisconsin, and Nevada. I am generally interested in big-picture ecological questions. Outside of school and work, I enjoy board games, cooking, and hiking.
+:::
+
+::: float-image
+```{r out.width='200px', out.extra='style="float:left; padding:10px"', echo=FALSE}
+knitr::include_graphics("image/img_mp.jpg")
+```
+
+**Madison Powell**, Undergraduate student -- I’m an undergraduate disciplinary honors student at UNCG and majoring in biology with a studio art minor. I was born and raised in South Louisiana and was constantly outside as a kid. Through family vacations to Florida and outdoor adventures in my hometown, I found a love for all things living. My biggest interest has been in marine environments, specifically the deep ocean and large animals. I strive to learn as much as I can about how our earth functions and operates when nobody’s watching. Alongside possible plans of furthering my education, my goal is to perform hands-on marine research out on the open water. I love all things coffee, any nerdy topic, and the opportunity to learn something new.
 :::
 
 ::: float-image
