@@ -1,6 +1,0 @@
-{
-  "devDependencies": {
-    "grunt-karma": "^4.0.2",
-    "karma": "^6.4.4"
-  }
-}
